@@ -1,4 +1,4 @@
-angular.module('moonlighter.landing', [])
+angular.module('moonlighterApp.landing', [])
 .controller('landingCtrl', function(){
   var landing=this;
   landing.conjureQuests = function(){
