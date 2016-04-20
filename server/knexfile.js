@@ -7,7 +7,7 @@ module.exports = {
       database: 'dev_db'
     },
     seeds: {
-      directory: './seeds/dev'
+      directory: './seeds'
     }
   }
 }
