@@ -1,7 +1,7 @@
 {
   "name": "moonlighter",
   "version": "1.0.0",
-  "description": "If you don't have Postgres on your computer run ``` brew install postgres ``` Run npm install and then run: ``` npm install -g knex ``` Then to start your database run: ``` postgres -D /usr/local/var/postgres ``` To create your tables and seed data run in a new tab: ``` createdb moonlight knex migrate:latest knex seed:run ``` Do not CTRL-C to stop Postgres To stop your database: ``` pg_ctl -D /usr/local/var/postgres stop -s -m fast ```",
+  "description": "Like Github with Wizards",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +15,31 @@
   "bugs": {
     "url": "https://github.com/HacklightMoon/moonlighter/issues"
   },
-  "homepage": "https://github.com/HacklightMoon/moonlighter#readme"
+  "homepage": "https://github.com/HacklightMoon/moonlighter#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "knex": "^0.10.0",
+    "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.4",
+    "knex": "^0.10.0",
+    "nodemon": "^1.9.1",
+    "path": "^0.12.7",
+    "pg": "^4.5.2",
+    "request": "^2.70.0",
+    "uuid": "^2.0.1"
+  },
+  "devDependencies" : {
+    "chai": "^3.4.0",
+    "mocha": "^2.3.3",
+    "supertest": "^1.1.0",
+    "gulp": "~3.4.0",
+    "gulp-util": "~2.2.12",
+    "gulp-uglify": "~0.1.0",
+    "gulp-watch": "~0.5.0",
+    "gulp-concat": "~2.1.7",
+    "gulp-notify": "~0.3.4-1",
+    "gulp-jshint": "^2.0.0",
+    "gulp-nodemon": "^2.0.6",
+  }
 }
