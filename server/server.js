@@ -1,5 +1,9 @@
 'use strict';
 let express = require('express');
+let configEnv = require('./config/environment');
+
+configEnv();
+
 let app = express();
 
 app.get('/', function (req, res) {

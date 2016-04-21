@@ -7,3 +7,6 @@ dev_db/
 
 build/
 dist/
+
+*auth keys
+server/auth.js

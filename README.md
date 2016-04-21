@@ -17,11 +17,6 @@ createdb moonlight
 knex migrate:latest
 knex seed:run
 ```
-Do not CTRL-C to stop Postgres
-To stop your database:
-```
-pg_ctl -D /usr/local/var/postgres stop -s -m fast
-```
 
 To start the server, run in a new tab:
 ```
