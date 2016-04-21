@@ -41,5 +41,9 @@
     "gulp-notify": "~0.3.4-1",
     "gulp-jshint": "^2.0.0",
     "gulp-nodemon": "^2.0.6",
-  }
+    "bluebird": "^3.3.5",
+    "passport": "^0.3.2",
+    "passport-github2": "^0.1.10",
+    "pg": "^4.5.3"
+  },
 }
