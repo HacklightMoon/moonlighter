@@ -33,6 +33,13 @@
     "chai": "^3.4.0",
     "mocha": "^2.3.3",
     "supertest": "^1.1.0",
-    
+    "gulp": "~3.4.0",
+    "gulp-util": "~2.2.12",
+    "gulp-uglify": "~0.1.0",
+    "gulp-watch": "~0.5.0",
+    "gulp-concat": "~2.1.7",
+    "gulp-notify": "~0.3.4-1",
+    "gulp-jshint": "^2.0.0",
+    "gulp-nodemon": "^2.0.6",
   }
 }
