@@ -19,6 +19,11 @@
   "dependencies": {
     "express": "^4.13.4",
     "knex": "^0.10.0",
+    "passport": "^0.3.2",
+    "passport-github2": "^0.1.10",
     "pg": "^4.5.3"
+  },
+  "devDependencies": {
+    "bluebird": "^3.3.5"
   }
 }
