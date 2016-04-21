@@ -4,6 +4,7 @@ client/lib/
 .DS_STORE
 *.log
 dev_db/
+jack_notes/
 
 build/
 dist/
