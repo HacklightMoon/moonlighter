@@ -9,5 +9,4 @@ build/
 dist/
 
 *auth keys
-server/auth.js
 server/auth/config.js
