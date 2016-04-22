@@ -2,7 +2,7 @@
 let express = require('express');
 let configEnv = require('./config/environment');
 
-configEnv();
+// configEnv();
 
 let app = express();
 let API = require('./API/githubQueries');

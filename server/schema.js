@@ -1,11 +1,11 @@
 'use strict';
 
-let knex = require('db');
+let knex = require('./db');
 
 knex.schema.createTableIfNotExists('users', function(table){
   table.increments('id').primary();
-  table.integer('character_id').references('id').inTable('characters');
-  table.string('gitub_username');
+  // table.integer('character_id').references('id').inTable('characters');
+  table.string('github_username');
   //currencies
   //...
   //...
@@ -38,7 +38,8 @@ knex.schema.createTableIfNotExists('users', function(table){
 })
 .then(function(res){
   console.log('Success Applying Schema');
+  knex.destroy();
 })
 .catch(function(err){
-  console.log('Blah Blah Blah ERROR');
+  console.log('Blah Blah Blah ERROR', err);
 });
