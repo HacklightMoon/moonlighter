@@ -18,6 +18,15 @@ app.listen(3000, function () {
   console.log('POST (no endpoints yet)');
 });
 
+// Logout route
+app.get('/auth/logout', function(req,res){
+  req.logout();
+  req.session.destroy();
+  res.clearCookie('profilePic');
+  res.clearCookie('profileName');
+  res.redirect('/');
+})
+
 //Authentication Route
 app.get('/auth/github', passportGithub.authenticate('github', {
 
