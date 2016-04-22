@@ -6,6 +6,9 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.increments('id').primary();
   // table.integer('character_id').references('id').inTable('characters');
   table.string('github_username');
+  table.string('passid');
+  table.string('profile_picture');
+  table.string('user');
   //currencies
   //...
   //...

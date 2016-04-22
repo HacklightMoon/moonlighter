@@ -1,10 +1,12 @@
 'use strict';
-let express = require('express');
+let express   = require('express');
 let configEnv = require('./config/environment');
+let passport  = require('passport')
 
 // configEnv();
 
 let app = express();
+app.use(passport.initialize());
 let API = require('./API/githubQueries');
 let passportGithub = require('./auth/github');
 
@@ -34,7 +36,7 @@ app.get('/auth/github', passportGithub.authenticate('github', { }));
 app.get('/auth/github/callback', passportGithub.authenticate('github', { failureRedirect: '/auth/github', successRedirect: '/' }));
 
 app.get('/trycall', function(req, res){
-  API.firstTry('/users/clambodile')
+  API.firstTry('/user')
           .then(function(resp){
             res.send(resp);
           })
