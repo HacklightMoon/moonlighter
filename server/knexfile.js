@@ -3,8 +3,8 @@ module.exports = {
     client: 'pg',
     connection: {
       host: 'localhost',
-      port: 3000,
-      database: 'dev_db'
+      port: 5432,
+      database: 'moonlight'
     },
     seeds: {
       directory: './seeds'
