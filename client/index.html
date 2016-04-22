@@ -7,13 +7,18 @@
     <link rel="stylesheet" href='style/main.css'>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
 </head>
-<body>
-  <div ui-view></div>
+<header>
+  <div class='headerTitle'><h3>Moonlighter logo here</h3></div>
+  <div class='signInButton'>signIn Button here</div>
+</header>
+<body id="index">
+  <div id="content" ui-view></div>
+
   <!-- <div ng-controller="landingCtrl">{{greeting}}</div> -->
    <script src="./app/scripts/app.js"></script>
    <script src="./app/scripts/controllers/landing.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js">
-   </script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+   <script src="//ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-animate.js"></script>
 </body>
 </html>
 

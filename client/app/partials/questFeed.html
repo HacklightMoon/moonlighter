@@ -1,1 +1,6 @@
-questFeed.html
+<ul>
+  <li ui-sref-active="selected" ng-repeat="quest in quests">
+    <a ui-sref="quests.detail({id: quest.id})">{{quest.name}}</a>
+  </li>
+</ul>
+<div class="detail" ui-view></div>

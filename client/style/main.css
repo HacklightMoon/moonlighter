@@ -1,3 +1,17 @@
 .primary {
   background-color:black;
 }
+
+.headerTitle {
+  background: red;
+  display: block;
+  float: left;
+  margin:15px 50px;
+}
+
+.signInButton {
+  background: green;
+  display: block;
+  float: right;
+  margin:15px 50px;
+}
