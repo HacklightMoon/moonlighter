@@ -5,6 +5,7 @@ let configEnv = require('./config/environment');
 configEnv();
 
 let app = express();
+let API = require('./API/githubQueries');
 let passportGithub = require('./auth/github');
 
 app.get('/', function (req, res) {
@@ -28,13 +29,13 @@ app.get('/auth/logout', function(req,res){
 })
 
 //Authentication Route
-app.get('/auth/github', passportGithub.authenticate('github', {
+app.get('/auth/github', passportGithub.authenticate('github', { }));
 
-}));
+app.get('/auth/github/callback', passportGithub.authenticate('github', { failureRedirect: '/auth/github', successRedirect: '/' }));
 
-app.get('/auth/github/callback',
-           passportGithub.authenticate('github', {
-             failureRedirect: '/auth/github',
-             successRedirect: '/'
-
-           }));
+app.get('/trycall', function(req, res){
+  API.firstTry('/users/clambodile')
+          .then(function(resp){
+            res.send(resp);
+          })
+        })
