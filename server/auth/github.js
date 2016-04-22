@@ -13,9 +13,10 @@ passport.use(new GitHubStrategy({
     //,    callbackURL: config.github.callbackURL
   },
   function(accessToken, refreshToken, profile, done) {
-
+    console.log("this is your profile", profile)
     User.verifyInsert(profile).then(function(obj) {
-        console.log('inserted vi github = ', obj);
+        console.log('inserted via github = ', obj);
+
         let send = {
           user: obj.user,
           passid: obj.passid

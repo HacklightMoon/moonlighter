@@ -5,7 +5,8 @@ let gulp = require('gulp'),
   concat = require('gulp-concat'),
   notify = require('gulp-notify'),
   jshint = require('gulp-jshint'), 
-  shell  = require('gulp-shell');
+  shell  = require('gulp-shell'),
+  babel  = require('gulp-babel');
 
   // uncomment and fix when we have client-side up 
     // uglify task
