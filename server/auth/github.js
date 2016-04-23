@@ -18,7 +18,7 @@ passport.use(new GitHubStrategy({
 
         let send = {
           user: obj.user,
-          passid: obj.passid,
+          passid: obj.passid
         };
 
         return done(err, send);
