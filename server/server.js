@@ -34,7 +34,7 @@ app.get('/auth/logout', function(req,res){
 })
 
 //Authentication Route
-app.get('/auth/github', passportGithub.authenticate('github', { }));
+app.get('/auth/github', passportGithub.authenticate('github', {scope: ['user', 'public_repo', 'notifications'] }));
 
 app.get('/auth/github/callback', passportGithub.authenticate('github', { failureRedirect: '/auth/github', successRedirect: '/' }));
 
