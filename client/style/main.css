@@ -1,0 +1,34 @@
+.primary {
+  background-color:black;
+}
+
+.main {
+  background-image:  url('../img/Moonlighterbackground.jpg');
+  background-size: cover;
+  background-repeat: none;
+  background-color: #202835;
+  color: #f6f1ee;
+  position: absolute;
+}
+
+.headerTitle {
+  background: red;
+  display: block;
+  float: left;
+  margin:15px 50px;
+}
+
+.signInButton {
+  background: green;
+  display: block;
+  float: right;
+  margin:15px 50px;
+}
+
+.logOutButton {
+  background:green;
+  display: block;
+  float: right;
+  margin:15px 50px;
+
+}
