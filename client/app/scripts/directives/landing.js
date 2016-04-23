@@ -1,6 +1,4 @@
-angular.module('moonlighterApp.landing')
-.directive('landing', function() {
-  return {
-    templateUrl: 'templates/landing.html'
-  };
-});
+angular.module('moonlighterApp.landing', [])
+.controller('landingCtrl', ['$scope', function($scope){
+
+}]);

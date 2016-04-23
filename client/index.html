@@ -5,22 +5,23 @@
       <title>Moonlighter</title>
       <link rel="icon" href="img/moonfavi.ico">
       <link rel="stylesheet" href='style/main.css'>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
   </head>
   <header>
-    <div class='headerTitle'><a href='/partials/questFeed.html'><h3>Moonlighter logo here</h3></a></div>
-    <div class='signInButton'>signIn Button here</div>
-    <div class='logOutButton'>logOut Button here</div>
+    <div class='headerTitle'><a href="index.html"><h3>Moonlighter logo here</h3></a></div>
+    <div class='signInButton' ng-if="!signedIn">signIn Button here</div>
+    <div class='logOutButton' ng-if="signedIn">logOut Button here</div>
   </header>
   <body class="main index">
-  
-  <input ng-model='things' /><h1>{{things}}</h1>
-    <!-- <div ng-controller="landingCtrl">{{greeting}}</div> -->
-     <script src="app/scripts/app.js"></script>
-     <script src="./app/scripts/controllers/landing.js"></script>
-     <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-     <script src="bower_components/angular-animate/"></script>
+    <div ui-view></div>
+    
   </body>
+  <footer>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+      <script src="app/scripts/app.js"></script>
+      <script src="./app/scripts/controllers/landing.js"></script>
+      <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+      <script src="bower_components/angular-animate/"></script>
+  </footer>
 </html>
 
 

@@ -8,6 +8,7 @@
   background-repeat: none;
   background-color: #202835;
   color: #f6f1ee;
+  position: absolute;
 }
 
 .headerTitle {
