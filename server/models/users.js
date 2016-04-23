@@ -33,4 +33,10 @@ Users.verifyInsert = function(obj){
       }
     }
   })
-}
+};
+
+Users.verifyId = function(id){
+  return db('users').where({
+    passid: id
+  }).limit(1);
+};

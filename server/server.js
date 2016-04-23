@@ -113,7 +113,7 @@ app.get('/auth/github', passportGithub.authenticate('github', {
 configTest();
 
 app.get('/trycall', function(req, res){
-  API.firstTry('/user')
+  API.firstTry('/user')//this function call needs token in header
           .then(function(resp){
             res.send(resp);
           })

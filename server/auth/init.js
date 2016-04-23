@@ -12,7 +12,7 @@ module.exports = function() {
   passport.deserializeUser(function(user, done) {
     console.log('deserializeUser == ', user);
 
-    User.verifyId(user.pasid).then(function(data) {
+    User.verifyId(user.passid).then(function(data) {
       console.log('verifyId err = ', data);
       console.log('user is = ', user);
       done(null, user);
