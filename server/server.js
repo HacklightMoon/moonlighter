@@ -31,7 +31,8 @@ app.get('/', function (req, res) {
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
   console.log('FOR YOU FRONT_END FOLKS')
-  console.log('GET /sampleUser, /sampleQuest');
+  console.log('-----ENDPOINTS------')
+  console.log('GET /sampleUser, /sampleQuestData, /issues');
   console.log('POST (no endpoints yet)');
 });
 

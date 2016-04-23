@@ -14,8 +14,7 @@ postgres -D /usr/local/var/postgres
 To create your tables and seed data run in a new tab:
 ```
 createdb moonlight
-knex migrate:latest
-knex seed:run
+
 ```
 
 To start the server, run in a new tab:
