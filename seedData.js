@@ -2,78 +2,78 @@ var dataBlob = [
   {
     id: 1,
     type: "project",
-    description: "Web-App",
-    name: "YumSnap",
-    tech: ["React.js", "Postgres", "Node.js", "Express.js"],
+    title: "YumSnap",
+    description: "Social media platform built exclusively for posting photos and descriptions of individual dishes.",
+    stack: ["React.js", "Postgres", "Node.js", "Express.js"],
     url: "https://github.com/chppr/chppr",
-    developers: 3
+    // developers: 3
     roles: ['Designer', 'Front-end', 'Back-end'],
-    pay: 'unpaid'
+    // pay: 'unpaid'
   },
   {
     id: 2,
     type: "project",
-    description: "Web-App",
-    name: "TrailrPark",
-    tech: ["AngularJS", "Postgres", "Node.js", "Express.js"],
+    title: "TrailrPark",
+    description: "Find information about any mountain-biking trail in the USA.",
+    stack: ["AngularJS", "Postgres", "Node.js", "Express.js"],
     url: "https://github.com/weeknightdangerous/weeknightdangerous",
-    developers: 2
+    // developers: 2
     roles: ['Front-end', 'Back-end'],
-    pay: 'equity'
+    // pay: 'equity'
   },
   {
     id: 3,
     type: "project",
-    description: "Web-App",
-    name: "Moonlighter",
-    tech: ["AngularJS", "Postgres", "Node.js", "Express.js"],
+    title: "Moonlighter",
+    description: "Need some help with a project that you're moonlighting on? Post it on Moonlighter, and find some help.",
+    stack: ["AngularJS", "Postgres", "Node.js", "Express.js"],
     url: "https://github.com/hacklightmoon/moonlighter",
-    developers: 1
+    // developers: 1
     roles: ['Designer'],
-    pay: 'hourly'
+    // pay: 'hourly'
   },
   {
     id: 4,
     type: "project",
-    description: "Web-App",
-    name: "HelpMeDrink",
-    tech: ["AngularJS", "Postgres", "Node.js", "Express.js"],
+    title: "HelpMeDrink",
+    description: "Don't know what to drink. We can help with that.",
+    stack: ["AngularJS", "Postgres", "Node.js", "Express.js"],
     url: "https://github.com/plynch/ATX-mvp",
-    developers: 2
+    // developers: 2
     roles: ['Designer', 'Front-end'],
-    pay: 'unpaid'
+    // pay: 'unpaid'
   },
   {
     id: 5,
     type: "project",
-    description: "Web-App",
-    name: "RecipEat",
-    tech: ["AngularJS", "Postgres", "Node.js", "Express.js"],
+    title: "RecipEat",
+    description: "Find recipes that match any ingedients you may have in your fridge.",
+    stack: ["AngularJS", "Postgres", "Node.js", "Express.js"],
     url: "https://github.com/nathan-schwartz/recip-eat",
-    developers: 2
+    // developers: 2
     roles: ['Front-end', 'Front-end', 'Back-end'],
-    pay: 'unpaid'
+    // pay: 'unpaid'
   },
   {
     id: 6,
     type: "project",
-    description: "Mobile App and Web-App",
-    name: "NabrHood",
-    tech: ["React.js", "Postgres", "Node.js", "Express.js"],
+    title: "NabrHood",
+    description: "Connect with your neighbors",
+    stack: ["React.js", "Postgres", "Node.js", "Express.js"],
     url: "https://github.com/dalyhabit",
-    developers: 5
+    // developers: 5
     roles: ['Designer', 'Front-end', 'Front-end', 'Back-end', 'Back-end'],
-    pay: 'equity'
+    // pay: 'equity'
   },
   {
     id: 7,
     type: "project",
-    description: "Web-App",
-    name: "Chef's Pantry",
-    tech: ["AngularJS", "Postgres", "Node.js", "Express.js"],
+    title: "Chef's Pantry",
+    description: "Keep track of your pantry's inventory.",
+    stack: ["AngularJS", "Postgres", "Node.js", "Express.js"],
     url: "https://github.com/richardjboothe",
-    developers: 4
+    // developers: 4
     roles: ['Designer', 'Front-end', 'Front-end', 'Back-end'],
-    pay: 'equity'
+    // pay: 'equity'
   }
 ]
