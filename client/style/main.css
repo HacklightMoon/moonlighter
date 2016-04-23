@@ -7,7 +7,7 @@
   background-size: cover;
   background-repeat: none;
   background-color: #202835;
-  color: white;
+  color: #f6f1ee;
 }
 
 .headerTitle {
@@ -22,4 +22,12 @@
   display: block;
   float: right;
   margin:15px 50px;
+}
+
+.logOutButton {
+  background:green;
+  display: block;
+  float: right;
+  margin:15px 50px;
+
 }
