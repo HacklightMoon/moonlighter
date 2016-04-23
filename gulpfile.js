@@ -33,8 +33,8 @@ gulp.task('concat-dep', function() {
   return gulp.src(['bower_components/angular-animate/angular-animate.js', 
                    'bower_components/angular-cookies/angular-cookies.js',
                    'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js'
-                   ]).pipe(concat('scripts.js'))
-                     .pipe(gulp.dest('./client/scripts'))
+  ]).pipe(concat('scripts.js'))
+    .pipe(gulp.dest('./client/scripts'))
 });
 
 gulp.task('concat-app', function() {
