@@ -6,8 +6,9 @@ let bodyParser     = require('body-parser');
 let cookieParser   = require('cookie-parser');
 let API            = require('./API/githubQueries');
 let passportGithub = require('./auth/github');
+let Path = require('path');
 
-
+let assetFolder = Path.resolve(__dirname, '../client/');
 // configEnv();
 
 let app = express();
@@ -17,6 +18,7 @@ app.use(passport.initialize());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.static(assetFolder));
 
 // let bodyParser = require('body-parser');
 // app.use(bodyParser.json());
