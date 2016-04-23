@@ -2,6 +2,14 @@
   background-color:black;
 }
 
+.main {
+  background-image:  url('../img/Moonlighterbackground.jpg');
+  background-size: cover;
+  background-repeat: none;
+  background-color: #202835;
+  color: white;
+}
+
 .headerTitle {
   background: red;
   display: block;
