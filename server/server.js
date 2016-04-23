@@ -7,6 +7,7 @@ let cookieParser   = require('cookie-parser');
 let API            = require('./API/githubQueries');
 let passportGithub = require('./auth/github');
 
+
 // configEnv();
 
 let app = express();
@@ -16,6 +17,15 @@ app.use(passport.initialize());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
+
+// let bodyParser = require('body-parser');
+// app.use(bodyParser.json());
+
+app.get('/', function (req, res) {
+  res.send('Welcome to the World of Githûb!');
+});
+
+
 
 // let bodyParser = require('body-parser');
 // app.use(bodyParser.json());
@@ -37,12 +47,6 @@ app.get('/auth/github', passportGithub.authenticate('github', { }));
 
 app.get('/auth/github/callback', passportGithub.authenticate('github', { failureRedirect: '/auth/github', successRedirect: '/' }));
 
-app.get('/trycall', function(req, res){
-  API.firstTry('/user/matjkel')
-          .then(function(resp){
-            res.send(resp);
-          })
-        })
  //serve some test data
 // Logout route
 app.get('/auth/logout', function(req,res){
@@ -113,7 +117,7 @@ app.get('/auth/github', passportGithub.authenticate('github', {
 configTest();
 
 app.get('/trycall', function(req, res){
-  API.firstTry('/user')
+  API.firstTry('/user')//this function call needs token in header
           .then(function(resp){
             res.send(resp);
           })
