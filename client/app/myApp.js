@@ -1,10 +1,18 @@
 'use strict';
-angular.module('moonlighterApp', ['angular-animate','ui.router',
-                                  'ngMap'
-                                  ])
-.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/questFeed');
+angular.module('moonlighterApp', [
+  'ui.router',
+  'ngMap',
+  'moonlighterApp.landing',
+  'moonlighterApp.signIn',
+  'moonlighterApp.questFeed',
+  'moonlighterApp.questProfile',
+  'moonlighterApp.userProfile',
+  'moonlighterApp.editProfile',
+  'moonlighterApp.editQuest'
+  ])
 
+.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise('/landing');
   $stateProvider
     .state('landing', {
       url: '/landing',
