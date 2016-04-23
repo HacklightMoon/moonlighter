@@ -44,7 +44,6 @@ app.get('/trycall', function(req, res){
           })
         })
  //serve some test data
-configTest();
 // Logout route
 app.get('/auth/logout', function(req,res){
   req.logout();
@@ -54,11 +53,11 @@ app.get('/auth/logout', function(req,res){
   res.redirect('/');
 })
 
- var configTest = function(){
-//Authentication Route
 app.get('/auth/github', passportGithub.authenticate('github', {
   scope: ['user', 'public_repo', 'notifications'] 
   })); 
+ var configTest = function(){
+//Authentication Route
 
   var sampleQuest = [
   {
@@ -111,6 +110,7 @@ app.get('/auth/github', passportGithub.authenticate('github', {
   })
 
 }
+configTest();
 
 app.get('/trycall', function(req, res){
   API.firstTry('/user')
