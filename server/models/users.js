@@ -4,12 +4,14 @@ let Promise = require('bluebird'); //remove this once babel is available.
 let db = require('../db');
 let Users = module.exports;
 
-Users.verifyInsert = function(obj){
+Users.verifyInsert = function(obj, token){
+  console.log('users.js 8, token:', token);
   let session = {};
   session.passid = obj.id;
+  session.token = 'token ' + token;
 
   //obj.provider === 'github'
-  session.profile_picture = obj._json.avator_url;
+  session.profile_picture = obj._json.avatar_url;
   session.user = obj._json.name || obj.username;
 
   return db('users').where({
@@ -17,9 +19,10 @@ Users.verifyInsert = function(obj){
   }).then(function(data){
     if (data.length === 0){
       return db('users').insert({
-        user: session.user,
-        passid: session.passid,
-        profile_picture: session.profile_picture
+        'user': session.user,
+        'passid': session.passid,
+        'profile_picture': session.profile_picture,
+        'token': session.token
       }).limit(1).then(function(array){
         console.log('returning sessions (models/users.js, 24)');
         return session;

@@ -4,11 +4,12 @@ let knex = require('./db');
 
 knex.schema.createTableIfNotExists('users', function(table){
   table.increments('id').primary();
-  // table.integer('character_id').references('id').inTable('characters');
   table.string('github_username');
   table.string('passid');
   table.string('profile_picture');
   table.string('user');
+  table.string('email');
+  table.string('token');
   //currencies
   //...
   //...
@@ -37,7 +38,7 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.integer('technical_skill_id').references('id').inTable('technicalSkills');
   table.integer('skill_score'); //like an endorsement
 })
-.createTableIfNotExists('charactersSkills', function(table){ //fantasy skills atched to characters
+.createTableIfNotExists('charactersSkills', function(table){ //fantasy skills attached to characters
 })
 .then(function(res){
   console.log('Success Applying Schema');
