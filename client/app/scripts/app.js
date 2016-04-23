@@ -1,6 +1,5 @@
 'use strict';
-angular.module('moonlighterApp', ['ui.router',
-                                  'ngAnimate',
+angular.module('moonlighterApp', ['angular-animate','ui.router',
                                   'ngMap'
                                   ])
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {

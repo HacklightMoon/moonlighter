@@ -1,6 +1,13 @@
 <ul>
   <li ui-sref-active="selected" ng-repeat="quest in quests">
-    <a ui-sref="detail({id: quest.id})">{{quest.name}}</a>
+      <a ui-sref="detail({id: quest.id})">
+        <div class="cardQuestName">
+          {{quest.name}}
+        </div>
+        <div class="cardQuestDesc">
+          {{quest.description}}
+        </div>
+      </a>
   </li>
 </ul>
 <div class="detail" ui-view></div>
