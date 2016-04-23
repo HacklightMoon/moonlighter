@@ -134,7 +134,7 @@ app.get('/issues', function(req, res) {
       obj.issue_url = issues[i].url;
       obj.repo_url = issues[i].repository_url;
       result.push(obj);
-      console.log("Object: ", obj)
+      console.log("Issue", i+1, ": ", obj);
     }
     // Eventually, I will do something with this data...
     // result is equal to an array that contains all of the relevant

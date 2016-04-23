@@ -75,5 +75,32 @@ var dataBlob = [
     // developers: 4
     roles: ['Designer', 'Front-end', 'Front-end', 'Back-end'],
     // pay: 'equity'
+  },
+  { 
+    id: 8,
+    type: "issue",
+    title: 'Test Moonlighter-Bot',
+    user: 'clambodile',
+    body: '@moonlighter-bot yay 2',
+    issue_url: 'https://api.github.com/repos/HacklightMoon/moonlighter/issues/19',
+    repo_url: 'https://api.github.com/repos/HacklightMoon/moonlighter'
+  },
+  { 
+    id: 9,
+    type: "issue",
+    title: 'Test issue for moonlighter',
+    user: 'dalyhabit',
+    body: '',
+    issue_url: 'https://api.github.com/repos/dalyhabit/dalyhabit.github.io/issues/1',
+    repo_url: 'https://api.github.com/repos/dalyhabit/dalyhabit.github.io'
+  },
+  { 
+    id: 10,
+    type: "issue",
+    title: 'Create Landing Page w/ login button',
+    user: 'dalyhabit',
+    body: '',
+    issue_url: 'https://api.github.com/repos/HacklightMoon/moonlighter/issues/9',
+    repo_url: 'https://api.github.com/repos/HacklightMoon/moonlighter'
   }
 ]
