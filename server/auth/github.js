@@ -12,8 +12,8 @@ passport.use(new GitHubStrategy({
     clientSecret: config.github.clientSecret
     //,    callbackURL: config.github.callbackURL
   },
-  function(accessToken, refreshToken, profile, done) {
-    //    console.log("this is your profile", profile)
+  function(accessToken, refreshToken, profile, done) {//accessToken needs to end up in a header variable
+    //    console.log("this is your profile", profile)//so that it can be accessed in subsequent calls
     User.verifyInsert(profile).then(function(obj) {
         console.log('inserted via github = ', obj);
 

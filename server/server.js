@@ -1,12 +1,17 @@
 'use strict';
 let express   = require('express');
 let configEnv = require('./config/environment');
-let passport  = require('passport')
+let passport  = require('passport');
+let cookieParser = require('cookie-parser');
+//let session = require('express-session');
 
 // configEnv();
 
 let app = express();
+app.use(cookieParser());
+//app.use(session({secret: 'mysecret'}));
 app.use(passport.initialize());
+app.use(passport.session());
 let API = require('./API/githubQueries');
 let passportGithub = require('./auth/github');
 
@@ -39,7 +44,7 @@ app.get('/auth/github', passportGithub.authenticate('github', {scope: ['user', '
 app.get('/auth/github/callback', passportGithub.authenticate('github', { failureRedirect: '/auth/github', successRedirect: '/' }));
 
 app.get('/trycall', function(req, res){
-  API.firstTry('/user')
+  API.firstTry('/user')//this function call needs token in header
           .then(function(resp){
             res.send(resp);
           })
