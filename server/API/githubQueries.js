@@ -2,7 +2,7 @@
 let request = require('request');
 
 module.exports.firstTry = function(url){
-  let headers = require('../auth/github.js').headers;
+  let headers = require('../auth/github.js').headers || {'User-Agent': 'Moonlight'};
   return new Promise(function(resolve, reject){
     let options = {
       'url': 'https://api.github.com' + url,
