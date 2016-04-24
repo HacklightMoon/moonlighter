@@ -7,7 +7,7 @@ var moonlighterApp = angular.module('moonlighterApp', [
   $urlRouterProvider.otherwise('/landing');
   $stateProvider
     .state('landing', {
-      url: '/landing',
+      url: 'partials/landing',
       templateUrl: 'partials/landing.html',
       controller: 'LandingCtrl'
     })
