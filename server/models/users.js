@@ -6,24 +6,20 @@ let Users = module.exports;
 
 Users.verifyInsert = function(obj, token){
   console.log('users.js 8, token:', token);
+  console.log('users.js 9, obj:', obj);
   let session = {};
   session.passid = obj.id;
   session.token = 'token ' + token;
-
-  //obj.provider === 'github'
   session.profile_picture = obj._json.avatar_url;
-  session.user = obj._json.name || obj.username;
+  session.github_username = obj._json.login || username;
+  session.full_name = obj._json.name || obj.displayName;
+  session.email = obj.email;
 
   return db('users').where({
     passid: session.passid
   }).then(function(data){
     if (data.length === 0){
-      return db('users').insert({
-        'user': session.user,
-        'passid': session.passid,
-        'profile_picture': session.profile_picture,
-        'token': session.token
-      }).limit(1).then(function(array){
+      return db('users').insert(session).limit(1).then(function(array){
         console.log('returning sessions (models/users.js, 24)');
         return session;
       });

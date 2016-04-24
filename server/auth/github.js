@@ -13,8 +13,7 @@ passport.use(new GitHubStrategy({
     ,    callbackURL: config.github.callbackURL
   },
   function(accessToken, refreshToken, profile, done) {//accessToken needs to end up in a header variable so that it can be accessed in subsequent calls
-       module.exports.headers = Object.assign({}, { 'User-Agent': 'Moonlight', 'Authorization': 'token ' + accessToken});
-       console.log('github.js 17, accessToken:', accessToken, typeof accessToken);
+    module.exports.headers = Object.assign({}, { 'User-Agent': 'Moonlight', 'Authorization': 'token ' + accessToken});
     User.verifyInsert(profile, accessToken).then(function(obj) {
 
         let send = {
@@ -25,7 +24,7 @@ passport.use(new GitHubStrategy({
         return done(err, send);
       })
       .catch(function(err) {
-        console.log('vi prom err = ', err);
+        console.log('github.js, 27 error:', err);
         return done(null, err);
       });
 
