@@ -5,28 +5,16 @@ let knex = require('./db');
 knex.schema.createTableIfNotExists('users', function(table){
   table.increments('id').primary();
   table.string('github_username');
+  table.string('full_name');
   table.string('passid');
   table.string('profile_picture');
-  table.string('user');
   table.string('email');
   table.string('token');
-  //currencies
-  //...
-  //...
-  //achievements
-  //...
-  //...
 })
 .createTableIfNotExists('characters', function(table){
   table.increments('id').primary();
   table.integer('user_id').references('id').inTable('users');
   table.string('name');
-    //stats
-    //class
-    //...
-    //assets
-    //...
-    //...
 })
 .createTableIfNotExists('technicalSkills', function(table){
   table.increments('id').primary();
@@ -45,5 +33,5 @@ knex.schema.createTableIfNotExists('users', function(table){
   knex.destroy();
 })
 .catch(function(err){
-  console.log('Blah Blah Blah ERROR', err);
+  console.log('schema.js: 48 error: ', err);
 });
