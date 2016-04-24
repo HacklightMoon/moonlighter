@@ -12,32 +12,32 @@ var moonlighterApp = angular.module('moonlighterApp', [
       controller: 'LandingCtrl'
     })
     .state('signIn', {
-      url: '/signIn',
+      url: 'partials/signIn',
       templateUrl: 'partials/signIn.html',
       controller: 'SignInCtrl'
     })
     .state('questFeed', {
-      url: '/questFeed',
+      url: 'partials/questFeed',
       templateUrl: 'partials/questFeed.html',
       controller: 'QuestFeedCtrl'
     })
     .state('questProfile', {
-      url: '/questProfile',
+      url: 'partials/questProfile',
       templateUrl: 'partials/questProfile.html',
       controller: 'QuestProfileCtrl'
     })
     .state('userProfile', {
-      url: '/userProfile',
+      url: 'partials/userProfile',
       templateUrl: 'partials/userProfile.html',
       controller: 'UserProfileCtrl'
     })
     .state('editProfile', {
-      url: '/editProfile',
+      url: 'partials/editProfile',
       templateUrl: 'partials/editProfile.html',
       controller: 'EditProfileCtrl'
     })
     .state('editQuest', {
-      url: '/editQuest',
+      url: 'partials/editQuest',
       templateUrl: 'partials/editQuest.html',
       controller: 'EditQuestCtrl'
     });
