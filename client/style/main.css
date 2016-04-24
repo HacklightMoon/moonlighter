@@ -5,7 +5,7 @@
 .main {
   background-image:  url('../img/Moonlighterbackground.jpg');
   background-size: cover;
-  background-repeat: none;
+  background-repeat: no-repeat;
   background-color: #202835;
   color: #f6f1ee;
   position: absolute;
@@ -32,3 +32,7 @@
   margin:15px 50px;
 
 }
+
+/*[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none;
+}*/

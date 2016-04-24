@@ -1,14 +1,6 @@
 'use strict';
-angular.module('moonlighterApp', [
-  'ui.router',
-  'ngMap',
-  'moonlighterApp.landing',
-  'moonlighterApp.signIn',
-  'moonlighterApp.questFeed',
-  'moonlighterApp.questProfile',
-  'moonlighterApp.userProfile',
-  'moonlighterApp.editProfile',
-  'moonlighterApp.editQuest'
+var moonlighterApp = angular.module('moonlighterApp', [
+  'ui.router'
   ])
 
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {

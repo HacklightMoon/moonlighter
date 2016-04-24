@@ -1,26 +1,30 @@
 <!DOCTYPE html>
-<html ng-app='moonlighterApp'>
+<html ng-app="moonlighterApp">
   <head lang="en">
       <meta charset="UTF-8">
       <title>Moonlighter</title>
+      <script src="scripts/angular/angular.js"></script>
       <link rel="icon" href="img/moonfavi.ico">
       <link rel="stylesheet" href='style/main.css'>
   </head>
   <header>
     <div class='headerTitle'><a href="index.html"><h3>Moonlighter logo here</h3></a></div>
-    <div class='signInButton' ng-if="!signedIn">signIn Button here</div>
-    <div class='logOutButton' ng-if="signedIn">logOut Button here</div>
+    <div class='signInButton'>signIn Button here</div>
+    <div class='logOutButton'>logOut Button here</div>
   </header>
   <body class="main index">
     <div ui-view></div>
-    
+    <!-- <div ng-controller='landingCtrl'>{{hello}}</div> -->
+    <input type="text" ng-model="yourName" placeholder="Enter a name here">
+    <h1>Hello {{yourName}}!</h1>
   </body>
   <footer>
-      <script src="app/scripts/app.js"></script>
-      <script src="app/scripts/controllers/landing.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
-      <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-      <script src="bower_components/angular-animate/"></script>
+      <script src="scripts/jquery.min.js"></script>
+      <script src="scripts/underscore-min.js"></script>
+      <script src="scripts/angular-ui-router.min.js"></script>
+      <script src="scripts/angular-animate.min.js"></script>
+      <script src="app/myApp.js"></script>
+      <script src="app/controllers/landingcontroller.js"></script>
   </footer>
 </html>
 
