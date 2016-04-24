@@ -20,22 +20,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(assetFolder));
 
-// let bodyParser = require('body-parser');
-// app.use(bodyParser.json());
-
 app.get('/', function (req, res) {
   res.send('Welcome to the World of Githûb!');
 });
-
-
-
-// let bodyParser = require('body-parser');
-// app.use(bodyParser.json());
-
-app.get('/', function (req, res) {
-  res.send('Welcome to the World of Githûb!');
-});
-
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
@@ -44,8 +31,6 @@ app.listen(3000, function () {
   console.log('POST (no endpoints yet)');
 });
 
-//Authentication Route
-app.get('/auth/github', passportGithub.authenticate('github', { }));
 
 app.get('/auth/github/callback', passportGithub.authenticate('github', { failureRedirect: '/auth/github', successRedirect: '/' }));
 
