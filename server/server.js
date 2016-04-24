@@ -7,11 +7,15 @@ let cookieParser   = require('cookie-parser');
 let API            = require('./API/githubQueries');
 let passportGithub = require('./auth/github');
 let Path = require('path');
-
+let app = express();
 let assetFolder = Path.resolve(__dirname, '../client/');
 // configEnv();
 
-let app = express();
+//rootPath for path to app directory -Boothe 
+let rootPath = Path.normalize(__dirname +'/../client');
+
+//serve files in app directory, without processing them -Boothe
+app.use(express.static(rootPath + '/app'));
 
 // middleware 
 app.use(passport.initialize());
