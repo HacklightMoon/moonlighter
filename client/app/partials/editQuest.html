@@ -1,7 +1,24 @@
-<section class="newQuest">
-  <input type="text" class="questEdit_input" placeholder="Title your quest">
-  <input type="text" class="questEdit_input" placeholder="Write a description">
-  <input type="text" class="questEdit_input" placeholder="List your stack">
-  <input type="text" class="questEdit_input" placeholder="Repository URL">
-  <button>Embark on quest!</button>
-</section>
+<div ng-controller="EditQuestCtrl" style="padding-left:20px; padding-right: 20px">
+  <div class="container">
+    <h1>New Quest</h1>
+    <hr />
+    <form>
+      <fieldset>
+        <label for="questTitle">Quest Title:</label>
+        <input id="questTitle" type="text" placeholder="Title of your Quest..." />
+        <label for="questTitle">Quest Title:</label>
+        <input id="questTitle" type="text" placeholder="Title of your Quest..." />
+        <label for="questTitle">Quest Title:</label>
+        <input id="questTitle" type="text" placeholder="Title of your Quest..." />
+        <label for="questTitle">Quest Title:</label>
+        <input id="questTitle" type="text" placeholder="Title of your Quest..." />
+        <br />
+      </fieldset>
+        <br />
+        <br />
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-default">Cancel</button>
+        
+    </form>
+  </div>
+</div>
