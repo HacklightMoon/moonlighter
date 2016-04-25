@@ -7,16 +7,10 @@
       <link rel="icon" href="img/moonfavi.ico">
       <link rel="stylesheet" href='style/main.css'>
   </head>
-  <header>
-    <div class='headerTitle'><a href="index.html"><h3>Moonlighter logo here</h3></a></div>
-    <div class='signInButton'>signIn Button here</div>
-    <div class='logOutButton'>logOut Button here</div>
-  </header>
-  <body class="main index">
-    <div ui-view></div>
-    <!-- <div ng-controller='landingCtrl'>{{hello}}</div> -->
-    <input type="text" ng-model="yourName" placeholder="Enter a name here">
-    <h1>Hello {{yourName}}!</h1>
+  <body class="mainWrapper">
+     <div ui-view="header"></div>
+     <div ui-view="content"></div>
+     <div ui-view="footer"></div>
   </body>
   <footer>
       <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
@@ -27,7 +21,7 @@
 </html>
 
 
-
+  
 
 
 

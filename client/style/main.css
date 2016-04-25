@@ -2,7 +2,7 @@
   background-color:black;
 }
 
-.main {
+.mainWrapper {
   background-image:  url('../img/Moonlighterbackground.jpg');
   background-size: cover;
   background-repeat: no-repeat;
