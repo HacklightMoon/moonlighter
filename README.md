@@ -11,11 +11,10 @@ Then to start your database run:
 ```
 postgres -D /usr/local/var/postgres
 ```
-To create your tables and seed data run in a new tab:
+To create your tables 
 ```
 createdb moonlight
-knex migrate:latest
-knex seed:run
+
 ```
 
 To start the server, run in a new tab:
