@@ -136,14 +136,13 @@ app.get('/issues', function(req, res) {
     // result is equal to an array that contains all of the relevant
     // information for each Github Issue
     res.send(result);
-    // return result;
   })
-  // .then(function(issues){
-    //   console.log("Response #2: ", issues);
-    // })
 })
 
 app.post('/user/update', function(req, res){
   console.log("server.js, 146 req.body", req.body);
-  Users.update(req.body);
-})
+  Users.update(req.body)
+  .then(function(resp){
+    res.send(resp);
+
+  });
