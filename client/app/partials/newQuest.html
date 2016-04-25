@@ -1,24 +1,24 @@
 <div ng-controller="NewQuestCtrl" style="padding-left:20px; padding-right: 20px">
   <div class="container">
     <h1>New Quest</h1>
-    <hr />
+    <hr/>
     <form>
       <fieldset>
         <label for="questTitle">Quest Title:</label>
-        <input id="questTitle" type="text" ng-model="newQuest.title" placeholder="Title of your Quest..." />
+        <input id="questTitle" type="text" ng-model="newQuest.title" placeholder="Title of your Quest..."/>
         <label for="questDescription">Quest Description:</label>
-        <input id="questDescription" type="text" ng-model="newQuest.description" placeholder="Description of your Quest..." />
+        <input id="questDescription" type="text" ng-model="newQuest.description" placeholder="Description of your Quest..."/>
         <label for="questTech">Quest Tech Stack:</label>
-        <input id="questTech" type="text" ng-model="newQuest.tech" placeholder="Tech stack for your Quest..." />
+        <input id="questTech" type="text" ng-model="newQuest.tech" placeholder="Tech stack for your Quest..."/>
         <label for="questURL">Quest URL:</label>
-        <input id="questURL" type="text" ng-model="newQuest.url" placeholder="Github URL for your Quest..." />
-        <br />
+        <input id="questURL" type="text" ng-model="newQuest.url" placeholder="Github URL for your Quest..."/>
+        <br/>
       </fieldset>
-        <br />
-        <br />
-        <button type="submit" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-default">Cancel</button>
-        <span>{{newQuest}}</span>
+      <br/>
+      <br/>
+      <button type="submit" class="btn btn-primary">Save</button>
+      <button type="button" class="btn btn-default">Cancel</button>
+      <span>{{newQuest}}</span>
     </form>
   </div>
 </div>
