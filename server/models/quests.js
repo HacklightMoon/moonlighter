@@ -15,3 +15,9 @@ Quests.getByTitle = function(title){
     'title': title
   });
 }
+
+Quests.getByType = function(type){
+  return db('quests').where({
+    'type': type
+  });
+}
