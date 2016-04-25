@@ -5,8 +5,8 @@ let passport       = require('passport');
 let bodyParser     = require('body-parser');
 let cookieParser   = require('cookie-parser');
 let API            = require('./API/githubQueries');
-let Users = require('./models/users');
-let Quests = require('./models/quests');
+let Users          = require('./models/users');
+let Quests         = require('./models/quests');
 let passportGithub = require('./auth/github');
 let Path           = require('path');
 let app            = express();
@@ -28,9 +28,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(assetFolder));
 
-// app.get('/', function (req, res) {
-//   res.send('Welcome to the World of Githûb!');
-// });
+app.get('/', function (req, res) {
+  res.send('Welcome to the World of Githûb!');
+});
 
 app.use('/', routes)
 
