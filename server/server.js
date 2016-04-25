@@ -8,16 +8,21 @@ let API            = require('./API/githubQueries');
 let Users = require('./models/users');
 let Quests = require('./models/quests');
 let passportGithub = require('./auth/github');
-let Path = require('path');
-let app = express();
-let assetFolder = Path.resolve(__dirname, '../client/');
-// configEnv();
+let Path           = require('path');
+let app            = express();
+let assetFolder    = Path.resolve(__dirname, '../client/');
+let routes         = express.Router();
+
 
 //rootPath for path to app directory -Boothe 
-let rootPath = Path.normalize(__dirname +'/../client');
+let rootPath       = Path.normalize(__dirname + '../client');
 
 //serve files in app directory, without processing them -Boothe
 app.use(express.static(rootPath + '/app'));
+
+// default route
+
+
 
 // middleware 
 app.use(passport.initialize());
@@ -38,10 +43,19 @@ app.listen(3000, function () {
   console.log('POST (no endpoints yet)');
 });
 
+routes.get('/', function(req, res) {
+  res.sendFile(assetFolder + '/login.html');
+});
+
+routes.use( express.static(assetFolder) );
+
+// The Catch-all Route.
+routes.get('/*', function(req, res){
+  res.sendFile( assetFolder + '/index.html' );
+});
 
 app.get('/auth/github/callback', passportGithub.authenticate('github', { failureRedirect: '/auth/github', successRedirect: '/' }));
 
- //serve some test data
 // Logout route
 app.get('/auth/logout', function(req,res){
   req.logout();
@@ -51,11 +65,11 @@ app.get('/auth/logout', function(req,res){
   res.redirect('/');
 })
 
+//Authentication Route
 app.get('/auth/github', passportGithub.authenticate('github', {
   scope: ['user', 'public_repo', 'notifications'] 
   })); 
  var configTest = function(){
-//Authentication Route
 
   var sampleQuest = [
   {
@@ -108,6 +122,7 @@ app.get('/auth/github', passportGithub.authenticate('github', {
   })
 
 }
+// serve test data
 configTest();
 
 app.get('/trycall', function(req, res){

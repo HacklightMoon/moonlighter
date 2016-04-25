@@ -5,6 +5,15 @@ let db = require('../db');
 let Users = require('./users');
 let Quests = module.exports;
 
+Quests.create = function(obj) {
+  var attrs = Object.assign({}, obj);
+
+  return db('quests').insert(attrs)
+    .then(function(data){
+      return data[0]
+    });
+}
+
 Quests.getById = function(id){
   return db('quests').where({
     'id': id
