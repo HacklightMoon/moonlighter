@@ -16,7 +16,7 @@ angular.module('moonlighterApp', [
 
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
-  $urlRouterProvider.otherwise('/landing');
+  $urlRouterProvider.otherwise('/home');
 
   $stateProvider
     .state('home',{

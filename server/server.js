@@ -5,8 +5,8 @@ let passport       = require('passport');
 let bodyParser     = require('body-parser');
 let cookieParser   = require('cookie-parser');
 let API            = require('./API/githubQueries');
-let Users = require('./models/users');
-let Quests = require('./models/quests');
+let Users          = require('./models/users');
+let Quests         = require('./models/quests');
 let passportGithub = require('./auth/github');
 let Path           = require('path');
 let app            = express();
@@ -26,21 +26,13 @@ app.use(passport.initialize());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(express.static(assetFolder));
+// app.use(express.static(assetFolder));
 
 // app.get('/', function (req, res) {
 //   res.send('Welcome to the World of Githûb!');
 // });
 
-app.use('/', routes)
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
-  console.log('FOR YOU FRONT_END FOLKS')
-  console.log('-----ENDPOINTS------')
-  console.log('GET /sampleUser, /sampleQuestData, /issues');
-  console.log('POST (no endpoints yet)');
-});
 
 app.get('/auth/github/callback', passportGithub.authenticate('github', { failureRedirect: '/auth/github', successRedirect: '/' }));
 
@@ -174,4 +166,14 @@ app.post('/quest/newquest', function(req, res){
   .then(function(resp){
     res.send(resp);
   });
+});
+
+app.use('/', routes)
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
+  console.log('FOR YOU FRONT_END FOLKS')
+  console.log('-----ENDPOINTS------')
+  console.log('GET /sampleUser, /sampleQuestData, /issues');
+  console.log('POST (no endpoints yet)');
 });
