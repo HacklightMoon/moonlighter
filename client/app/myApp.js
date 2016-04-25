@@ -25,14 +25,14 @@ angular.module('moonlighterApp', [
       controllerAs: 'home',
       views: {
         'header':{
-            templateUrl: '/templates/partials/header.html'
+            templateUrl: 'app/templates/partials/header.html'
         },
         'content' : {
-          templateUrl: "<h1>THis is a test</h1>", //'templates/landing.html',
+          templateUrl: '/app/templates/landing.html',
           controller: 'LandingCtrl'
         },
         'footer' : {
-          templateUrl: 'templates/partials/footer.html'
+          templateUrl: 'app/templates/partials/footer.html'
         }
       }
     })
