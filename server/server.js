@@ -50,11 +50,11 @@ app.get('/auth/logout', function(req,res){
   res.redirect('/');
 })
 
+//Authentication Route
 app.get('/auth/github', passportGithub.authenticate('github', {
   scope: ['user', 'public_repo', 'notifications'] 
   })); 
  var configTest = function(){
-//Authentication Route
 
   var sampleQuest = [
   {
