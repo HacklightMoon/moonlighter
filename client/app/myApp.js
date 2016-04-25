@@ -1,4 +1,7 @@
 'use strict';
+var moonlighterApp = angular.module('moonlighterApp', [
+  'ui.router'
+  ]);
 
 angular.module('moonlighterApp', [
   'ui.router',
@@ -12,34 +15,56 @@ angular.module('moonlighterApp', [
   ])
 
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+
   $urlRouterProvider.otherwise('/landing');
+
   $stateProvider
-    .state('landing', {
-      url: 'partials/landing',
-      templateUrl: 'partials/landing.html',
-      controller: 'LandingCtrl'
+    .state('app',{
+      url: '/',
+      views: {
+        'header':{
+            templateUrl: '/templates/partials/header.html'
+        },
+        'content' : {
+          templateUrl: 'templates/landing.html',
+          controller: 'LandingCtrl'
+        },
+        'footer' : {
+          templateUrl: 'templates/partials/footer.html'
+        }
+      }
     })
-    .state('signIn', {
-      url: 'partials/signIn',
-      templateUrl: 'partials/signIn.html',
-      controller: 'SignInCtrl'
+
+    .state('app.questFeed', {
+      url: 'questFeed',
+      views: {
+        'header': {
+          templateUrl: '/templates/partials/header.html'
+        },
+        'content': {
+          templateUrl: '/templates/questFeed.html',
+          controller: 'QuestFeedCtrl'
+        }
+      }      
     })
-    .state('questFeed', {
-      url: 'partials/questFeed',
-      templateUrl: 'partials/questFeed.html',
-      controller: 'QuestFeedCtrl'
-    })
-    .state('questProfile', {
-      url: 'partials/questProfile',
-      templateUrl: 'partials/questProfile.html',
+    .state('app.questProfile', {
+      url: 'questProfile',
+      templateUrl: 'templates/questProfile.html',
       controller: 'QuestProfileCtrl'
     })
-    .state('userProfile', {
-      url: 'partials/userProfile',
-      templateUrl: 'partials/userProfile.html',
-      controller: 'UserProfileCtrl'
+    .state('app.userProfile', {
+      url: 'templates/userProfile',
+      views: {
+        'header': {
+          templateUrl: '/templates/partials/header.html'
+        },
+        'content': {
+          templateUrl: 'partials/userProfile.html',
+          controller: 'UserProfileCtrl'
+        }
+      }
     })
-    .state('editProfile', {
+    .state('app.editProfile', {
       url: 'partials/editProfile',
       templateUrl: 'partials/editProfile.html',
       controller: 'EditProfileCtrl'
