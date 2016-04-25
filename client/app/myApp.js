@@ -20,7 +20,7 @@ angular.module('moonlighterApp', [
 
   $stateProvider
     .state('home',{
-      url: '/',
+      url: '/home',
       controller: 'HomeCtrl',
       controllerAs: 'home',
       views: {
@@ -36,8 +36,6 @@ angular.module('moonlighterApp', [
         }
       }
     })
-
-
     .state('app.questFeed', {
       url: 'questFeed',
       views: {
