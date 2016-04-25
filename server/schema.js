@@ -28,6 +28,9 @@ knex.schema.createTableIfNotExists('users', function(table){
 })
 .createTableIfNotExists('charactersSkills', function(table){ //fantasy skills attached to characters
 })
+.createTableIfNotExists('quests', function(table){
+  table.increments('id').primary();
+})
 .then(function(res){
   console.log('Success Applying Schema');
   knex.destroy();

@@ -141,8 +141,16 @@ app.get('/issues', function(req, res) {
 
 app.post('/user/update', function(req, res){
   console.log("server.js, 146 req.body", req.body);
-  Users.update(req.body)
+  Users.update(req.body);
   .then(function(resp){
     res.send(resp);
+  })
+})
 
+app.get('/user/info', function(req, res){
+  console.log("server.js, 147 req.body", req.body);
+  return Users.verifyId(req.body.passid)
+  .then(function(resp){
+    res.send(resp)
   });
+});
