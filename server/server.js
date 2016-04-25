@@ -11,7 +11,7 @@ let passportGithub = require('./auth/github');
 let Path           = require('path');
 let app            = express();
 let assetFolder    = Path.resolve(__dirname, '../client/');
-let routes         = express.Router();
+let routes         = require('./routes/server.js');
 
 
 //rootPath for path to app directory -Boothe 
@@ -19,9 +19,6 @@ let rootPath       = Path.normalize(__dirname + '../client');
 
 //serve files in app directory, without processing them -Boothe
 app.use(express.static(rootPath + '/app'));
-
-// default route
-
 
 
 // middleware 
@@ -31,9 +28,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(assetFolder));
 
-app.get('/', function (req, res) {
-  res.send('Welcome to the World of Githûb!');
-});
+// app.get('/', function (req, res) {
+//   res.send('Welcome to the World of Githûb!');
+// });
+
+app.use('/', routes)
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
@@ -41,17 +40,6 @@ app.listen(3000, function () {
   console.log('-----ENDPOINTS------')
   console.log('GET /sampleUser, /sampleQuestData, /issues');
   console.log('POST (no endpoints yet)');
-});
-
-routes.get('/', function(req, res) {
-  res.sendFile(assetFolder + '/login.html');
-});
-
-routes.use( express.static(assetFolder) );
-
-// The Catch-all Route.
-routes.get('/*', function(req, res){
-  res.sendFile( assetFolder + '/index.html' );
 });
 
 app.get('/auth/github/callback', passportGithub.authenticate('github', { failureRedirect: '/auth/github', successRedirect: '/' }));
