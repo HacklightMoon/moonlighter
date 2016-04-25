@@ -31,7 +31,7 @@ Users.verifyInsert = function(obj, token){
         return data;
       }
     }
-  })
+  });
 };
 
 Users.verifyId = function(id){
@@ -40,10 +40,14 @@ Users.verifyId = function(id){
   }).limit(1);
 };
 
-//obj should look like: {id: id, form: form} obj.form can only contain keys that match columns in the user schema.
+//obj should look like: { id: id, form: form } 
+//obj.form can only contain keys that match columns in the user schema.
 Users.update = function(obj){
   return db('users').where({
     passid: obj.id
   }).limit(1)
   .update(obj.form)  
-}
+  .then(function(data){
+    return data;
+  });
+};
