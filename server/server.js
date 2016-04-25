@@ -79,6 +79,8 @@ app.get('/auth/github', passportGithub.authenticate('github', {
   var sampleUser = [
   {
     "id": 3,
+    "picture":"faneborges.png",
+    "email":"faneborges@moonligth.com",
     "username":"Fane Borges",
     "role": "Web Designer",
     "skills": ['JavaScript', 'React', 'HTML/CSS'],
@@ -86,6 +88,8 @@ app.get('/auth/github', passportGithub.authenticate('github', {
   },
   {
     "id": 4,
+    "picture":"treznorlobo.png",
+    "email":"treznorlobo@moonligth.com",
     "username":"Treznor Lobo",
     "role": "Web Designer",
     "skills": ['Ruby', 'Rails', 'HTML/CSS'],

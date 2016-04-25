@@ -1,0 +1,31 @@
+<div ng-controller="UserProfileCtrl" style="padding-left:20px; padding-right: 20px">
+  <div class="container">
+    <h1>New Quest</h1>
+    <hr />
+    
+
+    <div class="">
+      <div><img src='{{sampleUser.picture}}'></div>
+      <div><h5>Username: </h5>{{sampleUser.username}}</div>
+      <div><h5>@Mail: </h5>{{sampleUser.email}}</div>
+      <br />
+      <div><h5>Role: </h5>{{sampleUser.role}}</div>
+      <div><h5>Skills: </h5>{{sampleUser.skills}}</div>
+      <div><h5>Projects: </h5>{{sampleUser.projects}}</div>
+      <br />
+      <br />
+      <button class='edit' ng-click='editProfile()'>Edit profile</button>
+    </div>
+
+
+
+  </div>
+</div>
+
+    <div class="profile container" ng-if="editState">
+        <div>Role: <input type='text' ng-model='sampleUser.role'></input></div>
+        <div>Skills: <input type='text' ng-model='sampleUser.skills'></input></div>
+        <div>Projects: <input type='text' ng-model='sampleUser.projects'></input></div>
+    
+        <button class='save' ng-click='saveProfile()'>Save changes</button>
+    </div>
