@@ -1,1 +1,20 @@
 If new tables or columns need to be created, put those here.
+
+If there is a way to combine these two tables into one table called 'Quests', that'd be cool, but idk how to accomplish that because Projects and Issues require slightly different columns.
+
+Projects table:
+- Title (string)
+- Description (long string)
+- Tech Stack (array of strings?)
+- URL (string)
+- Possible columns?:
+  - user_id foreign key
+
+Issues table:
+- Title (string)
+- Github Username (string) [could we use this to match up with a user_id foreign key?]
+- Body/Description (long string)
+- Issue URL (string)
+- Possible columns?:
+  - user_id foreign key
+  - Repo URL (string) 
