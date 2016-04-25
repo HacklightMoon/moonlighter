@@ -37,6 +37,7 @@ angular.module('moonlighterApp', [
       }
     })
 
+
     .state('app.questFeed', {
       url: 'questFeed',
       views: {
