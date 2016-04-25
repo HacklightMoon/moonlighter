@@ -42,6 +42,15 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.integer('user_id').references('id').inTable('users');
   table.integer('quest_id').references('id').inTable('quests');
 })
+.createTableIfNotExists('technologies', function(table){
+  table.increments('id').primary();
+  table.string('name');
+})
+.createTableIfNotExists('questsTechnologies', function(table){
+  table.increments('id').primary();
+  table.integer('quest_id').references('id').inTable('quests');
+  table.integer('technology_id').references('id').inTable('technologies');
+})
 .then(function(res){
   console.log('Success Applying Schema');
   knex.destroy();
