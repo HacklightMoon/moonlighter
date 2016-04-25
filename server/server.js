@@ -162,8 +162,15 @@ app.get('/user/info', function(req, res){
 
 //--------------------Quest Endpoints--------------------
 
-app.get('/quest', function(req, res){
-  return Quests.FUNCTION_NAME(req.body.questId)
+app.get('/quest/feed', function(req, res){
+  return Quests.getAll(req.body.questId)
+  .then(function(resp){
+    res.send(resp);
+  });
+});
+
+app.post('/quest/newquest', function(req, res){
+  return Quest.create(req.body)
   .then(function(resp){
     res.send(resp);
   });
