@@ -41,7 +41,6 @@ app.listen(3000, function () {
 
 app.get('/auth/github/callback', passportGithub.authenticate('github', { failureRedirect: '/auth/github', successRedirect: '/' }));
 
- //serve some test data
 // Logout route
 app.get('/auth/logout', function(req,res){
   req.logout();
@@ -108,6 +107,7 @@ app.get('/auth/github', passportGithub.authenticate('github', {
   })
 
 }
+// serve test data
 configTest();
 
 app.get('/trycall', function(req, res){
