@@ -5,6 +5,8 @@ let passport       = require('passport');
 let bodyParser     = require('body-parser');
 let cookieParser   = require('cookie-parser');
 let API            = require('./API/githubQueries');
+let Users = require('./models/users');
+let Quests = require('./models/quests');
 let passportGithub = require('./auth/github');
 let Path = require('path');
 let app = express();
@@ -150,7 +152,16 @@ app.post('/user/update', function(req, res){
 app.get('/user/info', function(req, res){
   console.log("server.js, 147 req.body", req.body);
   return Users.verifyId(req.body.passid)
+    .then(function(resp){
+      res.send(resp)
+    });
+});
+
+//--------------------Quest Endpoints--------------------
+
+app.get('/quest', function(req, res){
+  return Quests.FUNCTION_NAME(req.body.questId)
   .then(function(resp){
-    res.send(resp)
+    res.send(resp);
   });
 });
