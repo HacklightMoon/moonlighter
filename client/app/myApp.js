@@ -19,14 +19,16 @@ angular.module('moonlighterApp', [
   $urlRouterProvider.otherwise('/landing');
 
   $stateProvider
-    .state('app',{
+    .state('home',{
       url: '/',
+      controller: 'HomeCtrl',
+      controllerAs: 'home',
       views: {
         'header':{
             templateUrl: '/templates/partials/header.html'
         },
         'content' : {
-          templateUrl: 'templates/landing.html',
+          templateUrl: "<h1>THis is a test</h1>", //'templates/landing.html',
           controller: 'LandingCtrl'
         },
         'footer' : {
