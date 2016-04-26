@@ -4,7 +4,7 @@ let knex = require('./db');
 
 knex.schema.createTableIfNotExists('users', function(table){
   table.increments('id').primary();
-  table.string('github_username');
+  table.string('github_username').unique();
   table.timestamp('joined_at').defaultTo(knex.fn.now());
   table.string('full_name');
   table.string('passid');
@@ -32,6 +32,7 @@ knex.schema.createTableIfNotExists('users', function(table){
 .createTableIfNotExists('quests', function(table){
   table.increments('id').primary();
   table.integer('user_id').references('id').inTable('users');
+  table.string('user_name').references('github_username').inTable('users');
   table.timestamp('createdAt').defaultTo(knex.fn.now());
   table.string('title');
   table.string('type');//project or issue
