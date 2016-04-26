@@ -27,6 +27,10 @@ To drop the database, stop your server and run:
 dropdb moonlight
 ```
 
+To apply schema run:
+node server/schema.js
+
+
 ##Git workflow
 Pull the most recent version down to your master: git pull --rebase origin master
 
