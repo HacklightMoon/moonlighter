@@ -3,9 +3,9 @@
 angular.module('moonlighterApp', [
   'ui.router',
   'moonlighterApp.services',
-  'moonlighterApp.landing'
+  'moonlighterApp.landing',
+  'moonlighterApp.questFeed'
   // 'moonlighterApp.signIn',
-  // 'moonlighterApp.questFeed',
   // 'moonlighterApp.questProfile',
   // 'moonlighterApp.userProfile',
   // 'moonlighterApp.editProfile',
@@ -36,14 +36,14 @@ angular.module('moonlighterApp', [
     })
     .state('questFeed', {
       url: '/questfeed',
-      // controller: 'QuestsFeedCtrl',
-      // controllerAs: 'questFeed',
+
         views: {
           'header': {
             templateUrl: 'app/templates/partials/header.html'
         },
           'content' : {
-            templateUrl: '/app/templates/questFeed.html'
+            templateUrl: '/app/templates/questFeed.html',
+            controller: 'QuestsFeedCtrl'
           },
           'footer' : {
             templateUrl: ''

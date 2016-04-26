@@ -15,8 +15,8 @@ angular.module("moonlighterApp.services", [])
       })
       .catch(function (err) {
         console.error(err);
-      })
-    }
+      });
+    };
 
     var editProfile = function (profile) {
       return $http({
@@ -49,6 +49,7 @@ angular.module("moonlighterApp.services", [])
       })
       .then(function(resp){
         console.log("Got quests: ", resp)
+        return resp;
       })
       .catch(function(err){
         console.error(err)
@@ -86,7 +87,7 @@ angular.module("moonlighterApp.services", [])
 
     return {
       getAllQuests: getAllQuests,
-      getQuest: getQuest,
+      // getQuest: getQuest,
       addQuest: addQuest
     }
   });

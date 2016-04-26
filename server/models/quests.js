@@ -57,6 +57,6 @@ Quests.getByTechnology = function(name){
   });
 }
 
-Quests.getAll = function(id){
+Quests.getAll = function(){
   return db('quests');
 };

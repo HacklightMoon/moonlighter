@@ -157,8 +157,9 @@ app.get('/user/info', function(req, res){
 //--------------------Quest Endpoints--------------------
 
 app.get('/quest/feed', function(req, res){
-  return Quests.getAll(req.body.questId)
+  return Quests.getAll()
   .then(function(resp){
+    console.log(resp);
     res.send(resp);
   });
 });
