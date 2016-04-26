@@ -4,7 +4,7 @@ let knex = require('./db');
 
 knex.schema.createTableIfNotExists('users', function(table){
   table.increments('id').primary();
-  table.string('github_username');
+  table.string('github_username').unique();
   table.timestamp('joined_at').defaultTo(knex.fn.now());
   table.string('full_name');
   table.string('passid');
