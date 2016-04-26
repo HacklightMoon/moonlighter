@@ -1,8 +1,6 @@
-.primary {
-  background-color:black;
-}
+/********************* Main ************************/
 
-.mainWrapper {
+.main-wrapper {
   background-image:  url('../img/Moonlighterbackground.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -11,27 +9,48 @@
   position: absolute;
 }
 
-.headerTitle {
+a {
+  color: #f6f1ee;
+  text-decoration: none;
+}
+/********************* Header ************************/
+.logo-title{
+  font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
+}
+
+.intro-title{
+  font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
+}
+
+.navbar { 
+  text-align: center;
+  padding: 10px 0;
+  margin: 20px 0 0;
+}
+
+
+.header-title {
   background: red;
   display: block;
   float: left;
   margin:15px 50px;
 }
 
-.signInButton {
+.signin-button {
   background: green;
   display: block;
   float: right;
   margin:15px 50px;
 }
 
-.logOutButton {
+.logout-button {
   background:green;
   display: block;
   float: right;
   margin:15px 50px;
 
 }
+
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none;
