@@ -6,7 +6,7 @@ exports.seed = function(knex, Promise){
     knex('quests').insert({
 
     user_id: 1,
-    user_name: 'Mr. Hug',
+    user_name: 'flickerbits',
     title: "Yelo",
     type: "project",
     stack: ['node.js', 'express.js','backbone.js', 'mongoDB' ],
@@ -17,7 +17,7 @@ exports.seed = function(knex, Promise){
     knex('quests').insert({
 
     user_id: 2,
-    user_name: 'Mr. Fwibbles',
+    user_name: 'dalyhabit',
     title: "KillerRx",
     type: "project",
     stack: ['ruby','postgres','ruby on rails','cowboy'],
@@ -28,7 +28,7 @@ exports.seed = function(knex, Promise){
     knex('quests').insert({
 
     user_id: 3,
-    user_name: 'PJ'
+    user_name: 'pmatteu2'
     title: "PiratesMeet",
     type: "project",
     stack: ['react.js','ember.js', 'handlebars.js'],
@@ -39,7 +39,7 @@ exports.seed = function(knex, Promise){
     knex('quests').insert({
 
     user_id: 3,
-    user_name: 'PJ'
+    user_name: 'pmatteu2'
     title: "Yankly",
     type: "project",
     stack: ['react.js','ember.js', 'handlebars.js'],
@@ -49,7 +49,7 @@ exports.seed = function(knex, Promise){
 
     knex('quests').insert({
     user_id: 3,
-    user_name: 'PJ'
+    user_name: 'pmatteu2'
     title: "Butterz",
     type: "project",
     stack: ['react.js','ember.js', 'handlebars.js'],
