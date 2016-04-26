@@ -1,28 +1,5 @@
 angular.module("moonlighterApp.services", [])
 
-  // .factory('Users', function ($http) {
-
-  //   var Users = [];
-  //   // get current users
-  //   var getUsers = function () {
-  //     return $http({
-  //       method: 'GET',
-  //       url: '/user'
-  //     })
-  //     .then(function (resp) {
-  //       return resp.data;
-  //     })
-  //     .catch(function (err) {
-  //       console.error(err);
-  //     })
-  //   };
-
-  //   return {
-  //     getUsers: getUsers
-  //   }
-
-  // })
-
   .factory('Profile', function ($http) {
 
     var Profile = []
