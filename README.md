@@ -41,3 +41,14 @@ Someone who is not you (gitlord) must review and merge.
 After merging the pull request the gitlord will slack @channel REBASE.
 
 Once you see this it is super important to do another: git pull --rebase origin master
+
+##Helpful Bash Aliases
+
+```
+alias okgo='nodemon server.js'
+alias resetmoon='dropdb moonlight; createdb moonlight; node schema.js'
+alias startdb='postgres -D /usr/local/var/postgres'
+alias stopdb='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+alias ftaghn='pull --rebase origin master '
+alias Githulhu='git '
+```
