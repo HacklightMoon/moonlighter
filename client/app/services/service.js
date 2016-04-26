@@ -97,7 +97,7 @@ angular.module("moonlighterApp.services", [])
       getAllQuests: getAllQuests,
       getQuest: getQuest,
       setQuest: setQuest,
-      addQuest: addQuest,
+      addQuest: addQuest
     }
   });
   
