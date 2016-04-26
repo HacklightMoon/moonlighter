@@ -6,10 +6,10 @@ angular.module('moonlighterApp', [
   'moonlighterApp.landing',
   'moonlighterApp.questFeed',
   'moonlighterApp.questProfile',
-  // 'moonlighterApp.userProfile',
-  // 'moonlighterApp.signIn',
+  'moonlighterApp.about',
+  'moonlighterApp.newQuest',
+  'moonlighterApp.header'
   // 'moonlighterApp.editProfile',
-  'moonlighterApp.newQuest'
   ])
 
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -23,7 +23,9 @@ angular.module('moonlighterApp', [
       controllerAs: 'home',
       views: {
         'header':{
-            templateUrl: 'app/templates/partials/header.html'
+            templateUrl: 'app/templates/partials/header.html',
+            controller: 'HeaderCtrl',
+            controllerAs: 'header'
         },
         'content' : {
           templateUrl: '/app/templates/landing.html',
@@ -40,7 +42,9 @@ angular.module('moonlighterApp', [
 
         views: {
           'header': {
-            templateUrl: 'app/templates/partials/header.html'
+            templateUrl: 'app/templates/partials/header.html',
+            controller: 'HeaderCtrl',
+            controllerAs: 'header'
           },
           'content' : {
             templateUrl: '/app/templates/questFeed.html',
@@ -56,7 +60,9 @@ angular.module('moonlighterApp', [
       url: '/questProfile',
       views: {
       'header': {
-            templateUrl: 'app/templates/partials/header.html'
+            templateUrl: 'app/templates/partials/header.html',
+            controller: 'HeaderCtrl',
+            controllerAs: 'header'
       },
       'content' : {
         templateUrl: 'app/templates/quest.html',
@@ -72,7 +78,9 @@ angular.module('moonlighterApp', [
       url: '/userProfile',
       views: {
         'header': {
-          templateUrl: 'app/templates/partials/header.html'
+          templateUrl: 'app/templates/partials/header.html',
+            controller: 'HeaderCtrl',
+            controllerAs: 'header'
         },
         'content': {
           templateUrl: 'app/templates/userProfile.html',
@@ -94,12 +102,32 @@ angular.module('moonlighterApp', [
       url: '/newQuest',
       views: {
         'header': {
-          templateUrl: 'app/templates/partials/header.html'
+          templateUrl: 'app/templates/partials/header.html',
+          controller: 'HeaderCtrl',
+          controllerAs: 'header'
         },
         'content': {
           templateUrl: 'app/templates/newQuest.html',
           controller: 'NewQuestCtrl',
           controllerAs: 'newQuest'
+        },
+        'footer': {
+          templateUrl: ''
+        }
+      }
+    })
+    .state('about', {
+      url: '/about',
+      views: {
+        'header': {
+          templateUrl: 'app/templates/partials/header.html',
+          controller: 'HeaderCtrl',
+          controllerAs: 'header'
+        },
+        'content': {
+          templateUrl: 'app/templates/about.html',
+          controller: 'AboutCtrl',
+          controllerAs: 'about'
         },
         'footer': {
           templateUrl: ''

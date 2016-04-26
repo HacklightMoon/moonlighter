@@ -8,11 +8,12 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #202835;
+  background-attachment: fixed;
+  background-position: fixed;
   color: #e2dfc8;
-  position: absolute;
-  max-width: 940px;
   margin: 0 auto;
   padding: 0 5%;
+  overflow: hidden;
 }
 
 a {
@@ -20,6 +21,10 @@ a {
   text-decoration: none;
 }
 /********************* Header ************************/
+.logoBlock{
+  display: inline;
+}
+
 .navbar { 
   margin: 15px 0 0;
   width: 100%;
@@ -124,7 +129,10 @@ nav li {
     border-radius: 8px;
     box-shadow: 0 0 10px #b2aa6e;
     box-shadow: -2px 5px 25px #f6f1ee;
+    color: #202835;
+    font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
 }
+
 
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
