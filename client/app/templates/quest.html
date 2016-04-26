@@ -1,15 +1,14 @@
 <div class="questProfile">
 
-  <div class="ownerProfileButton">{{quest.owner.profile}}</div>
+  <!-- <div class="ownerProfileButton">{{chosenQuest.owner.profile}}</div> -->
   <div class="questDescription book">
-    <h1>{{quest.title}}</h1>
+    <h1>{{chosenQuest.title}}</h1>
     <div class="questDescription">
-      <p>{{quest.description}}</p>
+      <p>Description: {{chosenQuest.description}}</p>
     </div>
-    <p>{{quest.stack}}</p>
-    <p>{{quest.roles}}</p>
-    <p>{{quest.loot}}</p>
-    <p>{{quest.repo}}</p>
-    <button class="ownerEmail">{{quest.owner.email}}</button>
+    <p>Stack: {{chosenQuest.stack}}</p>
+    <!-- <p>{{chosenQuest.roles}}</p> -->
+    <p>Bounty: {{chosenQuest.bounty}}</p>
+    <p>Date Created: {{chosenQuest.createdAt}}</p>
   </div>
 </div>

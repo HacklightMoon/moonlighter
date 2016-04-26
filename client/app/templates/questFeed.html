@@ -1,7 +1,7 @@
 <div class="container-quests">
-  <a ui-sref="questProfile">  
     <div class="quests">
       <div ng-repeat="quest in quests">
+        <a ng-click="selectQuest(quest)" ui-sref="questProfile">  
             <div class="cardQuestName">
               {{quest.title}}
               {{quest.stack}}
@@ -9,8 +9,8 @@
             <div class="cardQuestDesc">
               <p>{{quest.description}}</p>
             </div>
-            <hr>
+          </a>
+        <hr>
       </div>
     </div>
-  </a>
 </div>

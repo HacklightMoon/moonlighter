@@ -12,4 +12,8 @@ angular.module('moonlighterApp.questFeed', [])
     });
   };
   $scope.getAllQuests();
+
+  $scope.selectQuest=function(quest) {
+    Quest.setQuest(quest);
+  };
 });
