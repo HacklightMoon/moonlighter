@@ -26,11 +26,7 @@ app.use(passport.initialize());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
-// app.use(express.static(assetFolder));
 
-// app.get('/', function (req, res) {
-//   res.send('Welcome to the World of Githûb!');
-// });
 
 
 
