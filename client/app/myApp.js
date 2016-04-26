@@ -2,7 +2,8 @@
 
 angular.module('moonlighterApp', [
   'ui.router',
-  // 'moonlighterApp.landing',
+  'moonlighterApp.services',
+  'moonlighterApp.landing'
   // 'moonlighterApp.signIn',
   // 'moonlighterApp.questFeed',
   // 'moonlighterApp.questProfile',
@@ -13,11 +14,11 @@ angular.module('moonlighterApp', [
 
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
-  $urlRouterProvider.otherwise('/home');
+  $urlRouterProvider.otherwise('/');
 
   $stateProvider
     .state('home',{
-      url: '/home',
+      url: '/',
       controller: 'HomeCtrl',
       controllerAs: 'home',
       views: {
@@ -29,21 +30,27 @@ angular.module('moonlighterApp', [
           controller: 'LandingCtrl'
         },
         'footer' : {
-          templateUrl: 'app/templates/partials/footer.html'
+          templateUrl: ''
         }
       }
     })
-    .state('app.questFeed', {
-      url: 'questFeed',
-      views: {
-        'header': {
-          templateUrl: '/templates/partials/header.html'
+    .state('questFeed', {
+      url: '/questfeed',
+      // controller: 'QuestsFeedCtrl',
+      // controllerAs: 'questFeed',
+        views: {
+          'header': {
+            templateUrl: 'app/templates/partials/header.html'
         },
-        'content': {
-          templateUrl: '/templates/questFeed.html',
-          controller: 'QuestFeedCtrl'
+          'content' : {
+            templateUrl: '/app/templates/questFeed.html'
+          },
+          'footer' : {
+            templateUrl: ''
+          // }
+
         }
-      }      
+      }
     })
     .state('app.questProfile', {
       url: 'questProfile',

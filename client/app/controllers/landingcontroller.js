@@ -1,5 +1,5 @@
 'use strict';
-angular.module('moonlighterApp')
+angular.module('moonlighterApp.landing',[])
 .controller('LandingCtrl', ['$scope', function($scope) {
   $scope.boolValue = true;
 }]);
