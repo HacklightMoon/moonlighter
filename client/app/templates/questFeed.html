@@ -1,15 +1,15 @@
 <div class="container-quests">
-  <!-- Body content -->
-  <ul class="quests">
-    <li ui-sref-active="selected" ng-repeat="quest in quests | filter:search" ng-click="done($index)">
-        <a ui-sref="detail({id: quest.id})">
-          <div class="cardQuestName">
-            {{quest.name}}
-          </div>
-          <div class="cardQuestDesc">
-            <p>{{quest.description}}</p>
-          </div>
-        </a>
-    </li>
-  </ul>
+  <a ui-sref="questProfile">  
+    <div class="quests">
+      <div ng-repeat="quest in quests">
+            <div class="cardQuestName">
+              {{quest.title}}
+            </div>
+            <div class="cardQuestDesc">
+              <p>{{quest.description}}</p>
+            </div>
+            <hr>
+      </div>
+    </div>
+  </a>
 </div>
