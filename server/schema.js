@@ -39,6 +39,7 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.string('stack');//string list of technologies used
   table.string('description');
   table.integer('bounty');
+  table.string('url'); // link for gh repo
 })
 .createTableIfNotExists('usersQuests', function(table){
   table.increments('id').primary();
