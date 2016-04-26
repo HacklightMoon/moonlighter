@@ -1,4 +1,4 @@
 'use strict';
-angular.module('moonlighterApp')
-.controller('questCtrl', ['$scope',function($scope){
-}]);
+angular.module('moonlighterApp.questProfile', [])
+.controller('QuestProfileCtrl',function($scope){
+});

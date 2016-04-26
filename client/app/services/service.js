@@ -48,8 +48,8 @@ angular.module("moonlighterApp.services", [])
         url: '/quest/feed',
       })
       .then(function(resp){
-        console.log("Got quests: ", resp)
-        return resp;
+        console.log("Got quests: ", resp.data)
+        return resp.data;
       })
       .catch(function(err){
         console.error(err)

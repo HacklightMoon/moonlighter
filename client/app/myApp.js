@@ -4,10 +4,10 @@ angular.module('moonlighterApp', [
   'ui.router',
   'moonlighterApp.services',
   'moonlighterApp.landing',
-  'moonlighterApp.questFeed'
-  // 'moonlighterApp.signIn',
-  // 'moonlighterApp.questProfile',
+  'moonlighterApp.questFeed',
+  'moonlighterApp.questProfile'
   // 'moonlighterApp.userProfile',
+  // 'moonlighterApp.signIn',
   // 'moonlighterApp.editProfile',
   // 'moonlighterApp.editQuest'
   ])
@@ -40,24 +40,33 @@ angular.module('moonlighterApp', [
         views: {
           'header': {
             templateUrl: 'app/templates/partials/header.html'
-        },
+          },
           'content' : {
             templateUrl: '/app/templates/questFeed.html',
             controller: 'QuestsFeedCtrl'
           },
           'footer' : {
             templateUrl: ''
-          // }
-
-        }
+          }
       }
     })
-    .state('app.questProfile', {
-      url: 'questProfile',
-      templateUrl: 'templates/questProfile.html',
-      controller: 'QuestProfileCtrl'
+    .state('questProfile', {
+      url: '/questProfile',
+
+      views: {
+      'header': {
+            templateUrl: 'app/templates/partials/header.html'
+      },
+      'content' : {
+        templateUrl: 'app/templates/quest.html',
+        controller: 'QuestProfileCtrl'
+      },
+      'footer': {
+          templateUrl: ''
+        },
+      }
     })
-    .state('app.userProfile', {
+    .state('userProfile', {
       url: 'templates/userProfile',
       views: {
         'header': {
@@ -66,6 +75,9 @@ angular.module('moonlighterApp', [
         'content': {
           templateUrl: 'partials/userProfile.html',
           controller: 'UserProfileCtrl'
+        },
+        'footer': {
+          templateUrl: ''
         }
       }
     })

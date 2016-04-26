@@ -5,6 +5,7 @@ angular.module('moonlighterApp.questFeed', [])
     Quest.getAllQuests()
     .then(function(data) {
         console.log("data from questFeedCTRL:",data);
+        $scope.quests = data;
     })
     .catch(function(err){
       console.error(err);
