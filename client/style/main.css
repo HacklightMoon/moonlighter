@@ -109,6 +109,24 @@ nav li {
   color: #202835;
 }
 
+/********************* New Quests ************************/
+
+.newquest-button{
+  background-color: #f6f1ee;
+    border: none;
+    padding: 5px 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #b2aa6e;
+    box-shadow: -2px 5px 25px #f6f1ee;
+}
+
+
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none;
 }

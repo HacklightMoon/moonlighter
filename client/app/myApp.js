@@ -5,11 +5,11 @@ angular.module('moonlighterApp', [
   'moonlighterApp.services',
   'moonlighterApp.landing',
   'moonlighterApp.questFeed',
-  'moonlighterApp.questProfile'
+  'moonlighterApp.questProfile',
   // 'moonlighterApp.userProfile',
   // 'moonlighterApp.signIn',
   // 'moonlighterApp.editProfile',
-  // 'moonlighterApp.editQuest'
+  'moonlighterApp.newQuest'
   ])
 
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -69,13 +69,13 @@ angular.module('moonlighterApp', [
       }
     })
     .state('userProfile', {
-      url: 'templates/userProfile',
+      url: '/userProfile',
       views: {
         'header': {
-          templateUrl: '/templates/partials/header.html'
+          templateUrl: 'app/templates/partials/header.html'
         },
         'content': {
-          templateUrl: 'partials/userProfile.html',
+          templateUrl: 'app/templates/userProfile.html',
           controller: 'UserProfileCtrl',
           controllerAs: 'userProfile'
         },
@@ -84,15 +84,28 @@ angular.module('moonlighterApp', [
         }
       }
     })
-    .state('app.editProfile', {
-      url: 'partials/editProfile',
-      templateUrl: 'partials/editProfile.html',
+    .state('editProfile', {
+      url: '/editProfile',
+      templateUrl: 'app/templates/editProfile.html',
       controller: 'EditProfileCtrl',
       controllerAs: 'editProfile'
     })
-    .state('editQuest', {
-      url: 'partials/editQuest',
-      templateUrl: 'partials/editQuest.html',
-      controller: 'EditQuestCtrl'
+    .state('newQuest', {
+      url: '/newQuest',
+      views: {
+        'header': {
+          templateUrl: 'app/templates/partials/header.html'
+        },
+        'content': {
+          templateUrl: 'app/templates/newQuest.html',
+          controller: 'NewQuestCtrl',
+          controllerAs: 'newQuest'
+        },
+        'footer': {
+          templateUrl: ''
+        }
+      }
     });
 }]);
+
+

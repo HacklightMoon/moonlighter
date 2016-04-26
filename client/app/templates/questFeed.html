@@ -1,5 +1,6 @@
 <div class="container-quests">
     <div class="quests">
+      <a ui-sref="newQuest" class="newquest-button">Add a quest!</a>
       <div ng-repeat="quest in quests">
         <a ng-click="selectQuest(quest)" ui-sref="questProfile">  
             <div class="cardQuestName">

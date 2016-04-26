@@ -1,5 +1,5 @@
 'use strict';
-angular.module('moonlighterApp')
+angular.module('moonlighterApp.newQuest', [])
 .controller('NewQuestCtrl', ['$scope', function($scope, Quest) {
   $scope.newQuest = {};
 
@@ -39,7 +39,7 @@ angular.module('moonlighterApp')
       "bounty": $scope.newQuest.bounty
     }
 
-    Quest.addQuest(quest).
+    Quest.addQuest(quest)
     .then(function(data) {
       console.log('newQuestcontroller.js - Quest created?: ', data);
       $scope.newQuest.description = '';
