@@ -7,6 +7,9 @@
   background-color: #202835;
   color: #f6f1ee;
   position: absolute;
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 5%;
 }
 
 a {
@@ -14,40 +17,49 @@ a {
   text-decoration: none;
 }
 /********************* Header ************************/
+.navbar { 
+  margin: 5px 0 0;
+  width: 100%;
+  font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
+  font-weight: 200;
+  width: 100vw;  
+}
+
 .logo-title{
   font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
+  display: inline; 
+  position: relative; 
+  width: 100%;
 }
 
 .intro-title{
   font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
 }
+nav{
+  float: right;
+}
 
-.navbar { 
-  text-align: center;
-  padding: 10px 0;
-  margin: 20px 0 0;
+nav ul {
+    text-align: center; 
+    list-style: none;
+    margin: 15px 180px 0 0;
+    padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 0px;
+  padding: 0 10px;
 }
 
 
-.header-title {
-  background: red;
-  display: block;
-  float: left;
-  margin:15px 50px;
-}
+
 
 .signin-button {
-  background: green;
-  display: block;
-  float: right;
-  margin:15px 50px;
+
 }
 
 .logout-button {
-  background:green;
-  display: block;
-  float: right;
-  margin:15px 50px;
 
 }
 
