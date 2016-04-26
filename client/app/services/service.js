@@ -70,6 +70,14 @@ angular.module("moonlighterApp.services", [])
     //     console.error(err);
     //   })
     // }
+    var getQuest = function() {
+      return Quest.currentQuest;
+    }
+
+    var setQuest = function(quest){
+      Quest.currentQuest = quest;
+      return Quest.currentQuest;
+    }
 
     var addQuest = function (quest) {
       return $http({
@@ -87,8 +95,9 @@ angular.module("moonlighterApp.services", [])
 
     return {
       getAllQuests: getAllQuests,
-      // getQuest: getQuest,
-      addQuest: addQuest
+      getQuest: getQuest,
+      setQuest: setQuest,
+      addQuest: addQuest,
     }
   });
   

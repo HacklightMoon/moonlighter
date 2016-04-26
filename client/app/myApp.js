@@ -27,7 +27,8 @@ angular.module('moonlighterApp', [
         },
         'content' : {
           templateUrl: '/app/templates/landing.html',
-          controller: 'LandingCtrl'
+          controller: 'LandingCtrl',
+          controllerAs: 'landing'
         },
         'footer' : {
           templateUrl: ''
@@ -43,7 +44,8 @@ angular.module('moonlighterApp', [
           },
           'content' : {
             templateUrl: '/app/templates/questFeed.html',
-            controller: 'QuestsFeedCtrl'
+            controller: 'QuestsFeedCtrl',
+            controllerAs: 'questFeed'
           },
           'footer' : {
             templateUrl: ''
@@ -52,14 +54,14 @@ angular.module('moonlighterApp', [
     })
     .state('questProfile', {
       url: '/questProfile',
-
       views: {
       'header': {
             templateUrl: 'app/templates/partials/header.html'
       },
       'content' : {
         templateUrl: 'app/templates/quest.html',
-        controller: 'QuestProfileCtrl'
+        controller: 'QuestProfileCtrl',
+        controllerAs: 'questProfile'
       },
       'footer': {
           templateUrl: ''
@@ -74,7 +76,8 @@ angular.module('moonlighterApp', [
         },
         'content': {
           templateUrl: 'partials/userProfile.html',
-          controller: 'UserProfileCtrl'
+          controller: 'UserProfileCtrl',
+          controllerAs: 'userProfile'
         },
         'footer': {
           templateUrl: ''
@@ -84,7 +87,8 @@ angular.module('moonlighterApp', [
     .state('app.editProfile', {
       url: 'partials/editProfile',
       templateUrl: 'partials/editProfile.html',
-      controller: 'EditProfileCtrl'
+      controller: 'EditProfileCtrl',
+      controllerAs: 'editProfile'
     })
     .state('editQuest', {
       url: 'partials/editQuest',
