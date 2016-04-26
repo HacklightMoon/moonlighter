@@ -1,5 +1,5 @@
 'use strict';
 angular.module('moonlighterApp')
-.controller('QuestsFeedCtrl', function QuestsFeedCtrl($scope, questData) {
+.controller('QuestsFeedCtrl', function($scope, questData) {
     $scope.quest = questData.quest;
 });
