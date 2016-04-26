@@ -1,11 +1,14 @@
 /********************* Main ************************/
+/** {
+  box-sizing: border-box;
+}*/
 
 .main-wrapper {
   background-image:  url('../img/Moonlighterbackground.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #202835;
-  color: #f6f1ee;
+  color: #e2dfc8;
   position: absolute;
   max-width: 940px;
   margin: 0 auto;
@@ -13,12 +16,12 @@
 }
 
 a {
-  color: #f6f1ee;
+  color: #e2dfc8  ;
   text-decoration: none;
 }
 /********************* Header ************************/
 .navbar { 
-  margin: 5px 0 0;
+  margin: 15px 0 0;
   width: 100%;
   font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
   font-weight: 200;
@@ -30,6 +33,9 @@ a {
   display: inline; 
   position: relative; 
   width: 100%;
+  color:#e2dfc8;
+  text-shadow: -1px 0 10px #f6f1ee;
+  text-shadow: -10px -1px 20px #f6f1ee;
 }
 
 .intro-title{
@@ -50,19 +56,58 @@ nav li {
   display: inline-block;
   margin: 0 0px;
   padding: 0 10px;
+  font-size: 1.2em;
 }
 
-
+.unseen {
+  display: none;
+}
 
 
 .signin-button {
-
+  padding: 10px;
+  margin: 5px;
 }
 
 .logout-button {
-
+  padding: 10px;
+  margin: 5px;
 }
 
+/********************* landing ************************/
+.landing-div {
+  font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
+  display: inline-block; 
+  position: relative; 
+  width: 100vw;
+  margin: 100px auto;
+  text-align: center;
+}
+
+.landing-main-title {
+  font-size: 5.625rem; /*90px/16px*/
+  color:#e2dfc8;
+  text-shadow: 0 0 10px #b2aa6e;
+  text-shadow: -3px 5px 25px #f6f1ee;
+}
+
+.landing-questfeed-button {
+    background-color: #f6f1ee;
+    border: none;
+    padding: 15px 220px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #b2aa6e;
+    box-shadow: -2px 5px 25px #f6f1ee;
+}
+.landing-questfeed-button-text { 
+  color: #202835;
+}
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none;
