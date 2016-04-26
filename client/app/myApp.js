@@ -29,7 +29,7 @@ angular.module('moonlighterApp', [
           controller: 'LandingCtrl'
         },
         'footer' : {
-          templateUrl: 'app/templates/partials/footer.html'
+          templateUrl: ''
         }
       }
     })
