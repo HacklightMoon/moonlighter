@@ -33,17 +33,12 @@ angular.module('moonlighterApp', [
         }
       }
     })
-    .state('app.questFeed', {
-      url: 'questFeed',
-      views: {
-        'header': {
-          templateUrl: '/templates/partials/header.html'
-        },
-        'content': {
-          templateUrl: '/templates/questFeed.html',
-          controller: 'QuestFeedCtrl'
-        }
-      }      
+    .state('questFeed', {
+      url: '/questFeed',
+      controller: 'QuestsFeedCtrl',
+      controllerAs: 'questFeed',
+ 
+          template: '<h1>This is a test</h1>'   
     })
     .state('app.questProfile', {
       url: 'questProfile',

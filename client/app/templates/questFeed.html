@@ -1,5 +1,4 @@
 <div class="container-quests">
-  Search: <input type="text" ng-model="search" placeholder="search">
   <!-- Body content -->
   <ul class="quests">
     <li ui-sref-active="selected" ng-repeat="quest in quests | filter:search" ng-click="done($index)">
