@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise){
     
     knex('quests').insert({
 
-    user_id: 1,
+    user_id: 2147483645,
     user_name: 'flickerbits',
     title: "Yelo",
     type: "project",
@@ -16,7 +16,7 @@ exports.seed = function(knex, Promise){
 
     knex('quests').insert({
 
-    user_id: 2,
+    user_id: 2147483646,
     user_name: 'dalyhabit',
     title: "KillerRx",
     type: "project",
@@ -27,7 +27,7 @@ exports.seed = function(knex, Promise){
 
     knex('quests').insert({
 
-    user_id: 3,
+    user_id: 2147483647,
     user_name: 'pmatteu2',
     title: "PiratesMeet",
     type: "project",
@@ -38,7 +38,7 @@ exports.seed = function(knex, Promise){
 
     knex('quests').insert({
 
-    user_id: 3,
+    user_id: 2147483647,
     user_name: 'pmatteu2',
     title: "Yankly",
     type: "project",
@@ -48,7 +48,7 @@ exports.seed = function(knex, Promise){
   }),
 
     knex('quests').insert({
-    user_id: 3,
+    user_id: 2147483647,
     user_name: 'pmatteu2',
     title: "Butterz",
     type: "project",
