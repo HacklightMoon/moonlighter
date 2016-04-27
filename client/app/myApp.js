@@ -2,6 +2,7 @@
 
 angular.module('moonlighterApp', [
   'ui.router',
+  'ngAnimate',
   'moonlighterApp.services',
   'moonlighterApp.landing',
   'moonlighterApp.questFeed',

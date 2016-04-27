@@ -12,13 +12,31 @@
   background-position: fixed;
   color: #e2dfc8;
   margin: 0 auto;
-  padding: 0 5%;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
-a {
-  color: #e2dfc8  ;
-  text-decoration: none;
+.questfeed-button-text{
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.questfeed-button {
+  background-color: #f6f1ee;
+    border: none;
+    padding: 5px 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #b2aa6e;
+    box-shadow: -2px 5px 25px #f6f1ee;
+    color: #202835;
+    font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
 }
 /********************* Header ************************/
 .logoBlock{
@@ -35,7 +53,9 @@ a {
 
 .logo-title{
   font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
-  display: inline; 
+  display: inline;
+  margin: 40px 0 0 20px;
+  padding: 3px; 
   position: relative; 
   width: 100%;
   color:#e2dfc8;
@@ -79,12 +99,12 @@ nav li {
   margin: 5px;
 }
 
-/********************* landing ************************/
+/********************* LANDING ************************/
 .landing-div {
   font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
   display: inline-block; 
   position: relative; 
-  width: 90vw;
+  width: 100vw;
   margin: 150px auto;
   text-align: center;
 }
@@ -113,27 +133,165 @@ nav li {
 .landing-questfeed-button-text { 
   color: #202835;
 }
+/*
+.animate-fade{}
 
-/********************* New Quests ************************/
 
-.newquest-button{
-  background-color: #f6f1ee;
-    border: none;
-    padding: 5px 35px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 8px;
-    box-shadow: 0 0 10px #b2aa6e;
-    box-shadow: -2px 5px 25px #f6f1ee;
-    color: #202835;
-    font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
+.animate-fade.ng-enter, .animate-if.ng-leave {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.5s;
+}
+
+.animate-fade.ng-enter,
+.animate-fade.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+.animate-fade.ng-leave,
+.animate-fade.ng-enter.ng-enter-active {
+  opacity:1;
+}*/
+/********************* QUEST FEED ************************/
+.container-quests {
+  perspective: 800px;
+}
+
+.container{
+  width:400px;
+  height:280px;
+  position: relative;
+}
+
+.questinfo {
+  z-index: 1;
+}
+.quests {
+    margin-left: 10rem;
+}
+
+.back-info {
+  z-index: 2;
+}
+.newquest-button {
+  margin-bottom: 25px;
+  position: relative;
+  left:44%;} 
+
+.quests {
+  margin-top: 50px;
+}
+
+.questCard {
+  text-align:center;
+  position: relative;
+  width: 350px;
+  height: 200px;
+  margin: 15px;
+  float:left;
+}
+
+.card{
+  text-align:center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 
+.questimage {
+  position: relative;
+  width: 100%;
+}
+
+.newquest-button {
+  position: relative;
+} 
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.face.front {
+  background-image: url("../img/parchment.jpg");
+}
+
+.face.back {
+  display: block;
+  box-sizing: border-box;
+  padding: 20px;
+  color: white;
+  text-align: left;
+  background-image: url("../img/parchment.jpg");
+}
+/********************* ANIMATION ************************/
+
+.card {
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+}
+.card:hover .front{
+  transform: rotateY(-180deg);
+}
+
+.card:hover .back {
+ transform: rotateY(0deg);
+}
+.face {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+.face.front {
+  transform: rotateY(0deg);
+} 
+
+.face.back {
+  transform: rotateY(180deg); 
+}
+/********************* QUEST PROFILE ************************/
+.questProfile {
+  position: relative;
+  margin-top: 50px; 
+}
+
+.quest-button-wrapper {
+  position: relative;
+   margin-bottom: 25px;
+}
+
+.quest-details {
+  margin-top:50px;
+}
+/********************* NEW QUESTS ************************/
+.newQuest-profile {
+  position: relative;
+  margin-top: 50px;
+}
+
+.newquest-button{
+  background-color: #f6f1ee;
+  border: none;
+  padding: 5px 35px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #b2aa6e;
+  box-shadow: -2px 5px 25px #f6f1ee;
+  color: #202835;
+  font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
+}
+
+/********************* OMNIPRESENT ************************/
+
+a {
+  color: #e2dfc8  ;
+  text-decoration: none;
+}
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none;

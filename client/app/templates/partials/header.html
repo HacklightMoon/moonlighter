@@ -6,13 +6,18 @@
     <ul>
       <li><a href="/auth/logout" class="logout-button unseen">Log out</a></li>
       <li><a href="/auth/github" class="signin-button seen">Sign in</a></li>
-      <li><a ui-sref="about">About</a></li>
+      <li ng-if='seeAbout'><a ui-sref="about">About</a></li>
       <!-- <li><a href="contact.html">Contact</a></li> -->
     </ul>
   </nav>
 </div>  
 
-
+<!-- FOR USE ON SIGNIN/LOGOUT WHEN AUTH COOKIES AVAILABLE!!!
+<div ng-if="bool" class="fade">
+   Fade me in out
+</div>
+<button ng-click="bool=true">Fade In!</button>
+<button ng-click="bool=false">Fade Out!</button> -->
 
 
  
