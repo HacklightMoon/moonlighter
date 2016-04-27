@@ -1,7 +1,10 @@
 'use strict';
 angular.module('moonlighterApp.header',[])
 .controller('HeaderCtrl',['$state', '$scope', function($state, $scope){
-    console.log($state.get());
+    if($state.current.name==="home"){
+
+    };
+    console.log($state);
 }]);
 
 
