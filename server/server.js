@@ -151,8 +151,8 @@ app.post('/user/update', function(req, res){
 })
 
 app.get('/user/info', function(req, res){
-  console.log("server.js, 153 req.body", req.body);
-  return Users.getById(req.body)
+  console.log("server.js, 153 req.query.id", req.query.id);
+  return Users.getById(req.query.id)
     .then(function(resp){
       res.send(resp)
     });

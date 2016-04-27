@@ -8,7 +8,7 @@ angular.module("moonlighterApp.services", [])
       console.log("Sending user_id - services.js", user_id);
       return $http({
         method: 'GET',
-        url: '/user/info',
+        url: '/user/info?id=' + user_id,
         data: user_id
       })
       .then(function (resp) {
