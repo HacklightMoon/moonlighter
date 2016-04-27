@@ -6,15 +6,10 @@ angular.module('moonlighterApp.header',[])
       $scope.seen = false;
     };
     console.log($state);
+
+    $scope.seeAbout = false;
+    if($state.current.name==="home"){
+      $scope.seeAbout = true;
+    };
 }]);
 
-
-// $state.$current.name = 'contacts.details.item';
- 
-// // absolute name
-// $state.is('contact.details.item'); // returns true
-// $state.is(contactDetailItemStateObject); // returns true'HeaderCtrl', function($scope, $state, $current) {
-  // $scope.cloakLogo = function($state){
-  //   return $state.$current.name;
-  // };
-  // console.log($scope.cloakLogo());
