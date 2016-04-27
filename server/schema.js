@@ -7,7 +7,7 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.string('github_username').unique();
   table.timestamp('joined_at').defaultTo(knex.fn.now());
   table.string('full_name');
-  table.integer('money'); //'affluence units'
+  table.integer('money').defaultTo(0);
   table.string('passid');
   table.string('profile_picture');
   table.string('email');
