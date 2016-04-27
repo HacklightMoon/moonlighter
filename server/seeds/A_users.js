@@ -13,7 +13,9 @@ exports.seed = function(knex, Promise) {
       passid: 'myPassId',
       profile_picture: 'putSomething',
       email: 'testEmail@123.com',
-      token: 'uhhhhh nerp'
+      token: 'uhhhhh nerp',
+      role: 'front-end',
+      skills: "['JavaScript', 'React', 'LegoJS']"
     }),
     knex('users').insert({
       id: 2147483646,
@@ -23,7 +25,9 @@ exports.seed = function(knex, Promise) {
       passid: 'myPassId',
       profile_picture: 'putSomething',
       email: 'testEmail@456.com',
-      token: 'uhhhhh nerp'
+      token: 'uhhhhh nerp',
+      role: 'client-side', 
+      skills: "['JavaScript', 'React', 'MATLAB', 'Backbone.js']"
     }),
     knex('users').insert({
       id: 2147483647,
@@ -33,7 +37,9 @@ exports.seed = function(knex, Promise) {
       passid: 'myPassId',
       profile_picture: 'putSomething',
       email: 'testEmail@789.com',
-      token: 'uhhhhh nerp'
+      token: 'uhhhhh nerp',
+      role: 'back-end',
+      skills: "['Python', 'PHP', 'Drupel', 'Ruby']"
     })
   );
 };
