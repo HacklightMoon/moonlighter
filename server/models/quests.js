@@ -6,9 +6,8 @@ let Users = require('./users');
 let Quests = module.exports;
 
 Quests.create = function(obj) {
-  var attrs = Object.assign({}, obj);
 
-  return db('quests').insert(attrs)
+  return db('quests').insert(obj)
     .then(function(data){
       return data[0]
     });
