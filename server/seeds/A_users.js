@@ -6,7 +6,7 @@ exports.seed = function(knex, Promise) {
 
     // Inserts seed entries
     knex('users').insert({
-      id: 1,
+      id: 2147483645,
       github_username: 'flickerbits',
       full_name: 'Hugh Suh',
       money: 1000000,
@@ -16,7 +16,7 @@ exports.seed = function(knex, Promise) {
       token: 'uhhhhh nerp'
     }),
     knex('users').insert({
-      id: 2,
+      id: 2147483646,
       github_username: 'dalyhabit',
       full_name: 'Patrick Daly',
       money: 1000001,
@@ -26,7 +26,7 @@ exports.seed = function(knex, Promise) {
       token: 'uhhhhh nerp'
     }),
     knex('users').insert({
-      id: 3,
+      id: 2147483647,
       github_username: 'pmatteu2',
       full_name: 'Peter "Reducey" Matteucci',
       money: 99999,
