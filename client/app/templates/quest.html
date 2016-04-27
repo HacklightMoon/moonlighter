@@ -1,6 +1,5 @@
 <div class="questProfile">
 
-  <!-- <div class="ownerProfileButton">{{chosenQuest.owner.profile}}</div> -->
   <div class="questDescription book">
     <h1>{{chosenQuest.title}}</h1>
     <div class="questDescription">
@@ -10,5 +9,6 @@
     <!-- <p>{{chosenQuest.roles}}</p> -->
     <p>Bounty: {{chosenQuest.bounty}}</p>
     <p>Date Created: {{chosenQuest.createdAt}}</p>
+  <button ui-sref="userProfile" class="ownerProfileButton">{{chosenQuest.user_name}}'s Profile</button>
   </div>
 </div>

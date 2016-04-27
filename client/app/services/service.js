@@ -4,14 +4,16 @@ angular.module("moonlighterApp.services", [])
 
     var Profile = []
     // get user profile
-    var getProfile = function () {
+    var getProfile = function (user_id) {
+      console.log("Sending user_id - services.js", user_id);
       return $http({
         method: 'GET',
-        url: '/user/info'
+        url: '/user/info?id=' + user_id,
+        data: user_id
       })
       .then(function (resp) {
         console.log("Got Profile: ", resp);
-        // return resp.data
+        return resp;
       })
       .catch(function (err) {
         console.error(err);
@@ -32,9 +34,20 @@ angular.module("moonlighterApp.services", [])
       })
     }
 
+    var setUser = function (user_id) {
+      Profile.questOwner = user_id;
+      return Profile.questOwner;
+    }
+
+    var getUser = function () {
+      return Profile.questOwner;
+    }
+
     return {
       getProfile: getProfile,
-      editProfile: editProfile
+      editProfile: editProfile,
+      getUser: getUser,
+      setUser: setUser
     }
 
   })
@@ -56,20 +69,6 @@ angular.module("moonlighterApp.services", [])
       })
     }
 
-    // THIS METHOD NEEDS SOME WORK. SHOULDN'T SEND DATA ON GET REQUEST..
-    // var getQuest = function (quest_id) {
-    //   return $http({
-    //     method: 'GET',
-    //     url: '/quest/quest',
-    //     data: quest_id
-    //   })
-    //   .then(function(resp) {
-    //     console.log("Quest: ", resp);
-    //   })
-    //   .catch(function(err){
-    //     console.error(err);
-    //   })
-    // }
     var getQuest = function() {
       return Quest.currentQuest;
     }
