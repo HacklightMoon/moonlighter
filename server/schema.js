@@ -12,6 +12,8 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.string('profile_picture');
   table.string('email');
   table.string('token');
+  table.string('role');
+  table.string('skills');
 })
 .createTableIfNotExists('characters', function(table){
   table.increments('id').primary();
