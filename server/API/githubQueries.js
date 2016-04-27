@@ -1,38 +1,27 @@
 'use strict';
 let request = require('request');
+let API = module.exports;
+let headers = require('../auth/github.js').headers;
 
-module.exports.firstTry = function(url){
-  let headers = require('../auth/github.js').headers || {'User-Agent': 'Moonlight'};
-  return new Promise(function(resolve, reject){
+let getReqFunc = function(url){
+  return function(){
     let options = {
       'url': 'https://api.github.com' + url,
-      'headers': headers
+      'headers': require('../auth/github.js').headers || {'User-Agent': 'Moonlight'}
     };
-
-    request.get(options, function(err, resp, body){
-      if(err){
-        reject(err);
-        return;
-      }
-      resolve(body, resp);
+    return new Promise(function(resolve, reject){
+      request.get(options, function(err, resp, body){
+        if (err){
+          reject(err);
+          return;
+        }
+        resolve(body, resp);
+      });
     });
-  });
-}
+  };
+};
 
-module.exports.notifications = function(){
-  let headers = require('../auth/github.js').headers;
-  return new Promise(function(resolve, reject){
-    let options = {
-      'url': 'https://api.github.com/search/issues?q=is%3Aopen+is%3Aissue+mentions%3Amoonlighter-bot',
-      'headers': headers
-    };
+API.getCurrentUser = getReqFunc('/user');
 
-    request.get(options, function(err, resp, body){
-      if(err){
-        reject(err);
-        return;
-      }
-      resolve(body, resp);
-    });
-  })
-}
+API.notifications = getReqFunc('/search/issues?q=is%3Aopen+is%3Aissue+mentions%3Amoonlighter-bot');
+
