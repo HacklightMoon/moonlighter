@@ -37,7 +37,7 @@ gulp.task('concat-dep', function() {
     .pipe(gulp.dest('./client/scripts'))
 });
 
-gulp.task('concat-app', function() {
+gulp.task('build-js', function() {
   return gulp.src(['']) // TODO fill me out
     .pipe(concat('')) // TODO fill me out
     .pipe(gulp.dest('./client/scripts'));
@@ -53,4 +53,4 @@ gulp.task('dev', function () {
 });
 
 // TODO add concats 
-gulp.task('default', ['dev']) 
+gulp.task('default', ['dev', 'build-js']) 
