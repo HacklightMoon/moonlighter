@@ -1,6 +1,6 @@
 'use strict';
 angular.module('moonlighterApp.newQuest', [])
-.controller('NewQuestCtrl', ['$scope', function($scope, Quest) {
+.controller('NewQuestCtrl', function($scope, Quest) {
   $scope.newQuest = {};
 
   $scope.addQuest = function () {
@@ -34,7 +34,7 @@ angular.module('moonlighterApp.newQuest', [])
       "type": "project",
       "description": $scope.newQuest.description,
       "title": $scope.newQuest.title,
-      "tech": $scope.newQuest.tech.split(','),
+      "stack": $scope.newQuest.tech.split(','),
       "url": $scope.newQuest.url,
       "bounty": $scope.newQuest.bounty
     }
@@ -56,4 +56,4 @@ angular.module('moonlighterApp.newQuest', [])
       // $scope.questFailed = 'Failure...';
     })
   }
-}]);
+});

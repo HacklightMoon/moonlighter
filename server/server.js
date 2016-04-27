@@ -165,7 +165,7 @@ app.get('/quest/feed', function(req, res){
 });
 
 app.post('/quest/newquest', function(req, res){
-  return Quest.create(req.body)
+  return Quests.create(req.body)
   .then(function(resp){
     res.send(resp);
   });
