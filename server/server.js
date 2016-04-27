@@ -9,6 +9,7 @@ let Users          = require('./models/users');
 let Quests         = require('./models/quests');
 let passportGithub = require('./auth/github');
 let Path           = require('path');
+let session        = require('express-session');
 let app            = express();
 let assetFolder    = Path.resolve(__dirname, '../client/');
 let routes         = require('./routes/server.js');
@@ -25,6 +26,8 @@ app.use("/style", express.static(rootPath + '/style'));
 
 // middleware 
 app.use(passport.initialize());
+app.use(passport.session());
+app.use(session({ secret: 'hacklightmoonshine'}))
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
