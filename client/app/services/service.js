@@ -4,14 +4,15 @@ angular.module("moonlighterApp.services", [])
 
     var Profile = []
     // get user profile
-    var getProfile = function () {
+    var getProfile = function (user_id) {
       return $http({
         method: 'GET',
-        url: '/user/info'
+        url: '/user/info',
+        data: user_id
       })
       .then(function (resp) {
         console.log("Got Profile: ", resp);
-        // return resp.data
+        return resp.data
       })
       .catch(function (err) {
         console.error(err);
@@ -30,6 +31,15 @@ angular.module("moonlighterApp.services", [])
       .catch(function (err) {
         console.error(err);
       })
+    }
+
+    var setUser = function (user_id) {
+      Profile.questOwner = user_id;
+      return Profile.questOwner;
+    }
+
+    var getUser = function () {
+      return Profile.questOwner;
     }
 
     return {

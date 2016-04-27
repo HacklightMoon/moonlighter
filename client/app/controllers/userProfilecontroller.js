@@ -3,8 +3,12 @@ angular.module('moonlighterApp.userProfile', [])
 .controller('UserProfileCtrl', function ($scope, Profile) {
   $scope.editState = false;
 
+  $scope.getUser = function() {
+    $scope.currentUser = Profile.getUser();
+  }
+
   $scope.getProfile = function(){
-    Profile.getProfile()
+    Profile.getProfile($scope.currentUser);
     .then(function(data){
       console.log("DATA99999 ", data);
     })

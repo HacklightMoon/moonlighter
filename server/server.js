@@ -151,8 +151,8 @@ app.post('/user/update', function(req, res){
 })
 
 app.get('/user/info', function(req, res){
-  console.log("server.js, 147 req.body", req.body);
-  return Users.verifyId(req.body.passid)
+  console.log("server.js, 153 req.body", req.body);
+  return Users.getById(req.body)
     .then(function(resp){
       res.send(resp)
     });
