@@ -5,7 +5,7 @@ angular.module('moonlighterApp.header',[])
     if($state.current.name==="home"){
       $scope.seen = false;
     };
-    console.log($state);
+    // console.log($state);
 }]);
 
 

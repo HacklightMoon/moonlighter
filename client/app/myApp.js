@@ -8,8 +8,8 @@ angular.module('moonlighterApp', [
   'moonlighterApp.questProfile',
   'moonlighterApp.about',
   'moonlighterApp.newQuest',
-  'moonlighterApp.header'
-  // 'moonlighterApp.editProfile',
+  'moonlighterApp.header',
+  'moonlighterApp.userProfile',
   ])
 
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
