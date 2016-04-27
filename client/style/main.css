@@ -12,13 +12,7 @@
   background-position: fixed;
   color: #e2dfc8;
   margin: 0 auto;
-  padding: 0 5%;
   /*overflow: hidden;*/
-}
-
-a {
-  color: #e2dfc8  ;
-  text-decoration: none;
 }
 
 .questfeed-button-text{
@@ -60,6 +54,7 @@ a {
 .logo-title{
   font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
   display: inline;
+  margin: 40px 0 0 20px;
   padding: 3px; 
   position: relative; 
   width: 100%;
@@ -109,7 +104,7 @@ nav li {
   font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
   display: inline-block; 
   position: relative; 
-  width: 90vw;
+  width: 100vw;
   margin: 150px auto;
   text-align: center;
 }
@@ -138,7 +133,7 @@ nav li {
 .landing-questfeed-button-text { 
   color: #202835;
 }
-
+/*
 .animate-fade{}
 
 
@@ -154,15 +149,92 @@ nav li {
 .animate-fade.ng-leave,
 .animate-fade.ng-enter.ng-enter-active {
   opacity:1;
-}
+}*/
 /********************* QUEST FEED ************************/
+.container-quests {
+  perspective: 800px;
+}
+
+.questinfo {
+  z-index: 1;
+}
+.quests {
+    margin-left: 10rem;
+}
+
+.back-info {
+  z-index: 2;
+}
+.newquest-button {
+  margin-bottom: 25px;
+  position: relative;
+  left:44%;} 
+
 .quests {
   margin-top: 50px;
 }
 
+.questCard {
+  text-align:center;
+  position: relative;
+  width: 350px;
+  height: 200px;
+  margin: 15px;
+  float:left;
+}
+
+.questimage {
+  position: relative;
+  width: 100%;
+}
+
 .newquest-button {
-  margin-bottom: 25px;
+  position: relative;
 } 
+
+quest-card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+quest-face-front {
+  background:#000; 
+}
+
+quest-face-back {
+  display: block;
+  box-sizing: border-box;
+  padding: 20px;
+  color: white;
+  text-align: left;
+  background-color: #333;
+}
+/********************* ANIMATION ************************/
+
+.questCard {
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+}
+.questCard:hover .quest-face-front{
+  transform: rotateY(-180deg);
+}
+
+.questCard:hover .quest-face-back {
+ transform: rotateY(0deg);
+}
+.quest-card-face {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+.quest-card-face.quest-face-front {
+  transform: rotateY(0deg);
+} 
+
+.quest-card-face.quest-face-back {
+  transform: rotateY(180deg); 
+}
 /********************* QUEST PROFILE ************************/
 .questProfile {
   position: relative;
@@ -200,7 +272,12 @@ nav li {
   font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
 }
 
+/********************* OMNIPRESENT ************************/
 
+a {
+  color: #e2dfc8  ;
+  text-decoration: none;
+}
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none;
