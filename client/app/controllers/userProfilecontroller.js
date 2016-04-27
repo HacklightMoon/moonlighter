@@ -11,7 +11,7 @@ angular.module('moonlighterApp.userProfile', [])
     console.log("Current User", $scope.currentUser);
     Profile.getProfile($scope.currentUser)
     .then(function(data){
-      console.log("DATA99999 ", data);
+      $scope.userData = data.data[0];
     })
     .catch(function(err){
       console.log(err);
