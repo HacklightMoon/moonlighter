@@ -27,7 +27,7 @@ app.use("/style", express.static(rootPath + '/style'));
 // middleware 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(session({ secret: 'hacklightmoonshine'}))
+app.use(session({ secret: 'hacklightmoonshine', cookie: { maxAge: 600000 }}))
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -39,17 +39,18 @@ app.get('/auth/github/callback', passportGithub.authenticate('github', { failure
 
 // Logout route
 app.get('/auth/logout', function(req,res){
+  console.log('trying to logout...')
   req.logout();
   req.session.destroy();
-  res.clearCookie('profilePic');
-  res.clearCookie('profileName');
+  res.clearCookie('connect.sid');
+  // res.clearCookie('profileName');
   res.redirect('/');
 })
 
 //Authentication Route
 app.get('/auth/github', passportGithub.authenticate('github', {
   scope: ['user', 'public_repo', 'notifications'] 
-  })); 
+  }));
  var configTest = function(){
 
   var sampleQuest = [
@@ -181,5 +182,5 @@ app.listen(3000, function () {
   console.log('FOR YOU FRONT_END FOLKS')
   console.log('-----ENDPOINTS------')
   console.log('GET /sampleUser, /sampleQuestData, /issues');
-  console.log('POST (no endpoints yet)');
+  console.log('POST /quest/newquest');
 });
