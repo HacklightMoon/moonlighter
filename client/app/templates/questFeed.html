@@ -1,30 +1,18 @@
 <div class="container-quests">
+    <a ui-sref="newQuest" class="newquest-button">Add a quest!</a>
     <div class="quests">
-      <a ui-sref="newQuest" class="newquest-button">Add a quest!</a>
-      <div ng-repeat="quest in quests">
+      <div class="questCard" ng-repeat="quest in quests">
         <a ng-click="selectQuest(quest)" ui-sref="questProfile">  
-            <div class="cardQuestName">
-              {{quest.title}}
-              {{quest.stack}}
+          <div class="card">
+            <div class="quest-card-face quest-face-front">
+              <h3 class="questinfo"><span>{{quest.title}}<br />Bounty: {{quest.bounty}}</span></h3>
             </div>
-            <div class="cardQuestDesc">
-              <p>{{quest.description}}</p>
+              <div class="quest-card-face quest-face-back">
+                <img class="questmap" src="../../img/parchment.sketch">
+                <span class="back-info"><p>{{quest.description}}<br /> Stack: {{quest.stack}}</p></span>
             </div>
+          </div>
           </a>
-        <hr>
       </div>
-    </div>
-</div>
-<div class='md-padding' layout="row" layout-wrap>
-    <md-card style="width: 350px;" ng-repeat="quest in quests">
-      <img src="http://placehold.it/150x150" class="md-card-image" alt="user avatar">
-      <md-card-content>
-        <h2>{{quest.title}}</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-      </md-card-content>
-      <div class="md-actions" layout="row" layout-align="end center">
-        <md-button>Save</md-button>
-        <md-button>View</md-button>
-      </div>
-    </md-card>
-</div>
+    </div>    
+</div> 
