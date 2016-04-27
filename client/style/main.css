@@ -13,12 +13,36 @@
   color: #e2dfc8;
   margin: 0 auto;
   padding: 0 5%;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 a {
   color: #e2dfc8  ;
   text-decoration: none;
+}
+
+.questfeed-button-text{
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.questfeed-button {
+  background-color: #f6f1ee;
+    border: none;
+    padding: 5px 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #b2aa6e;
+    box-shadow: -2px 5px 25px #f6f1ee;
+    color: #202835;
+    font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
 }
 /********************* Header ************************/
 .logoBlock{
@@ -35,7 +59,8 @@ a {
 
 .logo-title{
   font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
-  display: inline; 
+  display: inline;
+  padding: 3px; 
   position: relative; 
   width: 100%;
   color:#e2dfc8;
@@ -79,7 +104,7 @@ nav li {
   margin: 5px;
 }
 
-/********************* landing ************************/
+/********************* LANDING ************************/
 .landing-div {
   font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
   display: inline-block; 
@@ -114,23 +139,65 @@ nav li {
   color: #202835;
 }
 
-/********************* New Quests ************************/
+.animate-fade{}
+
+
+.animate-fade.ng-enter, .animate-if.ng-leave {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.5s;
+}
+
+.animate-fade.ng-enter,
+.animate-fade.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+.animate-fade.ng-leave,
+.animate-fade.ng-enter.ng-enter-active {
+  opacity:1;
+}
+/********************* QUEST FEED ************************/
+.quests {
+  margin-top: 50px;
+}
+
+.newquest-button {
+  margin-bottom: 25px;
+} 
+/********************* QUEST PROFILE ************************/
+.questProfile {
+  position: relative;
+  margin-top: 50px; 
+}
+
+.quest-button-wrapper {
+  position: relative;
+   margin-bottom: 25px;
+}
+
+.quest-details {
+  margin-top:50px;
+}
+/********************* NEW QUESTS ************************/
+.newQuest-profile {
+  position: relative;
+  margin-top: 50px;
+}
 
 .newquest-button{
   background-color: #f6f1ee;
-    border: none;
-    padding: 5px 35px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 8px;
-    box-shadow: 0 0 10px #b2aa6e;
-    box-shadow: -2px 5px 25px #f6f1ee;
-    color: #202835;
-    font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
+  border: none;
+  padding: 5px 35px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #b2aa6e;
+  box-shadow: -2px 5px 25px #f6f1ee;
+  color: #202835;
+  font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
 }
 
 
