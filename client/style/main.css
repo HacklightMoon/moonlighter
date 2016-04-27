@@ -155,6 +155,12 @@ nav li {
   perspective: 800px;
 }
 
+.container{
+  width:400px;
+  height:280px;
+  position: relative;
+}
+
 .questinfo {
   z-index: 1;
 }
@@ -183,6 +189,14 @@ nav li {
   float:left;
 }
 
+.card{
+  text-align:center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+
 .questimage {
   position: relative;
   width: 100%;
@@ -192,47 +206,47 @@ nav li {
   position: relative;
 } 
 
-quest-card-face {
+.face {
   position: absolute;
   width: 100%;
   height: 100%;
 }
 
-quest-face-front {
-  background:#000; 
+.face.front {
+  background-image: url("../img/parchment.jpg");
 }
 
-quest-face-back {
+.face.back {
   display: block;
   box-sizing: border-box;
   padding: 20px;
   color: white;
   text-align: left;
-  background-color: #333;
+  background-image: url("../img/parchment.jpg");
 }
 /********************* ANIMATION ************************/
 
-.questCard {
+.card {
   transform-style: preserve-3d;
   transition: all 1.0s linear;
 }
-.questCard:hover .quest-face-front{
+.card:hover .front{
   transform: rotateY(-180deg);
 }
 
-.questCard:hover .quest-face-back {
+.card:hover .back {
  transform: rotateY(0deg);
 }
-.quest-card-face {
+.face {
   backface-visibility: hidden;
   transform-style: preserve-3d;
   transition: 0.5s;
 }
-.quest-card-face.quest-face-front {
+.face.front {
   transform: rotateY(0deg);
 } 
 
-.quest-card-face.quest-face-back {
+.face.back {
   transform: rotateY(180deg); 
 }
 /********************* QUEST PROFILE ************************/

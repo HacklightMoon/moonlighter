@@ -4,11 +4,10 @@
       <div class="questCard" ng-repeat="quest in quests">
         <a ng-click="selectQuest(quest)" ui-sref="questProfile">  
           <div class="card">
-            <div class="quest-card-face quest-face-front">
+            <div class="face front">
               <h3 class="questinfo"><span>{{quest.title}}<br />Bounty: {{quest.bounty}}</span></h3>
             </div>
-              <div class="quest-card-face quest-face-back">
-                <img class="questmap" src="../../img/parchment.sketch">
+              <div class="face back">
                 <span class="back-info"><p>{{quest.description}}<br /> Stack: {{quest.stack}}</p></span>
             </div>
           </div>
@@ -16,3 +15,9 @@
       </div>
     </div>    
 </div> 
+
+<!--  <svg xmlns="../../img/parchment.svg">
+                  <g>
+                    <text x="0" y="10" font-family="Cinzel Decorative" font-size="12" fill="#202835" > {{quest.title}} </text>
+                  </g>
+                </svg> -->
