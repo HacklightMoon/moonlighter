@@ -20,6 +20,10 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.integer('user_id').references('id').inTable('users');
   table.string('name');
 })
+.createTableIfNotExists('items', function(table){
+  table.increments('id').primary();
+  table.string('name');
+})
 .createTableIfNotExists('technicalSkills', function(table){
   table.increments('id').primary();
   table.string('name');
