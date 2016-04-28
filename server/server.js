@@ -44,6 +44,7 @@ app.get('/auth/logout', function(req,res){
   req.session.destroy();
   res.clearCookie('connect.sid');
   // res.clearCookie('profileName');
+  req.signedCookies = null;
   res.redirect('/');
 })
 
@@ -175,6 +176,7 @@ app.get('/user/current', function(req, res){
     })
   }
 })
+
 //--------------------Quest Endpoints--------------------
 
 app.get('/quest/feed', function(req, res){
