@@ -19,8 +19,8 @@ exports.seed = function(knex, Promise) {
     }),
     knex('users').insert({
       id: 2147483646,
-      github_username: 'dalyhabit',
-      full_name: 'Patrick Daly',
+      github_username: 'gitlord',
+      full_name: 'Kyle Simpson',
       money: 1000001,
       passid: 2147483646,
       profile_picture: 'putSomething',
