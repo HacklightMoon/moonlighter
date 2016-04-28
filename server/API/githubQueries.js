@@ -3,10 +3,12 @@ let request = require('request');
 let API = module.exports;
 
 let getReqFunc = function(url){
-  return function(){
+  return function(token){
     let options = {
       'url': 'https://api.github.com' + url,
-      'headers':{'User-Agent': 'Moonlight'}
+      'headers':{'User-Agent': 'Moonlight',
+      'Authorization': token
+      },
     };
     return new Promise(function(resolve, reject){
       request.get(options, function(err, resp, body){
@@ -14,6 +16,7 @@ let getReqFunc = function(url){
           reject(err);
           return;
         }
+        console.log("options:", options)
         resolve(body, resp);
       });
     });
