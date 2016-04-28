@@ -6,11 +6,17 @@ let Users = require('./users');
 let Quests = module.exports;
 
 Quests.create = function(obj) {
-
   return db('quests').insert(obj)
     .then(function(data){
       return data[0]
     });
+}
+
+Quests.remove = function(id){
+  return db('quests')
+  .where({
+    'id': id
+  }).del();
 }
 
 Quests.getById = function(id){
