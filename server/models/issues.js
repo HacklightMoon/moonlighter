@@ -1,15 +1,21 @@
 'use strict';
 
-let Promise = require('bluebird'); //remove this once babel is available.
 let db = require('../db');
 let Issues = module.exports;
 
 Issues.getIssues = function(id){
-  return db('issues')
-}
+  return db('issues');
+};
 
 Issues.getByUser = function(user){
   return db('issues').where({
     'user': user
-  }).select('id')
+  })
+}
+
+Issues.addIssues = function(obj){
+  return db('issues').insert(obj)
+    .then(function(data){
+      return data[0]
+    })
 }
