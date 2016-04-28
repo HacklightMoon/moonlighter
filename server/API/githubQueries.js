@@ -1,13 +1,12 @@
 'use strict';
 let request = require('request');
 let API = module.exports;
-let headers = require('../auth/github.js').headers;
 
 let getReqFunc = function(url){
   return function(){
     let options = {
       'url': 'https://api.github.com' + url,
-      'headers': require('../auth/github.js').headers || {'User-Agent': 'Moonlight'}
+      'headers':{'User-Agent': 'Moonlight'}
     };
     return new Promise(function(resolve, reject){
       request.get(options, function(err, resp, body){

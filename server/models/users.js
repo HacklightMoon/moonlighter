@@ -6,11 +6,8 @@ let Users = module.exports;
 let API = require('../API/githubQueries')
 
 Users.verifyInsert = function(obj, token){
-  //  console.log('users.js 8, token:', token);
-  //console.log('users.js 9, obj:', obj);
   let session = {};
   session.passid = obj.id;
-  console.log('users.js 12, session.passid', session.passid);
   session.token = 'token ' + token;
   session.profile_picture = obj._json.avatar_url;
   session.github_username = obj._json.login || username;
@@ -20,14 +17,11 @@ Users.verifyInsert = function(obj, token){
   return db('users').where({
     passid: session.passid
   }).then(function(data){
-    console.log('users.js 21, data:', data);
     if (data.length === 0){
       return db('users').insert(session).limit(1).then(function(array){
-        console.log('returning sessions (models/users.js, 24)');
-        return session;
+        return array[0];
       });
     } else {
-      console.log('models/users.js, 28 datas = ', data)
       if (Array.isArray(data)){
         return data[0];
       } else {
@@ -53,7 +47,6 @@ Users.getByLoggedIn = function(){
   return API.getCurrentUser()
   .then(function(blob){
     let passid = JSON.parse(blob).id;
-    console.log("users.js 56, passid:", passid)
     return db('users').where({
       'passid': passid
     }).limit(1);
