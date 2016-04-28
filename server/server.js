@@ -169,8 +169,7 @@ app.get('/user/current', function(req, res){
     return Users.getByLoggedIn(blob).then(function(users){
     let user = users[0]; 
     console.log("server.js, current user:", user);
-    res.send(user.login || null);
-    })
+    res.send(user || null);
   })
 })
 

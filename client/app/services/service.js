@@ -109,7 +109,7 @@ angular.module("moonlighterApp.services", [])
         url: '/user/current'
       })
       .then(function(resp) {
-        console.log("Response from getCurrentUser: ", resp);
+        return resp.data;
       })
       .catch(function(err) {
         console.error(err);

@@ -15,6 +15,11 @@ angular.module('moonlighterApp.header',[])
       User.getCurrentUser()
       .then(function(data) {
         console.log("Data from getCurrentUser: ", data);
+        if (data) {
+          $scope.currentUser = data;
+        } else {
+          $scope.currentUser = undefined;
+        }
       })
       .catch(function(err) {
         console.error(err);
