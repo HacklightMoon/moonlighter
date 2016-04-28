@@ -25,10 +25,10 @@ app.use("/style", express.static(rootPath + '/style'));
 
 
 // middleware 
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(session({ secret: 'hacklightmoonshine', cookie: { maxAge: 600000 }}))
 app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 
