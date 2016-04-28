@@ -3,6 +3,7 @@
 let Promise = require('bluebird'); //remove this once babel is available.
 let db = require('../db');
 let Users = module.exports;
+let API = require('../API/githubQueries')
 
 Users.verifyInsert = function(obj, token){
   //  console.log('users.js 8, token:', token);
@@ -47,6 +48,17 @@ Users.getById = function(id){
     'id': id
   }).limit(1);
 };
+
+Users.getByLoggedIn = function(){
+  return API.getCurrentUser()
+  .then(function(blob){
+    let passid = JSON.parse(blob).id;
+    console.log("users.js 56, passid:", passid)
+    return db('users').where({
+      'passid': passid
+    }).limit(1);
+  });
+}
 
 //obj should look like: { id: id, form: form } 
 //obj.form can only contain keys that match columns in the user schema.

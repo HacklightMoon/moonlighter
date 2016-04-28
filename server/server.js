@@ -112,6 +112,7 @@ app.get('/auth/github', passportGithub.authenticate('github', {
 configTest();
 
 app.get('/trycall', function(req, res){
+  console.log("req.user:", req.user);
   API.getCurrentUser()//this function call needs token in header
           .then(function(resp){
             res.send(resp);
@@ -157,6 +158,14 @@ app.get('/user/info', function(req, res){
       res.send(resp)
     });
 });
+
+app.get('/user/current', function(req, res){
+  Users.getByLoggedIn()
+  .then(function(user){
+    console.log("server.js, current user:", user);
+    res.send(user.login || null);
+  })
+})
 
 //--------------------Quest Endpoints--------------------
 

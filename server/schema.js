@@ -8,7 +8,7 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.timestamp('joined_at').defaultTo(knex.fn.now());
   table.string('full_name');
   table.integer('money').defaultTo(0);
-  table.string('passid');
+  table.integer('passid');
   table.string('profile_picture');
   table.string('email');
   table.string('token');
