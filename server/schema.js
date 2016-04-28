@@ -24,17 +24,17 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.increments('id').primary();
   table.string('name');
 })
-.createTableIfNotExists('technicalSkills', function(table){
+.createTableIfNotExists('technical_skills', function(table){
   table.increments('id').primary();
   table.string('name');
 })
-.createTableIfNotExists('usersTechnicalSkills', function(table){
+.createTableIfNotExists('users_technical_skills', function(table){
   table.increments('id').primary();
   table.integer('user_id').references('id').inTable('users');
-  table.integer('technical_skill_id').references('id').inTable('technicalSkills');
+  table.integer('technical_skill_id').references('id').inTable('technical_skills');
   table.integer('skill_score'); //like an endorsement
 })
-.createTableIfNotExists('charactersSkills', function(table){ //fantasy skills attached to characters
+.createTableIfNotExists('characters_skills', function(table){ //fantasy skills attached to characters
 })
 .createTableIfNotExists('quests', function(table){
   table.increments('id').primary();
@@ -42,25 +42,39 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.string('user_name').references('github_username').inTable('users');
   table.timestamp('createdAt').defaultTo(knex.fn.now());
   table.string('title');
-  table.string('type');//project or issue
-  table.string('stack');//string list of technologies used
+  table.string('type'); //project or issue
+  table.string('stack'); //string list of technologies used
   table.string('description');
   table.integer('bounty');
   table.string('url'); // link for gh repo
+  table.string('desired_feat');
 })
-.createTableIfNotExists('usersQuests', function(table){
+.createTableIfNotExists('users_quests', function(table){
   table.increments('id').primary();
   table.integer('user_id').references('id').inTable('users');
   table.integer('quest_id').references('id').inTable('quests');
+})
+.createTableIfNotExists('requested_quests', function(table){
+  table.increments('id').primary();
+  table.integer('quest_id').references('id').inTable('quests');
+  table.integer('user_id').references('id').inTable('users');
 })
 .createTableIfNotExists('technologies', function(table){
   table.increments('id').primary();
   table.string('name');
 })
-.createTableIfNotExists('questsTechnologies', function(table){
+.createTableIfNotExists('quests_technologies', function(table){
   table.increments('id').primary();
   table.integer('quest_id').references('id').inTable('quests');
   table.integer('technology_id').references('id').inTable('technologies');
+})
+.createTableIfNotExists('issues', function(table){
+  table.increments('id').primary();
+  table.string('title');
+  table.string('user');
+  table.string('body');
+  table.string('issue_url');
+  table.string('repo_url');
 })
 .then(function(res){
   console.log('Success Applying Schema');
