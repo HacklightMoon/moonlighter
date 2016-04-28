@@ -53,7 +53,7 @@ Quests.getByTechnology = function(name){
     'name': name
   }).select('id').limit(1)
   .then(function(id){
-    return db('questsTechnologies').where({
+    return db('quests_technologies').where({
       'technology_id': id
     }).select('quest_id')
   })
