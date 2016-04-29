@@ -179,6 +179,7 @@ app.get('/user/current', function(req, res){
   }
 })
 
+
 //--------------------Quest Endpoints--------------------
 
 app.get('/quest/feed', function(req, res){
