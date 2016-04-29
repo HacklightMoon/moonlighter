@@ -2,8 +2,6 @@
   <div class="container">
     <h1>{{userData.full_name}}</h1>
     <hr />
-    
-
     <div class="profile container" ng-if="!editState">
       <div><img src='{{userData.picture}}'></div>
       <div>Username:  {{userData.github_username}}</div>
@@ -12,18 +10,14 @@
       <div>Skills:  {{userData.skills}}</div>
       <div>Money:  ${{userData.money}}</div>
       <br/>
-      <button class='edit' ng-click='editProfile()'>Edit profile</button>
+      <button ng-if="profileOwner" class='edit' ng-click='editProfile()'>Edit profile</button>
     </div>
-
-
-
-  </div>
-</div>
-
     <div class="editProfile container" ng-if="editState">
         <div>Role: <input type='text' ng-model='userData.role'></input></div>
         <div>Skills: <input type='text' ng-model='userData.skills'></input></div>
-        <div>Projects: <input type='text' ng-model='userData.projects'></input></div>
+        <div>Email: <input type='text' ng-model='userData.email'></input></div>
     
         <button class='save' ng-click='saveProfile()'>Save changes</button>
     </div>
+  </div>
+</div>

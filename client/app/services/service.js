@@ -131,8 +131,23 @@ angular.module("moonlighterApp.services", [])
       })
     }
 
+    var updateUserInfo = function(userData) {
+      return $http({
+        method: 'POST',
+        url: '/user/update',
+        data: userData
+      })
+      .then(function(resp) {
+        console.log("Response from update user", resp);
+      })
+      .catch(function(err){
+        console.error(err);
+      })
+    }
+
     return {
-      getCurrentUser: getCurrentUser
+      getCurrentUser: getCurrentUser,
+      updateUserInfo: updateUserInfo
     }
   })
   
