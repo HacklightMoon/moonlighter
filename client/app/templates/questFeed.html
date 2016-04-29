@@ -1,8 +1,8 @@
 <div class="container-quests">
-    <a ui-sref="newQuest" class="newquest-button">Add a quest!</a>
+    <a ui-sref="newQuest" ng-if="seeAddQuest" class="newquest-button">Add a quest!</a>
     <div class="quests">
       <div class="questCard" ng-repeat="quest in quests">
-        <a ng-click="selectQuest(quest)" ui-sref="questProfile">  
+        <a  ng-click="selectQuest(quest)" ui-sref="questProfile">  
           <div class="card">
             <div class="face front">
               <div class="quest-title-div">
