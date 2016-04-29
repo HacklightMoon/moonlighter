@@ -149,6 +149,23 @@ app.get('/issues', function(req, res) {
   })
 })
 
+app.post('/issues/create', function(req, res){
+  Issues.addIssues(req.body)
+    .then(function(resp){
+      console.log(resp)
+      res.send(resp)
+    });
+});
+
+app.get('/issues/load', function(req, res){
+  Issues.getIssues()
+    .then(function(resp){
+      console.log(resp)
+      res.send(resp)
+  });
+});
+
+
 app.post('/user/update', function(req, res){
   console.log("server.js, 146 req.body", req.body);
   Users.update(req.body)
