@@ -92,11 +92,26 @@ angular.module("moonlighterApp.services", [])
       })
     }
 
+    var deleteQuest = function (id) {
+      return $http({
+        method: 'DELETE',
+        url: '/quest/delete?id=' + id,
+        // data: id
+      })
+      .then(function(resp) {
+        console.log("Quest delete: ", resp);
+      })
+      .catch(function(err){
+        console.error(err);
+      })
+    }
+
     return {
       getAllQuests: getAllQuests,
       getQuest: getQuest,
       setQuest: setQuest,
-      addQuest: addQuest
+      addQuest: addQuest,
+      deleteQuest: deleteQuest
     }
   })
 

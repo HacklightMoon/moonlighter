@@ -192,6 +192,14 @@ app.post('/quest/newquest', function(req, res){
   });
 });
 
+app.delete('/quest/delete', function(req, res){
+  console.log("D*E*L*T*E ", req.query.id)
+  return Quests.remove(req.query.id)
+  .then(function(resp){
+    res.send(resp);
+  });
+});
+
 app.use('/', routes)
 
 app.listen(3000, function () {

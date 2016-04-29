@@ -11,4 +11,8 @@ angular.module('moonlighterApp.questProfile', [])
     Profile.setUser(user_id);
   }
   $scope.setUser($scope.chosenQuest.user_id);
+
+  $scope.deleteQuest = function() {
+    Quest.deleteQuest($scope.chosenQuest.id);
+  }
 });

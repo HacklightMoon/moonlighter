@@ -3,6 +3,15 @@ angular.module('moonlighterApp.newQuest', [])
 .controller('NewQuestCtrl', function($scope, Quest) {
   $scope.newQuest = {};
 
+  // User.getCurrentUser()
+  // .then (function(data){
+  //   if (data){
+  //     $scope.currentUser = data;
+  //   } else {
+  //     $scope.currentUser = undefined;
+  //   }
+  // })
+
   $scope.addQuest = function () {
     $scope.titleRequired = '';
     $scope.descriptionRequired = '';
@@ -36,7 +45,9 @@ angular.module('moonlighterApp.newQuest', [])
       "title": $scope.newQuest.title,
       "stack": $scope.newQuest.tech.split(','),
       "url": $scope.newQuest.url,
-      "bounty": $scope.newQuest.bounty
+      "bounty": $scope.newQuest.bounty,
+      // "user_id": $scope.currentUser.user_id,
+      // "user_name": $scope.currentUser.user_name
     }
 
     Quest.addQuest(quest)
@@ -47,6 +58,7 @@ angular.module('moonlighterApp.newQuest', [])
       $scope.newQuest.tech = '';
       $scope.newQuest.url = '';
       $scope.newQuest.bounty = '';
+
       
       $scope.questCreated = 'Quest Conjured!';
       $scope.questFailed = '';
