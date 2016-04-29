@@ -7,6 +7,7 @@ let cookieParser   = require('cookie-parser');
 let API            = require('./API/githubQueries');
 let Users          = require('./models/users');
 let Quests         = require('./models/quests');
+let Issues         = require('./models/issues'); 
 let passportGithub = require('./auth/github');
 let Path           = require('path');
 let session        = require('express-session');
@@ -40,11 +41,13 @@ app.get('/auth/github/callback', passportGithub.authenticate('github', { failure
 // Logout route
 app.get('/auth/logout', function(req,res){
   console.log('trying to logout...')
-  req.logout();
-  req.session.destroy();
-  res.clearCookie('connect.sid');
+  req.session.destroy(function(){
+    res.clearCookie('connect.sid');
+    req.signedCookies = null;
+    req.logout();
+    res.redirect('/');
+  });
   // res.clearCookie('profileName');
-  res.redirect('/');
 })
 
 //Authentication Route
@@ -142,9 +145,26 @@ app.get('/issues', function(req, res) {
     // Eventually, I will do something with this data...
     // result is equal to an array that contains all of the relevant
     // information for each Github Issue
-    res.send(result);
+    return result
   })
+    .then(function(data){
+      console.log("trying to add issues to db")
+      Issues.addIssues(data)
+      res.send(data);
+    })
+    .catch(function(err){
+      console.error(err)
+    })
 })
+
+app.get('/issues/load', function(req, res){
+  Issues.getIssues()
+    .then(function(resp){
+      console.log(resp)
+      res.send(resp)
+  });
+});
+
 
 app.post('/user/update', function(req, res){
   console.log("server.js, 146 req.body", req.body);
@@ -175,6 +195,8 @@ app.get('/user/current', function(req, res){
     })
   }
 })
+
+
 //--------------------Quest Endpoints--------------------
 
 app.get('/quest/feed', function(req, res){
