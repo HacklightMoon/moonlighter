@@ -145,17 +145,17 @@ app.get('/issues', function(req, res) {
     // Eventually, I will do something with this data...
     // result is equal to an array that contains all of the relevant
     // information for each Github Issue
-    res.send(result);
+    return result
   })
+    .then(function(data){
+      console.log("trying to add issues to db")
+      Issues.addIssues(data)
+      res.send(data);
+    })
+    .catch(function(err){
+      console.error(err)
+    })
 })
-
-app.post('/issues/create', function(req, res){
-  Issues.addIssues(req.body)
-    .then(function(resp){
-      console.log(resp)
-      res.send(resp)
-    });
-});
 
 app.get('/issues/load', function(req, res){
   Issues.getIssues()

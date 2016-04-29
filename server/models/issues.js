@@ -13,11 +13,26 @@ Issues.getByUser = function(user){
   })
 }
 
+// Issues.addIssues = function(obj){
+//   return db('issues').insert(obj)
+//     .then(function(data){
+//       return data[0]
+//     })
+// }
+
 Issues.addIssues = function(obj){
   obj.forEach(function(repo){
-  return db('issues').insert(repo)
-    .then(function(data){
-      return data[0]
-    })
-  })
-}
+    console.log("this be your repo" , repo)
+    return db('issues').where({
+      issue_url: repo.issue_url
+    }).then(function(data){
+      if(data.length === 0){
+        return db('issues')
+        .insert(repo)
+        .then(function(data){
+          return data[0]
+        })
+      }
+    });
+  });
+};
