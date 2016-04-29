@@ -2,7 +2,7 @@
 let passport = require('passport');
 let GitHubStrategy = require('passport-github2').Strategy;
 
-let User = require('../models/users');
+let Users = require('../models/users');
 let config = require('./config');
 let init = require('./init');
 
@@ -12,6 +12,7 @@ passport.use(new GitHubStrategy({
     ,    callbackURL: config.github.callbackURL
   },
   function(accessToken, refreshToken, profile, done) {
+    Users.verifyInsert(profile);    
       console.log("trying to serialize:", {profile, accessToken})
         
     done(null, {passid: profile.id, Authorization: "token " + accessToken})

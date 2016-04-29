@@ -166,8 +166,8 @@ app.get('/user/current', function(req, res){
   //Users.getByLoggedIn()
   API.getCurrentUser(req.user.Authorization)//this function call needs token in header
   .then(function(blob){
-    return Users.getByLoggedIn(blob).then(function(user){
-      
+    return Users.getByLoggedIn(blob).then(function(users){
+    let user = users[0]; 
     console.log("server.js, current user:", user);
     res.send(user.login || null);
     })
