@@ -13,13 +13,6 @@ Issues.getByUser = function(user){
   })
 }
 
-// Issues.addIssues = function(obj){
-//   return db('issues').insert(obj)
-//     .then(function(data){
-//       return data[0]
-//     })
-// }
-
 Issues.addIssues = function(obj){
   obj.forEach(function(repo){
     console.log("this be your repo" , repo)
