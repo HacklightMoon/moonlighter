@@ -24,17 +24,16 @@
 
 .questfeed-button {
   background-color: #f6f1ee;
-    border: none;
+    width: 80%;
     padding: 5px 35px;
-    text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 1rem;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 8px;
     box-shadow: 0 0 10px #b2aa6e;
-    box-shadow: -2px 5px 25px #f6f1ee;
+    box-shadow: -6px 0px 35px #f6f1ee;
     color: #202835;
     font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
 }
@@ -116,6 +115,12 @@ nav li {
   text-shadow: -3px 5px 25px #f6f1ee;
 }
 
+.questfeed-button-wrapper {
+  width:340px;
+  text-align: justify-all;
+  margin: 4px 0 2px 50px;
+}
+
 .landing-questfeed-button {
     background-color: #f6f1ee;
     border: none;
@@ -124,11 +129,10 @@ nav li {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
     cursor: pointer;
     border-radius: 8px;
     box-shadow: 0 0 10px #b2aa6e;
-    box-shadow: -2px 5px 25px #f6f1ee;
+    box-shadow: -2px -5px 25px #f6f1ee;
 }
 .landing-questfeed-button-text { 
   color: #202835;
@@ -161,23 +165,23 @@ nav li {
   position: relative;
 }
 
-.questinfo {
-  z-index: 1;
-}
 .quests {
-    margin-left: 10rem;
+    /*margin-left: 10rem;*/
+    top:50%;
+    right:50%;
+    margin: 0 auto;
+
 }
 
-.back-info {
-  z-index: 2;
-}
 .newquest-button {
   margin-bottom: 25px;
   position: relative;
-  left:44%;} 
+  left:44%;
+} 
 
 .quests {
-  margin-top: 50px;
+  margin-top: 150px;
+  margin-left: 12%;
 }
 
 .questCard {
@@ -194,8 +198,9 @@ nav li {
   position: absolute;
   width: 100%;
   height: 100%;
+  color: #202835;
+  font-family:200;
 }
-
 
 .questimage {
   position: relative;
@@ -213,17 +218,40 @@ nav li {
 }
 
 .face.front {
+  font-family: 'Poiret One', 'Hammersmith One', 'Quicksand', sans-serif;
   background-image: url("../img/parchment.jpg");
+  font-size: 2rem;
 }
 
 .face.back {
+  font-size: 1.2rem;
   display: block;
   box-sizing: border-box;
   padding: 20px;
-  color: white;
+  color: #202835;
   text-align: left;
   background-image: url("../img/parchment.jpg");
 }
+
+.quest-title-div {
+  display: block;
+  width: 100%;
+}
+
+.quest-title-div {
+  display: block;
+  width: 100%;
+}
+
+.questinfo {
+  margin-left:60px;
+}
+
+.back-info {
+  font-family: 'Poiret One', 'Hammersmith One', 'Quicksand', sans-serif;
+  font-weight: 800;
+}
+
 /********************* ANIMATION ************************/
 
 .card {
@@ -249,15 +277,23 @@ nav li {
 .face.back {
   transform: rotateY(180deg); 
 }
+
+.title-on-card {
+  font-size: 1.3rem;
+  font-weight: 900;
+  float: left;
+  margin-left: 30px;
+}
 /********************* QUEST PROFILE ************************/
 .questProfile {
   position: relative;
   margin-top: 50px; 
+  display:inline-block;
 }
 
 .quest-button-wrapper {
   position: relative;
-   margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
 .quest-details {
@@ -281,7 +317,7 @@ nav li {
   cursor: pointer;
   border-radius: 8px;
   box-shadow: 0 0 10px #b2aa6e;
-  box-shadow: -2px 5px 25px #f6f1ee;
+  box-shadow: -3px -1px 35px #f6f1ee;
   color: #202835;
   font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
 }
