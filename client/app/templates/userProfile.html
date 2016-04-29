@@ -13,9 +13,6 @@
       <button ng-if="profileOwner" class='edit' ng-click='editProfile()'>Edit profile</button>
     <span>{{userData}}</span>
     </div>
-  </div>
-</div>
-
     <div class="editProfile container" ng-if="editState">
         <div>Role: <input type='text' ng-model='userData.role'></input></div>
         <div>Skills: <input type='text' ng-model='userData.skills'></input></div>
@@ -23,3 +20,5 @@
     
         <button class='save' ng-click='saveProfile()'>Save changes</button>
     </div>
+  </div>
+</div>
