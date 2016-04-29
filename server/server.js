@@ -204,8 +204,11 @@ app.use('/', routes)
 
 app.listen(process.env.PORT ||3000, function () {
   console.log('Example app listening on port 3000!');
-  console.log('FOR YOU FRONT_END FOLKS')
-  console.log('-----ENDPOINTS------')
+  console.log('FOR YOU FRONT_END FOLKS');
+  console.log('-----ENDPOINTS------');
   console.log('GET /sampleUser, /sampleQuestData, /issues');
   console.log('POST /quest/newquest');
 });
+
+
+
