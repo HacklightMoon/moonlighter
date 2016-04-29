@@ -19,6 +19,6 @@
     <p>Bounty: {{chosenQuest.bounty}}</p>
     <p>Date Created: {{chosenQuest.createdAt}}</p>
   <button ui-sref="userProfile" class="ownerProfileButton">{{chosenQuest.user_name}}'s Profile</button>
-  <button ng-click="deleteQuest()" ui-sref="questFeed" class="deleteQuestButton">Delete Quest</button>
+  <button ng-if="questOwner" ng-click="deleteQuest()" ui-sref="questFeed" class="deleteQuestButton">Delete Quest</button>
   </div>
 </div>
