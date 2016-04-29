@@ -98,5 +98,26 @@ angular.module("moonlighterApp.services", [])
       setQuest: setQuest,
       addQuest: addQuest
     }
-  });
+  })
+
+  .factory('User', function($http) {
+    var User = [];
+
+    var getCurrentUser = function() {
+      return $http({
+        method: 'GET',
+        url: '/user/current'
+      })
+      .then(function(resp) {
+        return resp.data;
+      })
+      .catch(function(err) {
+        console.error(err);
+      })
+    }
+
+    return {
+      getCurrentUser: getCurrentUser
+    }
+  })
   
