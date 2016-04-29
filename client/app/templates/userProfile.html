@@ -11,7 +11,6 @@
       <div>Money:  ${{userData.money}}</div>
       <br/>
       <button ng-if="profileOwner" class='edit' ng-click='editProfile()'>Edit profile</button>
-    <span>{{userData}}</span>
     </div>
     <div class="editProfile container" ng-if="editState">
         <div>Role: <input type='text' ng-model='userData.role'></input></div>
