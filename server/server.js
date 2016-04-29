@@ -7,6 +7,7 @@ let cookieParser   = require('cookie-parser');
 let API            = require('./API/githubQueries');
 let Users          = require('./models/users');
 let Quests         = require('./models/quests');
+let Issues         = require('./models/issues'); 
 let passportGithub = require('./auth/github');
 let Path           = require('path');
 let session        = require('express-session');
@@ -40,12 +41,13 @@ app.get('/auth/github/callback', passportGithub.authenticate('github', { failure
 // Logout route
 app.get('/auth/logout', function(req,res){
   console.log('trying to logout...')
-  req.logout();
-  req.session.destroy();
-  res.clearCookie('connect.sid');
+  req.session.destroy(function(){
+    res.clearCookie('connect.sid');
+    req.signedCookies = null;
+    req.logout();
+    res.redirect('/');
+  });
   // res.clearCookie('profileName');
-  req.signedCookies = null;
-  res.redirect('/');
 })
 
 //Authentication Route
