@@ -11,8 +11,7 @@ Users.verifyInsert = function(obj){
   session.profile_picture = obj._json.avatar_url;
   session.github_username = obj._json.login || username;
   session.full_name = obj._json.name || obj.displayName;
-  session.email = obj.emails[0].value;
-  console.log("users.js, obj", obj.emails[0].value)
+  session.email = obj.emails ? obj.emails[0].value : null;
   return db('users').where({
     passid: session.passid
   }).then(function(data){
