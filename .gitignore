@@ -11,3 +11,7 @@ dist/
 
 *auth keys
 server/auth/config.js
+
+
+*tests
+client/jasmine
