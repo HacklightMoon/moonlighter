@@ -114,7 +114,7 @@ configTest();
 app.get('/trycall', function(req, res){
   //console.log("req.user:", req.user);
   //res.set('Authorization', req.user['Authorization'])
-  API.getCurrentUser(req.user['Authorization'])//this function call needs token in header
+  API.getCurrentUser(req.user.Authorization)//this function call needs token in header
   .then(function(resp){
     console.log("response:", resp)
     //console.log("req.user['Authorization']", req.user['Authorization'])
@@ -163,10 +163,14 @@ app.get('/user/info', function(req, res){
 });
 
 app.get('/user/current', function(req, res){
-  Users.getByLoggedIn()
-  .then(function(user){
+  //Users.getByLoggedIn()
+  API.getCurrentUser(req.user.Authorization)//this function call needs token in header
+  .then(function(blob){
+    return Users.getByLoggedIn(blob).then(function(user){
+      
     console.log("server.js, current user:", user);
     res.send(user.login || null);
+    })
   })
 })
 

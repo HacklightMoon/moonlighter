@@ -43,15 +43,14 @@ Users.getById = function(id){
   }).limit(1);
 };
 
-Users.getByLoggedIn = function(){
-  return API.getCurrentUser()
-  .then(function(blob){
+Users.getByLoggedIn = function(blob){
+    console.log("AAAAAAAAAAAAAAAAAusers.js, blob", blob);
     let passid = JSON.parse(blob).id;
     return db('users').where({
       'passid': passid
     }).limit(1);
-  });
-}
+  };
+
 
 //obj should look like: { id: id, form: form } 
 //obj.form can only contain keys that match columns in the user schema.
