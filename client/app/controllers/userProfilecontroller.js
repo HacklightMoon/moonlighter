@@ -1,6 +1,6 @@
 'use strict';
 angular.module('moonlighterApp.userProfile', [])
-.controller('UserProfileCtrl', function ($scope, Profile, User) {
+.controller('UserProfileCtrl', function ($scope, Profile, User, $state) {
   $scope.editState = false;
   $scope.profileOwner = false;
 
@@ -35,8 +35,30 @@ angular.module('moonlighterApp.userProfile', [])
   }
 
   $scope.saveProfile = function() {
-    
-  }
+    $scope.newRole = $scope.userData.role;
+    $scope.newEmail = $scope.userData.email;
+    if ($scope.userData.skills.includes(', ')) {
+      $scope.newSkills = $scope.userData.skills.split(', ');
+    } else {
+      $scope.newSkills = $scope.userData.skills.split(',');
+    }
 
+    let obj = {
+      id: $scope.loggedInUser.passid,
+      form: {
+        email: $scope.newEmail,
+        role: $scope.newRole,
+        skills: $scope.newSkills
+      }
+    }
+
+    User.updateUserInfo(obj)
+    .then(function(data) {
+      $state.go('questFeed');
+    })
+    .catch(function(err) {
+      console.error(err);
+    })
+  }
   $scope.getProfile();
 });

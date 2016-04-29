@@ -21,4 +21,5 @@
   <button ui-sref="userProfile" class="ownerProfileButton">{{chosenQuest.user_name}}'s Profile</button>
   <button ng-if="questOwner" ng-click="deleteQuest()" ui-sref="questFeed" class="deleteQuestButton">Delete Quest</button>
   </div>
+  <span>{{loggedInUser}}</span>
 </div>
