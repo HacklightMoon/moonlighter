@@ -50,53 +50,53 @@ app.get('/auth/logout', function(req,res){
 //Authentication Route
 app.get('/auth/github', passportGithub.authenticate('github', {
   scope: ['user', 'public_repo', 'notifications'] 
-  }));
- var configTest = function(){
+}));
+var configTest = function(){
 
   var sampleQuest = [
-  {
-    "id": 7, 
-    "type": "project",
-    "description": "Web-App",
-    "name": "BadBoy Fantasy",
-    "tech": ["AngularJS", "Postgres", "Node.js", "Express.js"],
-    "url": "https://github.com/richardjboothe",
-    "developers": 4,
-    "roles": ['Designer', 'Front-end', 'Front-end', 'Back-end'],
-    "pay": "equity"
-  },
-  {
-    "id": 8, 
-    "type": "project",
-    "description": "Mobile App and Web-App",
-    "name": "HollR",
-    "tech": ["Ruby", "Postgres", "Ruby on Rails"],
-    "url": "https://github.com/richardjboothe",
-    "developers": 4,
-    "roles": ['Designer', 'Front-end', 'Front-end', 'Back-end'],
-    "pay": "equity"
-  }
+    {
+      "id": 7, 
+      "type": "project",
+      "description": "Web-App",
+      "name": "BadBoy Fantasy",
+      "tech": ["AngularJS", "Postgres", "Node.js", "Express.js"],
+      "url": "https://github.com/richardjboothe",
+      "developers": 4,
+      "roles": ['Designer', 'Front-end', 'Front-end', 'Back-end'],
+      "pay": "equity"
+    },
+    {
+      "id": 8, 
+      "type": "project",
+      "description": "Mobile App and Web-App",
+      "name": "HollR",
+      "tech": ["Ruby", "Postgres", "Ruby on Rails"],
+      "url": "https://github.com/richardjboothe",
+      "developers": 4,
+      "roles": ['Designer', 'Front-end', 'Front-end', 'Back-end'],
+      "pay": "equity"
+    }
   ]
 
   var sampleUser = [
-  {
-    "id": 3,
-    "picture":"faneborges.png",
-    "email":"faneborges@moonligth.com",
-    "username":"Fane Borges",
-    "role": "Web Designer",
-    "skills": ['JavaScript', 'React', 'HTML/CSS'],
-    "projects": ["Chef's Pantry", "NabrHood"]
-  },
-  {
-    "id": 4,
-    "picture":"treznorlobo.png",
-    "email":"treznorlobo@moonligth.com",
-    "username":"Treznor Lobo",
-    "role": "Web Designer",
-    "skills": ['Ruby', 'Rails', 'HTML/CSS'],
-    "projects": ["HollR"]
-  }
+    {
+      "id": 3,
+      "picture":"faneborges.png",
+      "email":"faneborges@moonligth.com",
+      "username":"Fane Borges",
+      "role": "Web Designer",
+      "skills": ['JavaScript', 'React', 'HTML/CSS'],
+      "projects": ["Chef's Pantry", "NabrHood"]
+    },
+    {
+      "id": 4,
+      "picture":"treznorlobo.png",
+      "email":"treznorlobo@moonligth.com",
+      "username":"Treznor Lobo",
+      "role": "Web Designer",
+      "skills": ['Ruby', 'Rails', 'HTML/CSS'],
+      "projects": ["HollR"]
+    }
   ]
 
   app.get('/sampleQuestData', function(req, res){
@@ -112,12 +112,15 @@ app.get('/auth/github', passportGithub.authenticate('github', {
 configTest();
 
 app.get('/trycall', function(req, res){
-  console.log("req.user:", req.user);
-  API.getCurrentUser()//this function call needs token in header
-          .then(function(resp){
-            res.send(resp);
-          })
-        })
+  //console.log("req.user:", req.user);
+  //res.set('Authorization', req.user['Authorization'])
+  API.getCurrentUser(req.user.Authorization)//this function call needs token in header
+  .then(function(resp){
+    console.log("response:", resp)
+    //console.log("req.user['Authorization']", req.user['Authorization'])
+    res.send(resp);
+  })
+})
 
 // Route for obtaining newly 'tagged' issues
 app.get('/issues', function(req, res) {
@@ -154,16 +157,20 @@ app.post('/user/update', function(req, res){
 app.get('/user/info', function(req, res){
   console.log("server.js, 153 req.query.id", req.query.id);
   return Users.getById(req.query.id)
-    .then(function(resp){
-      res.send(resp)
-    });
+  .then(function(resp){
+    res.send(resp)
+  });
 });
 
 app.get('/user/current', function(req, res){
-  Users.getByLoggedIn()
-  .then(function(user){
+  //Users.getByLoggedIn()
+  API.getCurrentUser(req.user.Authorization)//this function call needs token in header
+  .then(function(blob){
+    return Users.getByLoggedIn(blob).then(function(users){
+    let user = users[0]; 
     console.log("server.js, current user:", user);
     res.send(user.login || null);
+    })
   })
 })
 
