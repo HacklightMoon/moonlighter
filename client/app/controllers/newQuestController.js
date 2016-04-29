@@ -1,16 +1,16 @@
 'use strict';
 angular.module('moonlighterApp.newQuest', [])
-.controller('NewQuestCtrl', function($scope, Quest) {
+.controller('NewQuestCtrl', function($scope, Quest, User) {
   $scope.newQuest = {};
 
-  // User.getCurrentUser()
-  // .then (function(data){
-  //   if (data){
-  //     $scope.currentUser = data;
-  //   } else {
-  //     $scope.currentUser = undefined;
-  //   }
-  // })
+  User.getCurrentUser()
+  .then (function(data){
+    if (data){
+      $scope.currentUser = data;
+    } else {
+      $scope.currentUser = undefined;
+    }
+  })
 
   $scope.addQuest = function () {
     $scope.titleRequired = '';
@@ -46,8 +46,8 @@ angular.module('moonlighterApp.newQuest', [])
       "stack": $scope.newQuest.tech.split(','),
       "url": $scope.newQuest.url,
       "bounty": $scope.newQuest.bounty,
-      // "user_id": $scope.currentUser.user_id,
-      // "user_name": $scope.currentUser.user_name
+      "user_id": $scope.currentUser.passid,
+      "user_name": $scope.currentUser.github_username
     }
 
     Quest.addQuest(quest)
