@@ -17,7 +17,7 @@ exports.seed = function(knex, Promise){
     knex('quests').insert({
 
     user_id: 2147483646,
-    user_name: 'dalyhabit',
+    user_name: 'gitlord',
     title: "KillerRx",
     type: "project",
     stack: "['ruby','postgres','ruby on rails','cowboy']",
