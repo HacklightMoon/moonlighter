@@ -1,23 +1,15 @@
 <div class="navbar">
     <a ui-sref="home">
-      <h1 class="logo-title" ng-if='seen'>Moonlighter</h1>
+      <h1 class="logo-title" ng-if="seen">Moonlighter</h1>
     </a>
   <nav>
     <ul>
-      <li><a href="/auth/logout" class="logout-button unseen">Log out</a></li>
-      <li><a href="/auth/github" ng-click="signIn()" class="signin-button seen">Sign in</a></li>
-      <li ng-if='seeAbout'><a ui-sref="about">About</a></li>
+      <a href="/auth/logout" ng-if="isLogin" class="logout-button">Log out</a>
+      <a href="/auth/github" ng-if="!isLogin" ng-click="signIn()" class="signin-button">Sign in</a>
+      <a ng-if='seeAbout' ui-sref="about">About</a>
       <!-- <li><a href="contact.html">Contact</a></li> -->
     </ul>
   </nav>
 </div>  
-
-<!-- FOR USE ON SIGNIN/LOGOUT WHEN AUTH COOKIES AVAILABLE!!!
-<div ng-if="bool" class="fade">
-   Fade me in out
-</div>
-<button ng-click="bool=true">Fade In!</button>
-<button ng-click="bool=false">Fade Out!</button> -->
-
 
  

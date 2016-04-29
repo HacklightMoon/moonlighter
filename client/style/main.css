@@ -166,7 +166,11 @@ nav li {
 }
 
 .quests {
-    margin-left: 10rem;
+    /*margin-left: 10rem;*/
+    top:50%;
+    right:50%;
+    margin: 0 auto;
+
 }
 
 .newquest-button {
@@ -176,8 +180,8 @@ nav li {
 } 
 
 .quests {
-  margin-top: 50px;
-  margin-left: 13%;
+  margin-top: 150px;
+  margin-left: 12%;
 }
 
 .questCard {

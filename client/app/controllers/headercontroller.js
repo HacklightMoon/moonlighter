@@ -1,7 +1,7 @@
 'use strict';
 angular.module('moonlighterApp.header',[])
 .controller('HeaderCtrl',['$state', '$scope', 'User', function($state, $scope, User){
-    $scope.seen = true;
+  $scope.seen = true;
     if($state.current.name==="home"){
       $scope.seen = false;
     };
@@ -16,6 +16,7 @@ angular.module('moonlighterApp.header',[])
       .then(function(data) {
         console.log("Data from getCurrentUser: ", data);
         if (data) {
+          $scope.isLogin = true;
           $scope.currentUser = data;
         } else {
           $scope.currentUser = undefined;
@@ -28,4 +29,3 @@ angular.module('moonlighterApp.header',[])
 
     $scope.signIn();
 }]);
-
