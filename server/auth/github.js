@@ -7,10 +7,9 @@ let config = require('./config');
 let init = require('./init');
 
 passport.use(new GitHubStrategy({
-    clientID: config.github.clientID,
-    clientSecret: config.github.clientSecret
-    //,callbackURL: config.github.callbackURL,
-    //userAgent: //fill this in
+    clientID: config.clientID,
+    clientSecret: config.clientSecret
+    ,    callbackURL: config.callbackURL
   },
   function(accessToken, refreshToken, profile, done) {
     Users.verifyInsert(profile);    
