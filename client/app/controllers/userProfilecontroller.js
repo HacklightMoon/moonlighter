@@ -1,6 +1,6 @@
 'use strict';
 angular.module('moonlighterApp.userProfile', [])
-.controller('UserProfileCtrl', function ($scope, Profile, User, $state) {
+.controller('UserProfileCtrl', function ($scope, Profile, User, $state, $cookies) {
   $scope.editState = false;
   $scope.profileOwner = false;
 
@@ -14,16 +14,11 @@ angular.module('moonlighterApp.userProfile', [])
     Profile.getProfile($scope.currentUser)
     .then(function(data){
       $scope.userData = data.data[0];
-      User.getCurrentUser()
-      .then(function(data){
-        $scope.loggedInUser = data;
-        if ($scope.loggedInUser.id === $scope.userData.id){
-            $scope.profileOwner = true;
-          }
-      })
-      .catch(function(err){
-        console.error(err);
-      })
+      $scope.loggedInUser = $cookies.getAll();
+      if ($scope.loggedInUser.user_id == $scope.userData.id) {
+      console.log("ARE THESE THE SAME?:",  $scope.loggedInUser.user_id, $scope.userData.id)
+        $scope.profileOwner = true;
+      }
     })
     .catch(function(err){
       console.log(err);

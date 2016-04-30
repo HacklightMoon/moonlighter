@@ -3,6 +3,7 @@
 angular.module('moonlighterApp', [
   'ui.router',
   'ngAnimate',
+  'ngCookies',
   'moonlighterApp.services',
   'moonlighterApp.landing',
   'moonlighterApp.questFeed',

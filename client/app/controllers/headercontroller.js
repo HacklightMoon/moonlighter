@@ -1,6 +1,6 @@
 'use strict';
 angular.module('moonlighterApp.header',[])
-.controller('HeaderCtrl',['$state', '$scope', 'User', function($state, $scope, User){
+.controller('HeaderCtrl',['$state', '$scope', 'User', '$cookies', function($state, $scope, User, $cookies){
   $scope.seen = true;
     if($state.current.name==="home"){
       $scope.seen = false;
@@ -17,14 +17,23 @@ angular.module('moonlighterApp.header',[])
         console.log("Data from getCurrentUser: ", data);
         if (data) {
           $scope.isLogin = true;
-          $scope.currentUser = data;
-        } else {
-          $scope.currentUser = undefined;
+          $cookies.put('username', data.github_username);
+          $cookies.put('user_id', data.id);
+          $cookies.put('picture', data.profile_picture);
+          $cookies.put('passid', data.passid);
+          console.log('COOOOOKIEEEES: ', $cookies.getAll());
         }
       })
       .catch(function(err) {
         console.error(err);
       })
+    }
+
+    $scope.logOut = function() {
+      $cookies.remove('username');
+      $cookies.remove('user_id');
+      $cookies.remove('picture');
+      $cookies.remove('passid');
     }
 
     $scope.signIn();

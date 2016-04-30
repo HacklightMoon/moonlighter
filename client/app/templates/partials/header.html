@@ -4,7 +4,7 @@
     </a>
   <nav>
     <ul>
-      <a href="/auth/logout" ng-if="isLogin" class="logout-button">Log out</a>
+      <a href="/auth/logout" ng-if="isLogin" ng-click="logOut()" class="logout-button">Log out</a>
       <a href="/auth/github" ng-if="!isLogin" ng-click="signIn()" class="signin-button">Sign in</a>
       <a ng-if='seeAbout' ui-sref="about">About</a>
       <!-- <li><a href="contact.html">Contact</a></li> -->
