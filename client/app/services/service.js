@@ -150,4 +150,52 @@ angular.module("moonlighterApp.services", [])
       updateUserInfo: updateUserInfo
     }
   })
+
+  .factory('Issues', function($http) {
+    var Issues = [];
+
+    var getAllIssues = function () {
+      return $http({
+        method: 'GET',
+        url: '/issues/load',
+      })
+      .then(function(resp){
+        console.log("Got issues from DB: ", resp.data)
+        return resp.data;
+      })
+      .catch(function(err){
+        console.error(err)
+      })
+    }
+
+    var loadIssues = function () {
+      return $http({
+        method: 'GET',
+        url: '/issues',
+      })
+      .then(function(resp){
+        console.log("Got issues from GIT: ", resp.data)
+        return resp.data;
+      })
+      .catch(function(err){
+        console.error(err)
+      })
+    }
+
+    var getIssue = function() {
+      return Issues.currentIssue;
+    }
+
+    var setIssue = function(issue){
+      Issues.currentIssue = issue;
+      return Issues.currentIssue;
+    }
+
+    return {
+      getAllIssues: getAllIssues,
+      loadIssues: loadIssues,
+      getIssue: getIssue,
+      setIssue: setIssue
+    }
+  })
   
