@@ -4,7 +4,7 @@ angular.module('moonlighterApp.questProfile', [])
 
   $scope.retrieveQuest = function() {
     $scope.chosenQuest = Issues.getIssue()
-    console.log($scope.chosenQuest);
+    console.log("The Quest you clicked on: ", $scope.chosenQuest);
   };
   $scope.retrieveQuest();
 
@@ -16,7 +16,7 @@ angular.module('moonlighterApp.questProfile', [])
 
   $scope.currentUser = $cookies.getAll();
   $scope.questOwner = false;
-  if ($scope.currentUser.user_id === $scope.chosenQuest.user_id){
+  if ($scope.currentUser.user_id == $scope.chosenQuest.user_id){
     $scope.questOwner = true;
   }
 

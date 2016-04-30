@@ -28,7 +28,6 @@ angular.module('moonlighterApp.questFeed', [])
   $scope.getAllIssues = function() {
     Issues.getAllIssues()
     .then(function(data) {
-        console.log("data from questFeedCTRL:",data);
         $scope.issues = data;
     })
     .catch(function(err){
@@ -38,7 +37,6 @@ angular.module('moonlighterApp.questFeed', [])
 
   Issues.loadIssues()
   .then(function(data) {
-    console.log("Issues loaded: ", data);
     $scope.getAllIssues();
   })
   .catch(function(err){

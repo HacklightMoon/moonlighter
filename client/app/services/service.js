@@ -160,7 +160,6 @@ angular.module("moonlighterApp.services", [])
         url: '/issues/load',
       })
       .then(function(resp){
-        console.log("Got issues from DB: ", resp.data)
         return resp.data;
       })
       .catch(function(err){
@@ -174,7 +173,6 @@ angular.module("moonlighterApp.services", [])
         url: '/issues',
       })
       .then(function(resp){
-        console.log("Got issues from GIT: ", resp.data)
         return resp.data;
       })
       .catch(function(err){
