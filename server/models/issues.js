@@ -20,14 +20,14 @@ Issues.addUser = function(issueID, userID){
 }
 
 Issues.addIssues = function(obj){
-  obj.forEach(function(repo){
-    console.log("this be your repo" , repo)
+  obj.forEach(function(issue){
+    console.log("this be your issue" , issue)
     return db('issues').where({
-      issue_url: repo.issue_url
+      issue_url: issue.issue_url
     }).then(function(data){
       if(data.length === 0){
         return db('issues')
-        .insert(repo)
+        .insert(issue)
         .then(function(data){
           return data
         })
@@ -38,7 +38,7 @@ Issues.addIssues = function(obj){
 
 Issues.removeIssue = function(issueID){
   return db('issues').where({
-    deleted: issueID.false
+    id: issueID
   }).update({
     deleted: true
   })
