@@ -230,6 +230,7 @@ app.delete('/quest/delete', function(req, res){
 app.use('/', routes)
 
 app.listen(config.port ||3000, function () {
+  console.log("process.env.PORT", config.port)
   console.log('Example app listening on port 3000!');
   console.log('FOR YOU FRONT_END FOLKS');
   console.log('-----ENDPOINTS------');
