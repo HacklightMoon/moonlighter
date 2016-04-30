@@ -1,6 +1,6 @@
 'use strict';
 let express        = require('express');
-let configEnv      = require('./config/environment');
+let config      = require('./config/environment');
 let passport       = require('passport');
 let bodyParser     = require('body-parser');
 let cookieParser   = require('cookie-parser');
@@ -229,7 +229,8 @@ app.delete('/quest/delete', function(req, res){
 
 app.use('/', routes)
 
-app.listen(process.env.PORT ||3000, function () {
+app.listen(config.port ||3000, function () {
+  console.log("process.env.PORT", config.port)
   console.log('Example app listening on port 3000!');
   console.log('FOR YOU FRONT_END FOLKS');
   console.log('-----ENDPOINTS------');
