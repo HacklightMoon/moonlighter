@@ -7,7 +7,7 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.string('github_username').unique();
   table.timestamp('joined_at').defaultTo(knex.fn.now());
   table.string('full_name');
-  table.integer('money').defaultTo(0);
+  table.integer('money').defaultTo(1000);
   table.integer('passid');
   table.string('profile_picture');
   table.string('email');
@@ -18,6 +18,7 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.increments('id').primary();
   table.integer('user_id').references('id').inTable('users');
   table.string('name');
+  table.integer('level');
 })
 .createTableIfNotExists('items', function(table){
   table.increments('id').primary();
@@ -34,6 +35,11 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.integer('skill_score'); //like an endorsement
 })
 .createTableIfNotExists('characters_skills', function(table){ //fantasy skills attached to characters
+  table.string():
+  table.string():
+  table.string():
+  table.string():
+  table.string():
 })
 .createTableIfNotExists('quests', function(table){
   table.increments('id').primary();
