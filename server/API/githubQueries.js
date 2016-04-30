@@ -25,4 +25,8 @@ let getReqFunc = function(url){
 
 API.getCurrentUser = getReqFunc('/user');
 
-API.notifications = getReqFunc('/search/issues?q=is%3Aopen+is%3Aissue+mentions%3Amoonlighter-bot');
+// This is a search query for only open issues:
+// API.notifications = getReqFunc('/search/issues?q=is%3Aopen+is%3Aissue+mentions%3Amoonlighter-bot');
+
+// This is a search query for ALL issues:
+API.notifications = getReqFunc('/search/issues?q=is%3Aissue+mentions%3Amoonlighter-bot');
