@@ -38,7 +38,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/auth/github/callback', passportGithub.authenticate('github', { failureRedirect: '/auth/github', successRedirect: '/' }));
 
-// Logout route
+// Logout route 
+// TODO fix logout route
 app.get('/auth/logout', function(req,res){
   console.log('trying to logout...')
   req.session.destroy(function(){
