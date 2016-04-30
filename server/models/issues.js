@@ -9,7 +9,13 @@ Issues.getIssues = function(){
 
 Issues.getByUser = function(user){
   return db('issues').where({
-    'user': user
+    'user': user.user
+  });
+};
+
+Issues.addUser = function(issueID, userID){
+  return db('issue_members').where({
+    // TODO fill me in
   })
 }
 
@@ -23,9 +29,17 @@ Issues.addIssues = function(obj){
         return db('issues')
         .insert(repo)
         .then(function(data){
-          return data[0]
+          return data
         })
       }
     });
   });
 };
+
+Issues.removeIssue = function(issueID){
+  return db('issues').where({
+    deleted: issueID.false
+  }).update({
+    deleted: true
+  })
+}

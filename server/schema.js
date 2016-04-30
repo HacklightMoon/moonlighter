@@ -7,7 +7,7 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.string('github_username').unique();
   table.timestamp('joined_at').defaultTo(knex.fn.now());
   table.string('full_name');
-  table.integer('money').defaultTo(0);
+  table.integer('money').defaultTo(1000);
   table.integer('passid');
   table.string('profile_picture');
   table.string('email');
@@ -18,6 +18,7 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.increments('id').primary();
   table.integer('user_id').references('id').inTable('users');
   table.string('name');
+  table.integer('level');
 })
 .createTableIfNotExists('items', function(table){
   table.increments('id').primary();
@@ -34,51 +35,41 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.integer('skill_score'); //like an endorsement
 })
 .createTableIfNotExists('characters_skills', function(table){ //fantasy skills attached to characters
+  table.string('dexterity'):
+  table.string('intelligence'):
+  table.string('strength'):
+  table.string('magic'):
+  table.string('troll'):
 })
-.createTableIfNotExists('quests', function(table){
+.createTableIfNotExists('users_issues', function(table){
   table.increments('id').primary();
   table.integer('user_id').references('id').inTable('users');
-  table.string('user_name').references('github_username').inTable('users');
-  table.timestamp('createdAt').defaultTo(knex.fn.now());
-  table.string('title');
-  table.string('type'); //project or issue
-  table.string('stack'); //string list of technologies used
-  table.string('description');
-  table.integer('bounty');
-  table.string('url'); // link for gh repo
-  table.string('desired_feat');
+  table.integer('quest_id').references('id').inTable('issues');
 })
-.createTableIfNotExists('users_quests', function(table){
+.createTableIfNotExists('issue_members', function(table){
   table.increments('id').primary();
-  table.integer('user_id').references('id').inTable('users');
-  table.integer('quest_id').references('id').inTable('quests');
-})
-.createTableIfNotExists('requested_quests', function(table){
-  table.increments('id').primary();
-  table.integer('quest_id').references('id').inTable('quests');
+  table.integer('issue_id').references('id').inTable('issues');
   table.integer('user_id').references('id').inTable('users');
 })
 .createTableIfNotExists('technologies', function(table){
   table.increments('id').primary();
   table.string('name');
 })
-.createTableIfNotExists('quests_technologies', function(table){
-  table.increments('id').primary();
-  table.integer('quest_id').references('id').inTable('quests');
-  table.integer('technology_id').references('id').inTable('technologies');
-})
 .createTableIfNotExists('issues', function(table){
   table.increments('id').primary();
   table.string('title');
   table.string('user');
+  table.string('user_id').references('id').inTable('users');
   table.string('body');
+  table.boolean('deleted').defaultTo(false)
   table.string('issue_url');
   table.string('repo_url');
+  table.timestamp('created_at').defaultTo(knex.fn.now());
 })
 .then(function(res){
   console.log('Success Applying Schema');
   knex.destroy();
 })
 .catch(function(err){
-  console.log('schema.js: 48 error: ', err);
+  console.log('schema.js: 90 error: ', err);
 });
