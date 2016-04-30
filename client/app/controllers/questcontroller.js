@@ -1,9 +1,9 @@
 'use strict';
 angular.module('moonlighterApp.questProfile', [])
-.controller('QuestProfileCtrl',function($scope, $cookies, Quest, Profile, User) {
+.controller('QuestProfileCtrl',function($scope, $cookies, Quest, Profile, User, Issues) {
 
   $scope.retrieveQuest = function() {
-    $scope.chosenQuest = Quest.getQuest()
+    $scope.chosenQuest = Issues.getIssue()
     console.log($scope.chosenQuest);
   };
   $scope.retrieveQuest();
