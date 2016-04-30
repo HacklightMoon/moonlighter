@@ -125,6 +125,9 @@ app.get('/trycall', function(req, res){
   })
 })
 
+//--------------------Issues Endpoints--------------------
+
+
 // Route for obtaining newly 'tagged' issues
 app.get('/issues', function(req, res) {
   API.notifications()
@@ -164,6 +167,8 @@ app.get('/issues/load', function(req, res){
       res.send(resp)
   });
 });
+
+//--------------------User Endpoints--------------------
 
 
 app.post('/user/update', function(req, res){

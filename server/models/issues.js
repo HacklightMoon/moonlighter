@@ -3,7 +3,7 @@
 let db = require('../db');
 let Issues = module.exports;
 
-Issues.getIssues = function(id){
+Issues.getIssues = function(){
   return db('issues');
 };
 
