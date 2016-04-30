@@ -35,6 +35,12 @@ Users.verifyId = function(id){
   }).limit(1);
 };
 
+Users.getByGithubUsername = function(githubUsername){
+  return db('users').where({
+    'github_username': githubUsername
+  }).limit(1);
+};
+
 Users.getById = function(id){
   return db('users').where({
     'id': id
