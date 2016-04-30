@@ -143,12 +143,6 @@ app.get('/issues', function(req, res) {
       obj.body = issues[i].body;
       obj.issue_url = issues[i].url;
       obj.repo_url = issues[i].repository_url;
-      Users.getByGithubUsername('matjkel')
-      .then(function(data){
-        obj.userID = data
-        console.log("This is user_id", data)
-      })
-
       result.push(obj);
       console.log("Issue", i+1, ": ", obj);
     }
