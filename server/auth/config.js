@@ -13,4 +13,4 @@ let production = {
   'calbackURL': 'https://powerful-ocean-19597.herokuapp.com/auth/github/callback'
 };
 
-module.exports = config.environment === "development" ? development : production;
+module.exports = config.environment === "production" ? production : development;
