@@ -151,9 +151,6 @@ app.get('/issues/load', function(req, res){
   });
 });
 
-app.get('issues/add', function(req, res){
-  Issues.addUser()
-})
 
 //--------------------User Endpoints--------------------
 
