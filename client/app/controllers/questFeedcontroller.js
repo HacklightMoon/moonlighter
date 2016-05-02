@@ -2,15 +2,6 @@
 angular.module('moonlighterApp.questFeed', [])
 .controller('QuestsFeedCtrl',function($scope, Quest, User, Issues, $cookies) {
 
-  // $scope.getAllQuests = function() {
-  //   Quest.getAllQuests()
-  //   .then(function(data) {
-  //       $scope.quests = data;
-  //   })
-  //   .catch(function(err){
-  //     console.error(err);
-  //   });
-  // };
   $scope.seeAddQuest = false;
   $scope.userPrivilege = function(){
     if($cookies.getAll().user_id){
@@ -18,11 +9,6 @@ angular.module('moonlighterApp.questFeed', [])
     }
   };
 
-  // $scope.getAllQuests();
-
-  // $scope.selectQuest=function(quest) {
-  //   Quest.setQuest(quest);
-  // };
   $scope.userPrivilege();
 
   $scope.getAllIssues = function() {
@@ -48,3 +34,21 @@ angular.module('moonlighterApp.questFeed', [])
     Issues.setIssue(issue);
   }
 });
+
+
+  // $scope.getAllQuests = function() {
+  //   Quest.getAllQuests()
+  //   .then(function(data) {
+  //       $scope.quests = data;
+  //   })
+  //   .catch(function(err){
+  //     console.error(err);
+  //   });
+  // };
+
+
+  // $scope.getAllQuests();
+
+  // $scope.selectQuest=function(quest) {
+  //   Quest.setQuest(quest);
+  // };
