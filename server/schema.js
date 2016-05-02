@@ -13,6 +13,7 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.string('email');
   table.string('role');
   table.string('skills');
+  table.boolean('admin').defaultTo(false);
 })
 .createTableIfNotExists('characters', function(table){
   table.increments('id').primary();
