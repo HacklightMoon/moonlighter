@@ -20,8 +20,11 @@ angular.module('moonlighterApp.questProfile', [])
     $scope.questOwner = true;
   }
 
+  // $scope.deleteQuest = function() {
+  //   Quest.deleteQuest($scope.chosenQuest.id);
+  // }
 
-  $scope.deleteQuest = function() {
-    Quest.deleteQuest($scope.chosenQuest.id);
+  $scope.joinQuest = function(user_id, quest_id) {
+  // TODO: Fill me in...
   }
 });

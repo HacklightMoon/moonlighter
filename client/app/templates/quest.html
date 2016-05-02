@@ -15,11 +15,12 @@
       <p>Description: {{chosenQuest.body}}</p>
     </div>
     <p>Creator: {{chosenQuest.user}}</p>
-    <!-- <p>{{chosenQuest.roles}}</p> -->
     <!-- <p>Bounty: {{chosenQuest.bounty}}</p> -->
     <p>Date Created: {{chosenQuest.createdAt}}</p>
-  <button ui-sref="userProfile" class="ownerProfileButton">{{chosenQuest.user}}'s Profile</button>
-  <button ng-if="questOwner" ng-click="deleteQuest()" ui-sref="questFeed" class="deleteQuestButton">Delete Quest</button>
+    <button ui-sref="userProfile" class="ownerProfileButton">{{chosenQuest.user}}'s Profile</button>
+    <button><a ng-href="{{chosenQuest.issue_url}}" class="githubLink">Github Issue Link</a></button>
+    <button ng-click="joinQuest({{chosenQuest.user_id}},{{chosenQuest.id}})" class="joinQuestButton">Join Quest</button>
+    <!-- <button ng-if="questOwner" ng-click="deleteQuest()" ui-sref="questFeed" class="deleteQuestButton">Delete Quest</button> -->
   </div>
   <span>{{loggedInUser}}</span>
 </div>
