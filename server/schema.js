@@ -41,7 +41,18 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.string('magic');
   table.string('troll');
 })
-.createTableIfNotExists('users_issues', function(table){
+.createTableIfNotExists('issues', function(table){
+  table.increments('id').primary();
+  table.string('title');
+  table.string('user');
+  table.integer('user_id').references('id').inTable('users');
+  table.string('body');
+  table.boolean('deleted').defaultTo(false)
+  table.string('issue_url');
+  table.string('repo_url');
+  table.timestamp('created_at').defaultTo(knex.fn.now());
+})
+.createTableIfNotExists('user_issues', function(table){
   table.increments('id').primary();
   table.integer('user_id').references('id').inTable('users');
   table.integer('issue_id').references('id').inTable('issues');
@@ -50,26 +61,16 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.increments('id').primary();
   table.integer('issue_id').references('id').inTable('issues');
   table.integer('user_id').references('id').inTable('users');
+  table.string('status');
 })
 .createTableIfNotExists('technologies', function(table){
   table.increments('id').primary();
   table.string('name');
-})
-.createTableIfNotExists('issues', function(table){
-  table.increments('id').primary();
-  table.string('title');
-  table.string('user');
-  table.string('user_id').references('id').inTable('users');
-  table.string('body');
-  table.boolean('deleted').defaultTo(false)
-  table.string('issue_url');
-  table.string('repo_url');
-  table.timestamp('created_at').defaultTo(knex.fn.now());
 })
 .then(function(res){
   console.log('Success Applying Schema');
   knex.destroy();
 })
 .catch(function(err){
-  console.log('schema.js: 90 error: ', err);
+  console.log('schema.js: 74 error: ', err);
 });
