@@ -14,14 +14,12 @@ angular.module('moonlighterApp.header',[])
     $scope.signIn = function() {
       User.getCurrentUser()
       .then(function(data) {
-        console.log("Data from getCurrentUser: ", data);
         if (data) {
           $scope.isLogin = true;
           $cookies.put('username', data.github_username);
           $cookies.put('user_id', data.id);
           $cookies.put('picture', data.profile_picture);
           $cookies.put('passid', data.passid);
-          console.log('COOOOOKIEEEES: ', $cookies.getAll());
         }
       })
       .catch(function(err) {

@@ -1,10 +1,10 @@
 'use strict';
 angular.module('moonlighterApp.questProfile', [])
-.controller('QuestProfileCtrl',function($scope, $cookies, Quest, Profile, User) {
+.controller('QuestProfileCtrl',function($scope, $cookies, Quest, Profile, User, Issues) {
 
   $scope.retrieveQuest = function() {
-    $scope.chosenQuest = Quest.getQuest()
-    console.log($scope.chosenQuest);
+    $scope.chosenQuest = Issues.getIssue()
+    console.log("The Quest you clicked on: ", $scope.chosenQuest);
   };
   $scope.retrieveQuest();
 
@@ -16,7 +16,7 @@ angular.module('moonlighterApp.questProfile', [])
 
   $scope.currentUser = $cookies.getAll();
   $scope.questOwner = false;
-  if ($scope.currentUser.user_id === $scope.chosenQuest.user_id){
+  if ($scope.currentUser.user_id == $scope.chosenQuest.user_id){
     $scope.questOwner = true;
   }
 

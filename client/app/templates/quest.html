@@ -10,15 +10,15 @@
 <div class="quest-details">
   <!-- <div class="ownerProfileButton">{{chosenQuest.owner.profile}}</div> -->
   <div class="questDescription book">
-    <h1>{{chosenQuest.title}}</h1>
+    <h1>Quest Title: {{chosenQuest.title}}</h1>
     <div class="questDescription">
-      <p>Description: {{chosenQuest.description}}</p>
+      <p>Description: {{chosenQuest.body}}</p>
     </div>
-    <p>Stack: {{chosenQuest.stack}}</p>
+    <p>Creator: {{chosenQuest.user}}</p>
     <!-- <p>{{chosenQuest.roles}}</p> -->
-    <p>Bounty: {{chosenQuest.bounty}}</p>
+    <!-- <p>Bounty: {{chosenQuest.bounty}}</p> -->
     <p>Date Created: {{chosenQuest.createdAt}}</p>
-  <button ui-sref="userProfile" class="ownerProfileButton">{{chosenQuest.user_name}}'s Profile</button>
+  <button ui-sref="userProfile" class="ownerProfileButton">{{chosenQuest.user}}'s Profile</button>
   <button ng-if="questOwner" ng-click="deleteQuest()" ui-sref="questFeed" class="deleteQuestButton">Delete Quest</button>
   </div>
   <span>{{loggedInUser}}</span>
