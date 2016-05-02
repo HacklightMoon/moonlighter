@@ -1,60 +1,60 @@
 exports.seed = function(knex, Promise){
   return Promise.join(
 
-    knex('quests').del(),
+    knex('issues').del(),
     
-    knex('quests').insert({
+    knex('issues').insert({
 
     user_id: 2147483645,
-    user_name: 'flickerbits',
+    user: 'flickerbits',
     title: "Yelo",
-    type: "project",
-    stack: "['node.js', 'express.js','backbone.js', 'mongoDB' ]",
-    description: "Ever wanted to find people who love the color yellow just as much as you?",
-    bounty: 120
+    body: "Ever wanted to find people who love the color yellow just as much as you?",
+    deleted: false,
+    issue_url: "http://google.com",
+    repo_url: "http://google.com"
   }),
 
-    knex('quests').insert({
+    knex('issues').insert({
 
     user_id: 2147483646,
-    user_name: 'gitlord',
+    user: 'gitlord',
     title: "KillerRx",
-    type: "project",
-    stack: "['ruby','postgres','ruby on rails','cowboy']",
-    description: "Finding that good, just got even easier",
-    bounty: 160
+    body: "Finding that good, just got even easier",
+    deleted: false,
+    issue_url: "http://google.com",
+    repo_url: "http://google.com"
   }),
 
-    knex('quests').insert({
+    knex('issues').insert({
 
     user_id: 2147483647,
-    user_name: 'pmatteu2',
+    user: 'pmatteu2',
     title: "PiratesMeet",
-    type: "project",
-    stack: "['react.js','ember.js', 'handlebars.js']",
-    description: "A place where pirates can find some booty",
-    bounty: 300
+    body: "A place where pirates can find some booty",
+    deleted: false,
+    issue_url: "http://google.com",
+    repo_url: "http://google.com"
   }),
 
-    knex('quests').insert({
+    knex('issues').insert({
 
     user_id: 2147483647,
-    user_name: 'pmatteu2',
+    user: 'pmatteu2',
     title: "Yankly",
-    type: "project",
-    stack: "['react.js','ember.js', 'handlebars.js']",
-    description: "A marketplace app for synergy-driven, disruptive iconoclast",
-    bounty: 500
+    body: "A marketplace app for synergy-driven, disruptive iconoclast",
+    deleted: false,
+    issue_url: "http://google.com",
+    repo_url: "http://google.com"
   }),
 
-    knex('quests').insert({
+    knex('issues').insert({
     user_id: 2147483647,
-    user_name: 'pmatteu2',
+    user: 'pmatteu2',
     title: "Butterz",
-    type: "project",
-    stack: "['react.js','ember.js', 'handlebars.js']",
-    description: "Where you can find your artisan butter",
-    bounty: 300
+    body: "Where you can find your artisan butter",
+    deleted: false,
+    issue_url: "http://google.com",
+    repo_url: "http://google.com"
   })
   );
 };
