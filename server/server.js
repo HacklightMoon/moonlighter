@@ -151,11 +151,15 @@ app.get('/issues/load', function(req, res){
   });
 });
 
+app.get('issues/add', function(req, res){
+  Issues.addUser()
+})
+
 //--------------------User Endpoints--------------------
 
 
 app.post('/user/update', function(req, res){
-  console.log("server.js, 146 req.body", req.body);
+  console.log("server.js, 190 req.body", req.body);
   Users.update(req.body)
   .then(function(resp){
     res.send(resp);
@@ -163,7 +167,7 @@ app.post('/user/update', function(req, res){
 })
 
 app.get('/user/info', function(req, res){
-  console.log("server.js, 153 req.query.id", req.query.id);
+  console.log("server.js, 198 req.query.id", req.query.id);
   return Users.getById(req.query.id)
   .then(function(resp){
     res.send(resp)
