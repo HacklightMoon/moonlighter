@@ -2,22 +2,22 @@
   <div class="questfeed-button-wrapper">
     <a class="questfeed-button-text" ui-sref="questFeed">
       <span class="questfeed-button">
-        Return to the Quest Scrolls
+        Return to the Issues Scrolls
       </span>
     </a>
   </div>
   <div class="container">
-    <h1>New Quest</h1>
+    <h1>New Issue</h1>
     <hr/>
     <form>
       <fieldset>
         <div id="questTitle">
-          <label for="questTitle">Quest Title:</label>
+          <label for="questTitle">Issue Title:</label>
           <input id="questTitle" type="text" ng-model="newQuest.title" placeholder="Title of your Quest..."/>
           <span ng-show="titleRequired">{{titleRequired}}</span>
         </div>
         <div id="questDescription">
-          <label for="questDescription">Quest Description:</label>
+          <label for="questDescription">Issue Description:</label>
           <input id="questDescription" type="text" ng-model="newQuest.description" placeholder="Description of your Quest..."/>
           <span ng-show="descriptionRequired">{{descriptionRequired}}</span>
         </div>
@@ -27,12 +27,12 @@
           <span ng-show="techRequired">{{techRequired}}</span>
         </div>
         <div id="questURL">
-          <label for="questURL">Quest URL:</label>
+          <label for="questURL">Issue URL:</label>
           <input id="questURL" type="text" ng-model="newQuest.url" placeholder="Github URL for your Quest..."/>
           <span ng-show="urlRequired">{{urlRequired}}</span>
         </div>
         <div id="questBounty">
-          <label for="questBounty">Quest Bounty:</label>
+          <label for="questBounty">Issue Bounty:</label>
           <input id="questBounty" type="number" ng-model="newQuest.bounty" placeholder="Quest Bounty..."/>
           <span ng-show="bountyRequired">{{bountyRequired}}</span>
         </div>
