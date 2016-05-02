@@ -16,9 +16,11 @@ Issues.getByUser = function(user){
 };
 
 Issues.addUser = function(issueID, userID){
-  return db('issue_members').where({
-    // TODO fill me in
-  })
+  return db('issue_members')
+    .insert(issueID, userID)
+    .then(function(data){
+      return data
+    });
 }
 
 
