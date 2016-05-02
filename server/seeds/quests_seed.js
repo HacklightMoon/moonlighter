@@ -47,8 +47,8 @@ exports.seed = function(knex, Promise){
     body: "A marketplace app for synergy-driven, disruptive iconoclast",
     deleted: false,
     issue_url: "http://google.com",
-    repo_url: "http://google.com"
-    ,status: "open"
+    repo_url: "http://google.com",
+    status: "open"
   }),
 
     knex('issues').insert({
