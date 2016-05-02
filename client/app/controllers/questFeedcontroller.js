@@ -1,6 +1,6 @@
 'use strict';
 angular.module('moonlighterApp.questFeed', [])
-.controller('QuestsFeedCtrl',function($scope, Quest, User, Issues, $cookies) {
+.controller('QuestsFeedCtrl',function($scope, User, Issues, $cookies) { //, Quest
 
   $scope.seeAddQuest = false;
   $scope.userPrivilege = function(){

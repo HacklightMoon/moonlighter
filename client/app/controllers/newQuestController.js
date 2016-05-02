@@ -1,6 +1,6 @@
 'use strict';
 angular.module('moonlighterApp.newQuest', [])
-.controller('NewQuestCtrl', function($scope, $cookies, Quest, User, $state) {
+.controller('NewQuestCtrl', function($scope, $cookies, User, $state) { //Quest
   $scope.newQuest = {};
 
   if ($cookies.getAll().user_id){
