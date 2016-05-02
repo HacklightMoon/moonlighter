@@ -134,48 +134,20 @@ app.get('/issues', function(req, res) {
   API.notifications()
   .then(function(resp){
     var parsed = JSON.parse(resp);
-    var result = [];
     var issues = parsed.items;
-    for (var i=0; i<issues.length; i++) {
-      var obj = {};
-      obj.title = issues[i].title;
-      obj.user = issues[i].user.login;
-      obj.body = issues[i].body;
-      obj.issue_url = issues[i].url;
-      obj.repo_url = issues[i].repository_url;
-      obj.status = issues[i].state;
-      Users.getByGithubUsername(obj.user)
-      .then(function(data) {
-        console.log("User data from db call: ", data[0].id);
-        obj.user_id = data[0].id;
-      })
-      .catch(function(err){
-        console.error(err);
-      })
-
-      result.push(obj);
-      console.log("Issue", i+1, ": ", obj);
-    }
-    // Eventually, I will do something with this data...
-    // result is equal to an array that contains all of the relevant
-    // information for each Github Issue
-    return result
+    return Issues.addIssues(issues);
   })
-    .then(function(data){
-      console.log("trying to add issues to db")
-      Issues.addIssues(data)
-      res.send(data);
-    })
-    .catch(function(err){
-      console.error(err)
-    })
+  .then(function(issues){
+    res.send(issues);
+  })
 })
+
 
 app.get('/issues/load', function(req, res){
   Issues.getIssues()
-    .then(function(resp){
-      console.log(resp)
-      res.send(resp)
+  .then(function(resp){
+    console.log(resp)
+    res.send(resp)
   });
 });
 
