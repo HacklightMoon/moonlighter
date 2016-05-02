@@ -2,6 +2,8 @@
 
 let db = require('../db');
 let Issues = module.exports;
+let Users  = require('./users');
+let Promise = require('bluebird');
 
 Issues.getIssues = function(){
   return db('issues');
@@ -19,22 +21,27 @@ Issues.addUser = function(issueID, userID){
   })
 }
 
-Issues.addIssues = function(obj){
-  obj.forEach(function(issue){
-    console.log("this be your issue" , issue)
-    return db('issues').where({
-      issue_url: issue.issue_url
-    }).then(function(data){
-      if(data.length === 0){
-        return db('issues')
-        .insert(issue)
-        .then(function(data){
-          return data
-        })
+
+Issues.addIssues = function(githubIssues){
+  Promise.each(githubIssues, function(githubIssue){
+    return Users.getByGithubUsername(githubIssue.user.login)
+    .then(function(user){
+      console.log('the .then was called with user:', user);
+      if (user[0]){
+        let issue = {};
+        issue.user_id = user[0].id;
+        issue.title = githubIssue.title;
+        issue.user = githubIssue.user.login;
+        issue.body = githubIssue.body;
+        issue.issue_url = githubIssue.url;
+        issue.repo_url = issue.repository_url;
+        issue.status = issue.state;
+        return db('issues').insert(issue);
       }
-    });
-  });
-};
+      else return;
+    })
+  })
+}
 
 Issues.removeIssue = function(issueID){
   return db('issues').where({
