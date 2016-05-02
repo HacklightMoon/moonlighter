@@ -35,16 +35,16 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.integer('skill_score'); //like an endorsement
 })
 .createTableIfNotExists('characters_skills', function(table){ //fantasy skills attached to characters
-  table.string('dexterity'):
-  table.string('intelligence'):
-  table.string('strength'):
-  table.string('magic'):
-  table.string('troll'):
+  table.string('dexterity');
+  table.string('intelligence');
+  table.string('strength');
+  table.string('magic');
+  table.string('troll');
 })
 .createTableIfNotExists('users_issues', function(table){
   table.increments('id').primary();
   table.integer('user_id').references('id').inTable('users');
-  table.integer('quest_id').references('id').inTable('issues');
+  table.integer('issue_id').references('id').inTable('issues');
 })
 .createTableIfNotExists('issue_members', function(table){
   table.increments('id').primary();
