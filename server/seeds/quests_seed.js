@@ -11,7 +11,8 @@ exports.seed = function(knex, Promise){
     body: "Ever wanted to find people who love the color yellow just as much as you?",
     deleted: false,
     issue_url: "http://google.com",
-    repo_url: "http://google.com"
+    repo_url: "http://google.com",
+    status: "open"
   }),
 
     knex('issues').insert({
@@ -22,7 +23,8 @@ exports.seed = function(knex, Promise){
     body: "Finding that good, just got even easier",
     deleted: false,
     issue_url: "http://google.com",
-    repo_url: "http://google.com"
+    repo_url: "http://google.com",
+    status: "open"
   }),
 
     knex('issues').insert({
@@ -33,7 +35,8 @@ exports.seed = function(knex, Promise){
     body: "A place where pirates can find some booty",
     deleted: false,
     issue_url: "http://google.com",
-    repo_url: "http://google.com"
+    repo_url: "http://google.com",
+    status: "open"
   }),
 
     knex('issues').insert({
@@ -45,6 +48,7 @@ exports.seed = function(knex, Promise){
     deleted: false,
     issue_url: "http://google.com",
     repo_url: "http://google.com"
+    ,status: "open"
   }),
 
     knex('issues').insert({
@@ -54,7 +58,8 @@ exports.seed = function(knex, Promise){
     body: "Where you can find your artisan butter",
     deleted: false,
     issue_url: "http://google.com",
-    repo_url: "http://google.com"
+    repo_url: "http://google.com",
+    status: "open"
   })
   );
 };

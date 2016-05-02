@@ -47,6 +47,7 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.string('user');
   table.integer('user_id').references('id').inTable('users');
   table.string('body');
+  table.string('status');
   table.boolean('deleted').defaultTo(false)
   table.string('issue_url');
   table.string('repo_url');
@@ -61,7 +62,7 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.increments('id').primary();
   table.integer('issue_id').references('id').inTable('issues');
   table.integer('user_id').references('id').inTable('users');
-  table.string('status');
+  // table.string('status');
 })
 .createTableIfNotExists('technologies', function(table){
   table.increments('id').primary();
