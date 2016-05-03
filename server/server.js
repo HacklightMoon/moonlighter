@@ -195,6 +195,13 @@ app.get('/user/current', function(req, res){
   }
 })
 
+app.get('/user/pay', function(req, res){
+  Users.pay(req.query.id, req.query.amount)
+  .then(function(data){
+    res.send(data);
+  })
+})
+
 
 //--------------------Quest Endpoints--------------------
 
