@@ -18,7 +18,7 @@
     <!-- <p>Bounty: {{chosenQuest.bounty}}</p> -->
     <p>Date Created: {{chosenQuest.created_at}}</p>
     <button ui-sref="userProfile" class="ownerProfileButton">{{chosenQuest.user}}'s Profile</button>
-    <button><a ng-href="{{chosenQuest.issue_url}}" class="githubLink">Github Issue Link</a></button>
+    <a href="{{chosenQuest.issue_url}}" target="_blank" class="githubLink"><button>Github Issue Link</button></a>
     <button ng-if="!questOwner && signedIn" ng-click="joinQuest(currentUser.user_id, chosenQuest.id)" class="joinQuestButton">Join Quest</button>
     <button ng-if="questOwner && closedStatus" ng-click="closeQuest()" ui-sref="questFeed" class="closeQuestButton">Close Quest & Pay Out</button>
   </div>
