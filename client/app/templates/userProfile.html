@@ -5,19 +5,29 @@
     <div class="profile container" ng-if="!editState">
       <div><img src='{{userData.picture}}'></div>
       <div>Username:  {{userData.github_username}}</div>
-      <div>@Mail:  {{userData.email}}</div>
-      <div>Role:  {{userData.role}}</div>
-      <div>Skills:  {{userData.skills}}</div>
-      <div>Money:  ${{userData.money}}</div>
+      <div>Email:  {{userData.email}}</div>
+      <div>Baunty:  ${{userData.money}}</div>
       <br/>
+      <h1>User's character:</h1>
+      <div>Some magic power...</div>
       <button ng-if="profileOwner" class='edit' ng-click='editProfile()'>Edit profile</button>
     </div>
-    <div class="editProfile container" ng-if="editState">
-        <div>Role: <input type='text' ng-model='userData.role'></input></div>
-        <div>Skills: <input type='text' ng-model='userData.skills'></input></div>
+    <!-- <div class="editProfile container" ng-if="editState">
         <div>Email: <input type='text' ng-model='userData.email'></input></div>
         
         <button class='save' ng-click='saveProfile()'>Save changes</button>
+    </div> -->
+    <div class="profile container" ng-repeat="issue in myIssues">
+      <h1>My Issues</h1>
+      <!-- some function -->
+      <h3 class=""><span>{{issue.title}}</span></h3>
+      <h4 class=""><span>{{issue.body}}</span></h4>
     </div>
+    <!-- <div class="profile container" ng-repeat="issue in myIssues">
+      <h1>Issues I've joinned</h1>
+      <h3 class=""><span>{{issue.title}}</span></h3>
+      <h3 class=""><span>{{issue.url}}</span></h3>
+    </div> -->
+
   </div>
 </div>

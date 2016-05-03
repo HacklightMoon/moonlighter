@@ -52,69 +52,6 @@ angular.module("moonlighterApp.services", [])
 
   })
 
-  .factory('Quest', function ($http) {
-    var Quest = [];
-
-    var getAllQuests = function () {
-      return $http({
-        method: 'GET',
-        url: '/quest/feed',
-      })
-      .then(function(resp){
-        console.log("Got quests: ", resp.data)
-        return resp.data;
-      })
-      .catch(function(err){
-        console.error(err)
-      })
-    }
-
-    var getQuest = function() {
-      return Quest.currentQuest;
-    }
-
-    var setQuest = function(quest){
-      Quest.currentQuest = quest;
-      return Quest.currentQuest;
-    }
-
-    var addQuest = function (quest) {
-      return $http({
-        method: 'POST',
-        url: '/quest/newquest',
-        data: quest
-      })
-      .then(function(resp) {
-        console.log("New Quest: ", resp);
-      })
-      .catch(function(err){
-        console.error(err);
-      })
-    }
-
-    var deleteQuest = function (id) {
-      return $http({
-        method: 'DELETE',
-        url: '/quest/delete?id=' + id,
-        // data: id
-      })
-      .then(function(resp) {
-        console.log("Quest delete: ", resp);
-      })
-      .catch(function(err){
-        console.error(err);
-      })
-    }
-
-    return {
-      getAllQuests: getAllQuests,
-      getQuest: getQuest,
-      setQuest: setQuest,
-      addQuest: addQuest,
-      deleteQuest: deleteQuest
-    }
-  })
-
   .factory('User', function($http) {
     var User = [];
 

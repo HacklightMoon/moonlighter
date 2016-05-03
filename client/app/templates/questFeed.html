@@ -1,12 +1,12 @@
 <div class="container-quests">
-    <a ui-sref="newQuest" ng-if="seeAddQuest" class="newquest-button">Add a quest!</a>
+    <a ui-sref="newQuest" ng-if="seeAddQuest" class="newquest-button">Add an issue!</a>
     <div class="quests">
       <div class="questCard" ng-repeat="quest in issues">
         <a  ng-click="selectIssue(quest)" ui-sref="questProfile">  
           <div class="card">
             <div class="face front">
               <div class="quest-title-div">
-                <p class="title-on-card">Quest title</p>
+                <p class="title-on-card">Issue title</p>
                 <h3 class="questinfo"><span>{{quest.title}}</span></h3>
               </div>
               <div class="quest-bounty-div">

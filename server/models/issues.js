@@ -51,6 +51,7 @@ Issues.addIssues = function(githubIssues){
         issue.repo_url = githubIssue.repository_url;
         issue.status = githubIssue.state;
         return db('issues').insert(issue);
+
       }
       else return;
     })
