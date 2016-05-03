@@ -70,3 +70,12 @@ Users.update = function(obj){
     return data;
   });
 };
+
+Users.pay = function(id, amount){
+  return db('users')
+  .where({'id': id})
+  .increment('money', amount)
+  .then(function(data){
+    return data;
+  })
+}
