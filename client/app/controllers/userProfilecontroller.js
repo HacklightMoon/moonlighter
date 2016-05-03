@@ -4,33 +4,33 @@ angular.module('moonlighterApp.userProfile', [])
   $scope.editState = false;
   $scope.profileOwner = false;
 
-  // currentUser is the user_id of the user whose profile we're viewing.
-  $scope.currentUser = Profile.getUser();
+  // selectedUser is the user_id of the user whose profile we're viewing.
+  $scope.selectedUser = Profile.getUser();
+  console.log("Current User", $scope.selectedUser);
   
   // We use the above variable to retrieve issues posted by this user.
-  Issues.getMyIssues($scope.currentUser)
+  Issues.getMyIssues($scope.selectedUser)
   .then(function(data) {
-    // This myIssues variable is equal to an array of objects.
+    // This myIssues variable is equal to an array of issue-objects.
     $scope.myIssues = data;
-    console.log("My issues: ", data);
   })
 
-  $scope.getProfile = function(){
-    console.log("Current User", $scope.currentUser);
-    Profile.getProfile($scope.currentUser)
-    .then(function(data){
-      $scope.userData = data.data[0];
-      $scope.loggedInUser = $cookies.getAll();
-      if ($scope.loggedInUser.user_id == $scope.userData.id) {
-        $scope.profileOwner = true;
-      }
-    })
-    .catch(function(err){
-      console.log(err);
-    })
-  }
+  // Get selected profile from quest controller => services
+  // Also, allow profile owner to view certain buttons/divs
+  Profile.getProfile($scope.selectedUser)
+  .then(function(data){
+    $scope.userData = data.data[0];
+    $scope.currentUser = $cookies.getAll();
+    if ($scope.currentUser.user_id == $scope.userData.id) {
+      $scope.profileOwner = true;
+    }
+  })
+  .catch(function(err){
+    console.log(err);
+  })
 
 
+  // FUNCTIONS FOR EDIT-PROFILE:
   $scope.editProfile = function () {
     $scope.editState = true;
   }
@@ -44,8 +44,8 @@ angular.module('moonlighterApp.userProfile', [])
       $scope.newSkills = $scope.userData.skills.split(',');
     }
 
-    let obj = {
-      id: $scope.loggedInUser.passid,
+    let userObj = {
+      id: $scope.currentUser.passid,
       form: {
         email: $scope.newEmail,
         role: $scope.newRole,
@@ -53,7 +53,7 @@ angular.module('moonlighterApp.userProfile', [])
       }
     }
 
-    User.updateUserInfo(obj)
+    User.updateUserInfo(userObj)
     .then(function(data) {
       $state.go('questFeed');
     })
@@ -61,5 +61,4 @@ angular.module('moonlighterApp.userProfile', [])
       console.error(err);
     })
   }
-  $scope.getProfile();
 });

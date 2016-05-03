@@ -1,12 +1,11 @@
 'use strict';
 let express        = require('express');
-let config      = require('./config/environment');
+let config         = require('./config/environment');
 let passport       = require('passport');
 let bodyParser     = require('body-parser');
 let cookieParser   = require('cookie-parser');
 let API            = require('./API/githubQueries');
 let Users          = require('./models/users');
-
 let Issues         = require('./models/issues'); 
 let passportGithub = require('./auth/github');
 let Path           = require('path');

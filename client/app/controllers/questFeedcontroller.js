@@ -1,16 +1,23 @@
 'use strict';
 angular.module('moonlighterApp.questFeed', [])
-.controller('QuestsFeedCtrl',function($scope, User, Issues, $cookies) { //, Quest
+.controller('QuestsFeedCtrl',function($scope, User, Issues, $cookies) {
 
+  // Show or hide the 'Add Quest' button based on sign-in
   $scope.seeAddQuest = false;
-  $scope.userPrivilege = function(){
-    if($cookies.getAll().user_id){
-      $scope.seeAddQuest = true;
-    }
-  };
+  if($cookies.getAll().user_id){
+    $scope.seeAddQuest = true;
+  }
+  
+  // Load all issues from github, and insert them into the database
+  Issues.loadIssues()
+  .then(function(data) {
+    $scope.getAllIssues();
+  })
+  .catch(function(err){
+    console.error(err);
+  })
 
-  $scope.userPrivilege();
-
+  // Load all quests from the database
   $scope.getAllIssues = function() {
     Issues.getAllIssues()
     .then(function(data) {
@@ -21,34 +28,9 @@ angular.module('moonlighterApp.questFeed', [])
     });
   };
 
-  Issues.loadIssues()
-  .then(function(data) {
-    $scope.getAllIssues();
-  })
-  .catch(function(err){
-    console.error(err);
-  })
-
-
+  // When selecing an issue, send the selected issue to services
+  // for use in other controllers
   $scope.selectIssue = function(issue) {
     Issues.setIssue(issue);
   }
 });
-
-
-  // $scope.getAllQuests = function() {
-  //   Quest.getAllQuests()
-  //   .then(function(data) {
-  //       $scope.quests = data;
-  //   })
-  //   .catch(function(err){
-  //     console.error(err);
-  //   });
-  // };
-
-
-  // $scope.getAllQuests();
-
-  // $scope.selectQuest=function(quest) {
-  //   Quest.setQuest(quest);
-  // };
