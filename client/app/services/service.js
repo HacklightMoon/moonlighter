@@ -63,9 +63,9 @@ angular.module("moonlighterApp.services", [])
       .then(function(resp) {
         return resp.data;
       })
-      .catch(function(err) {
-        console.error(err);
-      })
+      // .catch(function(err) {
+      //   console.error(err);
+      // })
     }
 
     var updateUserInfo = function(userData) {
