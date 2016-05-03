@@ -8,8 +8,8 @@ let init = require('./init');
 
 passport.use(new GitHubStrategy({
     clientID: config.clientID,
-    clientSecret: config.clientSecret
-    ,    callbackURL: config.callbackURL
+    clientSecret: config.clientSecret,
+    callbackURL: config.callbackURL
   },
   function(accessToken, refreshToken, profile, done) {
     Users.verifyInsert(profile);    
