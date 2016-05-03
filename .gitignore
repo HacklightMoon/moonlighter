@@ -11,6 +11,7 @@ dist/
 
 *auth keys
 server/auth/config.js
+env_export.rc
 
 
 *tests
