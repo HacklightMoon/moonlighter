@@ -78,7 +78,7 @@ Issues.removeIssue = function(issueID){
 }
 
 Issues.getBounty = function(issueID){
-  return db.select('created_at').from('issues').where({
+  let bounty = db.select('created_at').from('issues').where({
     id: issueID
   })  
   .then(function(time){
@@ -88,4 +88,7 @@ Issues.getBounty = function(issueID){
     let bounty = 100 + (10 * rawInterval);
     return bounty;
   })
+  let members = Issues.getIssueMembers(issueID);
+  return Promise.all([bounty, members])
 }
+
