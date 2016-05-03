@@ -6,7 +6,7 @@
       <div><img src='{{userData.picture}}'></div>
       <div>Username:  {{userData.github_username}}</div>
       <div>Email:  {{userData.email}}</div>
-      <div>Baunty:  ${{userData.money}}</div>
+      <div>Bounty:  ${{userData.money}}</div>
       <br/>
       <h1>User's character:</h1>
       <div>Some magic power...</div>
@@ -17,9 +17,8 @@
         
         <button class='save' ng-click='saveProfile()'>Save changes</button>
     </div> -->
-    <div class="profile container" ng-repeat="issue in myIssues">
-      <h1>My Issues</h1>
-      <!-- some function -->
+    <h1>My Issues</h1>
+    <div  ng-repeat="issue in myIssues">
       <h3 class=""><span>{{issue.title}}</span></h3>
       <h4 class=""><span>{{issue.body}}</span></h4>
     </div>
