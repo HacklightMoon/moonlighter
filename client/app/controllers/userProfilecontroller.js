@@ -1,13 +1,19 @@
 'use strict';
 angular.module('moonlighterApp.userProfile', [])
-.controller('UserProfileCtrl', function ($scope, Profile, User, $state, $cookies) {
+.controller('UserProfileCtrl', function ($scope, Profile, User, $state, $cookies, Issues) {
   $scope.editState = false;
   $scope.profileOwner = false;
 
-  $scope.getUser = function() {
-    $scope.currentUser = Profile.getUser();
-  }
-  $scope.getUser();
+  // currentUser is the user_id of the user whose profile we're viewing.
+  $scope.currentUser = Profile.getUser();
+  
+  // We use the above variable to retrieve issues posted by this user.
+  Issues.getMyIssues($scope.currentUser)
+  .then(function(data) {
+    // This myIssues variable is equal to an array of objects.
+    $scope.myIssues = data;
+    console.log("My issues: ", data);
+  })
 
   $scope.getProfile = function(){
     console.log("Current User", $scope.currentUser);
@@ -16,7 +22,6 @@ angular.module('moonlighterApp.userProfile', [])
       $scope.userData = data.data[0];
       $scope.loggedInUser = $cookies.getAll();
       if ($scope.loggedInUser.user_id == $scope.userData.id) {
-      console.log("ARE THESE THE SAME?:",  $scope.loggedInUser.user_id, $scope.userData.id)
         $scope.profileOwner = true;
       }
     })
@@ -24,6 +29,7 @@ angular.module('moonlighterApp.userProfile', [])
       console.log(err);
     })
   }
+
 
   $scope.editProfile = function () {
     $scope.editState = true;

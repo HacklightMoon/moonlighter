@@ -26,6 +26,7 @@ angular.module('moonlighterApp.questProfile', [])
 
   $scope.joinQuest = function(user_id, quest_id) {
     // TODO: Fill me in...
+    Issues.addMember(quest_id, user_id);
     console.log("Parameters passed into joinQuest:", user_id, quest_id);
   }
 
