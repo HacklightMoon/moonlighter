@@ -73,7 +73,7 @@ Issues.removeIssue = function(issueID){
   return db('issues').where({
     id: issueID
   }).update({
-    deleted: true
+    deleted: 'true'
   })
 }
 
