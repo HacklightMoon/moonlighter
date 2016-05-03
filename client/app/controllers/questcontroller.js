@@ -2,6 +2,7 @@
 angular.module('moonlighterApp.questProfile', [])
 .controller('QuestProfileCtrl',function($scope, $cookies, Profile, User, Issues) {
 
+  // Set currentUser equal to the user data stored in cookies.
   $scope.currentUser = $cookies.getAll();
 
   // Get selected quest from quest feed => services
