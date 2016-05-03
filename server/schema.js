@@ -53,7 +53,7 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.boolean('deleted').defaultTo(false)
   table.string('issue_url');
   table.string('repo_url');
-  // table.timestamp('created_at').defaultTo(knex.fn.now()); // probably dont need this 
+  table.timestamp('created_at').defaultTo(knex.fn.now());
 })
 .createTableIfNotExists('user_issues', function(table){
   table.increments('id').primary();
