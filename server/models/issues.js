@@ -65,3 +65,16 @@ Issues.removeIssue = function(issueID){
     deleted: true
   })
 }
+
+Issues.getBounty = function(issueID){
+  return db.select('created_at').from('issues').where({
+    id: issueID
+  })  
+  .then(function(time){
+    console.log("issues.js 74, time is: ")
+    let rawInterval = time - db.fn.now();
+    console.log("issues.js 76 rowInterval is: ");
+    let bounty = 100 + (10 * rawInterval);
+    return bounty;
+  })
+}
