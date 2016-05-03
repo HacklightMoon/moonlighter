@@ -29,6 +29,12 @@ Issues.addUser = function(issueID, userID){
   })
 }
 
+Issues.getIssueMember = function(issueID){
+  return db('issue_members').where({
+    issue_id: issueID
+  })
+}
+
 Issues.addIssues = function(githubIssues){
   Promise.each(githubIssues, function(githubIssue){
     return db('issues').where({ 'git_id': githubIssue.id })
