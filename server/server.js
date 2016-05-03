@@ -155,9 +155,16 @@ app.post('/issues/addmember', function(req, res) {
 })
 
 app.get('/issues/myissues', function(req, res){
-  console.log("REQ.QUERY: ", req.query.id)
   Issues.getByUser(req.query.id)
   .then(function(resp) {
+    res.send(resp);
+  })
+})
+
+app.get('/issues/bounty', function(req, res){
+  Issues.getBounty(req.query.id)
+  .then(function(resp) {
+    console.log('RESPONSE FROM DBCALL:', resp);
     res.send(resp);
   })
 })

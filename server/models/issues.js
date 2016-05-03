@@ -50,7 +50,6 @@ Issues.addIssues = function(githubIssues){
       else return false;
     })
     .then(function(user){
-      console.log('the .then was called with user:', user);
       if (user && user[0]){
         let issue = {};
         issue.user_id = user[0].id;
@@ -82,11 +81,13 @@ Issues.getBounty = function(issueID){
     id: issueID
   })  
   .then(function(time){
-    console.log("issues.js 74, time is: ")
-    let rawInterval = time - db.fn.now();
-    console.log("issues.js 76 rowInterval is: ");
-    let bounty = 100 + (10 * rawInterval);
-    return bounty;
+    console.log("issues.js 74, time is: ", time[0].created_at);
+    let now = db.fn.now().client.pool.started;
+    console.log("NOW: ", now);
+    let daysElapsed = Math.floor((now - time[0].created_at)/86400000);
+    console.log("issues.js 76 daysElapsed is: ", daysElapsed);
+    let bounty = 100 + (10 * daysElapsed);
+    return {bounty: bounty};
   })
   let members = Issues.getIssueMembers(issueID);
   return Promise.all([bounty, members])

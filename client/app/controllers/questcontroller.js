@@ -8,6 +8,12 @@ angular.module('moonlighterApp.questProfile', [])
   $scope.chosenQuest = Issues.getIssue()
   console.log("The Quest you clicked on: ", $scope.chosenQuest);
 
+  // Get bounty associated with selected quest and set it to questBounty variable
+  Issues.getBounty($scope.chosenQuest.id)
+  .then(function(data){
+    $scope.questBounty = data.bounty;
+  })
+
   // Send the user info of the current quest owner to services,
   // for use in the user profile controller
   $scope.setUser = function(user_id) {

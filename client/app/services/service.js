@@ -156,13 +156,29 @@ angular.module("moonlighterApp.services", [])
       })
     }
 
+    var getBounty = function(issueID) {
+      return $http({
+        method: 'GET',
+        url: '/issues/bounty?id=' + issueID
+      })
+      .then(function(resp){
+        console.log('Response in service.js: ', resp);
+        return resp.data;
+      })
+      .catch(function(err){
+        console.log("ERRRROOOORRRRR");
+        console.error(err)
+      })
+    }
+
     return {
       getAllIssues: getAllIssues,
       loadIssues: loadIssues,
       getIssue: getIssue,
       setIssue: setIssue,
       addMember: addMember,
-      getMyIssues: getMyIssues
+      getMyIssues: getMyIssues,
+      getBounty: getBounty
     }
   })
   
