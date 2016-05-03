@@ -14,6 +14,13 @@ angular.module('moonlighterApp.questProfile', [])
   .then(function(data){
     $scope.questBounty = data.bounty;
   })
+  
+  // Get all users who have joined an issue
+  Issues.getMembers($scope.chosenQuest.id)
+  .then(function(data) {
+    console.log("DATA FROM GETMEMBERS:", data);
+    $scope.questMembers = data;
+  })
 
   // Send the user info of the current quest owner to services,
   // for use in the user profile controller
@@ -28,13 +35,13 @@ angular.module('moonlighterApp.questProfile', [])
     $scope.questOwner = true;
   }
   
-  // If the quest is closed & curent user is quest owner, show Close Quest button
+  // If the quest is closed & curent user is the quest owner, show Close Quest button
   $scope.closedStatus = false;
   if ($scope.chosenQuest.status === 'closed') {
     $scope.closedStatus = true;
   }
 
-  // If the user is signed in, and not the quest owner, show Join Quest button
+  // If the user is signed in, and is not the quest owner, show Join Quest button
   $scope.signedIn = false;
   if ($scope.currentUser.length > 0) {
     $scope.signedIn = true;

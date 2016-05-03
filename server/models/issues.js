@@ -35,7 +35,7 @@ Issues.getIssueMembers = function(issueID){
   })
   .then(function(issueMembers){
     let ids = issueMembers.map(member => member.user_id);
-    return db.select('github_username').from('users')
+    return db.select('id', 'github_username').from('users')
     .whereIn('id', ids)
   })
 }

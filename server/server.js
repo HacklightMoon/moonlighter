@@ -161,10 +161,17 @@ app.get('/issues/myissues', function(req, res){
   })
 })
 
+app.get('/issues/members', function(req, res){
+  console.log("REQ in server.js", req.query.id);
+  Issues.getIssueMembers(req.query.id)
+  .then(function(resp) {
+    res.send(resp);
+  })
+})
+
 app.get('/issues/bounty', function(req, res){
   Issues.getBounty(req.query.id)
   .then(function(resp) {
-    console.log('RESPONSE FROM DBCALL:', resp);
     res.send(resp);
   })
 })
@@ -173,7 +180,7 @@ app.get('/issues/bounty', function(req, res){
 
 
 app.post('/user/update', function(req, res){
-  console.log("server.js, 159 req.body", req.body);
+  console.log("server.js, 183 req.body", req.body);
   Users.update(req.body)
   .then(function(resp){
     res.send(resp);
@@ -195,7 +202,6 @@ app.get('/user/current', function(req, res){
     .then(function(blob){
       return Users.getByLoggedIn(blob).then(function(users){
         let user = users[0]; 
-        console.log("server.js, current user:", user);
         res.send(user || null);
       })
     })
