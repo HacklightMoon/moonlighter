@@ -20,8 +20,21 @@ angular.module('moonlighterApp.questProfile', [])
     $scope.questOwner = true;
   }
 
+  // $scope.deleteQuest = function() {
+  //   Quest.deleteQuest($scope.chosenQuest.id);
+  // }
 
-  $scope.deleteQuest = function() {
-    Quest.deleteQuest($scope.chosenQuest.id);
+  $scope.joinQuest = function(user_id, quest_id) {
+    // TODO: Fill me in...
+    Issues.addMember(quest_id, user_id);
+    console.log("Parameters passed into joinQuest:", user_id, quest_id);
+  }
+
+  $scope.closeQuest = function() {
+    // TODO: Fill me in...
+    // This function should cause a dropdown menu to display.
+    // Upon selecting a username from the menu,
+    // Quests.deleted should be true, and rupees should be
+    // paid out to the selected user
   }
 });

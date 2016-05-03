@@ -37,6 +37,17 @@ exports.seed = function(knex, Promise) {
       email: 'testEmail@789.com',
       role: 'back-end',
       skills: "['Python', 'PHP', 'Drupel', 'Ruby']"
+    }),
+    knex('users').insert({
+      id: 1,
+      github_username: 'dalyhabit',
+      full_name: 'Patrick Daly',
+      money: 99999,
+      passid: 15750911,
+      profile_picture: 'https://avatars.githubusercontent.com/u/15750911?v=3',
+      email: 'dalyhabit@gmail.com',
+      role: 'back-end',
+      skills: "['Python', 'PHP', 'Drupel', 'Ruby']"
     })
   );
 };
