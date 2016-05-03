@@ -89,9 +89,6 @@ Issues.getBounty = function(issueID){
     return bounty;
   })
   let members = Issues.getIssueMembers(issueID);
-  Promise.all(bounty, members)
-  .then(function(bounty, members){
-    return { bounty, members }
-  })
+  return Promise.all([bounty, members])
 }
 
