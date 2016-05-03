@@ -1,40 +1,49 @@
 'use strict';
 angular.module('moonlighterApp.questProfile', [])
-.controller('QuestProfileCtrl',function($scope, $cookies, Profile, User, Issues) { //, Quest
+.controller('QuestProfileCtrl',function($scope, $cookies, Profile, User, Issues) {
 
-  $scope.retrieveQuest = function() {
-    $scope.chosenQuest = Issues.getIssue()
-    console.log("The Quest you clicked on: ", $scope.chosenQuest);
-  };
-  $scope.retrieveQuest();
+  $scope.currentUser = $cookies.getAll();
 
+  // Get selected quest from quest feed => services
+  $scope.chosenQuest = Issues.getIssue()
+  console.log("The Quest you clicked on: ", $scope.chosenQuest);
+
+  // Send the user info of the current quest owner to services,
+  // for use in the user profile controller
   $scope.setUser = function(user_id) {
     Profile.setUser(user_id);
   }
   $scope.setUser($scope.chosenQuest.user_id);
 
-
-  $scope.currentUser = $cookies.getAll();
+  // If the current user owns the selected quest, show certain buttons
   $scope.questOwner = false;
   if ($scope.currentUser.user_id == $scope.chosenQuest.user_id){
     $scope.questOwner = true;
   }
-
-  // $scope.deleteQuest = function() {
-  //   Quest.deleteQuest($scope.chosenQuest.id);
-  // }
-
-  $scope.joinQuest = function(user_id, quest_id) {
-    // TODO: Fill me in...
-    Issues.addMember(quest_id, user_id);
-    console.log("Parameters passed into joinQuest:", user_id, quest_id);
+  
+  // If the quest is closed & curent user is quest owner, show Close Quest button
+  $scope.closedStatus = false;
+  if ($scope.chosenQuest.status === 'closed') {
+    $scope.closedStatus = true;
   }
 
+  // If the user is signed in, and not the quest owner, show Join Quest button
+  $scope.signedIn = false;
+  if ($scope.currentUser.length > 0) {
+    $scope.signedIn = true;
+  }
+
+  // Allow users who aren't the quest owner to join a quest
+  $scope.joinQuest = function(user_id, quest_id) {
+    Issues.addMember(quest_id, user_id);
+  }
+  
+  // Allow quest owners/admins to close a quest and issue bounty
   $scope.closeQuest = function() {
     // TODO: Fill me in...
     // This function should cause a dropdown menu to display.
     // Upon selecting a username from the menu,
-    // Quests.deleted should be true, and rupees should be
+    // Quests.deleted (in db) should be true, and rupees should be
     // paid out to the selected user
   }
 });
