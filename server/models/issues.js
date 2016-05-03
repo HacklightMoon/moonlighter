@@ -29,9 +29,14 @@ Issues.addUser = function(issueID, userID){
   })
 }
 
-Issues.getIssueMember = function(issueID){
+Issues.getIssueMembers = function(issueID){
   return db('issue_members').where({
     issue_id: issueID
+  })
+  .then(function(issueMembers){
+    let ids = issueMembers.map(member => member.user_id);
+    return db.select('github_username').from('users')
+    .whereIn('id', ids)
   })
 }
 
