@@ -189,11 +189,43 @@ angular.module("moonlighterApp.services", [])
       return Issues.currentIssue;
     }
 
+    var addMember = function(issueID, userID) {
+      return $http({
+        method: 'POST',
+        url: '/issues/addmember',
+        data: {
+          issue_id: issueID,
+          user_id: userID
+        }
+      })
+      .then(function(data) {
+        console.log("data in addMember service.js: ", data);
+      })
+      .catch(function(err){
+        console.error(err);
+      })
+    }
+
+    var getMyIssues = function(userID) {
+      return $http({
+        method: 'GET',
+        url: '/issues/myissues?id=' + userID
+      })
+      .then(function(resp){
+        return resp.data;
+      })
+      .catch(function(err){
+        console.error(err)
+      })
+    }
+
     return {
       getAllIssues: getAllIssues,
       loadIssues: loadIssues,
       getIssue: getIssue,
-      setIssue: setIssue
+      setIssue: setIssue,
+      addMember: addMember,
+      getMyIssues: getMyIssues
     }
   })
   

@@ -11,20 +11,23 @@ Issues.getIssues = function(){
   });
 };
 
-Issues.getByUser = function(user){
+Issues.getByUser = function(userID){
   return db('issues').where({
-    'user': user.user
+    'user_id': userID
   });
 };
 
 Issues.addUser = function(issueID, userID){
-  return db('issue_members')
-    .insert(issueID, userID)
-    .then(function(data){
-      return data
-    });
+  let target = {issue_id: issueID, user_id:userID}
+  return db('issue_members').where(target)
+  .then(function(issues){
+    if (issues.length === 0){
+      return db('issue_members')
+      .insert(target)
+    }
+    else return;
+  })
 }
-
 
 Issues.addIssues = function(githubIssues){
   Promise.each(githubIssues, function(githubIssue){

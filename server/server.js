@@ -142,15 +142,26 @@ app.get('/issues', function(req, res) {
   })
 })
 
-
 app.get('/issues/load', function(req, res){
   Issues.getIssues()
   .then(function(resp){
-    console.log(resp)
-    res.send(resp)
+    res.send(resp);
   });
 });
 
+app.post('/issues/addmember', function(req, res) {
+  Issues.addUser(req.body.issue_id, req.body.user_id)
+  .then(function(resp) {
+  })
+})
+
+app.get('/issues/myissues', function(req, res){
+  console.log("REQ.QUERY: ", req.query.id)
+  Issues.getByUser(req.query.id)
+  .then(function(resp) {
+    res.send(resp);
+  })
+})
 
 //--------------------User Endpoints--------------------
 
