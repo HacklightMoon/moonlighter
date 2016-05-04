@@ -36,6 +36,7 @@ Users.verifyInsert = function(obj){
           return db('users')
           .where({'id': user.id})
           .increment('contributions', newContribs)
+          .increment('unseenContribs', newContribs)
           .then(function(){
             return user;
           })
@@ -110,3 +111,9 @@ Users.newContribs = function(user){
     return newContribs;
   });
 };
+
+Users.contribsSeen = function(user_id){
+  return db('users')
+  .where({'id': id})
+  .update({'unseenContribs': 0})
+}
