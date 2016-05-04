@@ -35,7 +35,7 @@ Issues.getIssueMembers = function(issueID){
   })
   .then(function(issueMembers){
     let ids = issueMembers.map(member => member.user_id);
-    return db.select('github_username').from('users')
+    return db.select('id', 'github_username').from('users')
     .whereIn('id', ids)
   })
 }
@@ -50,7 +50,6 @@ Issues.addIssues = function(githubIssues){
       else return false;
     })
     .then(function(user){
-      console.log('the .then was called with user:', user);
       if (user && user[0]){
         let issue = {};
         issue.user_id = user[0].id;
@@ -70,10 +69,11 @@ Issues.addIssues = function(githubIssues){
 }
 
 Issues.removeIssue = function(issueID){
+  console.log("DATA GOT HERE: ", issueID);
   return db('issues').where({
-    id: issueID
+    'id': issueID
   }).update({
-    deleted: true
+    'deleted': true
   })
 }
 
@@ -82,11 +82,10 @@ Issues.getBounty = function(issueID){
     id: issueID
   })  
   .then(function(time){
-    console.log("issues.js 74, time is: ")
-    let rawInterval = time - db.fn.now();
-    console.log("issues.js 76 rowInterval is: ");
-    let bounty = 100 + (10 * rawInterval);
-    return bounty;
+    let now = db.fn.now().client.pool.started;
+    let daysElapsed = Math.floor((now - time[0].created_at)/86400000);
+    let bounty = 100 + (10 * daysElapsed);
+    return {bounty: bounty};
   })
   let members = Issues.getIssueMembers(issueID);
   return Promise.all([bounty, members])

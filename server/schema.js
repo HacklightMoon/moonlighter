@@ -50,7 +50,7 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.integer('git_id');
   table.string('body');
   table.string('status');
-  table.boolean('deleted').defaultTo(false)
+  table.boolean('deleted').defaultTo(false);
   table.string('issue_url');
   table.string('repo_url');
   table.timestamp('created_at').defaultTo(knex.fn.now());

@@ -35,8 +35,8 @@ angular.module('moonlighterApp.header',[])
     $cookies.remove('passid');
   }
 
-  if (!$scope.isLogin) {
-    $scope.logOut();
-  }
+  // if (!$scope.isLogin) {
+  //   $scope.logOut();
+  // }
   $scope.signIn();
 }]);

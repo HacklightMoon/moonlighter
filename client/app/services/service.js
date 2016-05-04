@@ -156,13 +156,63 @@ angular.module("moonlighterApp.services", [])
       })
     }
 
+    var getBounty = function(issueID) {
+      return $http({
+        method: 'GET',
+        url: '/issues/bounty?id=' + issueID
+      })
+      .then(function(resp){
+        console.log('Response in service.js: ', resp);
+        return resp.data;
+      })
+      .catch(function(err){
+        console.error(err)
+      })
+    }
+
+    var getMembers = function(issueID) {
+      return $http({
+        method: 'GET',
+        url: '/issues/members?id=' + issueID
+      })
+      .then(function(resp){
+        console.log('Response in service.js: ', resp);
+        return resp.data;
+      })
+      .catch(function(err){
+        console.error(err)
+      })
+    }
+
+    var payAndClose = function(userID, amount, issueID) {
+      return $http({
+        method: 'POST',
+        url: '/user/pay',
+        data: {
+          user_id: userID,
+          amount: amount,
+          issue_id: issueID
+        }
+      })
+      .then(function(resp){
+        console.log('Response in service.js: ', resp);
+        return resp.data;
+      })
+      .catch(function(err){
+        console.error(err)
+      })
+    }
+
     return {
       getAllIssues: getAllIssues,
       loadIssues: loadIssues,
       getIssue: getIssue,
       setIssue: setIssue,
       addMember: addMember,
-      getMyIssues: getMyIssues
+      getMyIssues: getMyIssues,
+      getBounty: getBounty,
+      getMembers: getMembers,
+      payAndClose: payAndClose
     }
   })
   

@@ -155,8 +155,22 @@ app.post('/issues/addmember', function(req, res) {
 })
 
 app.get('/issues/myissues', function(req, res){
-  console.log("REQ.QUERY: ", req.query.id)
   Issues.getByUser(req.query.id)
+  .then(function(resp) {
+    res.send(resp);
+  })
+})
+
+app.get('/issues/members', function(req, res){
+  console.log("REQ in server.js", req.query.id);
+  Issues.getIssueMembers(req.query.id)
+  .then(function(resp) {
+    res.send(resp);
+  })
+})
+
+app.get('/issues/bounty', function(req, res){
+  Issues.getBounty(req.query.id)
   .then(function(resp) {
     res.send(resp);
   })
@@ -164,9 +178,8 @@ app.get('/issues/myissues', function(req, res){
 
 //--------------------User Endpoints--------------------
 
-
 app.post('/user/update', function(req, res){
-  console.log("server.js, 159 req.body", req.body);
+  console.log("server.js, 183 req.body", req.body);
   Users.update(req.body)
   .then(function(resp){
     res.send(resp);
@@ -188,20 +201,21 @@ app.get('/user/current', function(req, res){
     .then(function(blob){
       return Users.getByLoggedIn(blob).then(function(users){
         let user = users[0]; 
-        console.log("server.js, current user:", user);
         res.send(user || null);
       })
     })
   }
 })
 
-app.get('/user/pay', function(req, res){
-  Users.pay(req.query.id, req.query.amount)
-  .then(function(data){
-    res.send(data);
+app.post('/user/pay', function(req, res){
+  Users.pay(req.body.user_id, req.body.amount)
+  .then(function(){
+    Issues.removeIssue(req.body.issue_id)
+    .then(function() {
+      res.send(201);
+    })
   })
 })
-
 
 //--------------------Quest Endpoints--------------------
 
