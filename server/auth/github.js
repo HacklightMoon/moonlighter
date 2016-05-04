@@ -13,7 +13,6 @@ passport.use(new GitHubStrategy({
   },
   function(accessToken, refreshToken, profile, done) {
     Users.verifyInsert(profile);    
-      console.log("trying to serialize:", {profile, accessToken})
         
     done(null, {passid: profile.id, Authorization: "token " + accessToken})
   }));

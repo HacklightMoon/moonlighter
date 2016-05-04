@@ -3,7 +3,7 @@
 let Promise = require('bluebird'); //remove this once babel is available.
 let db = require('../db');
 let Users = module.exports;
-let API = require('../API/githubQueries')
+let API = require('../API/githubQueries');
 
 Users.verifyInsert = function(obj){
   let session = {};
@@ -14,17 +14,28 @@ Users.verifyInsert = function(obj){
   session.email = obj.emails ? obj.emails[0].value : null;
   return db('users').where({
     passid: session.passid
-  }).then(function(data){
+  })
+  .then(function(data){
     if (data.length === 0){
-      return db('users').insert(session).limit(1).then(function(array){
-        return array[0];
+      return API.userContribsTotal(session.github_username)
+      .then(function(contributions){
+        session.contributions = contributions;
+        return db('users').insert(session).limit(1)
+      })
+      .catch(function(err){
+        console.log("Error:", err);
+        return;
       });
-    } else {
-      if (Array.isArray(data)){
-        return data[0];
-      } else {
+    } 
+    else {
+      if (Array.isArray(data)){ 
+        let user = data[0];
+        return user; 
+      } 
+      else { 
+        console.log("User not array:", data);
         return data;
-      }
+      } 
     }
   });
 };
@@ -32,35 +43,35 @@ Users.verifyInsert = function(obj){
 Users.verifyId = function(id){
   return db('users').where({
     passid: id
-  }).limit(1);
+  })
+  .limit(1);
 };
 
 Users.getByGithubUsername = function(githubUsername){
-  return db('users').where({
+  return db('users')
+  .where({
     'github_username': githubUsername
-  }).limit(1);
+  })
+  .limit(1);
 };
 
 Users.getById = function(id){
-  return db('users').where({
+  return db('users')
+  .where({
     'id': id
   }).limit(1);
 };
 
 Users.getByLoggedIn = function(blob){
-    let passid = JSON.parse(blob).id;
-    console.log("users.js, passid", passid);
-    return db('users').where({
-      'passid': passid
-    }).limit(1).then(function(user){
-      console.log("users.js 51, user:", user);
-      return user;
-    });
-  };
+  let passid = JSON.parse(blob).id;
+  return db('users').where({
+    'passid': passid
+  }).limit(1).then(function(user){
+    console.log("users.js getByLoggedIn, user:", user);
+    return user;
+  });
+};
 
-
-//obj should look like: { id: id, form: form } 
-//obj.form can only contain keys that match columns in the user schema.
 Users.update = function(obj){
   return db('users').where({
     passid: obj.id
@@ -77,5 +88,14 @@ Users.pay = function(id, amount){
   .increment('money', amount)
   .then(function(data){
     return data;
-  })
-}
+  });
+};
+
+//Need better algorithm than looking at all of last year's contributions, and only them.
+Users.newContribs = function(user){
+  API.userContribsTotal(user.github_username)
+  .then(function(newTotal){
+    let newContribs = newTotal - user.contributions;
+    return newContribs;
+  });
+};
