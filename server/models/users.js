@@ -30,7 +30,16 @@ Users.verifyInsert = function(obj){
     else {
       if (Array.isArray(data)){ 
         let user = data[0];
-        return user; 
+        return Users.newContribs(user)
+        .then(function(newContribs){
+          console.log("trying to insert newContribs", newContribs)
+          return db('users')
+          .where({'id': user.id})
+          .increment('contributions', newContribs)
+          .then(function(){
+            return user;
+          })
+        })
       } 
       else { 
         console.log("User not array:", data);
@@ -93,9 +102,11 @@ Users.pay = function(id, amount){
 
 //Need better algorithm than looking at all of last year's contributions, and only them.
 Users.newContribs = function(user){
-  API.userContribsTotal(user.github_username)
+  console.log("Users.newContribs successfully called on", user.github_username);
+  return API.userContribsTotal(user.github_username)
   .then(function(newTotal){
     let newContribs = newTotal - user.contributions;
+    console.log("returning newContribs:", newContribs);
     return newContribs;
   });
 };
