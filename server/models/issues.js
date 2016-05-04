@@ -69,6 +69,7 @@ Issues.addIssues = function(githubIssues){
 }
 
 Issues.removeIssue = function(issueID){
+  console.log("DATA GOT HERE: ", issueID);
   return db('issues').where({
     id: issueID
   }).update({
@@ -81,11 +82,8 @@ Issues.getBounty = function(issueID){
     id: issueID
   })  
   .then(function(time){
-    console.log("issues.js 74, time is: ", time[0].created_at);
     let now = db.fn.now().client.pool.started;
-    console.log("NOW: ", now);
     let daysElapsed = Math.floor((now - time[0].created_at)/86400000);
-    console.log("issues.js 76 daysElapsed is: ", daysElapsed);
     let bounty = 100 + (10 * daysElapsed);
     return {bounty: bounty};
   })

@@ -184,6 +184,25 @@ angular.module("moonlighterApp.services", [])
       })
     }
 
+    var payAndClose = function(userID, amount, issueID) {
+      return $http({
+        method: 'POST',
+        url: '/user/pay',
+        data: {
+          user_id: userID,
+          amount: amount,
+          issue_id: issueID
+        }
+      })
+      .then(function(resp){
+        console.log('Response in service.js: ', resp);
+        return resp.data;
+      })
+      .catch(function(err){
+        console.error(err)
+      })
+    }
+
     return {
       getAllIssues: getAllIssues,
       loadIssues: loadIssues,
@@ -192,7 +211,8 @@ angular.module("moonlighterApp.services", [])
       addMember: addMember,
       getMyIssues: getMyIssues,
       getBounty: getBounty,
-      getMembers: getMembers
+      getMembers: getMembers,
+      payAndClose: payAndClose
     }
   })
   

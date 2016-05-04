@@ -178,7 +178,6 @@ app.get('/issues/bounty', function(req, res){
 
 //--------------------User Endpoints--------------------
 
-
 app.post('/user/update', function(req, res){
   console.log("server.js, 183 req.body", req.body);
   Users.update(req.body)
@@ -208,13 +207,12 @@ app.get('/user/current', function(req, res){
   }
 })
 
-app.get('/user/pay', function(req, res){
-  Users.pay(req.query.id, req.query.amount)
-  .then(function(data){
-    res.send(data);
+app.post('/user/pay', function(req, res){
+  Users.pay(req.body.user_id, req.body.amount)
+  .then(function(){
+    Issues.removeIssue(req.body.issue_id);
   })
 })
-
 
 //--------------------Quest Endpoints--------------------
 

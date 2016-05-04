@@ -10,16 +10,11 @@ angular.module('moonlighterApp.questProfile', [])
   console.log("The Quest you clicked on: ", $scope.chosenQuest);
 
   // Get bounty associated with selected quest and set it to questBounty variable
+  // Also get all users who have joined an issue
   Issues.getBounty($scope.chosenQuest.id)
   .then(function(data){
-    $scope.questBounty = data.bounty;
-  })
-  
-  // Get all users who have joined an issue
-  Issues.getMembers($scope.chosenQuest.id)
-  .then(function(data) {
-    console.log("DATA FROM GETMEMBERS:", data);
-    $scope.questMembers = data;
+    $scope.questBounty = data[0].bounty; // => integer
+    $scope.questMembers = data[1] // => array of objects (id, github_username)
   })
 
   // Send the user info of the current quest owner to services,
@@ -59,5 +54,11 @@ angular.module('moonlighterApp.questProfile', [])
     // Upon selecting a username from the menu,
     // Quests.deleted (in db) should be true, and rupees should be
     // paid out to the selected user
+    if ($scope.userToPay) {
+      Issues.payAndClose(Number($scope.userToPay), $scope.questBounty, $scope.chosenQuest.id);
+    }
+    else {
+      $scope.errorMessage = "Please select the user who solved your issue"
+    }
   }
 });
