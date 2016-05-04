@@ -24,19 +24,20 @@
         
         <button class='save' ng-click='saveProfile()'>Save changes</button>
     </div> -->
-    <h1>My Issues</h1>
-    <div  ng-repeat="issue in myIssues">
-      <h3 class=""><span>{{issue.title}}</span></h3>
-      <h4 class=""><span>{{issue.body}}</span></h4>
-    </div>
-    <h1>Issues I've joinned</h1>
-    <!-- <div ng-repeat="issue in myIssues">
+   <!--  <h1>Issues I've joined</h1>
+    <div ng-repeat="issue in myIssues">
       <h3 class=""><span>{{issue.title}}</span></h3>
       <h3 class=""><span>{{issue.url}}</span></h3>
     </div> -->
 
   </div>
-  <div>
-    <h1>My Issues</h1>
+  <div class="myissues">
+    <h1>Quests Created</h1>
+    <ul>
+      <li ng-repeat="issue in myIssues">
+        <h3 class="issue-title">{{issue.title}}</h3>
+        <p class="issue-body">{{issue.body}}</p>
+      </li>
+    </ul>
   </div>
 </div>

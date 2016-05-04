@@ -28,7 +28,7 @@ angular.module('moonlighterApp.userProfile', [])
   .catch(function(err){
     console.log(err);
   })
-
+});
 
   // FUNCTIONS FOR EDIT-PROFILE:
   // $scope.editProfile = function () {
@@ -61,4 +61,3 @@ angular.module('moonlighterApp.userProfile', [])
   //     console.error(err);
   //   })
   // }
-});

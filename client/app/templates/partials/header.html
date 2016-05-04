@@ -12,4 +12,7 @@
   </nav>
 </div>  
 
- 
+      <div class="user-info" ng-if="username">
+        <h3>{{username}}</h3>
+        <img src="{{photo}}" ng-click="setUser" style="border-radius: 50%;" height="55" width="55">
+      </div>
