@@ -40,6 +40,17 @@ Issues.getIssueMembers = function(issueID){
   })
 }
 
+Issues.getJoinedIssues = function(userID){
+  return db('issue_members').where({
+    user_id: userID
+  })
+  .then(function(issueMembers){
+    let ids = issueMembers.map(member => member.issue_id);
+    return db.select('id', 'title', 'body').from('issues')
+    .whereIn('id', ids)
+  })
+}
+
 Issues.addIssues = function(githubIssues){
   Promise.each(githubIssues, function(githubIssue){
     return db('issues').where({ 'git_id': githubIssue.id })

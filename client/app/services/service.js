@@ -203,6 +203,20 @@ angular.module("moonlighterApp.services", [])
       })
     }
 
+    var getJoinedIssues = function(userID) {
+      return $http({
+        method: 'GET',
+        url: '/issues/joined?id=' + userID
+      })
+      .then(function(resp){
+        console.log('Response in service.js: ', resp);
+        return resp.data;
+      })
+      .catch(function(err){
+        console.error(err)
+      })
+    }
+
     return {
       getAllIssues: getAllIssues,
       loadIssues: loadIssues,
@@ -212,7 +226,8 @@ angular.module("moonlighterApp.services", [])
       getMyIssues: getMyIssues,
       getBounty: getBounty,
       getMembers: getMembers,
-      payAndClose: payAndClose
+      payAndClose: payAndClose,
+      getJoinedIssues: getJoinedIssues
     }
   })
   

@@ -32,6 +32,9 @@ angular.module('moonlighterApp.header',[])
     // })
   }
 
+  // This function should send the selected user to the services
+  // Then it should redirect you to the user profile view
+  // IT DOESN"T COMPLETELY WORK YET!!!
   $scope.setUser = function () {
     Profile.setUser($scope.user_id)
     .then(function() {
