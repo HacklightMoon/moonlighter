@@ -71,9 +71,9 @@ Issues.addIssues = function(githubIssues){
 Issues.removeIssue = function(issueID){
   console.log("DATA GOT HERE: ", issueID);
   return db('issues').where({
-    id: issueID
+    'id': issueID
   }).update({
-    deleted: true
+    'deleted': true
   })
 }
 

@@ -210,7 +210,10 @@ app.get('/user/current', function(req, res){
 app.post('/user/pay', function(req, res){
   Users.pay(req.body.user_id, req.body.amount)
   .then(function(){
-    Issues.removeIssue(req.body.issue_id);
+    Issues.removeIssue(req.body.issue_id)
+    .then(function() {
+      res.send(201);
+    })
   })
 })
 
