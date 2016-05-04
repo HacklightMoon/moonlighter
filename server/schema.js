@@ -14,11 +14,13 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.string('role');
   table.string('skills');
   table.boolean('admin').defaultTo(false);
+  table.integer('contributions').defaultTo(0);
 })
 .createTableIfNotExists('characters', function(table){
   table.increments('id').primary();
   table.integer('user_id').references('id').inTable('users');
   table.string('name');
+  table.integer('experience').defaultTo(0);
   table.integer('level');
 })
 .createTableIfNotExists('items', function(table){

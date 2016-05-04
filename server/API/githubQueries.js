@@ -53,4 +53,4 @@ API.userContribsTotal = function(username){
     console.log("Error:", error);
 
   })
-}
+};
