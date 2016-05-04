@@ -173,6 +173,14 @@ app.get('/issues/bounty', function(req, res){
   })
 })
 
+app.get('/issues/joined', function(req, res){
+  console.log("REQ in server.js", req.query.id);
+  Issues.getJoinedIssues(req.query.id)
+  .then(function(resp) {
+    res.send(resp);
+  })
+})
+
 //--------------------User Endpoints--------------------
 
 app.post('/user/update', function(req, res){
@@ -220,29 +228,6 @@ app.get('/user/contribs', function(req, res){
     })
   }
 })
-
-//--------------------Quest Endpoints--------------------
-
-app.get('/quest/feed', function(req, res){
-  return Quests.getAll()
-  .then(function(resp){
-    res.send(resp);
-  });
-});
-
-app.post('/quest/newquest', function(req, res){
-  return Quests.create(req.body)
-  .then(function(resp){
-    res.send(resp);
-  });
-});
-
-app.delete('/quest/delete', function(req, res){
-  return Quests.remove(req.query.id)
-  .then(function(resp){
-    res.send(resp);
-  });
-});
 
 app.use('/', routes)
 

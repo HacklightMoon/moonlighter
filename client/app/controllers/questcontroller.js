@@ -25,23 +25,21 @@ angular.module('moonlighterApp.questProfile', [])
   $scope.setUser($scope.chosenQuest.user_id);
 
   // If the current user owns the selected quest, show certain buttons
+  // If the quest is closed & curent user is the quest owner, show Close Quest button
+  // If the user is signed in, and is not the quest owner, show Join Quest button
   $scope.questOwner = false;
+  $scope.closedStatus = false;
+  $scope.signedIn = false;
   if ($scope.currentUser.user_id == $scope.chosenQuest.user_id){
     $scope.questOwner = true;
   }
-  
-  // If the quest is closed & curent user is the quest owner, show Close Quest button
-  $scope.closedStatus = false;
   if ($scope.chosenQuest.status === 'closed') {
     $scope.closedStatus = true;
   }
-
-  // If the user is signed in, and is not the quest owner, show Join Quest button
-  $scope.signedIn = false;
   if ($scope.currentUser.user_id) {
     $scope.signedIn = true;
   }
-
+  
   // Allow users who aren't the quest owner to join a quest
   $scope.joinQuest = function(user_id, quest_id) {
     Issues.addMember(quest_id, user_id);
@@ -52,8 +50,7 @@ angular.module('moonlighterApp.questProfile', [])
     if ($scope.userToPay) {
       Issues.payAndClose(Number($scope.userToPay), $scope.questBounty, $scope.chosenQuest.id);
       $state.go('questFeed')
-    }
-    else {
+    } else {
       $scope.errorMessage = "Please select the user who solved your issue"
     }
   }

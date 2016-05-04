@@ -9,34 +9,36 @@
   <div class="container">
     <h1>{{userData.full_name}}</h1>
     <hr />
-    <div class="profile container">
+    <div id="tl">
       <div><img src='{{userData.picture}}'></div>
       <div>Username:  {{userData.github_username}}</div>
       <div>Email:  {{userData.email}}</div>
       <div>Bounty:  ${{userData.money}}</div>
-      <br/>
+    </div>
+
+    <div class="myissues">
+      <h1>Quests Created</h1>
+      <ul>
+        <li ng-repeat="issue in myIssues">
+          <h3 class="issue-title">{{issue.title}}</h3>
+          <p class="issue-body">{{issue.body}}</p>
+        </li>
+      </ul>
+    </div>
+    
+    <div id="bl">
       <h1>User's character:</h1>
       <div>Some magic power...</div>
-      <!-- <button ng-if="profileOwner" class='edit' ng-click='editProfile()'>Edit profile</button> -->
     </div>
-    <!-- <div class="editProfile container" ng-if="editState">
-        <div>Email: <input type='text' ng-model='userData.email'></input></div>
-        
-        <button class='save' ng-click='saveProfile()'>Save changes</button>
-    </div> -->
-    <h1>My Issues</h1>
-    <div  ng-repeat="issue in myIssues">
-      <h3 class=""><span>{{issue.title}}</span></h3>
-      <h4 class=""><span>{{issue.body}}</span></h4>
-    </div>
-    <h1>Issues I've joinned</h1>
-    <!-- <div ng-repeat="issue in myIssues">
-      <h3 class=""><span>{{issue.title}}</span></h3>
-      <h3 class=""><span>{{issue.url}}</span></h3>
-    </div> -->
 
-  </div>
-  <div>
-    <h1>My Issues</h1>
+    <div class="myissues" id="br">
+      <h1>Issues Joined</h1>
+      <ul>
+        <li ng-repeat="issue in joinedIssues">
+          <h3 class="issue-title">{{issue.title}}</h3>
+          <p class="issue-body">{{issue.body}}</p>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

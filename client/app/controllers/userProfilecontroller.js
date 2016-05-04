@@ -15,6 +15,13 @@ angular.module('moonlighterApp.userProfile', [])
     $scope.myIssues = data;
   })
 
+  Issues.getJoinedIssues($scope.selectedUser)
+  .then(function(data) {
+    // This joinedIssues variable is equal to an array of issue-objects.
+    $scope.joinedIssues = data;
+    console.log("JOINED ISSUES: ", data);
+  })
+
   // Get selected profile from quest controller => services
   // Also, allow profile owner to view certain buttons/divs
   Profile.getProfile($scope.selectedUser)
@@ -28,7 +35,7 @@ angular.module('moonlighterApp.userProfile', [])
   .catch(function(err){
     console.log(err);
   })
-
+});
 
   // FUNCTIONS FOR EDIT-PROFILE:
   // $scope.editProfile = function () {
@@ -61,4 +68,3 @@ angular.module('moonlighterApp.userProfile', [])
   //     console.error(err);
   //   })
   // }
-});

@@ -1,7 +1,12 @@
 'use strict';
 angular.module('moonlighterApp.landing',[])
-.controller('LandingCtrl', ['$scope', function($scope) {
+.controller('LandingCtrl', ['$scope', 'Issues', function($scope, Issues) {
   
+  Issues.loadIssues()
+  .catch(function(err){
+    console.error(err);
+  })
+
 }])
 
 // ng-model="checked" ng-init="checked=true"
