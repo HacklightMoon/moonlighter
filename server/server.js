@@ -7,6 +7,7 @@ let cookieParser   = require('cookie-parser');
 let API            = require('./API/githubQueries');
 let Users          = require('./models/users');
 let Issues         = require('./models/issues'); 
+let Character      = require('./models/characters');
 let passportGithub = require('./auth/github');
 let Path           = require('path');
 let session        = require('express-session');
@@ -173,11 +174,17 @@ app.get('/issues/bounty', function(req, res){
     res.send(resp);
   })
 })
-
 app.get('/issues/joined', function(req, res){
   console.log("REQ in server.js", req.query.id);
   Issues.getJoinedIssues(req.query.id)
   .then(function(resp) {
+
+//--------------------Character Endpoints----------------
+
+app.get('/character', function(req, res){
+  console.log('server.js, 182 req.body', req.body);
+  Character.getAll()
+  .then(function(resp){
     res.send(resp);
   })
 })
@@ -262,7 +269,7 @@ app.delete('/quest/delete', function(req, res){
 
 app.use('/', routes)
 
-app.listen(config.port ||3000, function () {
+app.listen(config.port || 3000, function () {
   console.log("process.env.PORT", config.port)
   console.log('Example app listening on port 3000!');
   console.log('FOR YOU FRONT_END FOLKS');

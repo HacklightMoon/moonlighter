@@ -2,7 +2,12 @@
 //If a table or column needs to be added, you may put it in schema_todo.txt
 let knex = require('./db');
 
-knex.schema.createTableIfNotExists('users', function(table){
+knex.schema.createTableIfNotExists('characters', function(table){
+  table.increments('id').primary();
+  table.binary('character');
+  table.integer('level');
+})
+.createTableIfNotExists('users', function(table){
   table.increments('id').primary();
   table.string('github_username').unique();
   table.timestamp('joined_at').defaultTo(knex.fn.now());
@@ -16,14 +21,15 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.boolean('admin').defaultTo(false);
   table.integer('contributions').defaultTo(0);
   table.integer('unseenContribs').defaultTo(0);
+  table.integer('level_id').references('id').inTable('characters');
 })
-.createTableIfNotExists('characters', function(table){
-  table.increments('id').primary();
-  table.integer('user_id').references('id').inTable('users');
-  table.string('name');
-  table.integer('experience').defaultTo(0);
-  table.integer('level');
-})
+// .createTableIfNotExists('user_character', function(table){
+//   table.increments('id').primary();
+//   table.integer('user_id').references('id').inTable('users');
+//   table.integer('char_id').references('id').inTable('characters');
+//   table.string('name');
+//   table.integer('level');
+// })
 .createTableIfNotExists('items', function(table){
   table.increments('id').primary();
   table.string('name');
