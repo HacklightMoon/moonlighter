@@ -15,6 +15,7 @@ knex.schema.createTableIfNotExists('users', function(table){
   table.string('skills');
   table.boolean('admin').defaultTo(false);
   table.integer('contributions').defaultTo(0);
+  table.integer('unseenContribs').defaultTo(0);
 })
 .createTableIfNotExists('characters', function(table){
   table.increments('id').primary();
