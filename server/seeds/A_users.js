@@ -33,7 +33,7 @@ exports.seed = function(knex, Promise) {
       email: 'testEmail@789.com'
     }),
     knex('users').insert({
-      id: 1,
+      id: 2137483644,
       github_username: 'dalyhabit',
       full_name: 'Patrick Daly',
       money: 99999,

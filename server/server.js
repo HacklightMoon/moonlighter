@@ -40,7 +40,6 @@ app.get('/auth/github/callback', passportGithub.authenticate('github', { failure
 // Logout route 
 // TODO fix logout route
 app.get('/auth/logout', function(req,res){
-  console.log('trying to logout...')
   req.session.destroy(function(){
     res.clearCookie('connect.sid');
     req.signedCookies = null;
@@ -115,11 +114,9 @@ var configTest = function(){
 configTest();
 
 app.get('/trycall', function(req, res){
-  //console.log("req.user:", req.user);
   //res.set('Authorization', req.user['Authorization'])
   API.getCurrentUser(req.user.Authorization)//this function call needs token in header
   .then(function(resp){
-    console.log("response:", resp)
     //console.log("req.user['Authorization']", req.user['Authorization'])
     res.send(resp);
   })
@@ -155,7 +152,6 @@ app.post('/issues/addmember', function(req, res) {
 })
 
 app.get('/issues/myissues', function(req, res){
-  console.log("REQ.QUERY: ", req.query.id)
   Issues.getByUser(req.query.id)
   .then(function(resp) {
     res.send(resp);
@@ -166,7 +162,6 @@ app.get('/issues/myissues', function(req, res){
 
 
 app.post('/user/update', function(req, res){
-  console.log("server.js, 159 req.body", req.body);
   Users.update(req.body)
   .then(function(resp){
     res.send(resp);
@@ -174,7 +169,6 @@ app.post('/user/update', function(req, res){
 })
 
 app.get('/user/info', function(req, res){
-  console.log("server.js, 167 req.query.id", req.query.id);
   return Users.getById(req.query.id)
   .then(function(resp){
     res.send(resp)
@@ -188,7 +182,6 @@ app.get('/user/current', function(req, res){
     .then(function(blob){
       return Users.getByLoggedIn(blob).then(function(users){
         let user = users[0]; 
-        console.log("server.js, current user:", user);
         res.send(user || null);
       })
     })
@@ -202,13 +195,20 @@ app.get('/user/pay', function(req, res){
   })
 })
 
+app.get('/user/contribs', function(req, res){
+  if(req.user){
+    API.userContribsTotal(req.user.user.github_username)
+    .then(function(resp){
+      res.send(resp);
+    })
+  }
+})
 
 //--------------------Quest Endpoints--------------------
 
 app.get('/quest/feed', function(req, res){
   return Quests.getAll()
   .then(function(resp){
-    console.log(resp);
     res.send(resp);
   });
 });
@@ -221,7 +221,6 @@ app.post('/quest/newquest', function(req, res){
 });
 
 app.delete('/quest/delete', function(req, res){
-  console.log("D*E*L*T*E ", req.query.id)
   return Quests.remove(req.query.id)
   .then(function(resp){
     res.send(resp);

@@ -49,11 +49,9 @@ Users.getById = function(id){
 
 Users.getByLoggedIn = function(blob){
     let passid = JSON.parse(blob).id;
-    console.log("users.js, passid", passid);
     return db('users').where({
       'passid': passid
     }).limit(1).then(function(user){
-      console.log("users.js 51, user:", user);
       return user;
     });
   };
