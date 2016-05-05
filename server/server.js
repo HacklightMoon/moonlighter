@@ -148,6 +148,7 @@ app.get('/issues/load', function(req, res){
 app.post('/issues/addmember', function(req, res) {
   Issues.addUser(req.body.issue_id, req.body.user_id)
   .then(function(resp) {
+    res.send(resp);
   })
 })
 

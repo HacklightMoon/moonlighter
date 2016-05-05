@@ -6,7 +6,7 @@ angular.module('moonlighterApp.userProfile', [])
 
   // selectedUser is the user_id of the user whose profile we're viewing.
   $scope.selectedUser = Profile.getUser();
-  console.log("Current User", $scope.selectedUser);
+  console.log("----------Current User----------:  ", $scope.selectedUser);
   
   // We use the above variable to retrieve issues posted by this user.
   Issues.getMyIssues($scope.selectedUser)

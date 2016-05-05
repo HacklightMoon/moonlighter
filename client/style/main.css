@@ -18,12 +18,13 @@
 .questfeed-button-text{
   top: 50%;
   left: 50%;
-  margin-right: -50%;
+  /*margin-right: -50%;*/
   transform: translate(-50%, -50%);
 }
 
 .questfeed-button {
-  background-color: #f6f1ee;
+    text-align: center;
+    background-color: #f6f1ee;
     width: 80%;
     padding: 5px 35px;
     text-decoration: none;
@@ -332,3 +333,22 @@ a {
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none;
 }
+
+/********************* USER PROFILE ***********************/
+
+/*html, body { height: 100%; padding: 0; margin: 0; }*/
+#tl, #tr, #bl, #br  { 
+    width: 45%; 
+    height: 45%;
+    float: left;
+    float: left;
+    overflow: auto;
+    margin: 10px;
+    padding: 5px;
+    /* margin-bottom: 5px; */
+    /* margin-left: inherit; */
+    border-radius: 10px;
+    /*position: initial;*/
+    /* border-right: 4px; */}
+
+
