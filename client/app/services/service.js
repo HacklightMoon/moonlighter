@@ -47,7 +47,8 @@ angular.module("moonlighterApp.services", [])
       getProfile: getProfile,
       editProfile: editProfile,
       getUser: getUser,
-      setUser: setUser
+      setUser: setUser,
+      getCharacter: getCharacter,
     }
 
   })
@@ -227,7 +228,7 @@ angular.module("moonlighterApp.services", [])
       getBounty: getBounty,
       getMembers: getMembers,
       payAndClose: payAndClose,
-      getJoinedIssues: getJoinedIssues
+      getJoinedIssues: getJoinedIssues 
     }
   })
   

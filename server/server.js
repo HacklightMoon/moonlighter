@@ -178,14 +178,20 @@ app.get('/issues/joined', function(req, res){
   console.log("REQ in server.js", req.query.id);
   Issues.getJoinedIssues(req.query.id)
   .then(function(resp) {
-
+     res.send(resp);
+  })
+})
 //--------------------Character Endpoints----------------
 
 app.get('/character', function(req, res){
   console.log('server.js, 182 req.body', req.body);
   Character.getAll()
   .then(function(resp){
+    res.set('Content-type', 'image/png')
     res.send(resp);
+  })
+  .catch(function(err){
+    console.error(err)
   })
 })
 
