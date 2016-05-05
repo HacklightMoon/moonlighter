@@ -22,6 +22,18 @@ angular.module('moonlighterApp.userProfile', [])
     console.log("JOINED ISSUES: ", data);
   })
 
+  $scope.getCharacter = function(){
+    console.log("I'm being called UserProfileCtrl")
+    Profile.getCharacter()
+    .then(function(data){
+      console.log("this is your data in UserProfileCtrl", data)
+      $scope.characters = data
+    })
+    .catch(function(err){
+      console.error(err)
+    })
+  }
+
   // Get selected profile from quest controller => services
   // Also, allow profile owner to view certain buttons/divs
   Profile.getProfile($scope.selectedUser)
@@ -35,7 +47,11 @@ angular.module('moonlighterApp.userProfile', [])
   .catch(function(err){
     console.log(err);
   })
+
+  $scope.getCharacter();
+
 });
+
 
   // FUNCTIONS FOR EDIT-PROFILE:
   // $scope.editProfile = function () {
