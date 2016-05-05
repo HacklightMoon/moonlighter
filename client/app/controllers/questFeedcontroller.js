@@ -33,4 +33,5 @@ angular.module('moonlighterApp.questFeed', [])
   $scope.selectIssue = function(issue) {
     Issues.setIssue(issue);
   }
+  $scope.getAllIssues();
 });

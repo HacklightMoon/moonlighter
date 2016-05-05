@@ -43,11 +43,20 @@ angular.module("moonlighterApp.services", [])
       return Profile.questOwner;
     }
 
+    var getCharacter = function(){
+      console.log("called in services.js, trying to get character")
+      return $http({
+        method: 'GET', 
+        url: '/character', 
+      })
+    }
+
     return {
       getProfile: getProfile,
       editProfile: editProfile,
       getUser: getUser,
-      setUser: setUser
+      setUser: setUser,
+      getCharacter: getCharacter
     }
 
   })
@@ -227,7 +236,7 @@ angular.module("moonlighterApp.services", [])
       getBounty: getBounty,
       getMembers: getMembers,
       payAndClose: payAndClose,
-      getJoinedIssues: getJoinedIssues
+      getJoinedIssues: getJoinedIssues 
     }
   })
   

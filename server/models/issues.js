@@ -101,4 +101,3 @@ Issues.getBounty = function(issueID){
   let members = Issues.getIssueMembers(issueID);
   return Promise.all([bounty, members])
 }
-

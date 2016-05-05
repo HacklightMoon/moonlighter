@@ -28,17 +28,9 @@
     
     <div id="bl">
       <h1>User's character:</h1>
+      <div ng-repeat="char in characters"></div>
+      <div>{{char}}</div>
       <div>Some magic power...</div>
-    </div>
-
-    <div class="myissues" id="br">
-      <h1>Issues Joined</h1>
-      <ul>
-        <li ng-repeat="issue in joinedIssues">
-          <h3 class="issue-title">{{issue.title}}</h3>
-          <p class="issue-body">{{issue.body}}</p>
-        </li>
-      </ul>
     </div>
   </div>
 </div>
