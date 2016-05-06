@@ -112,8 +112,22 @@ Users.newContribs = function(user){
   });
 };
 
+Users.updateContribs = function(github_username){
+  return API.userContribsTotal(github_username)
+  .then(function(contribs){
+    return db('users')
+    .where({'github_username': github_username})
+    .returning('contributions')
+    .update({'contributions': contribs})
+  });
+};
+
 Users.contribsSeen = function(user_id){
   return db('users')
-  .where({'id': id})
+  .where({'id': user_id})
   .update({'unseenContribs': 0})
-}
+  .then(function(){
+    return db('users')
+    .where({'id': user_id})
+  });
+};
