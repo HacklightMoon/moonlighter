@@ -23,9 +23,8 @@ angular.module('moonlighterApp.header',[])
         $scope.username = data.github_username;
         $scope.user_id = data.id;
         $scope.photo = data.profile_picture;
-        $scope.contribs = data.contribs;
+        $scope.contributions = data.contributions;
         $scope.unseenContribs = data.unseenContribs;
-        console.log('UNSEEN CONTRIBUTIONS: ', $scope.unseenContribs);
         if ($scope.unseenContribs && $scope.unseenContribs > 0) {
           $scope.notify = true;
         } else {$scope.notify = false}
@@ -39,6 +38,7 @@ angular.module('moonlighterApp.header',[])
   $scope.removeNotification = function() {
     $scope.notify = false;
     User.resetContribs($cookies.getAll().user_id);
+    User.getContribs($cookies.getAll().user_id);
     $scope.newContribs = 0;
   }
 

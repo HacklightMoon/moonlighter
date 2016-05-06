@@ -4,10 +4,10 @@ angular.module('moonlighterApp.questProfile', [])
 
   // Set currentUser equal to the user data stored in cookies.
   $scope.currentUser = $cookies.getAll();
-  console.log("The Quest you clicked on: ", $scope.chosenQuest);
 
   // Get selected quest from quest feed => services
   $scope.chosenQuest = Issues.getIssue() || $location.search()
+  console.log("The Quest you clicked on: ", $scope.chosenQuest);
 
   // Here, we store all of the quest data in the URL (for reloading)
   $location.search("title", $scope.chosenQuest.title);
