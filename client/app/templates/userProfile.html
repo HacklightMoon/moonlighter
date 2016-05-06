@@ -1,4 +1,4 @@
-<div>
+<div class='scroll'>
   <div class="questfeed-button-wrapper">
     <a class="questfeed-button" ui-sref="questProfile">
       <span class="questfeed-button-text">
@@ -8,9 +8,9 @@
   </div>
   <!-- <div class="container"> -->
     <h1>{{userData.full_name}}</h1>
+      <div><img height="100" width="100" src='{{userData.profile_picture}}'></div>
     <hr />
     <div id="tl">
-      <div><img src='{{userData.picture}}'></div>
       <div>Username:  {{userData.github_username}}</div>
       <div>Email:  {{userData.email}}</div>
       <div>Money:  ${{userData.money}}</div>
@@ -32,6 +32,16 @@
       <div ng-repeat="char in characters"></div>
       <div>{{char}}</div>
       <div>Some magic power...</div>
+    </div>
+    <div class="myissues" id="br">
+      <h1>Issues Joined</h1>
+      <ul>
+        <li ng-repeat="issue in joinedIssues">
+          <h3 class="issue-title">{{issue.title}}</h3>
+          <p class="issue-body">{{issue.body}}</p>
+          <p>Lorem ipsum dolor sit amet, at sem, donec ipsum volutpat risus ligula wisi. Amet tempor in. At est erat facilisi, integer risus neque aliquam nunc nulla. Donec ut adipiscing gravida, porta volutpat aliquam a, dolorem vestibulum velit dui nonummy sodales, ipsum pellentesque donec amet integer luctus, dictum integer consequat pellentesque a nunc erat. Praesent cum nunc nonummy, proin tincidunt malesuada orci placerat cumque posuere. In ligula est ornare, wisi luctus pellentesque, mauris risus elementum aliquam urna, dictum a consectetuer urna dolor viverra, id a consequat lectus nullam pretium. Pulvinar est phasellus maecenas laoreet, ut donec quisque amet ipsum at, ut lectus magna mauris libero duis. Nullam at sed eget, lorem tellus at mattis. Posuere vitae ante, aliquam morbi lobortis nam ligula amet id, ac id mattis enim bibendum scelerisque, et faucibus, aliquam vitae urna in at. Aenean enim penatibus distinctio tellus donec auctor. Phasellus nunc ullamcorper sed ac dignissim, donec convallis quis amet augue ut, lobortis orci gravida pede. Nec sodales amet vivamus gravida. Nec amet commodo orci, leo ipsum wisi tincidunt etiam, sit sed pellentesque. Suscipit lacus ornare, amet aliquam hendrerit quis vel interdum magna, mollis nec mi sodales vestibulum rhoncus sollicitudin. Semper facilisis sed luctus leo bibendum, sed iaculis auctor, risus semper nulla vestibulum et magna. Nec vivamus a. Pellentesque tincidunt fusce at, ac facilisis auctor curabitur maecenas turpis, arcu nulla. Non purus massa vestibulum hendrerit ullamcorper. Morbi facilisi donec amet lectus, penatibus sollicitudin. Suscipit molestie cum quisque, a at, vel wisi, pede aenean mauris nam, velit fringilla maecenas quam ante. Suscipit justo excepturi proin vitae nullam vestibulum, non justo mauris eros. Sed vestibulum, egestas mauris ut eget sed velit, feugiat magna vehicula luctus sed netus. Adipiscing nec luctus velit faucibus nullam, suspendisse et etiam penatibus accumsan, ad mi ut vitae vel id morbi, imperdiet sed, dolor ac ornare. Ullamcorper accumsan consectetuer nec potenti, vulputate id senectus imperdiet elementum vehicula in, fusce in eros tincidunt nulla suscipit. Velit tempus tempor curabitur aliquam facilisis sodales. Wisi habitant. Urna sed maecenas sed nam pharetra, in wisi augue integer imperdiet pede urna. Condimentum tincidunt ac quisque at, ullamcorper ultricies orci nulla sit, pharetra imperdiet accumsan, nam tincidunt. Inventore dui cras vehicula perspiciatis quis, interdum dui phasellus pretium molestie. Rutrum nunc, doloribus est metus, quis sed ridiculus pede et.</p>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
