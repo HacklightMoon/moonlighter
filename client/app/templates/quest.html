@@ -6,31 +6,26 @@
      </span>
     </a>
   </div>
-   <!--  <h2>Issue Name: </h2> -->
-  <center><h1>***{{chosenQuest.title}}***</h1></center>
-
-  <hr />
+   <hr /><!--  <h2>Issue Name: </h2> -->
+  <center><h1>{{chosenQuest.title}}</h1></center>
   <!-- <div class="ownerProfileButton">{{chosenQuest.owner.profile}}</div> -->
-  <div class="center">
+  <div class="center" style="border: 3px solid #e2dfc8;">
   <div>
     <h2>Description:<br><h3>{{chosenQuest.body}}</h3></h2> 
     <!-- <h3>{{chosenQuest.body}}</h3> -->
-    <button ng-if="!questOwner && signedIn" ng-click="joinQuest(currentUser.user_id, chosenQuest.id)" class="joinQuestButton">Join Quest</button>
   </div>
-    
   <div>
     <h3>Creator: {{chosenQuest.user}}</h3>
-    <button ui-sref="userProfile" class="ownerProfileButton">{{chosenQuest.user}}'s Profile</button>
   </div>
-
-  <div>
-    <a href="{{chosenQuest.issue_url}}" target="_blank" class="githubLink"><button>Github Issue Link</button></a>
-  </div>
-
   <div>
     <p style="text-decoration: underline;">Date Created: {{chosenQuest.created_at}}</p>
   </div>
   </div>
+  <div class="center">  
+    <a href="{{chosenQuest.issue_url}}" target="_blank" class="githubLink"><button>Github Issue Link</button></a>
+    <button ng-if="!questOwner && signedIn" ng-click="joinQuest(currentUser.user_id, chosenQuest.id)" class="joinQuestButton">Join Quest</button>
+    <button ui-sref="userProfile" class="ownerProfileButton">{{chosenQuest.user}}'s Profile</button>
+  </div>  
   <footer>   <!-- <p>Bounty: {{chosenQuest.bounty}}</p> -->
   <div class="close-quest" ng-if="questOwner && closedStatus">
     <button ng-click="closeQuest()" class="closeQuestButton">Close Quest & Pay Out</button>
