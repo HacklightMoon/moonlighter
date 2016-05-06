@@ -1,12 +1,16 @@
 'use strict';
 angular.module('moonlighterApp.userProfile', [])
-.controller('UserProfileCtrl', function ($scope, Profile, User, $state, $cookies, Issues) {
+.controller('UserProfileCtrl', function ($location, $scope, Profile, User, $state, $cookies, Issues) {
   //........$scope.editState = false;
   $scope.profileOwner = false;
 
   // selectedUser is the user_id of the user whose profile we're viewing.
-  $scope.selectedUser = Profile.getUser();
-  console.log("----------Current User----------:  ", $scope.selectedUser);
+  $scope.selectedUser = Profile.getUser() || $location.search().id
+
+  // Here, we store the current user_id inside of the URL (for reloading)
+  $location.search("id", $scope.selectedUser);
+
+  console.log("Current User: ", $scope.selectedUser);
   
   // We use the above variable to retrieve issues posted by this user.
   Issues.getMyIssues($scope.selectedUser)
@@ -19,7 +23,6 @@ angular.module('moonlighterApp.userProfile', [])
   .then(function(data) {
     // This joinedIssues variable is equal to an array of issue-objects.
     $scope.joinedIssues = data;
-    console.log("JOINED ISSUES: ", data);
   })
 
   $scope.getCharacter = function(){
