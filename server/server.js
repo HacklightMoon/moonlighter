@@ -125,7 +125,6 @@ app.get('/trycall', function(req, res){
 
 //--------------------Issues Endpoints--------------------
 
-
 // Route for obtaining newly 'tagged' issues
 app.get('/issues', function(req, res) {
   API.notifications()
@@ -247,29 +246,6 @@ app.post('/user/notified', function(req, res){
   Users.contribsSeen(req.body.user_id)
   .then(function(user){
     res.send(user);
-  });
-});
-
-//--------------------Quest Endpoints--------------------
-
-app.get('/quest/feed', function(req, res){
-  return Quests.getAll()
-  .then(function(resp){
-    res.send(resp);
-  });
-});
-
-app.post('/quest/newquest', function(req, res){
-  return Quests.create(req.body)
-  .then(function(resp){
-    res.send(resp);
-  });
-});
-
-app.delete('/quest/delete', function(req, res){
-  return Quests.remove(req.query.id)
-  .then(function(resp){
-    res.send(resp);
   });
 });
 
