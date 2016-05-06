@@ -181,7 +181,7 @@ app.get('/issues/joined', function(req, res){
   });
 });
 //--------------------Character Endpoints----------------
-
+//NOT FULLY FUNCTIONAL !!!!
 app.get('/character', function(req, res){
   console.log('server.js, 182 req.body', req.body);
   Character.getAll()
