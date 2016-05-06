@@ -24,13 +24,15 @@ angular.module('moonlighterApp.userProfile', [])
     // This joinedIssues variable is equal to an array of issue-objects.
     $scope.joinedIssues = data;
   })
-
+// NOT FULLY  FUNCTIONAL !!!!!
   $scope.getCharacter = function(){
     console.log("I'm being called UserProfileCtrl")
     Profile.getCharacter()
     .then(function(data){
-      console.log("this is your data in UserProfileCtrl", data)
-      $scope.characters = data
+      console.log("this is your character in UserProfileCtrl!!!!!!!!", data)
+      $scope.character = data.data.character
+      $scope.level = data.data.level
+      console.log("this is your character", data.data.character)
     })
     .catch(function(err){
       console.error(err)

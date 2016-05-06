@@ -17,22 +17,7 @@
       <div>Contributions:  {{userData.contributions}}</div>
     </div>
 
-      <div id="tr">
-        <h1>Quests Created</h1>
-        <ul>
-          <li ng-repeat="issue in myIssues">
-            <h3 class="issue-title">{{issue.title}}</h3>
-            <p class="issue-body">{{issue.body}}</p>
-          </li>
-        </ul>
-      </div>
-      
-      <div id="bl">
-        <h1>User's character:</h1>
-        <div ng-repeat="char in characters"></div>
-        <div>{{char}}</div>
-        <div>Some magic power...</div>
-      </div>
+
       <div class="myissues" id="br">
         <h1>Issues Joined</h1>
         <ul>
@@ -43,4 +28,28 @@
           </li>
         </ul>
       </div>  
+    <div class="myissues" id="tr">
+      <h1>Quests Created</h1>
+      <ul>
+        <li ng-repeat="issue in myIssues">
+          <h3 class="issue-title">{{issue.title}}</h3>
+          <p class="issue-body">{{issue.body}}</p>
+        </li>
+      </ul>
+    </div>
+    
+    <div id="bl">
+      <h1>User's character:</h1>
+      <div class="character">
+        <div class="charCard">
+          <img src="{{character}}">
+        </div>  
+        <div class="charInfo">
+        <h2>S T A T S</h2>
+        <p> Level: {{level}}</p>
+        <p> More Cool Shit </p>
+        </div>
+      </div>
+    </div>
+
   </div>

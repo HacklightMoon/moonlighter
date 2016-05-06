@@ -42,12 +42,12 @@ angular.module("moonlighterApp.services", [])
     var getUser = function () {
       return Profile.questOwner;
     }
-
+// NOT FULLY FUNCTIONAL 
     var getCharacter = function(){
       console.log("called in services.js, trying to get character")
       return $http({
         method: 'GET', 
-        url: '/character', 
+        url: '/character' 
       })
     }
 

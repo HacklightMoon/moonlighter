@@ -12,7 +12,8 @@ exports.seed = function(knex, Promise) {
       money: 1000000,
       passid: 2147483645,
       profile_picture: 'putSomething',
-      email: 'testEmail@123.com'
+      email: 'testEmail@123.com', 
+      level: 2
     }),
     knex('users').insert({
       id: 2147483646,
@@ -21,7 +22,8 @@ exports.seed = function(knex, Promise) {
       money: 1000001,
       passid: 2147483646,
       profile_picture: 'putSomething',
-      email: 'testEmail@456.com'
+      email: 'testEmail@456.com', 
+      level: 2
     }),
     knex('users').insert({
       id: 2147483647,
@@ -30,7 +32,8 @@ exports.seed = function(knex, Promise) {
       money: 99999,
       passid: 2147483647,
       profile_picture: 'putSomething',
-      email: 'testEmail@789.com'
+      email: 'testEmail@789.com', 
+      level: 1
     })
   );
 };

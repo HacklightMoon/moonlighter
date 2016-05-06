@@ -25,7 +25,7 @@ let getLevelFromExp = function(exp){
 Character.getAll = function(){
   return db('characters')
   .then(function(data){
-    return data
+    return data[0]
   });
 }
 

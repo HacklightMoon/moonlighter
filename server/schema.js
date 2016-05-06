@@ -4,7 +4,7 @@ let knex = require('./db');
 
 knex.schema.createTableIfNotExists('characters', function(table){
   table.increments('id').primary();
-  table.binary('character');
+  table.string('character');
   table.integer('level');
 })
 .createTableIfNotExists('users', function(table){
@@ -21,6 +21,7 @@ knex.schema.createTableIfNotExists('characters', function(table){
   table.boolean('admin').defaultTo(false);
   table.integer('contributions').defaultTo(0);
   table.integer('unseenContribs').defaultTo(0);
+  table.integer('level');
   table.integer('level_id').references('id').inTable('characters');
 })
 // .createTableIfNotExists('user_character', function(table){

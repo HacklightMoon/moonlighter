@@ -5,19 +5,19 @@ exports.seed = function(knex, Promise){
 
     knex('characters').insert({
 
-      character: '../client/img/rocketwiz.png', 
+      character: '../img/rocketwiz.png', 
       level: 1
     }), 
 
     knex('characters').insert({
 
-      character: '../client/img/bizwiz.png', 
+      character: '../img/bizwiz.png', 
       level: 2
     }),
 
     knex('characters').insert({
 
-      character: '../client/img/vivi.png',
+      character: '../img/vivi.png',
       level: 3
     })
     );
