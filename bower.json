@@ -19,7 +19,6 @@
     "angular-ui-router": "^0.2.15",
     "angular-bootstrap": "~1.2.5",
     "bootstrap-css-only": "~3.3.6",
-    "underscore.js": "^1.8.3",
     "jshint": "^2.9.2",
     "jquery": "^2.2.3"
   },
