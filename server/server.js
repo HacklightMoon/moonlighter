@@ -183,10 +183,10 @@ app.get('/issues/joined', function(req, res){
 //--------------------Character Endpoints----------------
 //NOT FULLY FUNCTIONAL !!!!
 app.get('/character', function(req, res){
-  console.log('server.js, 182 req.body', req.body);
+  console.log('server.js, 187 req.body', req.body);
   Character.getAll()
   .then(function(resp){
-    res.set('Content-type', 'image/png')
+    // res.set('Content-type', 'image/png')
     res.send(resp);
   })
   .catch(function(err){

@@ -47,7 +47,7 @@ angular.module("moonlighterApp.services", [])
       console.log("called in services.js, trying to get character")
       return $http({
         method: 'GET', 
-        url: '/character', 
+        url: '/character' 
       })
     }
 
