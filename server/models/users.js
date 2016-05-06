@@ -114,6 +114,6 @@ Users.newContribs = function(user){
 
 Users.contribsSeen = function(user_id){
   return db('users')
-  .where({'id': id})
+  .where({'id': user_id})
   .update({'unseenContribs': 0})
 }
