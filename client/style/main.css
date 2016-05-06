@@ -361,6 +361,17 @@ a {
   height: 600px;
 }
 .charCard{
-  /*margin: 0 auto;*/
+
 }
 
+.mainBarrack{
+  margin: 0 auto;
+}
+
+.barrack{
+  margin: 0 auto;
+}
+
+.barracks-title{
+  font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
+}
