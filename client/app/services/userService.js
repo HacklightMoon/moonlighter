@@ -30,8 +30,36 @@ angular.module("moonlighterApp.userService", [])
       })
     }
 
+    var getContribs = function() {
+      return $http({
+        method: 'GET',
+        url: '/user/contribs'
+      })
+      .then(function(resp) {
+        return resp.data;
+      })
+    }
+
+    var resetContribs = function(userID) {
+      return $http({
+        method: 'POST',
+        url: '/user/notified',
+        data: {
+          user_id: userID
+        }
+      })
+      .then(function(resp) {
+        console.log("Response from reset contribs", resp);
+      })
+      .catch(function(err){
+        console.error(err);
+      })
+    }
+
     return {
       getCurrentUser: getCurrentUser,
-      updateUserInfo: updateUserInfo
+      updateUserInfo: updateUserInfo,
+      getContribs: getContribs,
+      resetContribs: resetContribs
     }
   });

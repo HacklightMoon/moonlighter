@@ -1,13 +1,21 @@
 'use strict';
 angular.module('moonlighterApp.questProfile', [])
-.controller('QuestProfileCtrl',function($state, $scope, $cookies, Profile, User, Issues) {
+.controller('QuestProfileCtrl',function($location, $state, $scope, $cookies, Profile, User, Issues) {
 
   // Set currentUser equal to the user data stored in cookies.
   $scope.currentUser = $cookies.getAll();
 
   // Get selected quest from quest feed => services
-  $scope.chosenQuest = Issues.getIssue()
+  $scope.chosenQuest = Issues.getIssue() || $location.search()
   console.log("The Quest you clicked on: ", $scope.chosenQuest);
+
+  // Here, we store all of the quest data in the URL (for reloading)
+  $location.search("title", $scope.chosenQuest.title);
+  $location.search("user", $scope.chosenQuest.user);
+  $location.search("user_id", $scope.chosenQuest.user_id);
+  $location.search("body", $scope.chosenQuest.body);
+  $location.search("id", $scope.chosenQuest.id);
+  $location.search("created_at", $scope.chosenQuest.created_at);
 
   // Get bounty associated with selected quest and set it to questBounty variable
   // Also get all users who have joined an issue

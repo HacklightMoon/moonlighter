@@ -1,7 +1,6 @@
 'use strict';
 angular.module('moonlighterApp.header',[])
 .controller('HeaderCtrl',['$state', '$scope', 'User', 'Profile', '$cookies', function($state, $scope, User, Profile, $cookies){
-  
   $scope.seen = true;
   if($state.current.name==="home"){
     $scope.seen = false;
@@ -24,12 +23,23 @@ angular.module('moonlighterApp.header',[])
         $scope.username = data.github_username;
         $scope.user_id = data.id;
         $scope.photo = data.profile_picture;
-        // Profile.setUser($scope.user_id);  // added this
+        $scope.contributions = data.contributions;
+        $scope.unseenContribs = data.unseenContribs;
+        if ($scope.unseenContribs && $scope.unseenContribs > 0) {
+          $scope.notify = true;
+        } else {$scope.notify = false}
       }
     })
     // .catch(function(err) {
     //   console.error(err);
     // })
+  }
+
+  $scope.removeNotification = function() {
+    $scope.notify = false;
+    User.resetContribs($cookies.getAll().user_id);
+    User.getContribs($cookies.getAll().user_id);
+    $scope.newContribs = 0;
   }
 
   // This function should send the selected user to the services
