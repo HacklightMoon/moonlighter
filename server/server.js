@@ -236,7 +236,7 @@ app.post('/user/pay', function(req, res){
 
 app.get('/user/contribs', function(req, res){
   if(req.user){
-    Users.updateContribs(req.user.user.github_username);
+    Users.updateContribs(req.user.user.github_username)
     .then(function(resp){
       res.send(resp);
     });
