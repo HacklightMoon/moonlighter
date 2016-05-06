@@ -8,30 +8,39 @@
   </div>
   <!-- <div class="container"> -->
     <h1>{{userData.full_name}}</h1>
+      <div><img height="100" width="100" src='{{userData.profile_picture}}'></div>
     <hr />
     <div id="tl">
-      <div><img src='{{userData.picture}}'></div>
       <div>Username:  {{userData.github_username}}</div>
       <div>Email:  {{userData.email}}</div>
       <div>Money:  ${{userData.money}}</div>
       <div>Contributions:  {{userData.contributions}}</div>
     </div>
 
-    <div class="myissues" id="tr">
-      <h1>Quests Created</h1>
-      <ul>
-        <li ng-repeat="issue in myIssues">
-          <h3 class="issue-title">{{issue.title}}</h3>
-          <p class="issue-body">{{issue.body}}</p>
-        </li>
-      </ul>
-    </div>
-    
-    <div id="bl">
-      <h1>User's character:</h1>
-      <div ng-repeat="char in characters"></div>
-      <div>{{char}}</div>
-      <div>Some magic power...</div>
-    </div>
+      <div id="tr">
+        <h1>Quests Created</h1>
+        <ul>
+          <li ng-repeat="issue in myIssues">
+            <h3 class="issue-title">{{issue.title}}</h3>
+            <p class="issue-body">{{issue.body}}</p>
+          </li>
+        </ul>
+      </div>
+      
+      <div id="bl">
+        <h1>User's character:</h1>
+        <div ng-repeat="char in characters"></div>
+        <div>{{char}}</div>
+        <div>Some magic power...</div>
+      </div>
+      <div class="myissues" id="br">
+        <h1>Issues Joined</h1>
+        <ul>
+          <li ng-repeat="issue in joinedIssues">
+            <h3 class="issue-title">{{issue.title}}</h3>
+            <p class="issue-body">{{issue.body}}</p>
+            
+          </li>
+        </ul>
+      </div>  
   </div>
-</div>
