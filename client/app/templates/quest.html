@@ -1,31 +1,45 @@
-<div class="questProfile">
-  <div class="questfeed-button-wrapper">
+<div>
+  <div class="center">
     <a class="questfeed-button" ui-sref="questFeed">
       <span class="questfeed-button-text">
         Return to the Quest Scrolls
-      </span>
+     </span>
     </a>
   </div>
-</div>
-<div class="quest-details">
+   <!--  <h2>Issue Name: </h2> -->
+  <center><h1>***{{chosenQuest.title}}***</h1></center>
+
+  <hr />
   <!-- <div class="ownerProfileButton">{{chosenQuest.owner.profile}}</div> -->
-  <div class="questDescription book">
-    <h1>Issue Title: {{chosenQuest.title}}</h1>
-    <div class="questDescription">
-      <p>Description: {{chosenQuest.body}}</p>
-    </div>
-    <p>Creator: {{chosenQuest.user}}</p>
-    <!-- <p>Bounty: {{chosenQuest.bounty}}</p> -->
-    <p>Date Created: {{chosenQuest.created_at}}</p>
+  <div class="center">
+  <div>
+    <h2>Description:<br><h3>{{chosenQuest.body}}</h3></h2> 
+    <!-- <h3>{{chosenQuest.body}}</h3> -->
+    <button ng-if="!questOwner && signedIn" ng-click="joinQuest(currentUser.user_id, chosenQuest.id)" class="joinQuestButton">Join Quest</button>
+  </div>
+    
+  <div>
+    <h3>Creator: {{chosenQuest.user}}</h3>
     <button ui-sref="userProfile" class="ownerProfileButton">{{chosenQuest.user}}'s Profile</button>
   </div>
+
+  <div>
     <a href="{{chosenQuest.issue_url}}" target="_blank" class="githubLink"><button>Github Issue Link</button></a>
-    <button ng-if="!questOwner && signedIn" ng-click="joinQuest(currentUser.user_id, chosenQuest.id)" class="joinQuestButton">Join Quest</button>
-    <div class="close-quest" ng-if="questOwner && closedStatus">
-      <button ng-click="closeQuest()" class="closeQuestButton">Close Quest & Pay Out</button>
-      <span class="error-message">{{errorMessage}}</span>
-      <select ng-model="userToPay" required="Required">
-        <option ng-repeat="member in questMembers" value="{{member.id}}">{{member.github_username}}</option>
-      </select>
-    </div>
+  </div>
+
+  <div>
+    <p style="text-decoration: underline;">Date Created: {{chosenQuest.created_at}}</p>
+  </div>
+  </div>
+  <footer>   <!-- <p>Bounty: {{chosenQuest.bounty}}</p> -->
+  <div class="close-quest" ng-if="questOwner && closedStatus">
+    <button ng-click="closeQuest()" class="closeQuestButton">Close Quest & Pay Out</button>
+    <span class="error-message">{{errorMessage}}</span>
+    <select ng-model="userToPay" required="Required">
+      <option ng-repeat="member in questMembers" value="{{member.id}}">{{member.github_username}}</option>
+    </select>
+  </div>
+  </footer> 
+      
+      
 </div>
