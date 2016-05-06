@@ -17,3 +17,8 @@
   </nav>
 </div>  
 
+
+<div ng-if="notify" class="notification">
+  <h3>You have {{unseenContribs}} new contributions!</h3>
+  <button ng-click="removeNotification()">Dismiss</button>
+</div>

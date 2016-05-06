@@ -31,15 +31,6 @@ exports.seed = function(knex, Promise) {
       passid: 2147483647,
       profile_picture: 'putSomething',
       email: 'testEmail@789.com'
-    }),
-    knex('users').insert({
-      id: 2137483644,
-      github_username: 'dalyhabit',
-      full_name: 'Patrick Daly',
-      money: 99999,
-      passid: 15750911,
-      profile_picture: 'https://avatars.githubusercontent.com/u/15750911?v=3',
-      email: 'dalyhabit@gmail.com'
     })
   );
 };

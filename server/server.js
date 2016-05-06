@@ -237,10 +237,11 @@ app.get('/user/contribs', function(req, res){
   if(req.user){
     Users.updateContribs(req.user.user.github_username)
     .then(function(resp){
-      res.send(resp);
-    });
-  };
-});
+      console.log("RESPONSE IN SERVER.JS: ", resp);
+      res.send({contribs: resp});
+    })
+  }
+})
 
 app.post('/user/notified', function(req, res){
   Users.contribsSeen(req.body.user_id)
