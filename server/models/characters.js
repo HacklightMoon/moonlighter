@@ -29,6 +29,10 @@ Character.getAll = function(){
   });
 }
 
-Character.getCurrentLevel = function(){
+Character.getCurrentLevel = function(char_id){
+  return db.select('level')
+  .from('characters')
+  .where({'id': id})
+  .limit(1);
 }
 

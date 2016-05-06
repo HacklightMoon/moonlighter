@@ -104,13 +104,13 @@ var configTest = function(){
 
   app.get('/sampleQuestData', function(req, res){
     res.send(sampleQuest)
-  })
+  });
 
   app.get('/sampleUser', function(req, res){
     res.send(sampleUser)
-  })
+  });
 
-}
+};
 // serve test data
 configTest();
 
@@ -120,8 +120,8 @@ app.get('/trycall', function(req, res){
   .then(function(resp){
     //console.log("req.user['Authorization']", req.user['Authorization'])
     res.send(resp);
-  })
-})
+  });
+});
 
 //--------------------Issues Endpoints--------------------
 
@@ -136,8 +136,8 @@ app.get('/issues', function(req, res) {
   })
   .then(function(issues){
     res.send(issues);
-  })
-})
+  });
+});
 
 app.get('/issues/load', function(req, res){
   Issues.getIssues()
@@ -150,37 +150,37 @@ app.post('/issues/addmember', function(req, res) {
   Issues.addUser(req.body.issue_id, req.body.user_id)
   .then(function(resp) {
     res.send(resp);
-  })
-})
+  });
+});
 
 app.get('/issues/myissues', function(req, res){
   Issues.getByUser(req.query.id)
   .then(function(resp) {
     res.send(resp);
-  })
-})
+  });
+});
 
 app.get('/issues/members', function(req, res){
   console.log("REQ in server.js", req.query.id);
   Issues.getIssueMembers(req.query.id)
   .then(function(resp) {
     res.send(resp);
-  })
-})
+  });
+});
 
 app.get('/issues/bounty', function(req, res){
   Issues.getBounty(req.query.id)
   .then(function(resp) {
     res.send(resp);
-  })
-})
+  });
+});
 app.get('/issues/joined', function(req, res){
   console.log("REQ in server.js", req.query.id);
   Issues.getJoinedIssues(req.query.id)
   .then(function(resp) {
      res.send(resp);
-  })
-})
+  });
+});
 //--------------------Character Endpoints----------------
 
 app.get('/character', function(req, res){
@@ -192,8 +192,8 @@ app.get('/character', function(req, res){
   })
   .catch(function(err){
     console.error(err)
-  })
-})
+  });
+});
 
 //--------------------User Endpoints--------------------
 
@@ -201,8 +201,8 @@ app.post('/user/update', function(req, res){
   Users.update(req.body)
   .then(function(resp){
     res.send(resp);
-  })
-})
+  });
+});
 
 app.get('/user/info', function(req, res){
   return Users.getById(req.query.id)
@@ -219,10 +219,10 @@ app.get('/user/current', function(req, res){
       return Users.getByLoggedIn(blob).then(function(users){
         let user = users[0]; 
         res.send(user || null);
-      })
-    })
-  }
-})
+      });
+    });
+  };
+});
 
 app.post('/user/pay', function(req, res){
   Users.pay(req.body.user_id, req.body.amount)
@@ -236,19 +236,19 @@ app.post('/user/pay', function(req, res){
 
 app.get('/user/contribs', function(req, res){
   if(req.user){
-    API.userContribsTotal(req.user.user.github_username)
+    Users.updateContribs(req.user.user.github_username);
     .then(function(resp){
       res.send(resp);
-    })
-  }
-})
+    });
+  };
+});
 
 app.post('/user/notified', function(req, res){
   Users.contribsSeen(req.body.user_id)
-  .then(function(){
-    res.sendStatus(201);
-  })
-})
+  .then(function(user){
+    res.send(user);
+  });
+});
 
 //--------------------Quest Endpoints--------------------
 
