@@ -88,15 +88,10 @@ nav li {
   display: none;
 }
 
-
-.signin-button {
+.nav-button {
   padding: 10px;
   margin: 5px;
-}
-
-.logout-button {
-  padding: 10px;
-  margin: 5px;
+  position:static;
 }
 
 /********************* LANDING ************************/

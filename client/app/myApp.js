@@ -122,6 +122,24 @@ angular.module('moonlighterApp', [
         }
       }
     })
+    .state('barracks',{
+      url: '/barracks',
+      views: {
+        'header': {
+          templateUrl: 'app/templates/partials/header.html',
+          controller: 'HeaderCtrl',
+          controllerAs: 'header'
+        },
+        'content': {
+          templateUrl: 'app/templates/barracks.html',
+          controller: 'BarracksCtrl',
+          controllerAs: 'about'
+        },
+        'footer': {
+          templateUrl: ''
+        }
+      }
+    })
     .state('about', {
       url: '/about',
       views: {

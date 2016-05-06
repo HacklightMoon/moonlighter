@@ -11,7 +11,7 @@ angular.module('moonlighterApp.header',[])
   if($state.current.name==="home"){
     $scope.seeAbout = true;
   };
-
+  
   $scope.signIn = function() {
     User.getCurrentUser()
     .then(function(data) {

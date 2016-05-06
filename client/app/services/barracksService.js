@@ -1,3 +1,5 @@
 angular.module("moonlighterApp.barracksService", [])
 
-  .factory('Profile', function ($http) {})
+  .factory('Barracks', function ($http) {
+      
+  })
