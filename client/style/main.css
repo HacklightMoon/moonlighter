@@ -373,5 +373,6 @@ a {
 }
 
 .barracks-title{
+  text-align: center;
   font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
 }
