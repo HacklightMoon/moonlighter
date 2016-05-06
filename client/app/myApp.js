@@ -4,7 +4,11 @@ angular.module('moonlighterApp', [
   'ui.router',
   'ngAnimate',
   'ngCookies',
-  'moonlighterApp.services',
+  // 'moonlighterApp.services',
+  'moonlighterApp.barracksService',
+  'moonlighterApp.issueService',
+  'moonlighterApp.profileService',
+  'moonlighterApp.userService',
   'moonlighterApp.landing',
   'moonlighterApp.questFeed',
   'moonlighterApp.questProfile',
@@ -112,6 +116,24 @@ angular.module('moonlighterApp', [
           templateUrl: 'app/templates/newQuest.html',
           controller: 'NewQuestCtrl',
           controllerAs: 'newQuest'
+        },
+        'footer': {
+          templateUrl: ''
+        }
+      }
+    })
+    .state('barracks',{
+      url: '/barracks',
+      views: {
+        'header': {
+          templateUrl: 'app/templates/partials/header.html',
+          controller: 'HeaderCtrl',
+          controllerAs: 'header'
+        },
+        'content': {
+          templateUrl: 'app/templates/barracks.html',
+          controller: 'BarracksCtrl',
+          controllerAs: 'about'
         },
         'footer': {
           templateUrl: ''
