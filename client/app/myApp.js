@@ -62,24 +62,7 @@ angular.module('moonlighterApp', [
       controller: 'BarracksCtrl',
       controllerAs: 'about'
     })
-    .state('barracks',{
-      url: '/barracks',
-      views: {
-        'header': {
-          templateUrl: 'app/templates/partials/header.html',
-          controller: 'HeaderCtrl',
-          controllerAs: 'header'
-        },
-        'content': {
-          templateUrl: 'app/templates/barracks.html',
-          controller: 'BarracksCtrl',
-          controllerAs: 'about'
-        },
-        'footer': {
-          templateUrl: ''
-        }
-      }
-    })
+
     .state('about', {
       url: '/about',
       templateUrl: 'app/templates/about.html',

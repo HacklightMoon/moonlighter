@@ -1,18 +1,74 @@
 'use strict';
 angular.module('moonlighterApp.landing',[])
-.controller('LandingCtrl', ['$scope', 'Issues', function($scope, Issues) {
+.controller('LandingCtrl', ['$scope', '$state', 'Issues', 'User', 'Profile', '$cookies', function($scope, $state, Issues, User, Profile, $cookies) {
   
   Issues.loadIssues()
   .catch(function(err){
     console.error(err);
-  })
+  });
 
-}])
+    $scope.seen = true;
+  if($state.current.name==="home"){
+    $scope.seen = false;
+  }
 
-// ng-model="checked" ng-init="checked=true"
+  $scope.seeAbout = false;
+  if($state.current.name==="home"){
+    $scope.seeAbout = true;
+  }
+  
+  $scope.signIn = function() {
+    User.getCurrentUser()
+    .then(function(data) {
+      if (data) {
+        $scope.isLogin = true;
+        $cookies.put('username', data.github_username);
+        $cookies.put('user_id', data.id);
+        $cookies.put('picture', data.profile_picture);
+        $cookies.put('passid', data.passid);
+        $scope.username = data.github_username;
+        $scope.user_id = data.id;
+        $scope.photo = data.profile_picture;
+        $scope.contributions = data.contributions;
+        $scope.unseenContribs = data.unseenContribs;
+        if ($scope.unseenContribs && $scope.unseenContribs > 0) {
+          $scope.notify = true;
+        } else {$scope.notify = false}
+      }
+    });
+    // .catch(function(err) {
+    //   console.error(err);
+    // })
+  };
 
-// <span ng-if="checked" class="animate-if">
-//   This is removed when the checkbox is unchecked.
-// </span>
+  $scope.removeNotification = function() {
+    $scope.notify = false;
+    User.resetContribs($cookies.getAll().user_id);
+    User.getContribs($cookies.getAll().user_id);
+    $scope.newContribs = 0;
+  };
 
-// $state.current.name
+  // This function should send the selected user to the services
+  // Then it should redirect you to the user profile view
+  // IT DOESN"T COMPLETELY WORK YET!!!
+  $scope.setUser = function () {
+    Profile.setUser($scope.user_id)
+    .then(function() {
+      $state.go("userProfile");
+    });
+  };
+
+  $scope.logOut = function() {
+    $cookies.remove('username');
+    $cookies.remove('user_id');
+    $cookies.remove('picture');
+    $cookies.remove('passid');
+  };
+
+  // if (!$scope.isLogin) {
+  //   $scope.logOut();
+  // }
+  $scope.signIn();
+}]);
+
+
