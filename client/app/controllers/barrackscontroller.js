@@ -1,4 +1,3 @@
-angular.module('moonlighterApp.barracks', [])
-  .controller('BarracksCtrl', ['$scope', function($scope) {
-  
-}])
+angular.module('moonlighterApp.barracks',[])
+.controller('BarracksCtrl',['$scope', function(){}]);
+

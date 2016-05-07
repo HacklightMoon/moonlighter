@@ -1,18 +1,12 @@
 'use strict';
 angular.module('moonlighterApp.landing',[])
-.controller('LandingCtrl', ['$scope', 'Issues', function($scope, Issues) {
+.controller('LandingCtrl', ['$scope', '$state', 'Issues', 'User', 'Profile', '$cookies', function($scope, $state, Issues, User, Profile, $cookies) {
   
   Issues.loadIssues()
   .catch(function(err){
     console.error(err);
-  })
+  });
+  
+}]);
 
-}])
 
-// ng-model="checked" ng-init="checked=true"
-
-// <span ng-if="checked" class="animate-if">
-//   This is removed when the checkbox is unchecked.
-// </span>
-
-// $state.current.name

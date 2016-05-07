@@ -1,13 +1,13 @@
 'use strict';
-angular.module('moonlighterApp.header',[])
-.controller('HeaderCtrl',['$state', '$scope', 'User', 'Profile', '$cookies', function($state, $scope, User, Profile, $cookies){
+angular.module('moonlighterApp.nav',[])
+.controller('NavCtrl',['$state', '$scope', 'User', 'Profile', '$cookies', function($state, $scope, User, Profile, $cookies){
   $scope.seen = true;
   if($state.current.name==="home"){
     $scope.seen = false;
   };
 
   $scope.seeAbout = false;
-  if($state.current.name==="home"){
+  if($state.current.name==="home" || $state.current.name==="questFeed"){
     $scope.seeAbout = true;
   };
   
@@ -62,3 +62,6 @@ angular.module('moonlighterApp.header',[])
 
   $scope.signIn();
 }]);
+
+
+

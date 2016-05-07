@@ -1,9 +1,38 @@
+<div class='navbar' ng-controller="NavCtrl">
+  <nav>
+    <ul>
+      <li><img ng-if="username" src="{{photo}}" ng-click="setUser" style="border-radius: 50%;" height="55" width="55"></li>
+      <li><h3>{{username}}</h3></li>
+      <li><a href="/auth/logout" class="logout-button" ng-if="isLogin" ng-click="logOut()" >Log out</a></li>
+      <li><a href="/auth/github" class="signin-button" ng-if="!isLogin" ng-click="signIn()" >Sign in</a></li>
+    </ul>
+  </nav>  
+</div>
+<div ng-if="notify" class="notification">
+  <h3>You have {{unseenContribs}} new contributions!</h3>
+  <button ng-click="removeNotification()">Dismiss</button>
+</div>
 <div class="landing-div">
   <h1 class="landing-main-title animate-fade">Moonlighter</h1>
-  <a class="landing-questfeed-button-text" ui-sref="questFeed">
-    <span class="landing-questfeed-button">
-      Conjure Quests
-    </span>
-  </a>
 </div>
 
+<div class="navbar" ng-controller="NavCtrl">
+    <a ui-sref="home">
+      <h1 class="logo-title" ng-if="seen">Moonlighter</h1>
+    </a>
+  <nav>
+    <ul>
+      <li><a class="landing-questfeed-button-text" ui-sref="questFeed">
+            <span class="landing-questfeed-button">
+              Conjure Quests
+            </span>
+          </a>
+      </li>
+      <li><a ng-if='seeAbout' ui-sref="about">About</a></li>
+      <li><a ng-if='isLogin' ui-sref="barracks" class="nav-button">Barracks</a></li>
+      <!-- <li><a href="contact.html">Contact</a></li> -->
+      <!-- <div class="user-info" ng-if="username"> -->
+      <!-- </div> -->
+    </ul>
+  </nav>
+</div>  
