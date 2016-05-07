@@ -1,3 +1,14 @@
+<div class='navbar' ng-controller="NavCtrl">
+  <nav>
+    <ul>
+      <li><img ng-if="username" src="{{photo}}" ng-click="setUser" style="border-radius: 50%;" height="55" width="55"></li>
+      <li><h3>{{username}}</h3></li>
+      <li><a href="/auth/logout" class="logout-button" ng-if="isLogin" ng-click="logOut()" >Log out</a></li>
+      <li><a href="/auth/github" class="signin-button" ng-if="!isLogin" ng-click="signIn()" >Sign in</a></li>
+      <li><a ui-sref="questFeed" class="nav-button">Back to the Quests!</a></li>
+    </ul>
+  </nav>  
+</div>
 <div>
   <div class="center">
     <a class="questfeed-button" ui-sref="questFeed">
