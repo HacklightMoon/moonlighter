@@ -47,7 +47,6 @@
         }
       })
       .then(function(data) {
-        console.log("data in addMember service.js: ", data);
       })
       .catch(function(err){
         console.error(err);
@@ -73,7 +72,6 @@
         url: '/issues/bounty?id=' + issueID
       })
       .then(function(resp){
-        console.log('Response in service.js: ', resp);
         return resp.data;
       })
       .catch(function(err){
@@ -87,7 +85,6 @@
         url: '/issues/members?id=' + issueID
       })
       .then(function(resp){
-        console.log('Response in service.js: ', resp);
         return resp.data;
       })
       .catch(function(err){
@@ -106,7 +103,6 @@
         }
       })
       .then(function(resp){
-        console.log('Response in service.js: ', resp);
         return resp.data;
       })
       .catch(function(err){
@@ -120,7 +116,6 @@
         url: '/issues/joined?id=' + userID
       })
       .then(function(resp){
-        console.log('Response in service.js: ', resp);
         return resp.data;
       })
       .catch(function(err){

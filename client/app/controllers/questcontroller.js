@@ -51,15 +51,24 @@ angular.module('moonlighterApp.questProfile', [])
   // Allow users who aren't the quest owner to join a quest
   $scope.joinQuest = function(user_id, quest_id) {
     Issues.addMember(quest_id, user_id);
+    $state.go('questFeed');
   }
   
   // Allow quest owners/admins to close a quest and issue bounty
   $scope.closeQuest = function() {
     if ($scope.userToPay) {
       Issues.payAndClose(Number($scope.userToPay), $scope.questBounty, $scope.chosenQuest.id);
-      $state.go('questFeed')
+      $state.go('questFeed');
     } else {
       $scope.errorMessage = "Please select the user who solved your issue"
     }
   }
+
+  Issues.getMembers($scope.chosenQuest.id)
+  .then(function(data) {
+    $scope.questMembers = data;
+  })
+  .catch(function(err) {
+    console.error(err);
+  })
 });

@@ -34,7 +34,13 @@
       <option ng-repeat="member in questMembers" value="{{member.id}}">{{member.github_username}}</option>
     </select>
   </div>
+  <div class="center">
+    <h2>Quest Members</h2>
+    <ul>
+      <li ng-repeat="user in questMembers">
+        <h3>{{user.github_username}}</h3>
+      </li>
+    </ul>
+  </div>
   </footer> 
-      
-      
 </div>
