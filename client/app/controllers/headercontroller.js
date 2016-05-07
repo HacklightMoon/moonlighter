@@ -53,14 +53,12 @@ angular.module('moonlighterApp.header',[])
   }
 
   $scope.logOut = function() {
+    $scope.removeNotification();
     $cookies.remove('username');
     $cookies.remove('user_id');
     $cookies.remove('picture');
     $cookies.remove('passid');
   }
 
-  // if (!$scope.isLogin) {
-  //   $scope.logOut();
-  // }
   $scope.signIn();
 }]);
