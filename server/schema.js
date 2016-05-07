@@ -21,7 +21,8 @@ knex.schema.createTableIfNotExists('characters', function(table){
   table.boolean('admin').defaultTo(false);
   table.integer('contributions').defaultTo(0);
   table.integer('unseenContribs').defaultTo(0);
-  table.integer('level');
+  table.integer('experience').defaultTo(0);
+  table.integer('level').defaultTo(0);
   table.integer('level_id').references('id').inTable('characters');
 })
 // .createTableIfNotExists('user_character', function(table){

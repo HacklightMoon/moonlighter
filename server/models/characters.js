@@ -4,11 +4,11 @@ let db = require('../db');
 let Character = module.exports;
 let Promise = require('bluebird');
 
-let getExpFromContribs = function(contribs){
+Character.getExpFromContribs = function(contribs){
   return contribs * 17;
 }
 
-let getLevelFromExp = function(exp){
+Character.getLevelFromExp = function(exp){
   let remainder = exp;
   let level = 0;
   let interval = 0;
