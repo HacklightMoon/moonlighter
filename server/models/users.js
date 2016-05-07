@@ -33,19 +33,7 @@ Users.verifyInsert = function(obj){
     else {
       if (Array.isArray(data)){ 
         let user = data[0];
-        return Users.newContribs(user)
-        .then(function(newContribs){
-          console.log("trying to insert newContribs", newContribs)
-          return db('users')
-          .where({'id': user.id})
-          .increment('contributions', newContribs)
-          .increment('unseenContribs', newContribs)
-          .increment('experience', Character.getExpFromContribs(newContribs))
-          .update('level', Character.getLevelFromExp(user.experience).level)
-          .then(function(){
-            return user;
-          })
-        })
+        return Users.updateContribs(user.github_username);
       } 
       else { 
         console.log("User not array:", data);
@@ -124,10 +112,22 @@ Users.updateContribs = function(github_username){
     let newLevel = Character.getLevelFromExp(newExp).level;
     return db('users')
     .where({'github_username': github_username })
-    .returning('*')
-    .update({'contributions': contribs })
-    .update({'experience': newExp })
-    .update({'level': newLevel })
+    .limit(1)
+    .then(function(user){
+      return Users.newContribs(user[0]);
+    })
+    .then(function(newContribs){
+      console.log("users.js, newContribs:", newContribs);
+      return db('users')
+      .where({'github_username': github_username })
+      .returning('*')
+      .update({
+        'contributions': contribs, 
+        'experience': newExp,
+        'level': newLevel,
+        'unseenContribs': newContribs
+      });
+    });
   });
 };
 
