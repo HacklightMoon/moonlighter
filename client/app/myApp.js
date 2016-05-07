@@ -20,83 +20,30 @@ angular.module('moonlighterApp', [
 
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
-  $urlRouterProvider.otherwise('/');
-
   $stateProvider
     .state('home',{
       url: '/',
-      controller: 'HomeCtrl',
-      controllerAs: 'home',
-      views: {
-        'header':{
-            templateUrl: 'app/templates/partials/header.html',
-            controller: 'HeaderCtrl',
-            controllerAs: 'header'
-        },
-        'content' : {
-          templateUrl: '/app/templates/landing.html',
-          controller: 'LandingCtrl',
-          controllerAs: 'landing'
-        },
-        'footer' : {
-          templateUrl: ''
-        }
-      }
+      templateUrl: '/app/templates/landing.html',
+      controller: 'LandingCtrl',
+      controllerAs: 'landing'
     })
     .state('questFeed', {
       url: '/questfeed',
-
-        views: {
-          'header': {
-            templateUrl: 'app/templates/partials/header.html',
-            controller: 'HeaderCtrl',
-            controllerAs: 'header'
-          },
-          'content' : {
-            templateUrl: '/app/templates/questFeed.html',
-            controller: 'QuestsFeedCtrl',
-            controllerAs: 'questFeed'
-          },
-          'footer' : {
-            templateUrl: ''
-          }
-      }
+      templateUrl: '/app/templates/questFeed.html',
+      controller: 'QuestsFeedCtrl',
+      controllerAs: 'questFeed'
     })
     .state('questProfile', {
       url: '/questProfile',
-      views: {
-      'header': {
-            templateUrl: 'app/templates/partials/header.html',
-            controller: 'HeaderCtrl',
-            controllerAs: 'header'
-      },
-      'content' : {
-        templateUrl: 'app/templates/quest.html',
-        controller: 'QuestProfileCtrl',
-        controllerAs: 'questProfile'
-      },
-      'footer': {
-          templateUrl: ''
-        },
-      }
+      templateUrl: 'app/templates/quest.html',
+      controller: 'QuestProfileCtrl',
+      controllerAs: 'questProfile'
     })
     .state('userProfile', {
       url: '/userProfile',
-      views: {
-        'header': {
-          templateUrl: 'app/templates/partials/header.html',
-            controller: 'HeaderCtrl',
-            controllerAs: 'header'
-        },
-        'content': {
-          templateUrl: 'app/templates/userProfile.html',
-          controller: 'UserProfileCtrl',
-          controllerAs: 'userProfile'
-        },
-        'footer': {
-          templateUrl: ''
-        }
-      }
+      templateUrl: 'app/templates/userProfile.html',
+      controller: 'UserProfileCtrl',
+      controllerAs: 'userProfile'
     })
     .state('editProfile', {
       url: '/editProfile',
@@ -106,21 +53,15 @@ angular.module('moonlighterApp', [
     })
     .state('newQuest', {
       url: '/newQuest',
-      views: {
-        'header': {
-          templateUrl: 'app/templates/partials/header.html',
-          controller: 'HeaderCtrl',
-          controllerAs: 'header'
-        },
-        'content': {
-          templateUrl: 'app/templates/newQuest.html',
-          controller: 'NewQuestCtrl',
-          controllerAs: 'newQuest'
-        },
-        'footer': {
-          templateUrl: ''
-        }
-      }
+      templateUrl: 'app/templates/newQuest.html',
+      controller: 'NewQuestCtrl',
+      controllerAs: 'newQuest'
+    })
+    .state('barracks',{
+      url: '/barracks',
+      templateUrl: 'app/templates/barracks.html',
+      controller: 'BarracksCtrl',
+      controllerAs: 'about'
     })
     .state('barracks',{
       url: '/barracks',
@@ -142,22 +83,12 @@ angular.module('moonlighterApp', [
     })
     .state('about', {
       url: '/about',
-      views: {
-        'header': {
-          templateUrl: 'app/templates/partials/header.html',
-          controller: 'HeaderCtrl',
-          controllerAs: 'header'
-        },
-        'content': {
-          templateUrl: 'app/templates/about.html',
-          controller: 'AboutCtrl',
-          controllerAs: 'about'
-        },
-        'footer': {
-          templateUrl: ''
-        }
-      }
+      templateUrl: 'app/templates/about.html',
+      controller: 'AboutCtrl',
+      controllerAs: 'about'
     });
+
+    $urlRouterProvider.otherwise('/');
 }]);
 
 
