@@ -4,7 +4,6 @@ angular.module('moonlighterApp', [
   'ui.router',
   'ngAnimate',
   'ngCookies',
-  // 'moonlighterApp.services',
   'moonlighterApp.barracksService',
   'moonlighterApp.issueService',
   'moonlighterApp.profileService',
