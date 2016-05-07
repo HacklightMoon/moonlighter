@@ -13,7 +13,7 @@
     <div id="tl">
       <div>Username:  {{userData.github_username}}</div>
       <div>Email:  {{userData.email}}</div>
-      <div>Money:  ${{userData.money}}</div>
+      <div>Money:  {{userData.money | currency}}</div>
       <div>Contributions:  {{userData.contributions}}</div>
     </div>
 

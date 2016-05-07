@@ -351,8 +351,13 @@ a {
 
 
 .center {
+    margin: 0;
+    width: 45%;
+    padding: 10px;
+}
+#center {
     margin: auto;
-    width: 35%;
+    width: 45%;
     padding: 10px;
 }
 .character{
