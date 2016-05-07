@@ -255,10 +255,13 @@ app.use('/', routes)
 app.listen(config.port || 3000, function () {
   console.log("process.env.PORT", config.port)
   console.log('Example app listening on port 3000!');
+  console.log('');
   console.log('FOR YOU FRONT_END FOLKS');
+  console.log('')
   console.log('-----ENDPOINTS------');
-  console.log('GET /sampleUser, /sampleQuestData, /issues');
-  console.log('POST /quest/newquest');
+  console.log('GET /sampleUser, /sampleQuestData, /issues, \n /issues/joined, /issues/bounty, /issues/members, \n /issues/myissues, /issues/load, /user/contribs, \n /user/current, /user/info, /character, auth/logout');
+  console.log('');
+  console.log('POST /quest/newquest, user/notified, /user/pay, \n /user/update, /issues/addmember');
 });
 
 
