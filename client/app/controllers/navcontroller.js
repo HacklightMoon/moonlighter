@@ -7,7 +7,7 @@ angular.module('moonlighterApp.nav',[])
   };
 
   $scope.seeAbout = false;
-  if($state.current.name==="home"){
+  if($state.current.name==="home" || $state.current.name==="questFeed"){
     $scope.seeAbout = true;
   };
   

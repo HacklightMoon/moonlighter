@@ -10,6 +10,7 @@
                               'moonlighterApp.profileService',
                               'moonlighterApp.userService',
                               'moonlighterApp.landing',
+                              'moonlighterApp.barracks',
                               'moonlighterApp.questFeed',
                               'moonlighterApp.questProfile',
                               'moonlighterApp.about',
