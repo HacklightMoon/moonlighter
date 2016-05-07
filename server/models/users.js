@@ -4,6 +4,7 @@ let Promise = require('bluebird'); //remove this once babel is available.
 let db = require('../db');
 let Users = module.exports;
 let API = require('../API/githubQueries');
+let Character = require('./characters.js');
 
 Users.verifyInsert = function(obj){
   let session = {};
@@ -20,6 +21,8 @@ Users.verifyInsert = function(obj){
       return API.userContribsTotal(session.github_username)
       .then(function(contributions){
         session.contributions = contributions;
+        session.experience = Character.getExpFromContribs(session.contributions);
+        session.level = Character.getLevelFromExp(session.experience).level;
         return db('users').insert(session).limit(1)
       })
       .catch(function(err){
@@ -37,6 +40,8 @@ Users.verifyInsert = function(obj){
           .where({'id': user.id})
           .increment('contributions', newContribs)
           .increment('unseenContribs', newContribs)
+          .increment('experience', Character.getExpFromContribs(newContribs))
+          .update('level', Character.getLevelFromExp(user.experience).level)
           .then(function(){
             return user;
           })
@@ -115,10 +120,14 @@ Users.newContribs = function(user){
 Users.updateContribs = function(github_username){
   return API.userContribsTotal(github_username)
   .then(function(contribs){
+    let newExp = Character.getExpFromContribs(contribs);
+    let newLevel = Character.getLevelFromExp(newExp).level;
     return db('users')
-    .where({'github_username': github_username})
-    .returning('contributions')
-    .update({'contributions': contribs})
+    .where({'github_username': github_username })
+    .returning('*')
+    .update({'contributions': contribs })
+    .update({'experience': newExp })
+    .update({'level': newLevel })
   });
 };
 
