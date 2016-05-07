@@ -14,7 +14,7 @@
                               'moonlighterApp.questProfile',
                               'moonlighterApp.about',
                               'moonlighterApp.newQuest',
-                              'moonlighterApp.header',
+                              'moonlighterApp.nav',
                               'moonlighterApp.userProfile',
                               ]);
 

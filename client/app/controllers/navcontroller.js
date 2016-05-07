@@ -1,6 +1,6 @@
 'use strict';
-angular.module('moonlighterApp.header',[])
-.controller('HeaderCtrl',['$state', '$scope', 'User', 'Profile', '$cookies', function($state, $scope, User, Profile, $cookies){
+angular.module('moonlighterApp.nav',[])
+.controller('NavCtrl',['$state', '$scope', 'User', 'Profile', '$cookies', function($state, $scope, User, Profile, $cookies){
   $scope.seen = true;
   if($state.current.name==="home"){
     $scope.seen = false;
@@ -62,3 +62,6 @@ angular.module('moonlighterApp.header',[])
 
   $scope.signIn();
 }]);
+
+
+
