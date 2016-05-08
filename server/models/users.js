@@ -1,50 +1,46 @@
 'use strict';
 
-let Promise = require('bluebird'); //remove this once babel is available.
-let db = require('../db');
-let Users = module.exports;
-let API = require('../API/githubQueries');
+let Promise   = require('bluebird'); //remove this once babel is available.
+let db        = require('../db');
+let Users     = module.exports;
+let API       = require('../API/githubQueries');
 let Character = require('./characters.js');
 
-Users.verifyInsert = function(obj){
-  let session = {};
-  session.passid = obj.id;
-  session.profile_picture = obj._json.avatar_url;
-  session.github_username = obj._json.login || username;
-  session.full_name = obj._json.name || obj.displayName;
-  session.email = obj.emails ? obj.emails[0].value : null;
-  return db('users').where({
-    passid: session.passid
-  })
-  .then(function(data){
-    if (data.length === 0){
-      return API.userContribsTotal(session.github_username)
-      .then(function(contributions){
-        session.contributions = contributions;
-        session.experience = Character.getExpFromContribs(session.contributions);
-        session.level = Character.getLevelFromExp(session.experience).level;
-        return db('users').insert(session).limit(1)
-      })
-      .catch(function(err){
-        console.log("Error:", err);
-        return;
-      });
-    } 
-    else {
-      if (Array.isArray(data)){ 
-        let user = data[0];
-        return Users.updateContribs(user.github_username);
-      } 
-      else { 
-        console.log("User not array:", data);
-        return data;
-      } 
+Users.verifyInsert = function(blob){
+  let user = db('users').where({ passid: blob.id });
+  let contributions = API.userContribsTotal(blob._json.login);
+  Promise.all([user, contributions])
+  .then(function(values){
+    let users = values[0];
+    let contributions = values[1];
+    if (users.length > 0){
+      return Users.updateContribs(users[0].github_username);
     }
+    else {
+      let exp     = Character.getExpFromContribs(contributions);
+      let level   = Character.getLevelFromExp(exp).level;
+      let newUser = {
+        'passid'          : blob.id,
+        'profile_picture' : blob._json.avatar_url,
+        'github_username' : blob._json.login || username,
+        'full_name'       : blob._json.name || blob.displayName,
+        'email'           : blob.emails ? blob.emails[0].value : null,
+        'contributions'   : contributions,
+        'experience'      : exp,
+        'level'           : level
+      };
+      return db('users').insert(newUser).limit(1);
+    }
+  })
+  .catch(function(err){
+    console.log("Users.verifyInsert Error:", err);
+    return;
   });
 };
 
 Users.verifyId = function(id){
-  return db('users').where({
+  return db('users')
+  .where({
     passid: id
   })
   .limit(1);
@@ -70,7 +66,7 @@ Users.getByLoggedIn = function(blob){
   return db('users').where({
     'passid': passid
   }).limit(1).then(function(user){
-    console.log("users.js getByLoggedIn, user:", user);
+    console.log("users.js getByLoggedIn was called.");
     return user;
   });
 };
