@@ -138,3 +138,9 @@ Users.contribsSeen = function(user_id){
     .where({'id': user_id})
   });
 };
+
+Users.delete = function(user_id){
+  return db('users')
+  .where({'id': user_id})
+  .del();
+}

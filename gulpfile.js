@@ -11,11 +11,11 @@ let shell  = require('gulp-shell');
 let babel  = require('gulp-babel');
 
 gulp.task('default', function(){
-  gulp.watch(['server/**', 'client/**', '*.js'], ['mocha']);
+  gulp.watch(['server/**', 'client/**', 'test/**', '*.js'], ['mocha']);
 });
 
 gulp.task('mocha', function(){
-  return gulp.src(['test/**/*.test.js'], { read: false })
+  return gulp.src(['test/**/*.test.js', 'test/server/users.test.js'], { read: false })
   .pipe(mocha({ reporter: 'nyan' }))
   .on('error', gutil.log);
 })
