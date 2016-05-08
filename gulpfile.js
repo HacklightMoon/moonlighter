@@ -16,7 +16,7 @@ gulp.task('default', function(){
 
 gulp.task('mocha', function(){
   return gulp.src(['test/**/*.test.js'], { read: false })
-  .pipe(mocha({ reporter: 'list' }))
+  .pipe(mocha({ reporter: 'nyan' }))
   .on('error', gutil.log);
 })
 // uncomment and fix when we have client-side up 
