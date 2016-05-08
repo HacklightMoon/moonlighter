@@ -1,6 +1,9 @@
 'use strict';
 
+let chai      = require('chai');
 let expect    = require('chai').expect;
+var chaiAsPromised = require("chai-as-promised");
+chai.use(chaiAsPromised);
 let Character = require('../../server/models/characters.js');
 
 describe('getExpFromContribs', function(){
@@ -21,5 +24,16 @@ describe('getLevelFromExp', function(){
   })
   it('returns the proper level based on exp', function(){
     expect(Character.getLevelFromExp(100).level).to.equal(2);
+    expect(Character.getLevelFromExp(300).level).to.equal(3);
+    expect(Character.getLevelFromExp(600).level).to.equal(4);
+  })
+});
+
+describe('getAll', function(){
+  it('is a function', function(){
+    expect(Character.getAll).to.be.a('function');
+  });
+  it('returns a promise which resolves as an array', function(){
+    expect(Character.getAll()).to.eventually.be.a('array');
   })
 });
