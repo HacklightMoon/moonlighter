@@ -1,10 +1,10 @@
 'use strict';
 
-let chai      = require('chai');
-let expect    = require('chai').expect;
-var chaiAsPromised = require("chai-as-promised");
+let chai           = require('chai');
+let expect         = chai.expect;
+let chaiAsPromised = require("chai-as-promised");
 chai.use(chaiAsPromised);
-let Character = require('../../server/models/characters.js');
+let Character      = require('../../server/models/characters.js');
 
 describe('getExpFromContribs', function(){
   it('is a function', function(){

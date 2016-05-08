@@ -25,14 +25,6 @@ Character.getLevelFromExp = function(exp){
 Character.getAll = function(){
   return db('characters')
   .then(function(data){
-    return data[0];
+    return data;
   });
 };
-
-Character.getCurrentLevel = function(char_id){
-  return db.select('level')
-  .from('characters')
-  .where({'id': id})
-  .limit(1);
-};
-
