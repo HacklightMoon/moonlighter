@@ -1,6 +1,7 @@
 'use strict';
 let express        = require('express');
 let config         = require('./config/environment');
+let debug          = require('./debug');
 let passport       = require('passport');
 let bodyParser     = require('body-parser');
 let cookieParser   = require('cookie-parser');
@@ -26,7 +27,7 @@ app.use("/style", express.static(rootPath + '/style'));
 
 
 // middleware 
-app.use(session({ secret: 'hacklightmoonshine', cookie: { maxAge: 600000 }}))
+app.use(session({ secret: 'hacklightmoonshine', cookie: { maxAge: 6000000 }}))
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -160,7 +161,6 @@ app.get('/issues/myissues', function(req, res){
 });
 
 app.get('/issues/members', function(req, res){
-  console.log("REQ in server.js", req.query.id);
   Issues.getIssueMembers(req.query.id)
   .then(function(resp) {
     res.send(resp);
@@ -174,7 +174,6 @@ app.get('/issues/bounty', function(req, res){
   });
 });
 app.get('/issues/joined', function(req, res){
-  console.log("REQ in server.js", req.query.id);
   Issues.getJoinedIssues(req.query.id)
   .then(function(resp) {
      res.send(resp);
@@ -210,14 +209,14 @@ app.get('/user/info', function(req, res){
   });
 });
 
+let count_user_current = debug.countLog('/user/current called');
 app.get('/user/current', function(req, res){
-  //Users.getByLoggedIn()
+  count_user_current();
   if(req.user) {
     API.getCurrentUser(req.user.Authorization)//this function call needs token in header
     .then(function(blob){
       return Users.getByLoggedIn(blob).then(function(users){
-        let user = users[0]; 
-        res.send(user || null);
+        res.send(users[0]);
       });
     });
   };

@@ -1,7 +1,8 @@
 'use strict';
 
-let Promise   = require('bluebird'); //remove this once babel is available.
+let Promise   = require('bluebird');
 let db        = require('../db');
+let debug     = require('../debug');
 let Users     = module.exports;
 let API       = require('../API/githubQueries');
 let Character = require('./characters.js');
@@ -61,12 +62,13 @@ Users.getById = function(id){
   }).limit(1);
 };
 
+let loggedInCount = debug.countLog("Users.getByLoggedIn called");
 Users.getByLoggedIn = function(blob){
+  loggedInCount();
   let passid = JSON.parse(blob).id;
   return db('users').where({
     'passid': passid
   }).limit(1).then(function(user){
-    console.log("users.js getByLoggedIn was called.");
     return user;
   });
 };
@@ -91,12 +93,13 @@ Users.pay = function(id, amount){
 };
 
 //Need better algorithm than looking at all of last year's contributions, and only them.
+
+let newContribsCount = debug.countLog("Users.newContribs called");
 Users.newContribs = function(user){
-  console.log("Users.newContribs successfully called on", user.github_username);
+  newContribsCount();
   return API.userContribsTotal(user.github_username)
   .then(function(newTotal){
     let newContribs = newTotal - user.contributions;
-    console.log("returning newContribs:", newContribs);
     return newContribs;
   });
 };
@@ -113,7 +116,6 @@ Users.updateContribs = function(github_username){
       return Users.newContribs(user[0]);
     })
     .then(function(newContribs){
-      console.log("users.js, newContribs:", newContribs);
       return db('users')
       .where({'github_username': github_username })
       .returning('*')
