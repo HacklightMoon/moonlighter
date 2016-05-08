@@ -6,7 +6,7 @@ let Promise = require('bluebird');
 
 Character.getExpFromContribs = function(contribs){
   return contribs * 17;
-}
+};
 
 Character.getLevelFromExp = function(exp){
   let remainder = exp;
@@ -18,21 +18,21 @@ Character.getLevelFromExp = function(exp){
     remainder -= interval;
   }
   remainder += interval;
-  return { 'level':level, 'exp': remainder }
+  return { 'level':level, 'exp': remainder };
 };
 
 
 Character.getAll = function(){
   return db('characters')
   .then(function(data){
-    return data[0]
+    return data[0];
   });
-}
+};
 
 Character.getCurrentLevel = function(char_id){
   return db.select('level')
   .from('characters')
   .where({'id': id})
   .limit(1);
-}
+};
 
