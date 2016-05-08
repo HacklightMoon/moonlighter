@@ -19,7 +19,11 @@
                               'moonlighterApp.userProfile',
                               ]);
 
-  module.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+  module.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',  function($stateProvider, $urlRouterProvider, $httpProvider) {
+
+    $httpProvider.defaults.useXDomain = true;
+    $httpProvider.defaults.withCredentials = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
     $stateProvider
       .state('home',{
@@ -73,6 +77,8 @@
       });
 
       $urlRouterProvider.otherwise('/');
+
+      
   }]);
 }());
 
