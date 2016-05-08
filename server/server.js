@@ -249,7 +249,21 @@ app.post('/user/notified', function(req, res){
   });
 });
 
-app.use('/', routes)
+app.get('/codewars', function(req, res){
+  console.log("hey being called in server, server.js:253")
+  API.getMatCode()
+  .then(function(codewar){
+    res.send(codewar);
+  })
+})
+
+app.use('/', routes);
+
+app.all('/*', function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Content-Type,X-Requested-With');
+    next();
+});
 
 app.listen(config.port || 3000, function () {
   console.log("process.env.PORT", config.port)
