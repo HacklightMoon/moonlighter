@@ -10,6 +10,7 @@ knex.schema.createTableIfNotExists('characters', function(table){
 .createTableIfNotExists('users', function(table){
   table.increments('id').primary();
   table.string('github_username').unique();
+  table.string('codewars_username').unique();
   table.timestamp('joined_at').defaultTo(knex.fn.now());
   table.string('full_name');
   table.integer('money').defaultTo(1000);
