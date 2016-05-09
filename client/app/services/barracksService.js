@@ -2,6 +2,10 @@ angular.module("moonlighterApp.barracksService", [])
 
   .factory('Barracks', function ($http) {
       
+
+      // todo delete me !!
+
+      
       // function getCodeWar(){
       //   return $http({
       //     method: 'GET', 
@@ -25,6 +29,8 @@ angular.module("moonlighterApp.barracksService", [])
       //   })
       // }
 
+
+// todo fix me 
       function getCodeWar(){
         return $http({
           method: 'GET', 

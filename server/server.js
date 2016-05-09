@@ -6,6 +6,7 @@ let passport       = require('passport');
 let bodyParser     = require('body-parser');
 let cookieParser   = require('cookie-parser');
 let API            = require('./API/githubQueries');
+let CW             = require('./API/codewars');
 let Users          = require('./models/users');
 let Issues         = require('./models/issues'); 
 let Character      = require('./models/characters');
@@ -249,9 +250,11 @@ app.post('/user/notified', function(req, res){
   });
 });
 
+
+// todo  fix
 app.get('/codewars', function(req, res){
   console.log("hey being called in server, server.js:253")
-  API.getMatCode()
+   CW.getMatCode()
   .then(function(codewar){
     res.send(codewar);
   })
