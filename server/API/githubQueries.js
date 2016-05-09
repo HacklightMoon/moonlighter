@@ -21,27 +21,6 @@ let getReqFunc = function(url){
     });
   };
 };
-let getCodeWar = function (){
-  console.log("trying to work in github queries!!!")
-  return function (){
-    let options = {
-      'url': 'https://www.codewars.com/api/v1/users/matjkel', 
-      'headers': {'Authorization' : 'wUGraBxyPMPbRJAy82dr'
-      },
-    }
-  }
-  return new Promise(function(resolve, reject){
-      request.get(options, function(err, resp, body){
-        if (err){
-          reject(err);
-          return;
-        }
-        resolve(body, resp);
-      });
-    });
-  };
-
-API.getMatCode = getCodeWar('/codewars')
 
 API.getCurrentUser = getReqFunc('/user');
 
