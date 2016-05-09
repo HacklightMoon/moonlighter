@@ -1,2 +1,2 @@
 web: node server/server.js
-schema: node server/schema.js
+schema: knex migrate:latest
