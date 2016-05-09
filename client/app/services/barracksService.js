@@ -5,7 +5,7 @@ angular.module("moonlighterApp.barracksService", [])
 
       // todo delete me !!
 
-      
+
       // function getCodeWar(){
       //   return $http({
       //     method: 'GET', 
@@ -38,6 +38,7 @@ angular.module("moonlighterApp.barracksService", [])
         })
         .then(function (resp){
           console.log("heres your resp in barracksService", resp)
+          return resp
         })
         .catch(function(err){
           console.error(err)
