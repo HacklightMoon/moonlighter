@@ -250,6 +250,8 @@ app.post('/user/notified', function(req, res){
   });
 });
 
+
+// todo  fix
 app.get('/codewars', function(req, res){
   console.log("hey being called in server, server.js:253")
    CW.getMatCode()
