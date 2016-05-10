@@ -249,9 +249,23 @@ app.post('/user/notified', function(req, res){
     res.send(user);
   });
 });
+//--------------------CodeWars Endpoints--------------------
+app.get('/codewars/user', function(req, res){
+  console.log('server.js:253');
+   CW.cwUserStats()
+  .then(function(codewar){
+    res.send(codewar);
+  });
+});
 
+app.get('/codewars/nextChallenge', function(req, res){
+  console.log('server.js:264');
+  CW.cwNextChallenge()
+  .then(function(challenge){
+    res.send(challenge);
+  });
+});
 
-// todo  fix
 app.get('/codewars', function(req, res){
   if(req.user){
     API.getCurrentUser(req.user.Authorization)
