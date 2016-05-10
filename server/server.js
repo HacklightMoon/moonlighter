@@ -116,7 +116,7 @@ app.get('/issues/bounty', function(req, res){
 app.get('/issues/joined', function(req, res){
   Issues.getJoinedIssues(req.query.id)
   .then(function(resp) {
-     res.send(resp);
+    res.send(resp);
   });
 });
 //--------------------Character Endpoints----------------
@@ -190,7 +190,7 @@ app.post('/user/notified', function(req, res){
 //--------------------CodeWars Endpoints--------------------
 app.get('/codewars/user', function(req, res){
   console.log('server.js:253');
-   CW.GetUserStats()
+  CW.GetUserStats()
   .then(function(codewar){
     res.send(codewar);
   });
@@ -204,10 +204,13 @@ app.get('/codewars/nextChallenge', function(req, res){
   });
 });
 
-//INSERT DB FUNCTION HERE VVVVV
-// app.post('/codewars/api', function(req, res){
-
-// });
+app.post('/codewars/api', function(req, res){
+  console.log('/codewars/api called.')
+  Users.linkCodewars(req.user.user.id, req.data.cwUsername, req.data.cwUserAPI)
+  .then(function(users){
+    res.send(users[0]);
+  })
+});
 
 app.get('/codewars', function(req, res){
   if(req.user){
@@ -241,9 +244,9 @@ app.get('/user/newcontribs', function(req, res) {
 app.use('/', routes);
 
 app.all('/*', function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Content-Type,X-Requested-With');
-    next();
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Content-Type,X-Requested-With');
+  next();
 });
 
 app.listen(config.port || 3000, function () {
