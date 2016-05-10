@@ -7,6 +7,7 @@ let Users     = module.exports;
 let API       = require('../API/githubQueries');
 let Character = require('./characters.js');
 
+//verifyInsert: add new User to database OR retrieves existing one on sign-in, and returns that user's database row
 Users.verifyInsert = function(blob){
   let user = db('users').where({ passid: blob.id });
   let contributions = API.userContribsTotal(blob._json.login);
@@ -39,6 +40,7 @@ Users.verifyInsert = function(blob){
   });
 };
 
+//Users.verifyId: user's github id => user's database row #UNUSED#
 Users.verifyId = function(id){
   return db('users')
   .where({
@@ -47,6 +49,7 @@ Users.verifyId = function(id){
   .limit(1);
 };
 
+//Users.getByGithubUsername: user's github username => user's database row #UNUSED#
 Users.getByGithubUsername = function(githubUsername){
   return db('users')
   .where({
@@ -55,16 +58,16 @@ Users.getByGithubUsername = function(githubUsername){
   .limit(1);
 };
 
-Users.getById = function(id){
-  return db('users')
-  .where({
-    'id': id
-  }).limit(1);
-};
+//NOT CURRENTLY USED. CONSIDER REMOVING.
+//Users.getById = function(id){
+//  return db('users')
+//  .where({
+//    'id': id
+//  }).limit(1);
+//};
 
-let loggedInCount = debug.countLog("Users.getByLoggedIn called");
+//Users.getByLoggedIN: user's github data blob => user's database row
 Users.getByLoggedIn = function(blob){
-  loggedInCount();
   let passid = JSON.parse(blob).id;
   return db('users').where({
     'passid': passid
@@ -73,6 +76,7 @@ Users.getByLoggedIn = function(blob){
   });
 };
 
+//Users.update: new database row for user => updated row for user
 Users.update = function(obj){
   return db('users').where({
     passid: obj.id
@@ -83,9 +87,11 @@ Users.update = function(obj){
   });
 };
 
+//Users.pay: user id, amount => user's database row including updated money
 Users.pay = function(id, amount){
   return db('users')
   .where({'id': id})
+  .returning('*')
   .increment('money', amount)
   .then(function(data){
     return data;
@@ -94,16 +100,15 @@ Users.pay = function(id, amount){
 
 //Need better algorithm than looking at all of last year's contributions, and only them.
 
-let newContribsCount = debug.countLog("Users.newContribs called");
+//Users.newContribs: user's database row => the increase in user's contributions since last login
 Users.newContribs = function(user){
-  newContribsCount();
   return API.userContribsTotal(user.github_username)
   .then(function(newTotal){
-    let newContribs = newTotal - user.contributions;
     return newContribs;
   });
 };
 
+//Users.updateContribs: user's github username => user's database row, with updated contributions, experience, level, and unseen contributions
 Users.updateContribs = function(githubUsername){
   return API.userContribsTotal(githubUsername)
   .then(function(contribs){
@@ -129,6 +134,7 @@ Users.updateContribs = function(githubUsername){
   });
 };
 
+//Users.updateExp: user's github username => user's database row with updated experience
 Users.updateExp = function(githubUsername){
   return db('users')
   .where({'github_username': githubUsername})
@@ -144,6 +150,7 @@ Users.updateExp = function(githubUsername){
   });
 };
 
+//Users.contribsSeen: user's id => user's database row, with unseen contributions (unseenContribs) set to 0
 Users.contribsSeen = function(user_id){
   return db('users')
   .where({'id': user_id})
@@ -154,8 +161,18 @@ Users.contribsSeen = function(user_id){
   });
 };
 
+//Users.delete: user's id => remove user from database, return number of affected rows(1);
 Users.delete = function(user_id){
   return db('users')
   .where({'id': user_id})
   .del();
 }
+
+//This file needs to be reorganized. Log every case where user data needs to be obtained below.
+//
+//Users.verifyInsert: add new User to database OR retrieves existing one on sign-in, and returns that user's database row
+//
+//Users.getByGithubUsername: IN: user's github username; OUT: user's database row
+//
+//Users.getByLoggedIn: pass Github API call blob to this function to retrieve that user's database row
+//
