@@ -211,10 +211,14 @@ app.get('/codewars', function(req, res){
       return Users.getByLoggedIn(blob)
       .then(function(users){
         let user = users[0];
-        return CW.getUserBlob(user.codewars_username)
+        return CW.GetUserStats(user.codewars_username)
         .then(function(blob){
           res.send(blob);
-        });
+        })
+        .catch(function(err){
+          console.log('err:', err);
+          return;
+        })
       });
     });
   }
