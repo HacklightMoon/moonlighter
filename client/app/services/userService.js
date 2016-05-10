@@ -11,9 +11,9 @@ angular.module("moonlighterApp.userService", [])
       .then(function(resp) {
         return resp.data;
       })
-      // .catch(function(err) {
-      //   console.error(err);
-      // })
+      .catch(function(err) {
+        console.error('Error getting current user data:', err);
+      })
     }
 
     var updateUserInfo = function(userData) {
@@ -56,10 +56,21 @@ angular.module("moonlighterApp.userService", [])
       })
     }
 
+    var newContribs = function(username) {
+      return $http({
+        method: 'GET',
+        url: '/user/newcontribs?username=' + username
+      })
+      .then(function(resp) {
+        return resp.data;
+      })
+    }
+
     return {
       getCurrentUser: getCurrentUser,
       updateUserInfo: updateUserInfo,
       getContribs: getContribs,
-      resetContribs: resetContribs
+      resetContribs: resetContribs,
+      newContribs: newContribs
     }
   });

@@ -1,18 +1,15 @@
 <div class="navbar" ng-controller="NavCtrl">
-    <a ui-sref="home">
-      <h1 class="logo-title" ng-if="seen">Moonlighter</h1>
-    </a>
+  <a ui-sref="home">
+    <h1 class="logo-title" ng-if="seen">Moonlighter</h1>
+  </a>
   <nav>
     <ul>
       <li><a href="/auth/logout" ng-if="isLogin" ng-click="logOut()" class="logout-button">Log out</a></li>
       <li><a href="/auth/github" ng-if="!isLogin" ng-click="signIn()" class="signin-button">Sign in</a></li>
       <li><a ng-if='seeAbout' ui-sref="about">About</a></li>
       <li><a ui-sref="questFeed" class="nav-button">Back to the Quests!</a></li>
-      <!-- <li><a href="contact.html">Contact</a></li> -->
-      <!-- <div class="user-info" ng-if="username"> -->
-      <li><img ng-if="username" src="{{photo}}" ng-click="setUser" style="border-radius: 50%;" height="55" width="55"></li>
-      <li><h3>{{username}}</h3></li>
-      <!-- </div> -->
+      <li><img ng-if="username" src="{{photo}}" ng-click="setUser()" style="border-radius: 50%;" height="55" width="55"></li>
+      <li><h3 ng-click="setUser()">{{username}}</h3></li>
     </ul>
   </nav>
 </div>  

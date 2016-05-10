@@ -1,3 +1,19 @@
+<div class="navbar" ng-controller="NavCtrl">
+  <a ui-sref="home">
+    <h1 class="logo-title" ng-if="seen">Moonlighter</h1>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="/auth/logout" ng-if="isLogin" ng-click="logOut()" class="logout-button">Log out</a></li>
+      <li><a href="/auth/github" ng-if="!isLogin" ng-click="signIn()" class="signin-button">Sign in</a></li>
+
+      <li><a ng-if='isLogin' ui-sref="barracks" class="nav-button">Barracks</a></li>
+      <li><img ng-if="username" src="{{photo}}" ng-click="setUser()" style="border-radius: 50%;" height="55" width="55"></li>
+      <li><h3 ng-click="setUser()">{{username}}</h3></li>
+    </ul>
+  </nav>
+</div> 
+
 <div>
   <div class="questfeed-button-wrapper">
     <a class="questfeed-button" ui-sref="questProfile">
