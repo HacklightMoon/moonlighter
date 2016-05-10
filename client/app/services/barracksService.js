@@ -63,7 +63,8 @@ angular.module("moonlighterApp.barracksService", [])
       return {
         getCodeWar: getCodeWar,
         cwUserStats: cwUserStats,
-        cwNextChallenge:cwNextChallenge
+        cwNextChallenge:cwNextChallenge,
+        addCwAPI:addCwAPI
       }
 
 

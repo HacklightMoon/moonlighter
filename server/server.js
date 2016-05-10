@@ -204,12 +204,12 @@ app.get('/codewars/nextChallenge', function(req, res){
   });
 });
 
+//INSERT DB FUNCTION HERE VVVVV
 app.post('/codewars/api', function(req, res){
-  console.log('/codewars/api called.')
-  Users.linkCodewars(req.user.user.id, req.data.cwUsername, req.data.cwUserAPI)
-  .then(function(users){
-    res.send(users[0]);
-  })
+  Users.linkCodewars(req.body.userID, req.body.cwUsername, req.body.cwUserAPI)
+  .then(function(resp){
+    res.send(resp[0]);
+  });
 });
 
 app.get('/codewars', function(req, res){

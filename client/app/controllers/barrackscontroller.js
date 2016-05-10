@@ -1,14 +1,20 @@
 angular.module('moonlighterApp.barracks',[])
-.controller('BarracksCtrl',['$scope', 'Barracks', '$http',  function($scope, Barracks, $http){
-
-  var userInput = {
-    
-    'cwUsername': $scope.cwUsername,
-    'cwUserAPI':  $scope.cwUserAPI
-  };
+.controller('BarracksCtrl',['$scope', 'Barracks', '$http', '$cookies', function($scope, Barracks, $http, $cookies){
+  $scope.userData = {};
 
   $scope.cwInsert=function(){
-    $http.post("")
+    var userInput = {
+      'userID':     $cookies.get('user_id'),
+      'cwUsername': $scope.userData.cwUsername,
+      'cwUserAPI':  $scope.userData.cwUserAPI
+    };
+    Barracks.addCwAPI(userInput)
+    .then(function(data){
+      console.log("here's some data:", data);
+    })
+    .catch(function(err){
+      console.error(err);
+    })
   }
 
 
