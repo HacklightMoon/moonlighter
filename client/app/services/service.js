@@ -49,6 +49,12 @@ angular.module("moonlighterApp.services", [])
         method: 'GET', 
         url: '/character' 
       })
+      .then(function(resp){
+        return resp;
+      })
+      .catch(function(err){
+        console.error("ERROR : ", err)
+      })
     }
 
     return {

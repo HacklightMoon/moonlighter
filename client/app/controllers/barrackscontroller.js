@@ -13,6 +13,13 @@ angular.module('moonlighterApp.barracks',[])
     })
   }
 
+  $scope.editorOptions = {
+        lineWrapping : true,
+        lineNumbers: true,
+        readOnly: 'nocursor',
+        mode: 'xml',
+    };
+
 
   $scope.getCodeWar()
 
