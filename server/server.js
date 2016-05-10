@@ -217,6 +217,8 @@ app.get('/user/current', function(req, res){
     API.getCurrentUser(req.user.Authorization)//this function call needs token in header
     .then(function(blob){
       return Users.getByLoggedIn(blob).then(function(users){
+        // username = users.data[0].github_username
+        // console.log("your username mang!!", username)
         res.send(users[0]);
       });
     });
