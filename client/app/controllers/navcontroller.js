@@ -69,9 +69,7 @@ angular.module('moonlighterApp.nav',[])
   // IT DOESN"T COMPLETELY WORK YET!!!
   $scope.setUser = function () {
     Profile.setUser($scope.user_id)
-    .then(function() {
-      $state.go("userProfile");
-    })
+    $state.go("userProfile");
   }
 
   // Remove cookies and notification when logging out
