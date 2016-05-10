@@ -56,71 +56,10 @@ app.get('/auth/logout', function(req,res){
 app.get('/auth/github', passportGithub.authenticate('github', {
   scope: ['user', 'public_repo', 'notifications'] 
 }));
-var configTest = function(){
-
-  var sampleQuest = [
-    {
-      "id": 7, 
-      "type": "project",
-      "description": "Web-App",
-      "name": "BadBoy Fantasy",
-      "tech": ["AngularJS", "Postgres", "Node.js", "Express.js"],
-      "url": "https://github.com/richardjboothe",
-      "developers": 4,
-      "roles": ['Designer', 'Front-end', 'Front-end', 'Back-end'],
-      "pay": "equity"
-    },
-    {
-      "id": 8, 
-      "type": "project",
-      "description": "Mobile App and Web-App",
-      "name": "HollR",
-      "tech": ["Ruby", "Postgres", "Ruby on Rails"],
-      "url": "https://github.com/richardjboothe",
-      "developers": 4,
-      "roles": ['Designer', 'Front-end', 'Front-end', 'Back-end'],
-      "pay": "equity"
-    }
-  ]
-
-  var sampleUser = [
-    {
-      "id": 3,
-      "picture":"faneborges.png",
-      "email":"faneborges@moonligth.com",
-      "username":"Fane Borges",
-      "role": "Web Designer",
-      "skills": ['JavaScript', 'React', 'HTML/CSS'],
-      "projects": ["Chef's Pantry", "NabrHood"]
-    },
-    {
-      "id": 4,
-      "picture":"treznorlobo.png",
-      "email":"treznorlobo@moonligth.com",
-      "username":"Treznor Lobo",
-      "role": "Web Designer",
-      "skills": ['Ruby', 'Rails', 'HTML/CSS'],
-      "projects": ["HollR"]
-    }
-  ]
-
-  app.get('/sampleQuestData', function(req, res){
-    res.send(sampleQuest)
-  });
-
-  app.get('/sampleUser', function(req, res){
-    res.send(sampleUser)
-  });
-
-};
-// serve test data
-configTest();
 
 app.get('/trycall', function(req, res){
-  //res.set('Authorization', req.user['Authorization'])
   API.getCurrentUser(req.user.Authorization)//this function call needs token in header
   .then(function(resp){
-    //console.log("req.user['Authorization']", req.user['Authorization'])
     res.send(resp);
   });
 });
@@ -237,7 +176,6 @@ app.get('/user/contribs', function(req, res){
   if(req.user){
     Users.updateContribs(req.user.user.github_username)
     .then(function(resp){
-      console.log("RESPONSE IN SERVER.JS: ", resp);
       res.send({contribs: resp});
     })
   }
@@ -281,6 +219,15 @@ app.get('/codewars', function(req, res){
     });
   }
 });
+
+app.get('/user/newcontribs', function(req, res) {
+  console.log("USERNAME:", req.query.username);
+  Users.updateContribs(req.query.username)
+  .then(function(resp) {
+    console.log("RESPONSE IN SERVER.JS (newcontribs): ", resp);
+    res.send(resp);
+  })
+})
 
 app.use('/', routes);
 

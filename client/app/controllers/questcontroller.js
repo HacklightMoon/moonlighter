@@ -32,22 +32,6 @@ angular.module('moonlighterApp.questProfile', [])
   }
   $scope.setUser($scope.chosenQuest.user_id);
 
-  // If the current user owns the selected quest, show certain buttons
-  // If the quest is closed & curent user is the quest owner, show Close Quest button
-  // If the user is signed in, and is not the quest owner, show Join Quest button
-  $scope.questOwner = false;
-  $scope.closedStatus = false;
-  $scope.signedIn = false;
-  if ($scope.currentUser.user_id == $scope.chosenQuest.user_id){
-    $scope.questOwner = true;
-  }
-  if ($scope.chosenQuest.status === 'closed') {
-    $scope.closedStatus = true;
-  }
-  if ($scope.currentUser.user_id) {
-    $scope.signedIn = true;
-  }
-  
   // Allow users who aren't the quest owner to join a quest
   $scope.joinQuest = function(user_id, quest_id) {
     Issues.addMember(quest_id, user_id);
@@ -63,12 +47,35 @@ angular.module('moonlighterApp.questProfile', [])
       $scope.errorMessage = "Please select the user who solved your issue"
     }
   }
-
+  
+  // Get all users who have joined the selected quest
   Issues.getMembers($scope.chosenQuest.id)
   .then(function(data) {
     $scope.questMembers = data;
+    $scope.alreadyMember = false;
+    for (var i=0; i<data.length; i++) {
+      if (data[i].id === Number($scope.currentUser.user_id)) {
+        $scope.alreadyMember = true;
+      }
+    }
   })
   .catch(function(err) {
     console.error(err);
   })
+  
+  // If the current user owns the selected quest, show certain buttons
+  // If the quest is closed & curent user is the quest owner, show Close Quest button
+  // If the user is signed in, and is not the quest owner, show Join Quest button
+  $scope.questOwner = false;
+  $scope.closedStatus = false;
+  $scope.signedIn = false;
+  if ($scope.currentUser.user_id == $scope.chosenQuest.user_id){
+    $scope.questOwner = true;
+  }
+  if ($scope.chosenQuest.status === 'closed') {
+    $scope.closedStatus = true;
+  }
+  if ($scope.currentUser.user_id) {
+    $scope.signedIn = true;
+  }
 });

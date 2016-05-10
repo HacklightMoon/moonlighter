@@ -1,15 +1,12 @@
 'use strict';
 angular.module('moonlighterApp.userProfile', [])
 .controller('UserProfileCtrl', function ($location, $scope, Profile, User, $state, $cookies, Issues) {
-  //........$scope.editState = false;
-  $scope.profileOwner = false;
 
   // selectedUser is the user_id of the user whose profile we're viewing.
   $scope.selectedUser = Profile.getUser() || $location.search().id
 
   // Here, we store the current user_id inside of the URL (for reloading)
   $location.search("id", $scope.selectedUser);
-
   console.log("Current User: ", $scope.selectedUser);
   
   // We use the above variable to retrieve issues posted by this user.
@@ -45,6 +42,7 @@ angular.module('moonlighterApp.userProfile', [])
   .then(function(data){
     $scope.userData = data.data[0];
     $scope.currentUser = $cookies.getAll();
+    $scope.profileOwner = false;
     if ($scope.currentUser.user_id == $scope.userData.id) {
       $scope.profileOwner = true;
     }
@@ -57,6 +55,7 @@ angular.module('moonlighterApp.userProfile', [])
 
 });
 
+  //$scope.editState = false;
 
   // FUNCTIONS FOR EDIT-PROFILE:
   // $scope.editProfile = function () {
