@@ -54,6 +54,7 @@ angular.module('moonlighterApp.nav',[])
         // Get unseen contributions to show a notification
         User.newContribs($scope.username)
         .then(function(data) {
+          console.log("USER OBJECT FROM CONTRIBS: ", data);
           $scope.unseenContribs = data[0].unseenContribs;
           
           if ($scope.unseenContribs > 0) {
