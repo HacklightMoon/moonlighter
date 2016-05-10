@@ -9,8 +9,6 @@ angular.module("moonlighterApp.userService", [])
         url: '/user/current'
       })
       .then(function(resp) {
-        currentUser = resp.data;
-        isLogin = true;
         return resp.data;
       })
       .catch(function(err) {
