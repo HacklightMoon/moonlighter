@@ -49,6 +49,13 @@ Users.verifyId = function(id){
   .limit(1);
 };
 
+//NOT CURRENTLY USED. CONSIDER REMOVING.   
+Users.getById = function(id){   
+  return db('users')    
+  .where({    
+   'id': id    
+ }).limit(1);    
+};
 //Users.getByGithubUsername: user's github username => user's database row #UNUSED#
 Users.getByGithubUsername = function(githubUsername){
   return db('users')
