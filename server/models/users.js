@@ -104,20 +104,20 @@ Users.newContribs = function(user){
   });
 };
 
-Users.updateContribs = function(github_username){
-  return API.userContribsTotal(github_username)
+Users.updateContribs = function(githubUsername){
+  return API.userContribsTotal(githubUsername)
   .then(function(contribs){
     let newExp = Character.getExpFromContribs(contribs);
     let newLevel = Character.getLevelFromExp(newExp).level;
     return db('users')
-    .where({'github_username': github_username })
+    .where({'github_username': githubUsername })
     .limit(1)
     .then(function(user){
       return Users.newContribs(user[0]);
     })
     .then(function(newContribs){
       return db('users')
-      .where({'github_username': github_username })
+      .where({'github_username': githubUsername })
       .returning('*')
       .update({
         'contributions': contribs, 
@@ -125,6 +125,21 @@ Users.updateContribs = function(github_username){
         'level': newLevel,
         'unseenContribs': newContribs
       });
+    });
+  });
+};
+
+Users.updateExp = function(githubUsername){
+  return db('users')
+  .where({'github_username': githubUsername})
+  .then(function(users){
+    let user = users[0];
+    let newExp = Character.getExpFromContribs(user.contributions) + Character.getExpFromHonor(user.honor)
+    return db('users')
+    .returning('*')
+    .where({
+      'id': user.id,
+      'experience': newExp
     });
   });
 };
