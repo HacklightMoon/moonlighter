@@ -104,6 +104,7 @@ Users.newContribs = function(user){
   let newTotal = API.userContribsTotal(user.github_username);
   Promise.all([prevTotal, newTotal])
   .then(function(values){
+    console.log()
     let prevTotal = values[0][0]['contributions'];
     let newTotal = values[1];
     console.log('prevTotal', prevTotal);
