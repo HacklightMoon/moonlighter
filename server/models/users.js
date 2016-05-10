@@ -58,6 +58,12 @@ Users.getByGithubUsername = function(githubUsername){
   .limit(1);
 };
 
+Users.getById = function(id){   
+  return db('users')   
+  .where({    
+    'id': id   
+  }).limit(1);    
+};   
 //Users.getByLoggedIN: user's github data blob => user's database row
 Users.getByLoggedIn = function(blob){
   let passid = JSON.parse(blob).id;
