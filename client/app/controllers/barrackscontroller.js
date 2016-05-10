@@ -42,8 +42,9 @@ angular.module('moonlighterApp.barracks',[])
   $scope.editorOptions = {
         lineWrapping : true,
         lineNumbers: true,
-        readOnly: 'nocursor',
-        mode: 'xml',
+        matchBrackets: true,
+        mode: 'javascript',
+        theme: 'icecoder',
     };
 
  $scope.codemirrorLoaded = function(_editor){
@@ -52,7 +53,7 @@ angular.module('moonlighterApp.barracks',[])
     _editor.focus();
 
     // Options
-    _editor.setOption('firstLineNumber', 10);
+    _editor.setOption('firstLineNumber', 1);
     _doc.markClean()
 
     // // Events

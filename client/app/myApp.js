@@ -2,6 +2,7 @@
   'use strict';
 
   var module = angular.module('moonlighterApp', [
+                              // 'ui',
                               'ui.codemirror',
                               'ui.router',
                               'ngAnimate',
@@ -83,5 +84,18 @@
 
       
   }]);
+
+  // module.value('ui.config',
+  // {
+  //   codemirror:
+  //   {
+  //     mode: 'javascript',
+  //     theme: 'dracula', 
+  //     lineNumbers: true,
+  //     lineWrapping: true
+  //   }
+
+  // })
+
 }());
 
