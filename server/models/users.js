@@ -96,7 +96,7 @@ Users.pay = function(id, amount){
 Users.newContribs = function(user){
   return API.userContribsTotal(user.github_username)
   .then(function(newTotal){
-    return newContribs;
+    return newTotal;
   });
 };
 
