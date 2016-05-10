@@ -20,6 +20,19 @@ angular.module('moonlighterApp.barracks',[])
         mode: 'xml',
     };
 
+ $scope.codemirrorLoaded = function(_editor){
+    // Editor part
+    var _doc = _editor.getDoc();
+    _editor.focus();
+
+    // Options
+    _editor.setOption('firstLineNumber', 10);
+    _doc.markClean()
+
+    // Events
+    _editor.on("beforeChange", function(){ ... });
+    _editor.on("change", function(){ ... });
+  };
 
   $scope.getCodeWar()
 
