@@ -17,6 +17,8 @@
     "angular-sanitize": "^1.4.0",
     "angular-touch": "^1.4.0",
     "angular-ui-router": "^0.2.15",
+    "angular-ui-codemirror": "^0.3.0",
+    "codemirror": "^5.0",
     "angular-bootstrap": "~1.2.5",
     "bootstrap-css-only": "~3.3.6",
     "jshint": "^2.9.2",
