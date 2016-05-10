@@ -1,9 +1,11 @@
 <div ng-controller="NavCtrl">
   <div class='navbar'>
-    <div ng-if="notify" class="notification">
-      <h3>You have {{unseenContribs}} new contributions!</h3>
-      <button ng-click="removeNotification()">Dismiss</button>
-    </div>
+    <growl-notification ng-if="notify">
+      <div class="notification">
+        <h3>You have {{unseenContribs}} new contributions!</h3>
+        <button ng-click="removeNotification()">Dismiss</button>
+      </div>
+    </growl-notification>
     <nav>
       <ul>
         <li><img ng-if="username" src="{{photo}}" ng-click="setUser()" style="border-radius: 50%;" height="55" width="55"></li>

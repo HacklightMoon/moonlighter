@@ -2,6 +2,8 @@
   'use strict';
 
   var module = angular.module('moonlighterApp', [
+                              // 'ui',
+                              'toastr',
                               'ui.codemirror',
                               'ui.router',
                               // 'ui.bootstrap',

@@ -1,6 +1,6 @@
 'use strict';
 angular.module('moonlighterApp.nav',[])
-.controller('NavCtrl',['$state', '$scope', 'User', 'Profile', '$cookies', function($state, $scope, User, Profile, $cookies){
+.controller('NavCtrl',['growlNotifications', '$state', '$scope', 'User', 'Profile', '$cookies', function($state, $scope, User, Profile, $cookies){
 
   // If a user is already authenticated, then get their info from cookies
   if ($cookies.getAll().user_id && !$scope.isLogin) {
