@@ -29,9 +29,9 @@ angular.module('moonlighterApp.barracks',[])
     _editor.setOption('firstLineNumber', 10);
     _doc.markClean()
 
-    // Events
-    _editor.on("beforeChange", function(){ ... });
-    _editor.on("change", function(){ ... });
+    // // Events
+    // _editor.on("beforeChange", function(){});
+    // _editor.on("change", function(){});
   };
 
   $scope.getCodeWar()
