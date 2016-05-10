@@ -187,6 +187,16 @@ app.post('/user/notified', function(req, res){
     res.send(user);
   });
 });
+
+app.get('/user/newcontribs', function(req, res) {
+  console.log("USERNAME:", req.query.username);
+  Users.updateContribs(req.query.username)
+  .then(function(resp) {
+    console.log("RESPONSE IN SERVER.JS (newcontribs): ", resp);
+    res.send(resp);
+  })
+})
+
 //--------------------CodeWars Endpoints--------------------
 app.get('/codewars/user', function(req, res){
   console.log('server.js:253');
@@ -237,14 +247,6 @@ app.get('/codewars', function(req, res){
   }
 });
 
-app.get('/user/newcontribs', function(req, res) {
-  console.log("USERNAME:", req.query.username);
-  Users.updateContribs(req.query.username)
-  .then(function(resp) {
-    console.log("RESPONSE IN SERVER.JS (newcontribs): ", resp);
-    res.send(resp);
-  })
-})
 
 app.use('/', routes);
 
