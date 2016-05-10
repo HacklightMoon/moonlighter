@@ -10,11 +10,13 @@
       <li><a ng-if='isLogin' ui-sref="barracks" class="nav-button">Barracks</a></li>
       <li><img ng-if="username" src="{{photo}}" ng-click="setUser()" style="border-radius: 50%;" height="55" width="55"></li>
       <li><h3 ng-click="setUser()">{{username}}</h3></li>
+      <li><img height="55" width="55" src='../img/moneybag2.png'></li>
+      <li style="float: right;">{{userData.money | currency}}</li>
     </ul>
   </nav>
 </div> 
 
-<div>
+<div id="center">
   <div class="questfeed-button-wrapper">
     <a class="questfeed-button" ui-sref="questProfile">
       <span class="questfeed-button-text">
@@ -23,20 +25,33 @@
     </a>
   </div>
   <!-- <div class="container"> -->
-    <h1>{{userData.full_name}}</h1>
-      <div><img height="100" width="100" src='{{userData.profile_picture}}'></div>
-    <hr />
-    <div id="tl">
-      <div>Username:  {{userData.github_username}}</div>
-      <div>Email:  {{userData.email}}</div>
-      <div>Money:  {{userData.money | currency}}</div>
-      <div>Contributions:  {{userData.contributions}}</div>
-    </div>
+    
+    </div>  
+    
+<h1>{{userData.full_name}}</h1>
+    <div style="width: 45%; float:left">
+      <div>
+        
+        <div  style="width: 50%; float:left">
+          <div>Username:  {{userData.github_username}}</div>
+          <div>Email:  {{userData.email}}</div>
+          <div>Money:  {{userData.money | currency}}</div>
+          <div>Contributions:  {{userData.contributions}}</div>
+        </div>
+        <div style="width: 50%; float:right">
+          <img height="100" width="100" src='{{userData.profile_picture}}'>
+        </div>
 
-
-      <div class="myissues" id="br">
+      </div>
+        <hr/>
+      
+      <div style="float:left;
+  height: 250px;
+  width:250px; 
+  padding:3px;">
         <h1>Issues Joined</h1>
-        <ul>
+        <ul style="height:224px;
+   overflow:auto;">
           <li ng-repeat="issue in joinedIssues">
             <h3 class="issue-title">{{issue.title}}</h3>
             <p class="issue-body">{{issue.body}}</p>
@@ -44,28 +59,41 @@
           </li>
         </ul>
       </div>  
-    <div class="myissues" id="tr">
-      <h1>Quests Created</h1>
-      <ul>
-        <li ng-repeat="issue in myIssues">
-          <h3 class="issue-title">{{issue.title}}</h3>
-          <p class="issue-body">{{issue.body}}</p>
-        </li>
-      </ul>
-    </div>
-    
-    <div id="bl">
-      <h1>User's character:</h1>
-      <div class="character">
-        <div class="charCard">
-          <img src="{{character}}">
-        </div>  
-        <div class="charInfo">
-        <h2>S T A T S</h2>
-        <p> Level: {{level}}</p>
-        <p> More Cool Shit </p>
-        </div>
+      <div style="float:left;
+  height: 250px;
+  width:250px; 
+  padding:3px;">
+        <h1>Quests Created</h1>
+        <ul style="height:224px;
+   overflow:auto;">
+          <li ng-repeat="issue in myIssues">
+            <h3 class="issue-title">{{issue.title}}</h3>
+            <p class="issue-body">{{issue.body}}</p>
+          </li>
+        </ul>
       </div>
     </div>
 
-  </div>
+      <div style="width: 55%; float:right">
+        <div>
+          <h1>User's character:</h1>
+          <div class="character">
+            <div class="charCard">
+              <img src="{{character}}">
+            </div>  
+            <div class="charInfo">
+              <h2>S T A T S</h2>
+              <p> Level: {{level}}</p>
+              <p> More Cool Shit </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+
+
+    
+    
+
+  
