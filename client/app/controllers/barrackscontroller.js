@@ -1,5 +1,16 @@
 angular.module('moonlighterApp.barracks',[])
-.controller('BarracksCtrl',['$scope', 'Barracks', '$http', function($scope, Barracks, $http){
+.controller('BarracksCtrl',['$scope', 'Barracks', '$http',  function($scope, Barracks, $http){
+
+  var userInput = {
+    
+    'cwUsername': $scope.cwUsername,
+    'cwUserAPI':  $scope.cwUserAPI
+  };
+
+  $scope.cwInsert=function(){
+    $http.post("")
+  }
+
 
   $scope.getCodeWar = function() {
     console.log("HEY I'm being called in BarracksCtrl!")
@@ -60,8 +71,6 @@ angular.module('moonlighterApp.barracks',[])
     // _editor.on("beforeChange", function(){});
     // _editor.on("change", function(){});
   };
-
-  $scope.getCodeWar()
-
+  $scope.getCodeWar();
 }]);
 

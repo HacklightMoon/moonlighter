@@ -204,6 +204,11 @@ app.get('/codewars/nextChallenge', function(req, res){
   });
 });
 
+//INSERT DB FUNCTION HERE VVVVV
+// app.post('/codewars/api', function(req, res){
+
+// });
+
 app.get('/codewars', function(req, res){
   if(req.user){
     API.getCurrentUser(req.user.Authorization)
