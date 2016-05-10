@@ -97,8 +97,12 @@ Users.newContribs = function(user){
   let prevTotal =  db.select('contributions').from('users').where({'id': user.id});
   let newTotal = API.userContribsTotal(user.github_username);
   Promise.all([prevTotal, newTotal])
-  .then(function(results){
-    return results[1] - results[0];
+  .then(function(values){
+    let prevTotal = values[0][0]['contributions'];
+    let newTotal = values[1];
+    console.log('prevTotal', prevTotal);
+    console.log('newTotal', newTotal);
+    return newTotal - prevTotal;
   });
 };
 
