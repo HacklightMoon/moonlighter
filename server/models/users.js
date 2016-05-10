@@ -160,6 +160,19 @@ Users.delete = function(user_id){
   .del();
 }
 
+Users.linkCodewars = function(userId, cwUsername, cwAPIKey){
+  return db('users')
+  .where({'id': userId})
+  .insert({
+    'codewars_username': cwUsername,
+    'codewars_API_key': cwAPIKey
+  })
+  .returning('*')
+  .catch(function(err){
+    console.log('linkCodewars Error:', err);
+  });
+}
+
 //This file needs to be reorganized. Log every case where user data needs to be obtained below.
 //
 //Users.verifyInsert: add new User to database OR retrieves existing one on sign-in, and returns that user's database row
