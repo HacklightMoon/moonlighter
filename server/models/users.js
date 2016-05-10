@@ -94,9 +94,11 @@ Users.pay = function(id, amount){
 
 //Users.newContribs: user's database row => the increase in user's contributions since last login
 Users.newContribs = function(user){
-  return API.userContribsTotal(user.github_username)
-  .then(function(newTotal){
-    return newTotal;
+  let prevTotal =  db.select('contributions').from('users').where({'id': user.id});
+  let newTotal = API.userContribsTotal(user.github_username);
+  Promise.all([prevTotal, newTotal])
+  .then(function(results){
+    return results[1] - results[0];
   });
 };
 
@@ -158,6 +160,19 @@ Users.delete = function(user_id){
   return db('users')
   .where({'id': user_id})
   .del();
+}
+
+Users.linkCodewars = function(userId, cwUsername, cwAPIKey){
+  return db('users')
+  .where({'id': userId})
+  .insert({
+    'codewars_username': cwUsername,
+    'codewars_API_key': cwAPIKey
+  })
+  .returning('*')
+  .catch(function(err){
+    console.log('linkCodewars Error:', err);
+  });
 }
 
 //This file needs to be reorganized. Log every case where user data needs to be obtained below.
