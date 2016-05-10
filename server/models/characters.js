@@ -8,11 +8,6 @@ Character.getExpFromContribs = function(contribs){
   return contribs * 17;
 };
 
-Character.getExpFromHonor = function(honor){
-  return honor * 23;
-};
-
-
 Character.getLevelFromExp = function(exp){
   let remainder = exp;
   let level = 0;

@@ -4,9 +4,9 @@ let CW      = module.exports;
 
 let getCodeWar = function (){
   console.log("trying to work in github queries!!!")
-  return function (codewarsUsername){
+  return function (){
     let options = {
-      'url': 'https://www.codewars.com/api/v1/users/' + codewarsUsername, 
+      'url': 'https://www.codewars.com/api/v1/users/matjkel', 
       'headers': {'Authorization' : 'wUGraBxyPMPbRJAy82dr'
       },
     }
@@ -24,6 +24,3 @@ let getCodeWar = function (){
 CW.getMatCode = getCodeWar('') 
 // fill me in 
 // todo
-CW.getUserBlob = function(username){
-  return (getCodeWar(username)());
-}

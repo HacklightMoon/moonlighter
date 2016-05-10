@@ -27,7 +27,6 @@ exports.up = function(knex, Promise) {
       table.boolean('troll').defaultTo(false);
       table.integer('contributions').defaultTo(0);
       table.integer('unseenContribs').defaultTo(0);
-      table.integer('honor').defaultTo(0);
       table.integer('experience').defaultTo(0);
       table.integer('level').defaultTo(0);
       table.integer('level_id').references('id').inTable('characters');
