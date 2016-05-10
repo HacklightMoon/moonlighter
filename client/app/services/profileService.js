@@ -48,7 +48,13 @@ angular.module("moonlighterApp.profileService", [])
       return $http({
         method: 'GET', 
         url: '/character', 
-      });
+      })
+      .then(function(resp){
+        return resp;
+      })
+      .catch(function(err){
+        console.error(err)
+      })
     };
 
     return {
