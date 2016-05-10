@@ -5,6 +5,7 @@
                               // 'ui',
                               'ui.codemirror',
                               'ui.router',
+                              // 'ui.bootstrap',
                               'ngAnimate',
                               'ngCookies',
                               'moonlighterApp.barracksService',

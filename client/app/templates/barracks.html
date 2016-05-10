@@ -6,7 +6,6 @@
     <ul>
       <li><a href="/auth/logout" ng-if="isLogin" ng-click="logOut()" class="logout-button">Log out</a></li>
       <li><a href="/auth/github" ng-if="!isLogin" ng-click="signIn()" class="signin-button">Sign in</a></li>
-      <li><a ng-if='seeAbout' ui-sref="about">About</a></li>
       <li><a ui-sref="questFeed" class="nav-button">Back to the Quests!</a></li>
       <li><img ng-if="username" src="{{photo}}" ng-click="setUser()" style="border-radius: 50%;" height="55" width="55"></li>
       <li><h3 ng-click="setUser()">{{username}}</h3></li>
@@ -15,12 +14,22 @@
 </div>  
 
 <div class='main container'>
-  <audio src="../img/swords.mp3" autoplay></audio>
+  <!-- <audio src="../img/swords.mp3" autoplay></audio> -->
   <h1 class='barracks-title'>The Barracks</h1>
-  
   <h3>Your challenge awaits</h3>
+<!--   <div class='scroll barrack-rules'>
+    
+  </div>   -->  
+  <div>
+    <form>
+      <span>Codewars username</span><input type="text" ng-model="cwUsername"></input></br>
+      <span>Codewars API key</span><input type="text" ng-model="cwUserAPI"></input></br>
+      <input type='button' value='submit' ng-click="cwInsert()"/></br>
+    </form>  
+  </div>
+
+  <!--NEED FORM VALIDATION -->
   <div class="mainBarrack">
-  
     <div class="barrack">
       <img src="../img/barrack.png">
     </div>
