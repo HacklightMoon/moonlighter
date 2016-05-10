@@ -1,5 +1,5 @@
 angular.module('moonlighterApp.barracks',[])
-.controller('BarracksCtrl',['$scope', 'Barracks', function($scope, Barracks){
+.controller('BarracksCtrl',['$scope', 'Barracks', '$http', function($scope, Barracks, $http){
 
   $scope.getCodeWar = function() {
     console.log("HEY I'm being called in BarracksCtrl!")
@@ -13,6 +13,32 @@ angular.module('moonlighterApp.barracks',[])
     })
   }
 
+    $scope.cwUserStats = function() {
+    Barracks.cwUserStats()
+    .then(function(resp){
+      console.log(resp)
+      $scope.codewar = resp;
+    })
+    .catch(function(err){
+      console.error(err);
+    })
+  }
+
+  $scope.cwNextChallenge = function() {
+    Barracks.cwNextChallenge()
+    .then(function(resp){
+      console.log(resp)
+      $scope.codewar = resp;
+    })
+    .catch(function(err){
+      console.error(err);
+    })
+  }
+
+
+  $scope.cwUserStats();
+  $scope.cwNextChallenge();
+  
   $scope.editorOptions = {
         lineWrapping : true,
         lineNumbers: true,

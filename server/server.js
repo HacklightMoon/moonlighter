@@ -190,7 +190,7 @@ app.post('/user/notified', function(req, res){
 //--------------------CodeWars Endpoints--------------------
 app.get('/codewars/user', function(req, res){
   console.log('server.js:253');
-   CW.cwUserStats()
+   CW.GetUserStats()
   .then(function(codewar){
     res.send(codewar);
   });
@@ -198,7 +198,7 @@ app.get('/codewars/user', function(req, res){
 
 app.get('/codewars/nextChallenge', function(req, res){
   console.log('server.js:264');
-  CW.cwNextChallenge()
+  CW.GetNextChallenge()
   .then(function(challenge){
     res.send(challenge);
   });
