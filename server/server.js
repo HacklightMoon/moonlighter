@@ -253,12 +253,20 @@ app.post('/user/notified', function(req, res){
 
 // todo  fix
 app.get('/codewars', function(req, res){
-  console.log("hey being called in server, server.js:253")
-   CW.getMatCode()
-  .then(function(codewar){
-    res.send(codewar);
-  })
-})
+  if(req.user){
+    API.getCurrentUser(req.user.Authorization)
+    .then(function(blob){
+      return Users.getByLoggedIn(blob)
+      .then(function(users){
+        let user = users[0];
+        return CW.getUserBlob(user.codewars_username)
+        .then(function(blob){
+          res.send(blob);
+        });
+      });
+    });
+  }
+});
 
 app.use('/', routes);
 
