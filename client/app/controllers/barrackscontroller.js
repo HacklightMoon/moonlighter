@@ -23,7 +23,7 @@ angular.module('moonlighterApp.barracks',[])
     Barracks.getCodeWar()
     .then(function(resp){
       console.log("this is some data in BarracksCtrl: ", resp)
-      $scope.codewar = resp;
+      $scope.codewars = resp;
     })
     .catch(function(err){
       console.error(err);
@@ -34,7 +34,7 @@ angular.module('moonlighterApp.barracks',[])
     Barracks.cwUserStats()
     .then(function(resp){
       console.log(resp)
-      $scope.codewar = resp;
+      // $scope.codewar = resp;
     })
     .catch(function(err){
       console.error(err);
@@ -45,7 +45,7 @@ angular.module('moonlighterApp.barracks',[])
     Barracks.cwNextChallenge()
     .then(function(resp){
       console.log(resp)
-      $scope.codewar = resp;
+      $scope.codeNext = resp;
     })
     .catch(function(err){
       console.error(err);

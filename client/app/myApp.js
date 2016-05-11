@@ -2,11 +2,10 @@
   'use strict';
 
   var module = angular.module('moonlighterApp', [
-                              // 'ui',
                               'ui.codemirror',
                               'ui.router',
                               // 'ui.bootstrap',
-                              'ngAnimate',
+                              // 'ngAnimate',
                               'ngCookies',
                               'moonlighterApp.barracksService',
                               'moonlighterApp.issueService',
@@ -26,9 +25,9 @@
 
 
 // possibly unneccesary 
-    $httpProvider.defaults.useXDomain = true;
-    $httpProvider.defaults.withCredentials = true;
-    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    // $httpProvider.defaults.useXDomain = true;
+    // $httpProvider.defaults.withCredentials = true;
+    // delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
     $stateProvider
       .state('home',{
