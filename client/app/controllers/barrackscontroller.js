@@ -45,7 +45,7 @@ angular.module('moonlighterApp.barracks',[])
     Barracks.cwNextChallenge()
     .then(function(resp){
       console.log(resp)
-      // $scope.codewar = resp;
+      $scope.codeNext = resp;
     })
     .catch(function(err){
       console.error(err);

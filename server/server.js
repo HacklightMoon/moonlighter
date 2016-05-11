@@ -243,11 +243,11 @@ app.get('/user/newcontribs', function(req, res) {
 
 app.use('/', routes);
 
-app.all('/*', function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Content-Type,X-Requested-With');
-  next();
-});
+// app.all('/*', function(req, res, next) {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type,X-Requested-With');
+//   next();
+// });
 
 app.listen(config.port || 3000, function () {
   console.log("process.env.PORT", config.port)
