@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/HacklightMoon/moonlighter#readme",
   "dependencies": {
+    "angular-toastr": "^1.7.0",
+    "bluebird": "^3.3.5",
     "body-parser": "^1.15.0",
     "cookie-parser": "^1.4.1",
     "express": "^4.13.4",
@@ -24,13 +26,12 @@
     "knex": "^0.10.0",
     "method-override": "^2.3.5",
     "nodemon": "^1.9.1",
+    "passport": "^0.3.2",
+    "passport-github2": "^0.1.10",
     "path": "^0.12.7",
     "pg": "^4.5.2",
     "request": "^2.72.0",
-    "uuid": "^2.0.1",
-    "passport": "^0.3.2",
-    "passport-github2": "^0.1.10",
-    "bluebird": "^3.3.5"
+    "uuid": "^2.0.1"
   },
   "devDependencies": {
     "chai": "^3.4.0",
