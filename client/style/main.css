@@ -382,13 +382,57 @@ a {
     width: 45%;
     padding: 10px;
 }
+
+/*.card {
+  width: 55%;
+  float: right;
+}*/
 .character{
-  background-color: rgba(169,111,22,0.51);
-  width: 600px;
+  /*background-color: rgba(169,111,22,0.51);*/
+
+  width: 740px;
   height: 600px;
 }
-.charCard{
 
+.charCard{
+border-radius: 4px ;
+border: 2px solid black;
+background-color: #8A825B;
+margin: 15px;
+max-width: 700px;
+max-height: 550px;
+}
+
+
+.charBack{
+background-image: url('../img/parchment.jpg');
+background-size: cover;
+border-radius: 8px;
+padding: 20px;
+
+}
+
+.sprite{
+  height: 300px;
+  background-color: #F1E6CD;
+  border-radius: 4px;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 4px solid black;
+}
+
+.charInfo{
+  float: right;
+  margin-right: 190px;
+}
+
+#level{
+  margin-left: 15px;
+  margin-top: 30px;
+}
+#stats{
+  font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand';
 }
 
 .mainBarrack{
