@@ -123,14 +123,20 @@ Users.updateContribs = function(githubUsername){
       return Users.newContribs(user[0]);
     })
     .then(function(newContribs){
-      return db('users')
+      let updateUnseen = db('users')
       .where({'github_username': githubUsername })
-      .returning('*')
+      .increment( 'unseenContribs', newContribs );
+      let updateRest = db('users')
+      .where({'github_username': githubUsername })
       .update({
         'contributions': contribs, 
         'experience': newExp,
-        'level': newLevel,
-        'unseenContribs': newContribs
+        'level': newLevel
+      })
+      .returning('*');
+      return Promise.all([updateUnseen, updateRest])
+      .then(function(values){
+        return values[1];
       });
     });
   });
