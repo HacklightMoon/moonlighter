@@ -206,10 +206,14 @@ app.get('/codewars/nextChallenge', function(req, res){
 
 //INSERT DB FUNCTION HERE VVVVV
 app.post('/codewars/api', function(req, res){
+  console.log("req.body", req.body)
   Users.linkCodewars(req.body.userID, req.body.cwUsername, req.body.cwUserAPI)
   .then(function(resp){
     res.send(resp[0]);
-  });
+  })
+  .catch(function(err){
+    console.log("error:", err);
+  })
 });
 
 app.get('/codewars', function(req, res){
@@ -218,6 +222,7 @@ app.get('/codewars', function(req, res){
     .then(function(blob){
       return Users.getByLoggedIn(blob)
       .then(function(users){
+        console.log("/codewars users = ", users);
         let user = users[0];
         return CW.GetUserStats(user.codewars_username)
         .then(function(blob){
