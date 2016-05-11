@@ -6,24 +6,26 @@
     <ul>
       <li><a href="/auth/logout" ng-if="isLogin" ng-click="logOut()" class="logout-button">Log out</a></li>
       <li><a href="/auth/github" ng-if="!isLogin" ng-click="signIn()" class="signin-button">Sign in</a></li>
+      <li><a ng-if='isLogin' ui-sref="barracks" class="nav-button">Barracks</a></li>
       <li><img ng-if="username" src="{{photo}}" ng-click="setUser()" style="border-radius: 50%;" height="55" width="55"></li>
       <li><h3 ng-click="setUser()">{{username}}</h3></li>
     </ul>
   </nav>
 </div>  
 
-<div>
   <div id="center">
+  <div class="questfeed-button-wrapper">
     <a class="questfeed-button" ui-sref="questFeed">
       <span class="questfeed-button-text">
         Return to the Quest Scrolls
      </span>
     </a>
   </div>
-   <hr /><!--  <h2>Issue Name: </h2> -->
+  </div>
+  <!--  <h2>Issue Name: </h2> -->
   <!-- <div class="ownerProfileButton">{{chosenQuest.owner.profile}}</div> -->
   <center>
-  <div class="center" style="background-image: url(../img/parchment.jpg); background-size: cover; color: black">
+  <div class="center" style="background-image: url(../img/parchment.jpg); background-size: cover; color: black; margin-top: 70px; margin-right: 40px;">
   <center><h1 style="margin-top: 0; text-decoration: underline;">{{chosenQuest.title}}</h1></center>
   <div>
     <h2>Description:<br><h3>{{chosenQuest.body}}</h3></h2> 
@@ -58,4 +60,3 @@
     </ul>
   </div>
   </footer> 
-</div>

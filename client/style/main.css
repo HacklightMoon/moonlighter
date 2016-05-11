@@ -114,7 +114,7 @@ nav li {
 .questfeed-button-wrapper {
   width:340px;
   text-align: justify-all;
-  margin: 4px 0 2px 50px;
+  margin: 4px 0 2px 100px;
 }
 
 .landing-questfeed-button {
@@ -357,7 +357,7 @@ a {
 /********************* USER PROFILE ***********************/
 
 /*html, body { height: 100%; padding: 0; margin: 0; }*/
-#tl, #tr, #bl, #br  { 
+/*#tl, #tr, #bl, #br  { 
     width: 45%; 
     height: 45%;
     float: left;
@@ -365,12 +365,9 @@ a {
     overflow: auto;
     margin: 10px;
     padding: 5px;
-    /* margin-bottom: 5px; */
-    /* margin-left: inherit; */
     border-radius: 10px;
-    /*position: initial;*/
-    /* border-right: 4px; */}
-
+    }
+*/
 
 .scroll { height: 100%; padding: 0; margin: 0; }
 
@@ -387,7 +384,7 @@ a {
 }
 .character{
   background-color: rgba(169,111,22,0.51);
-  width: 900px;
+  width: 600px;
   height: 600px;
 }
 .charCard{
