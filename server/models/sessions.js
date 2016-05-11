@@ -1,7 +1,7 @@
-'use strict';
+// 'use strict';
 
-let Sessions = module.exports;
+// let Sessions = module.exports;
 
-Sessions.createSession = function(obj, token){
+// Sessions.createSession = function(obj, token){
 
-}
+// }
