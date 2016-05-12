@@ -4,7 +4,10 @@ let BOT = module.exports;
 
 //@moonlighter-bot reward clambodile
 //@moonlighter-bot embark
-BOT.headers = { "User-Agent": "Moonlighter", "Authorization": process.env.BOT_KEY };
+BOT.headers = {
+  "User-Agent": "Moonlighter",
+  "Authorization": process.env.BOT_KEY 
+};
 
 let readCommand = function(commandString){
   let commands = commandString.split(' ');

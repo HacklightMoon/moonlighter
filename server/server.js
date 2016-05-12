@@ -38,7 +38,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 
 
-app.get('/auth/github/callback', passportGithub.authenticate('github', { failureRedirect: '/auth/github', successRedirect: '/' }));
+app.get('/auth/github/callback', passportGithub.authenticate('github', {
+  failureRedirect: '/auth/github', 
+  successRedirect: '/' 
+}));
 
 // Logout route 
 // TODO fix logout route
@@ -58,7 +61,7 @@ app.get('/auth/github', passportGithub.authenticate('github', {
 }));
 
 app.get('/trycall', function(req, res){
-  API.getCurrentUser(req.user.Authorization)//this function call needs token in header
+  API.getCurrentUser(req.user.Authorization)
   .then(function(resp){
     res.send(resp);
   });
@@ -149,17 +152,15 @@ app.get('/user/info', function(req, res){
   });
 });
 
-let count_user_current = debug.countLog('/user/current called');
 app.get('/user/current', function(req, res){
-  count_user_current();
   if(req.user) {
-    API.getCurrentUser(req.user.Authorization)//this function call needs token in header
+    API.getCurrentUser(req.user.Authorization)
     .then(function(blob){
       return Users.getByLoggedIn(blob).then(function(users){
         res.send(users[0]);
       });
     });
-  };
+  }
 });
 
 app.post('/user/pay', function(req, res){
@@ -249,12 +250,6 @@ app.get('/codewars', function(req, res){
 
 
 app.use('/', routes);
-
-// app.all('/*', function(req, res, next) {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header('Access-Control-Allow-Headers', 'Content-Type,X-Requested-With');
-//   next();
-// });
 
 app.listen(config.port || 3000, function () {
   console.log("process.env.PORT", config.port)

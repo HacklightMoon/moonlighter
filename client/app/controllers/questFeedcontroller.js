@@ -19,7 +19,7 @@ angular.module('moonlighterApp.questFeed', [])
   })
   .catch(function(err){
     console.error(err);
-  })
+  });
 
   // Load all quests from the database
   function getAllIssues() {

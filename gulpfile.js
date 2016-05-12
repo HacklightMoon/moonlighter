@@ -9,15 +9,60 @@ let notify = require('gulp-notify');
 let jshint = require('gulp-jshint');
 let shell  = require('gulp-shell');
 let babel  = require('gulp-babel');
+let eslint = require('gulp-eslint');
+let testSource = [
+  'server/**/*.js',
+  'client/**/*.js',
+  '!client/lib/**',
+  'test/**',
+  '*.js',
+  '!*.png',
+  '!*.html',
+  '!node_modules/**'
+];
+let tests = [
+  'test/**/*.test.js',
+  'test/server/users.test.js'
+];
 
 gulp.task('default', function(){
-  gulp.watch(['server/**', 'client/**', 'test/**', '*.js'], ['mocha']);
+  gulp.watch(testSource, ['mocha', 'jshint']);
 });
 
 gulp.task('mocha', function(){
-  return gulp.src(['test/**/*.test.js', 'test/server/users.test.js'], { read: false })
+  return gulp.src(tests, { read: false })
   .pipe(mocha({ reporter: 'nyan' }))
   .on('error', gutil.log);
+});
+
+gulp.task('jshint', function() {
+  return gulp.src(testSource)
+  .pipe(jshint())
+  .pipe(jshint.reporter('jshint-stylish'))
+  .pipe(jshint.reporter('fail'));
+});
+
+gulp.task('lint', function() {
+  return gulp.src(testSource)
+  .pipe(eslint({
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+
+  "rules": {
+    //"no-console": 1,
+    "no-debugger": 1,
+    "no-dupe-args": 1,
+    "no-irregular-whitespace": 1,
+    "no-extra-semi": 1,
+    "dot-location": [1, "property"],
+    "max-len": [1, 80]
+  }
+}))
+  .pipe(eslint.format())
+  .pipe(eslint.failAfterError());
 })
 // uncomment and fix when we have client-side up 
 // uglify task
@@ -34,11 +79,9 @@ gulp.task('js', function() {
   .pipe(uglify())
   .pipe(concat("vendor.js"))
   .pipe(gulp.dest('./assets/js'))
-  .pipe( notify({ message: "Javascript is now ugly!"}) );
+  .pipe( notify({ message: "Javascript is now ugly!"}));
 
 });
-
-
 
 gulp.task('concat-dep', function() {
   return gulp.src(['bower_components/angular-animate/angular-animate.js', 
