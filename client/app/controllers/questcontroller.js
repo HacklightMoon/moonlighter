@@ -7,6 +7,9 @@ angular.module('moonlighterApp.questProfile', [])
   $scope.joinQuest = joinQuest;
   $scope.closeQuest = closeQuest;
 
+
+  $scope.userToPay = {}
+
   // Set currentUser equal to the user data stored in cookies.
   $scope.currentUser = $cookies.getAll();
 
@@ -45,8 +48,8 @@ angular.module('moonlighterApp.questProfile', [])
   
   // Allow quest owners/admins to close a quest and issue bounty
   function closeQuest() {
-    if ($scope.userToPay) {
-      Issues.payAndClose(Number($scope.userToPay), $scope.questBounty, $scope.chosenQuest.id);
+    if ($scope.userToPay.user) {
+      Issues.payAndClose(Number($scope.userToPay.user), $scope.questBounty, $scope.chosenQuest.id);
       $state.go('questFeed');
     } else {
       $scope.errorMessage = "Please select the user who solved your issue"
