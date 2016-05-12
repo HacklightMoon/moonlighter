@@ -2,7 +2,6 @@
 angular.module('moonlighterApp.questProfile', [])
 .controller('QuestProfileCtrl',function($location, $state, $scope, $cookies, Profile, User, Issues) {
 
-
   /******** Functions in this controller ********/
   $scope.setUser = setUser;
   $scope.joinQuest = joinQuest;
@@ -49,7 +48,6 @@ angular.module('moonlighterApp.questProfile', [])
   
   // Allow quest owners/admins to close a quest and issue bounty
   function closeQuest() {
-    console.log($scope.userToPay.user);
     if ($scope.userToPay.user) {
       Issues.payAndClose(Number($scope.userToPay.user), $scope.questBounty, $scope.chosenQuest.id);
       $state.go('questFeed');
