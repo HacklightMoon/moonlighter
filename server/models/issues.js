@@ -64,7 +64,16 @@ Issues.addIssues = function(githubIssues){
       if(issues.length === 0) {
         return Users.getByGithubUsername(githubIssue.user.login)
       }
-      else return false;
+      else{
+        return db('issues')
+        .where({
+          'git_id': githubIssue.id
+        })
+        .update({
+          'status': githubIssue.state
+        })
+        .returning('deleted');
+      }
     })
     .then(function(user){
       if (user && user[0]){
