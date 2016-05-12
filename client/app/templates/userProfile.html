@@ -17,7 +17,7 @@
 </div> 
 
 <div id="center">
-  <div ng-if="!profileOwner" class="questfeed-button-wrapper">
+  <div class="questfeed-button-wrapper">
     <a class="questfeed-button" ui-sref="questProfile">
       <span class="questfeed-button-text">
         Return to the Quest
@@ -84,8 +84,10 @@
         <div class="charCard">
         <p id="level"> Level: {{userData.level}}</p>
         <img class="sprite" src="{{character}}">
+
         <div class="charInfo">
           <h2 id="stats">S T A T S</h2>
+          <hr>
           
           <p>XP:  {{userData.experience}}</p>
         </div>
