@@ -20,7 +20,7 @@
     "angular-ui-codemirror": "^0.3.0",
     "codemirror": "^5.0",
     "angular-bootstrap": "~1.2.5",
-    "bootstrap-css-only": "~3.3.6",
+    "bootstrap": "~3.3.6",
     "jshint": "^2.9.2",
     "jquery": "^2.2.3"
   },
