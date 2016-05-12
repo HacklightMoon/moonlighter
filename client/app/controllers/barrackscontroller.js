@@ -2,7 +2,14 @@ angular.module('moonlighterApp.barracks',[])
 .controller('BarracksCtrl',['$scope', 'Barracks', '$http', '$cookies', function($scope, Barracks, $http, $cookies){
   $scope.userData = {};
 
-  $scope.cwInsert=function(){
+  /******** Functions in this controller ********/
+  $scope.cwInsert= cwInsert;
+  $scope.getCodeWar = getCodeWar;
+  $scope.cwUserStats = cwUserStats;
+  $scope.cwNextChallenge = cwNextChallenge;
+  $scope.codemirrorLoaded = codemirrorLoaded;
+
+  function cwInsert(){
     var userInput = {
       'userID':     $cookies.get('user_id'),
       'cwUsername': $scope.userData.cwUsername,
@@ -17,8 +24,7 @@ angular.module('moonlighterApp.barracks',[])
     })
   }
 
-
-  $scope.getCodeWar = function() {
+   function getCodeWar() {
     console.log("HEY I'm being called in BarracksCtrl!")
     Barracks.getCodeWar()
     .then(function(resp){
@@ -30,7 +36,7 @@ angular.module('moonlighterApp.barracks',[])
     })
   }
 
-    $scope.cwUserStats = function() {
+  function cwUserStats() {
     Barracks.cwUserStats()
     .then(function(resp){
       console.log(resp)
@@ -41,7 +47,7 @@ angular.module('moonlighterApp.barracks',[])
     })
   }
 
-  $scope.cwNextChallenge = function() {
+  function cwNextChallenge() {
     Barracks.cwNextChallenge()
     .then(function(resp){
       console.log(resp)
@@ -51,7 +57,6 @@ angular.module('moonlighterApp.barracks',[])
       console.error(err);
     })
   }
-
 
   $scope.cwUserStats();
   $scope.cwNextChallenge();
@@ -64,7 +69,7 @@ angular.module('moonlighterApp.barracks',[])
         theme: 'icecoder',
     };
 
- $scope.codemirrorLoaded = function(_editor){
+  function codemirrorLoaded(_editor) {
     // Editor part
     var _doc = _editor.getDoc();
     _editor.focus();

@@ -3,11 +3,16 @@ angular.module('moonlighterApp.newQuest', [])
 .controller('NewQuestCtrl', function($scope, $cookies, User, $state) { //Quest
   $scope.newQuest = {};
 
+  /******** Functions in this controller ********/
+  $scope.addQuest = addQuest;
+  
+
+  
   if ($cookies.getAll().user_id){
     $scope.currentUser = $cookies.getAll();
   }
 
-  $scope.addQuest = function () {
+  function addQuest() {
     $scope.titleRequired = '';
     $scope.descriptionRequired = '';
     $scope.techRequired = '';

@@ -2,6 +2,9 @@
 angular.module('moonlighterApp.userProfile', [])
 .controller('UserProfileCtrl', function ($location, $scope, Profile, User, $state, $cookies, Issues) {
 
+  /******** Functions in this controller ********/
+  $scope.getCharacter = getCharacter;
+
   // selectedUser is the user_id of the user whose profile we're viewing.
   $scope.selectedUser = Profile.getUser() || $location.search().id
 
@@ -22,7 +25,7 @@ angular.module('moonlighterApp.userProfile', [])
     $scope.joinedIssues = data;
   })
 // NOT FULLY  FUNCTIONAL !!!!!
-  $scope.getCharacter = function(){
+  function getCharacter(){
     console.log("I'm being called UserProfileCtrl")
     Profile.getCharacter()
     .then(function(data){
