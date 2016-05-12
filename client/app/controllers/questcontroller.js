@@ -2,6 +2,11 @@
 angular.module('moonlighterApp.questProfile', [])
 .controller('QuestProfileCtrl',function($location, $state, $scope, $cookies, Profile, User, Issues) {
 
+  /******** Functions in this controller ********/
+  $scope.setUser = setUser;
+  $scope.joinQuest = joinQuest;
+  $scope.closeQuest = closeQuest;
+
   // Set currentUser equal to the user data stored in cookies.
   $scope.currentUser = $cookies.getAll();
 
@@ -27,19 +32,19 @@ angular.module('moonlighterApp.questProfile', [])
 
   // Send the user info of the current quest owner to services,
   // for use in the user profile controller
-  $scope.setUser = function(user_id) {
+  function setUser(user_id) {
     Profile.setUser(user_id);
   }
   $scope.setUser($scope.chosenQuest.user_id);
 
   // Allow users who aren't the quest owner to join a quest
-  $scope.joinQuest = function(user_id, quest_id) {
+  function joinQuest(user_id, quest_id) {
     Issues.addMember(quest_id, user_id);
     $state.go('questFeed');
   }
   
   // Allow quest owners/admins to close a quest and issue bounty
-  $scope.closeQuest = function() {
+  function closeQuest() {
     if ($scope.userToPay) {
       Issues.payAndClose(Number($scope.userToPay), $scope.questBounty, $scope.chosenQuest.id);
       $state.go('questFeed');

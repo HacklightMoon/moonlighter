@@ -2,6 +2,11 @@
 angular.module('moonlighterApp.nav',[])
 .controller('NavCtrl',['$state', '$scope', 'User', 'Profile', '$cookies', 'toastr', function($state, $scope, User, Profile, $cookies, toastr){
 
+  /******** Functions in this controller ********/
+  $scope.logOut = logOut;
+  $scope.setUser = setUser;
+  $scope.removeNotification = removeNotification;
+  
   // If a user is already authenticated, then get their info from cookies
   if ($cookies.getAll().user_id && !$scope.isLogin) {
     $scope.isLogin = true;
@@ -93,7 +98,7 @@ angular.module('moonlighterApp.nav',[])
   };
   
   // Remove notification when navigating away from the landing page
-  $scope.removeNotification = function() {
+  function removeNotification() {
     User.resetContribs($scope.user_id);
     User.getContribs($scope.user_id);
     $scope.newContribs = 0;
@@ -101,13 +106,13 @@ angular.module('moonlighterApp.nav',[])
 
   // Send the selected user to the services
   // Then redirect to the user profile view
-  $scope.setUser = function () {
+  function setUser() {
     Profile.setUser($scope.user_id)
     $state.go("userProfile");
   }
 
   // Remove cookies and notification when logging out
-  $scope.logOut = function() {
+  function logOut() {
     console.log("LOGGING OUT....");
     $scope.removeNotification();
     $cookies.remove('username');
