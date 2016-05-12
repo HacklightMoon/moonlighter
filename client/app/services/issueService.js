@@ -2,6 +2,7 @@
   .factory('Issues', function($http) {
     var Issues = [];
 
+    // Get all issues stored in the db
     var getAllIssues = function () {
       return $http({
         method: 'GET',
@@ -15,6 +16,7 @@
       });
     };
 
+    // Load any new issues referencing '@moonligher-bot'
     var loadIssues = function () {
       return $http({
         method: 'GET',
@@ -28,15 +30,18 @@
       });
     };
 
+    // Send issue data from service to the quest profile controller
     var getIssue = function() {
       return Issues.currentIssue;
     };
 
+    // When an issue/quest is selected, store the quest data in this service
     var setIssue = function(issue){
       Issues.currentIssue = issue;
       return Issues.currentIssue;
     };
 
+    // Allow user to join a quest they would like to work on
     var addMember = function(issueID, userID) {
       return $http({
         method: 'POST',
@@ -53,6 +58,7 @@
       })
     }
 
+    // Get all issues that a specific user has added to our app
     var getMyIssues = function(userID) {
       return $http({
         method: 'GET',
@@ -66,6 +72,7 @@
       });
     };
 
+    // Get the bounty information about a specific issue
     var getBounty = function(issueID) {
       return $http({
         method: 'GET',
@@ -79,6 +86,7 @@
       });
     };
 
+    // Get all users who have joined a specific quest/issue
     var getMembers = function(issueID) {
       return $http({
         method: 'GET',
@@ -92,6 +100,7 @@
       });
     };
 
+    // Close a quest and pay out corresponding bounty to the user who solved it
     var payAndClose = function(userID, amount, issueID) {
       return $http({
         method: 'POST',
@@ -110,6 +119,7 @@
       });
     };
 
+    // Get all quests which have been joined by a specific user
     var getJoinedIssues = function(userID) {
       return $http({
         method: 'GET',

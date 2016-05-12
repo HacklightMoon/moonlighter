@@ -3,6 +3,7 @@ angular.module("moonlighterApp.userService", [])
   .factory('User', function($http) {
     var User = [];
 
+    // Pull user data for currently signed-in user from db
     var getCurrentUser = function() {
       return $http({
         method: 'GET',
@@ -15,7 +16,8 @@ angular.module("moonlighterApp.userService", [])
         console.error('Error getting current user data:', err);
       })
     }
-
+    
+    // Allow user to edit their user data in the db
     var updateUserInfo = function(userData) {
       return $http({
         method: 'POST',
@@ -30,6 +32,7 @@ angular.module("moonlighterApp.userService", [])
       })
     }
 
+    // Get contributions from Github user profile and adds them to db
     var getContribs = function() {
       return $http({
         method: 'GET',
@@ -40,6 +43,7 @@ angular.module("moonlighterApp.userService", [])
       })
     }
 
+    // Set 'unseenContribs' column in db to zero for current user
     var resetContribs = function(userID) {
       return $http({
         method: 'POST',
@@ -56,6 +60,7 @@ angular.module("moonlighterApp.userService", [])
       })
     }
 
+    // Look at new and old contribs data to calculate 'unseenContribs'
     var newContribs = function(username) {
       return $http({
         method: 'GET',
