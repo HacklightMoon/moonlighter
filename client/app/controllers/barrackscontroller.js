@@ -76,7 +76,7 @@ angular.module('moonlighterApp.barracks',[])
 
     // Options
     _editor.setOption('firstLineNumber', 1);
-    _doc.markClean()
+    _doc.markClean();
 
     // // Events
     // _editor.on("beforeChange", function(){});

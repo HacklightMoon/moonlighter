@@ -90,12 +90,12 @@ angular.module('moonlighterApp.nav',[])
   $scope.seen = true;
   if($state.current.name==="home"){
     $scope.seen = false;
-  };
+  }
 
   $scope.seeAbout = false;
   if($state.current.name==="home" || $state.current.name==="questFeed"){
     $scope.seeAbout = true;
-  };
+  }
   
   // Remove notification when navigating away from the landing page
   function removeNotification() {
