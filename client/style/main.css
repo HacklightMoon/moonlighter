@@ -360,19 +360,6 @@ a {
 
 /********************* USER PROFILE ***********************/
 
-/*html, body { height: 100%; padding: 0; margin: 0; }*/
-/*#tl, #tr, #bl, #br  { 
-    width: 45%; 
-    height: 45%;
-    float: left;
-    float: left;
-    overflow: auto;
-    margin: 10px;
-    padding: 5px;
-    border-radius: 10px;
-    }
-*/
-
 .scroll { height: 100%; padding: 0; margin: 0; }
 
 
