@@ -1,6 +1,8 @@
 angular.module('moonlighterApp.barracks',[])
 .controller('BarracksCtrl',['$scope', 'Barracks', '$http', '$cookies', function($scope, Barracks, $http, $cookies){
   $scope.userData = {};
+  
+
 
   /******** Functions in this controller ********/
   $scope.cwInsert= cwInsert;
@@ -39,7 +41,7 @@ angular.module('moonlighterApp.barracks',[])
   function cwUserStats() {
     Barracks.cwUserStats()
     .then(function(resp){
-      console.log(resp)
+      console.log("hey userstats: ", resp)
       // $scope.codewar = resp;
     })
     .catch(function(err){

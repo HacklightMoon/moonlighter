@@ -4,7 +4,7 @@
 }*/
 
 .main-wrapper {
-  background-image:  url('../img/Moonlighterbackground.jpg');
+  background-image:  url('../img/inbarrack.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #202835;
@@ -388,7 +388,7 @@ a {
   float: right;
 }*/
 .character{
-  /*background-color: rgba(169,111,22,0.51);*/
+
 
   width: 740px;
   height: 600px;
@@ -398,8 +398,6 @@ a {
 border-radius: 4px ;
 border: 2px solid black;
 background-color: #8A825B;
-margin: 15px;
-max-width: 700px;
 max-height: 550px;
 }
 
@@ -408,13 +406,15 @@ max-height: 550px;
 background-image: url('../img/parchment.jpg');
 background-size: cover;
 border-radius: 8px;
-padding: 20px;
+padding: 8px;
 
 }
 
 .sprite{
   height: 300px;
-  background-color: #F1E6CD;
+  background-image: url('../img/Moonlighterbackground.jpg');
+  /*background-color: #F1E6CD;*/
+  background-size: cover;
   border-radius: 4px;
   margin-left: 20px;
   margin-top: 20px;
@@ -424,7 +424,8 @@ padding: 20px;
 
 .charInfo{
   float: right;
-  margin-right: 190px;
+  margin-right: 18px;
+  width: 300px;
 }
 
 #level{
@@ -447,3 +448,26 @@ padding: 20px;
   text-align: center;
   font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
 }
+
+.sandbox{
+  margin: 0 auto;
+  width:98%;
+  min-width: 150px;
+  border-radius: 0.7em;
+}
+.sandBack{
+  background-color:   #d4ce46;
+  padding: 25px;
+  width: 35%;
+  margin:0 auto;
+  border-radius: 0.7em;
+}
+#sandWrite{
+  margin: 0 auto;
+}
+
+
+
+
+
+
