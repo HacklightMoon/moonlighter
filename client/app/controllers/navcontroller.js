@@ -23,15 +23,15 @@ angular.module('moonlighterApp.nav',[])
           toastr.success('You have ' + $scope.unseenContribs + ' new contributions!', {
             closeButton: true,
             autoDismiss: false,
-            timeOut: 10000,
-            extendedTimeOut: 2000
+            timeOut: 30000,
+            extendedTimeOut: 20000
           });
         } else {
           toastr.success('You have ' + $scope.unseenContribs + ' new contribution!', {
             closeButton: true,
             autoDismiss: false,
-            timeOut: 10000,
-            extendedTimeOut: 2000
+            timeOut: 30000,
+            extendedTimeOut: 20000
           });
         }
       } 
