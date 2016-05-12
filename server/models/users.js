@@ -7,6 +7,7 @@ let Users     = module.exports;
 let API       = require('../API/githubQueries');
 let Character = require('./characters.js');
 
+//verifyInsert: add new User to database OR retrieves existing one on sign-in, and returns that user's database row
 Users.verifyInsert = function(blob){
   let user = db('users').where({ passid: blob.id  });
   let contributions = API.userContribsTotal(blob._json.login);
@@ -45,6 +46,7 @@ Users.verifyInsert = function(blob){
 
 };
 
+//Users.verifyId: user's github id => user's database row 
 Users.verifyId = function(id){
   return db('users')
   .where({
@@ -55,6 +57,7 @@ Users.verifyId = function(id){
 
 };
 
+//Users.getByGithubUsername: user's github username => user's database row 
 Users.getByGithubUsername = function(githubUsername){
   return db('users')
   .where({
@@ -65,6 +68,7 @@ Users.getByGithubUsername = function(githubUsername){
 
 };
 
+//Users.getById: user's primary key id => user's database row
 Users.getById = function(id){
   return db('users')
   .where({
@@ -73,20 +77,20 @@ Users.getById = function(id){
 
 };
 
-let loggedInCount = debug.countLog("Users.getByLoggedIn called");
+//Users.getByLoggedIN: user's github data blob => user's database row
 Users.getByLoggedIn = function(blob){
-  loggedInCount();
   let passid = JSON.parse(blob).id;
-  return db('users').where({
+  return db('users')
+  .where({
     'passid': passid
-
-  }).limit(1).then(function(user){
+  })
+  .limit(1)
+  .then(function(user){
     return user;
-
   });
-
 };
 
+//Users.update: new database row for user => updated row for user
 Users.update = function(obj){
   return db('users').where({
     passid: obj.id
@@ -100,6 +104,7 @@ Users.update = function(obj){
 
 };
 
+//Users.pay: user id, amount => user's database row including updated money
 Users.pay = function(id, amount){
   return db('users')
   .where({'id': id})
@@ -111,9 +116,8 @@ Users.pay = function(id, amount){
 
 };
 
-let newContribsCount = debug.countLog("Users.newContribs called");
+//Users.newContribs: user's database row => the increase in user's contributions since last login
 Users.newContribs = function(user){
-  newContribsCount();
   return API.userContribsTotal(user.github_username)
   .then(function(newTotal){
     let newContribs = newTotal - user.contributions;
@@ -121,6 +125,7 @@ Users.newContribs = function(user){
   });
 };
 
+//Users.updateContribs: user's github username => user's database row, with updated contributions, experience, level, and unseen contributions
 Users.updateContribs = function(githubUsername){
   return API.userContribsTotal(githubUsername)
   .then(function(contribs){
@@ -146,6 +151,7 @@ Users.updateContribs = function(githubUsername){
   });
 };
 
+//Users.updateExp: user's github username => user's database row with updated experience
 Users.updateExp = function(githubUsername){
   return db('users')
   .where({'github_username': githubUsername})
@@ -161,6 +167,7 @@ Users.updateExp = function(githubUsername){
   });
 };
 
+//Users.contribsSeen: user's id => user's database row, with unseen contributions (unseenContribs) set to 0
 Users.contribsSeen = function(user_id){
   return db('users')
   .where({'id': user_id})
@@ -171,12 +178,14 @@ Users.contribsSeen = function(user_id){
   });
 };
 
+//Users.delete: user's id => remove user from database, return number of affected rows(1)
 Users.delete = function(user_id){
   return db('users')
   .where({'id': user_id})
   .del();
 }
 
+//Users.linkCodewars: user's id, codewars_username, codewars_API_key => adds codewars_username, codewars_API_key and returns # of rows affected
 Users.linkCodewars = function(userId, cwUsername, cwAPIKey){
   console.log('userId in linkCodewars', userId)
   return db('users')
