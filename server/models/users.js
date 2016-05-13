@@ -6,6 +6,7 @@ let debug     = require('../debug');
 let Users     = module.exports;
 let API       = require('../API/githubQueries');
 let Character = require('./characters.js');
+let CW        = require('../API/codewars');
 
 //verifyInsert: add new User to database OR retrieves existing one on sign-in, and returns that user's database row
 Users.verifyInsert = function(blob){
@@ -94,14 +95,11 @@ Users.getByLoggedIn = function(blob){
 Users.update = function(obj){
   return db('users').where({
     passid: obj.id
-
   }).limit(1)
   .update(obj.form)  
   .then(function(data){
     return data;
-
   });
-
 };
 
 //Users.pay: user id, amount => user's database row including updated money
@@ -126,31 +124,35 @@ Users.newContribs = function(user){
 };
 
 //Users.updateContribs: user's github username => user's database row, with updated contributions, experience, level, and unseen contributions
+
 Users.updateContribs = function(githubUsername){
-  return API.userContribsTotal(githubUsername)
-  .then(function(contribs){
-    let newExp = Character.getExpFromContribs(contribs);
+  return db('users')
+  .where({'github_username': githubUsername})
+  .then(function(users){
+    let user = users[0];
+    let contribs = API.userContribsTotal(githubUsername);
+    let honor = CW.GetUserStats(user.codewars_username);
+    let newContribs = Users.newContribs(user)
+    return Promise.all([contribs, honor, newContribs]);
+  })
+  .then(function(values){
+    let contribs = values[0];
+    let honor = JSON.parse(values[1]).honor
+    let newExp = Character.getExpFromContribs(values[0])
+    + (Character.getExpFromHonor(honor || 0));
     let newLevel = Character.getLevelFromExp(newExp).level;
+    let newContribs = values[2];
     return db('users')
-    .where({'github_username': githubUsername })
-    .limit(1)
-    .then(function(user){
-      return Users.newContribs(user[0]);
-    })
-    .then(function(newContribs){
-      return db('users')
-      .where({'github_username': githubUsername })
-      .returning('*')
-      .update({
-        'contributions': contribs, 
-        'experience': newExp,
-        'level': newLevel,
-        'unseenContribs': newContribs
-      });
+    .where({'github_username': githubUsername})
+    .returning('*')
+    .update({
+      'contributions': contribs, 
+      'experience': newExp,
+      'level': newLevel,
+      'unseenContribs': newContribs
     });
   });
 };
-
 //Users.updateExp: user's github username => user's database row with updated experience
 Users.updateExp = function(githubUsername){
   return db('users')
