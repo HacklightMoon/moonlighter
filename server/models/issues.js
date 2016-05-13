@@ -72,9 +72,6 @@ Issues.addIssues = function(githubIssues){
         .update({
           'status': githubIssue.state
         })
-        .then(function(){
-          return false;
-        })
       }
     })
     .then(function(user){

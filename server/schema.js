@@ -62,7 +62,7 @@ knex.schema.createTableIfNotExists('characters', function(table){
   table.string('title');
   table.string('user');
   table.integer('user_id').references('id').inTable('users');
-  table.integer('git_id');
+  table.integer('git_id').unique();
   table.string('body');
   table.string('status');
   table.boolean('deleted').defaultTo(false);
