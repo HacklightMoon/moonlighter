@@ -7,8 +7,8 @@
       <li><a href="/auth/logout" ng-if="isLogin" ng-click="logOut()" class="logout-button">Log out</a></li>
       <li><a href="/auth/github" ng-if="!isLogin" ng-click="signIn()" class="signin-button">Sign in</a></li>
       <li><a ng-if='isLogin' ui-sref="barracks" class="nav-button">Barracks</a></li>
-      <li><img ng-if="username" src="{{photo}}" ng-click="setUser()" style="border-radius: 50%;" height="55" width="55"></li>
-      <li><h3 ng-click="setUser()">{{username}}</h3></li>
+      <li class="clickable"><img ng-if="username" src="{{photo}}" ng-click="setUser()" style="border-radius: 50%;" height="55" width="55"></li>
+      <li class="clickable"><h3 ng-click="setUser()">{{username}}</h3></li>
     </ul>
   </nav>
 </div>  

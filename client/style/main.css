@@ -51,6 +51,10 @@
   width: 100vw;  
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 .logo-title{
   font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
   display: inline;

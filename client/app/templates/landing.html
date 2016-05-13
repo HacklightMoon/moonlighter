@@ -1,15 +1,11 @@
 <div ng-controller="NavCtrl">
   <div class='navbar'>
- <!--    <div ng-if="notify" class="notification">
-      <h3>You have {{unseenContribs}} new contributions!</h3>
-      <button ng-click="removeNotification()">Dismiss</button>
-    </div> -->
     <nav>
       <ul>
-        <li><img ng-if="username" src="{{photo}}" ng-click="setUser()" style="border-radius: 50%;" height="55" width="55"></li>
-        <li><h3 ng-click="setUser()">{{username}}</h3></li>
         <li><a href="/auth/logout" class="logout-button" ng-if="isLogin" ng-click="logOut()" >Log out</a></li>
         <li><a href="/auth/github" class="signin-button" ng-if="!isLogin">Sign in</a></li>
+        <li class="clickable"><img ng-if="username" src="{{photo}}" ng-click="setUser()" style="border-radius: 50%;" height="55" width="55"></li>
+        <li class="clickable"><h3 ng-click="setUser()">{{username}}</h3></li>
       </ul>
     </nav>  
   </div>
