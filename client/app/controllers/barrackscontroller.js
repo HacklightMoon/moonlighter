@@ -24,6 +24,9 @@ angular.module('moonlighterApp.barracks',[])
     .catch(function(err){
       console.error(err);
     })
+    $scope.userData.cwUsername = null;
+    $scope.userData.cwUserAPI = null;
+    //$scope.$setPristine();
   }
 
    function getCodeWar() {
