@@ -17,14 +17,13 @@
 </div> 
 
 <div id="center">
-  <div class="questfeed-button-wrapper">
+  <div ng-if="!profileOwner" class="questfeed-button-wrapper">
     <a class="questfeed-button" ui-sref="questProfile">
       <span class="questfeed-button-text">
         Return to the Quest
       </span>
     </a>
   </div>
-
 </div>  
     
 <h1>{{userData.full_name}}</h1>

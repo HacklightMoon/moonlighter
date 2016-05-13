@@ -3,8 +3,8 @@ angular.module('moonlighterApp.questFeed', [])
 .controller('QuestsFeedCtrl',function($scope, User, Issues, $cookies) {
 
   /******** Functions in this controller ********/
+  $scope.selectIssue = selectIssue;
   $scope.getAllIssues = getAllIssues;
-  $scope.selectIssue = selectIssue
   
   // Show or hide the 'Add Quest' button based on sign-in
   $scope.seeAddQuest = false;
@@ -25,17 +25,16 @@ angular.module('moonlighterApp.questFeed', [])
   function getAllIssues() {
     Issues.getAllIssues()
     .then(function(data) {
-        $scope.issues = data;
+      $scope.issues = data;
     })
     .catch(function(err){
       console.error(err);
     });
-  };
+  }
 
   // When selecing an issue, send the selected issue to services
   // for use in other controllers
   function selectIssue(issue) {
     Issues.setIssue(issue);
   }
-  $scope.getAllIssues();
 });
