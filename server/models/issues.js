@@ -72,7 +72,9 @@ Issues.addIssues = function(githubIssues){
         .update({
           'status': githubIssue.state
         })
-        .returning('deleted');
+        .then(function(){
+          return false;
+        })
       }
     })
     .then(function(user){
