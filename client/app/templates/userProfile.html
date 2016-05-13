@@ -25,26 +25,22 @@
     </a>
   </div>
 </div>  
-    
+
 <h1>{{userData.full_name}}</h1>
 <div style="width: 45%; float:left">
   <div>
-
     <div  style="width: 75%; float:right">
       <ul>
         <li>Username:  {{userData.github_username}}</li>
         <li>Email:  {{userData.email}}</li>
         <li>Money:  {{userData.money | currency}}</li>
         <li>Contributions:  {{userData.contributions}}</li>
-        
       </ul>  
     </div>
     <div style="width: 25%; float:left">
       <center><img height="100" width="100" src='{{userData.profile_picture}}'></center>
     </div>
-
   </div>
-
   <div style="float:left;
   height: 250px;
   width:350px; 
@@ -55,7 +51,6 @@
   <li ng-repeat="issue in joinedIssues">
     <h3 class="issue-title">{{issue.title}}</h3>
     <p class="issue-body">{{issue.body}}</p>
-
   </li>
 </ul>
 </div> 
@@ -74,33 +69,29 @@
 </ul>
 </div>
 </div>
-
 <div style="width: 55%; float:right">
   <div>
-
     <div class="character">
       <div class="charBack">
         <div class="charCard">
-        <p id="level"> Level: {{userData.level}}</p>
-        <img class="sprite" src="{{character}}">
+          <p id="level"> Level: {{userData.level}}</p>
+          <img class="sprite" src="{{character}}">
 
-        <div class="charInfo">
-          <h2 id="stats">S T A T S</h2>
-          <hr>
-          
-          <p>XP:  {{userData.experience}}</p>
+          <div class="charInfo">
+            <h2 id="stats">S T A T S</h2>
+            <hr>
+            
+            <p>XP:  {{userData.experience}}</p>
+          </div>
         </div>
-        </div>
-      </div>  
-
+      </div>
     </div>
   </div>
-</div>
+</div>  
 
 
 
 
-    
-    
 
-  
+
+
