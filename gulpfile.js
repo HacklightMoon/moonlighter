@@ -37,7 +37,25 @@ gulp.task('mocha', function(){
 
 gulp.task('jshint', function() {
   return gulp.src(testSource)
-  .pipe(jshint())
+  .pipe(jshint({
+    //enforcing
+
+    "undef": true,
+    "unused": false,
+    "node": true,
+    "esversion": 6,
+    "globals": {
+      "require"    : false,
+      "describe"   : false,
+      "it"         : false,
+      "before"     : false,
+      "beforeEach" : false,
+      "after"      : false,
+      "afterEach"  : false,
+      "nodemon"    : false,
+      "angular"    : false
+    },
+  }))
   .pipe(jshint.reporter('jshint-stylish'))
   .pipe(jshint.reporter('fail'));
 });
@@ -45,25 +63,25 @@ gulp.task('jshint', function() {
 gulp.task('lint', function() {
   return gulp.src(testSource)
   .pipe(eslint({
-  "env": {
-    "browser": true,
-    "node": true,
-    "es6": true
-  },
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true
+    },
 
-  "rules": {
-    //"no-console": 1,
-    "no-debugger": 1,
-    "no-dupe-args": 1,
-    "no-irregular-whitespace": 1,
-    "no-extra-semi": 1,
-    "dot-location": [1, "property"],
-    "max-len": [1, 80]
-  }
-}))
+    "rules": {
+      //"no-console": 1,
+      "no-debugger": 1,
+      "no-dupe-args": 1,
+      "no-irregular-whitespace": 1,
+      "no-extra-semi": 1,
+      "dot-location": [1, "property"],
+      "max-len": [1, 80]
+    }
+  }))
   .pipe(eslint.format())
   .pipe(eslint.failAfterError());
-})
+});
 // uncomment and fix when we have client-side up 
 // uglify task
 gulp.task('js', function() {
@@ -88,7 +106,7 @@ gulp.task('concat-dep', function() {
                   'bower_components/angular-cookies/angular-cookies.js',
                   'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js'
   ]).pipe(concat('scripts.js'))
-  .pipe(gulp.dest('./client/scripts'))
+  .pipe(gulp.dest('./client/scripts'));
 });
 
 gulp.task('build-js', function() {
@@ -103,7 +121,7 @@ gulp.task('dev', function () {
     script: 'server/server.js',
     ext: 'js html',
     env: { 'NODE_ENV': 'development' }
-  })
+  });
 });
 
 // TODO add concats 
