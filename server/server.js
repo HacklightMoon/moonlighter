@@ -220,7 +220,7 @@ app.post('/codewars/api', function(req, res){
   console.log("req.body", req.body)
   Users.linkCodewars(req.body.userID, req.body.cwUsername, req.body.cwUserAPI)
   .then(function(resp){
-    res.sendStatus(resp[0]);
+    res.send(resp[0]);
   })
   .catch(function(err){
     console.log("error:", err);
@@ -229,6 +229,8 @@ app.post('/codewars/api', function(req, res){
 
 app.get('/codewars', function(req, res){
   if(req.user){
+
+    
     API.getCurrentUser(req.user.Authorization)
     .then(function(blob){
       return Users.getByLoggedIn(blob)

@@ -20,17 +20,18 @@
 <!--   <div class='scroll barrack-rules'>
     
 </div>   -->  
-<div>
-  <form>
+</div>
+<div class="codeForm">
+  <!-- <form> -->
    <span>Codewars username</span><input type="text" ng-model="userData.cwUsername"></input></br>
    <span>Codewars API key</span><input type="text" ng-model="userData.cwUserAPI"></input><a ui-sref="about"><em>  Why do we need this?</em></a></br>
    <input type='button' value='submit' ng-click="cwInsert()"/></br>
- </form>  
+ <!-- </form>  --> 
 </div>
 
 <!--NEED FORM VALIDATION -->
 
-</div>
+
 <div class="mainBarrack">
 
   <h2>Challenge Description: </h2>
@@ -40,14 +41,14 @@
   </div>
 
 </div>
-  <h4 id="sandWrtie">Write your code below...</h4>
+<h4 id="sandWrtie">Write your code below...</h4>
 <div class="sandBack">
-<div class="sandbox">
+  <div class="sandbox">
 
-  <!-- <textarea ui-codemirror></textarea> -->
-  <!-- <ui-codemirror ui-codemirror-opts="editorOptions"></ui-codemirror> -->
-  <textarea ui-codemirror ui-codemirror-opts="editorOptions" ></textarea>
-  <!-- <div ui-codemirror></div> -->
-  <!-- ui-codemirror="{ onLoad : codemirrorLoaded }" -->
-</div>
+    <!-- <textarea ui-codemirror></textarea> -->
+    <!-- <ui-codemirror ui-codemirror-opts="editorOptions"></ui-codemirror> -->
+    <textarea ui-codemirror ui-codemirror-opts="editorOptions" ></textarea>
+    <!-- <div ui-codemirror></div> -->
+    <!-- ui-codemirror="{ onLoad : codemirrorLoaded }" -->
+  </div>
 </div>
