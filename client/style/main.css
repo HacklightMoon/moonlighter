@@ -456,11 +456,11 @@ padding: 8px;
   border-radius: 0.7em;
 }
 .sandBack{
-  background-color:   #d4ce46;
-  padding: 25px;
+  background-color: rgba(83, 81, 27, 0.75);
+  padding: 6px 1px;
   width: 35%;
-  margin:0 auto;
-  border-radius: 0.7em;
+  margin:0 auto 3%;
+  border-radius: 0.2em;
 }
 #sandWrite{
   margin: 0 auto;
