@@ -26,7 +26,7 @@ angular.module('moonlighterApp.barracks',[])
     })
     $scope.userData.cwUsername = null;
     $scope.userData.cwUserAPI = null;
-    //$scope.$setPristine();
+    // //$scope.$setPristine();
   }
 
    function getCodeWar() {
