@@ -18,7 +18,6 @@ Users.verifyInsert = function(blob){
     let contributions = values[1];
     if (users.length > 0){
       return Users.updateContribs(users[0].github_username);
-
     }
     else {
       let exp     = Character.getExpFromContribs(contributions);
@@ -32,17 +31,13 @@ Users.verifyInsert = function(blob){
         'contributions'   : contributions,
         'experience'      : exp,
         'level'           : level
-
       };
       return db('users').insert(newUser).limit(1);
-
     }
-
   })
   .catch(function(err){
     console.log("Users.verifyInsert Error:", err);
     return;
-
   });
 
 };
@@ -52,10 +47,8 @@ Users.verifyId = function(id){
   return db('users')
   .where({
     passid: id
-
   })
   .limit(1);
-
 };
 
 //Users.getByGithubUsername: user's github username => user's database row 
@@ -63,10 +56,8 @@ Users.getByGithubUsername = function(githubUsername){
   return db('users')
   .where({
     'github_username': githubUsername
-
   })
   .limit(1);
-
 };
 
 //Users.getById: user's primary key id => user's database row
@@ -75,7 +66,6 @@ Users.getById = function(id){
   .where({
     'id': id
   }).limit(1);
-
 };
 
 //Users.getByLoggedIN: user's github data blob => user's database row
@@ -109,9 +99,7 @@ Users.pay = function(id, amount){
   .increment('money', amount)
   .then(function(data){
     return data;
-
   });
-
 };
 
 //Users.newContribs: user's database row => the increase in user's contributions since last login
@@ -199,4 +187,4 @@ Users.linkCodewars = function(userId, cwUsername, cwAPIKey){
   .catch(function(err){
     console.log('linkCodewars Error:', err);
   });
-}
+};

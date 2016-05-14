@@ -21,16 +21,16 @@ Issues.getByUser = function(userID){
 
 //addUser: issueId, userId => add's member to issue members column of issue with id issueId
 Issues.addUser = function(issueID, userID){
-  let target = {issue_id: issueID, user_id:userID}
+  let target = { issue_id: issueID, user_id:userID };
   return db('issue_members').where(target)
   .then(function(issues){
     if (issues.length === 0){
       return db('issue_members')
-      .insert(target)
+      .insert(target);
     }
     else return;
-  })
-}
+  });
+};
 
 //getIssueMembers: issueId => array containing user rows users participating in issue
 Issues.getIssueMembers = function(issueID){
@@ -40,9 +40,9 @@ Issues.getIssueMembers = function(issueID){
   .then(function(issueMembers){
     let ids = issueMembers.map(member => member.user_id);
     return db.select('id', 'github_username').from('users')
-    .whereIn('id', ids)
-  })
-}
+    .whereIn('id', ids);
+  });
+};
 
 //getJoinedIssues: userId => array containing all issues in which user is participating
 Issues.getJoinedIssues = function(userID){
@@ -52,9 +52,9 @@ Issues.getJoinedIssues = function(userID){
   .then(function(issueMembers){
     let ids = issueMembers.map(member => member.issue_id);
     return db.select('id', 'title', 'body').from('issues')
-    .whereIn('id', ids)
-  })
-}
+    .whereIn('id', ids);
+  });
+};
 
 //addIssues: array of JSON githubIssues => issues object from issues table which has been inserted
 Issues.addIssues = function(githubIssues){
@@ -62,7 +62,7 @@ Issues.addIssues = function(githubIssues){
     return db('issues').where({ 'git_id': githubIssue.id })
     .then(function(issues){
       if(issues.length === 0) {
-        return Users.getByGithubUsername(githubIssue.user.login)
+        return Users.getByGithubUsername(githubIssue.user.login);
       }
       else{
         return db('issues')
@@ -71,7 +71,7 @@ Issues.addIssues = function(githubIssues){
         })
         .update({
           'status': githubIssue.state
-        })
+        });
       }
     })
     .then(function(user){
@@ -88,9 +88,9 @@ Issues.addIssues = function(githubIssues){
         return db('issues').insert(issue);
       }
       else return;
-    })
-  })
-}
+    });
+  });
+};
 
 //removeIssue: issueID => number of rows where an issue in issues table was marked as deleted (1)
 Issues.removeIssue = function(issueID){
@@ -98,8 +98,8 @@ Issues.removeIssue = function(issueID){
     'id': issueID
   }).update({
     'deleted': true
-  })
-}
+  });
+};
 
 //getBounty: issueID => proper bounty for issue with id issueID, based on when issue was added to table
 Issues.getBounty = function(issueID){
@@ -111,7 +111,7 @@ Issues.getBounty = function(issueID){
     let daysElapsed = Math.floor((now - time[0].created_at)/86400000);
     let bounty = 100 + (10 * daysElapsed);
     return {bounty: bounty};
-  })
+  });
   let members = Issues.getIssueMembers(issueID);
-  return Promise.all([bounty, members])
+  return Promise.all([bounty, members]);
 }

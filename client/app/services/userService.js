@@ -14,8 +14,8 @@ angular.module("moonlighterApp.userService", [])
       })
       .catch(function(err) {
         console.error('Error getting current user data:', err);
-      })
-    }
+      });
+    };
     
     // Allow user to edit their user data in the db
     var updateUserInfo = function(userData) {
@@ -29,8 +29,8 @@ angular.module("moonlighterApp.userService", [])
       })
       .catch(function(err){
         console.error(err);
-      })
-    }
+      });
+    };
 
     // Get contributions from Github user profile and adds them to db
     var getContribs = function() {
@@ -40,8 +40,8 @@ angular.module("moonlighterApp.userService", [])
       })
       .then(function(resp) {
         return resp.data;
-      })
-    }
+      });
+    };
 
     // Set 'unseenContribs' column in db to zero for current user
     var resetContribs = function(userID) {
@@ -57,8 +57,8 @@ angular.module("moonlighterApp.userService", [])
       })
       .catch(function(err){
         console.error(err);
-      })
-    }
+      });
+    };
 
     // Look at new and old contribs data to calculate 'unseenContribs'
     var newContribs = function(username) {
@@ -68,8 +68,8 @@ angular.module("moonlighterApp.userService", [])
       })
       .then(function(resp) {
         return resp.data;
-      })
-    }
+      });
+    };
 
     return {
       getCurrentUser: getCurrentUser,
@@ -77,5 +77,5 @@ angular.module("moonlighterApp.userService", [])
       getContribs: getContribs,
       resetContribs: resetContribs,
       newContribs: newContribs
-    }
+    };
   });
