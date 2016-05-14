@@ -11,7 +11,7 @@ angular.module('moonlighterApp.userProfile', [])
   // Here, we store the current user_id inside of the URL (for reloading)
   $location.search("id", $scope.selectedUser);
   console.log("Current User: ", $scope.selectedUser);
-  
+
   // We use the above variable to retrieve issues posted by this user.
   Issues.getMyIssues($scope.selectedUser)
   .then(function(data) {
@@ -24,10 +24,10 @@ angular.module('moonlighterApp.userProfile', [])
     // This joinedIssues variable is equal to an array of issue-objects.
     $scope.joinedIssues = data;
   });
-  
+
   // NOT FULLY  FUNCTIONAL !!!!!
-  function getCharacter(){
-    Profile.getCharacter()
+  function getCharacter(level){
+    Profile.getCharacter(level)
     .then(function(character){
       console.log("this is your character in UserProfileCtrl!!!!!!!!", character)
       $scope.character = character.data.character
@@ -50,10 +50,12 @@ angular.module('moonlighterApp.userProfile', [])
       $scope.profileOwner = true;
     }
   })
+  .then(function(){
+    $scope.getCharacter($scope.userData.level);
+  })
   .catch(function(err){
     console.log(err);
   });
 
-  $scope.getCharacter();
 
 });
