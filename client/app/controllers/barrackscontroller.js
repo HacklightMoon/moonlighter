@@ -85,7 +85,7 @@ angular.module('moonlighterApp.barracks',[])
   function cwUserStats() {
     Barracks.cwUserStats()
     .then(function(resp){
-      console.log("hey userstats: ", resp)
+      console.log("hey userstats: " , resp)
       // $scope.codewar = resp;
     })
     .catch(function(err){
@@ -103,6 +103,13 @@ angular.module('moonlighterApp.barracks',[])
     .catch(function(err){
       console.error(err);
     });
+  }
+
+  function cwSolution(){
+    var userCode = {
+      
+    }
+    Barracks.sendSolution()
   }
 
   $scope.cwUserStats();

@@ -146,7 +146,12 @@ app.post('/user/update', function(req, res){
 app.get('/user/info', function(req, res){
   return Users.getById(req.query.id)
   .then(function(resp){
+<<<<<<< b461e7dc1851acaf9cb7f6b37e206a4ded62c7c4
     res.send(resp);
+=======
+    console.log("your resp in server sir", resp)
+    res.send(resp)
+>>>>>>> add codewar endpoint
   });
 });
 
