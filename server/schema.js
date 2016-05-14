@@ -5,7 +5,7 @@ let knex = require('./db');
 knex.schema.createTableIfNotExists('characters', function(table){
   table.increments('id').primary();
   table.string('character');
-  table.integer('level');
+  table.integer('level').unique();
   table.string('character_name');
 })
 .createTableIfNotExists('users', function(table){

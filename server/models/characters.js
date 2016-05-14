@@ -26,10 +26,12 @@ Character.getLevelFromExp = function(exp){
   return { 'level':level, 'exp': remainder };
 };
 
+Character.getByLevel = function(level){
+  console.log('getByLevel input:', level, typeof level);
+  return db('characters')
+  .where({'level': level})
+}
 
 Character.getAll = function(){
   return db('characters')
-  .then(function(data){
-    return data;
-  });
 };

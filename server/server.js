@@ -125,10 +125,10 @@ app.get('/issues/joined', function(req, res){
 //--------------------Character Endpoints----------------
 //NOT FULLY FUNCTIONAL !!!!
 app.get('/character', function(req, res){
-  console.log('server.js, 187 req.body', req.body);
-  Character.getAll()
-  .then(function(resp){
-    res.send(resp);
+  console.log('server.js, 187 req.user', req.user.user);
+  Character.getByLevel(req.user.user.level)
+  .then(function(characters){
+    res.send(characters[0]);
   })
   .catch(function(err){
     console.error(err)
