@@ -47,8 +47,14 @@
 
     <!-- <textarea ui-codemirror></textarea> -->
     <!-- <ui-codemirror ui-codemirror-opts="editorOptions"></ui-codemirror> -->
-    <textarea ui-codemirror ui-codemirror-opts="editorOptions" ></textarea>
+    <textarea ui-codemirror ui-codemirror-opts="editorOptions" ng-model='cwInput'></textarea>
     <!-- <div ui-codemirror></div> -->
     <!-- ui-codemirror="{ onLoad : codemirrorLoaded }" -->
   </div>
+</div>
+  <div class='cwsubmit'>
+    <ul>
+      <li><input type='button' value='test answer' ng-click='cwSolution()' /></li>
+      <li><input type='button' value='submit final answer' ng-click='' /></li>
+    </ul>
 </div>

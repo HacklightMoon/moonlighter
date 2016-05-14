@@ -10,6 +10,8 @@ angular.module('moonlighterApp.barracks',[])
   $scope.cwUserStats = cwUserStats;
   $scope.cwChallenge = cwChallenge;
   $scope.codemirrorLoaded = codemirrorLoaded;
+  $scope.cwSolution = cwSolution;
+
 
   function cwInsert(){
     var userInput = {
@@ -17,6 +19,7 @@ angular.module('moonlighterApp.barracks',[])
       cwUsername: $scope.userData.cwUsername,
       cwUserAPI:  $scope.userData.cwUserAPI
     };
+
     if ($scope.userData.cwUsername !== undefined && $scope.userData.cwUserAPI !== undefined) {
       Barracks.addCwAPI(userInput)
       .then(function(data){
@@ -35,6 +38,33 @@ angular.module('moonlighterApp.barracks',[])
     // $scope.userData.cwUsername = null;
     // $scope.userData.cwUserAPI = null;
     // //$scope.$setPristine();
+
+
+    Barracks.addCwAPI(userInput)
+    .then(function(data){
+      console.log("here's some data:", data);
+    })
+    .catch(function(err){
+      console.error(err);
+    })
+    $scope.userData.cwUsername = null;
+    $scope.userData.cwUserAPI = null;
+    //$scope.$setPristine();
+>>>>>>> code war work
+  }
+  
+  function cwSolution(){
+    var userCode = {
+      'userCode' : $scope.cwInput,
+    };
+    console.log(userCode);
+    Barracks.cwTestSolution(userCode)
+    .then(function(resp){
+      console.log(resp);
+    })
+    .catch(function(err){
+      console.error(err);
+    });
   }
 
    function getCodeWar() {
@@ -46,7 +76,7 @@ angular.module('moonlighterApp.barracks',[])
     })
     .catch(function(err){
       console.error(err);
-    })
+    });
   }
 
   function cwUserStats() {
@@ -57,18 +87,18 @@ angular.module('moonlighterApp.barracks',[])
     })
     .catch(function(err){
       console.error(err);
-    })
+    });
   }
 
   function cwChallenge() {
     Barracks.cwChallenge()
     .then(function(resp){
-      console.log(resp)
+      console.log( 'cwChallenge:',resp);
       $scope.codeNext = resp;
     })
     .catch(function(err){
       console.error(err);
-    })
+    });
   }
 
   $scope.cwUserStats();
@@ -96,5 +126,6 @@ angular.module('moonlighterApp.barracks',[])
     // _editor.on("change", function(){});
   };
   $scope.getCodeWar();
+  
 }]);
 
