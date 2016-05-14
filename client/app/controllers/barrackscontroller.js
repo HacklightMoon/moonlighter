@@ -6,7 +6,10 @@ angular.module('moonlighterApp.barracks',[])
 
   $scope.setup;
 
+<<<<<<< c329608b2d1a480f66e5da63f8a71278b8191d2e
 
+=======
+>>>>>>> fix codewar endpoint
   /******** Functions in this controller ********/
   $scope.cwInsert= cwInsert;
   $scope.getCodeWar = getCodeWar;
@@ -99,18 +102,25 @@ angular.module('moonlighterApp.barracks',[])
       console.log( 'cwChallenge:',resp);
       $scope.codeNext = resp;
       $scope.setup = resp.data.session.setup;
+      console.log("HELLO im in cwNextChallenge: ", resp.data.session.setup)
     })
     .catch(function(err){
       console.error(err);
     });
   }
 
-  function cwSolution(){
-    var userCode = {
+  // function cwSolution(){
+  //   var userCode = {
       
-    }
-    Barracks.sendSolution()
-  }
+  //   }
+  //   Barracks.sendSolution(userCode)
+  //   .then(function(resp){
+  //     console.log(resp)
+  //   })
+  //   .catch(function(err){
+  //     console.error(err)
+  //   })
+  // }
 
   $scope.cwUserStats();
   $scope.cwChallenge();

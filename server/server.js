@@ -123,7 +123,7 @@ app.get('/issues/joined', function(req, res){
   });
 });
 //--------------------Character Endpoints----------------
-//NOT FULLY FUNCTIONAL !!!!
+
 app.get('/character', function(req, res){
   Character.getByLevel(req.query.level)
   .then(function(characters){
