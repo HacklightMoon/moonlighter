@@ -2,7 +2,7 @@ angular.module('moonlighterApp.barracks',[])
 .controller('BarracksCtrl',['$scope', 'Barracks', '$http', '$cookies', function($scope, Barracks, $http, $cookies){
   $scope.userData = {};
   
-
+  $scope.myValue = true;
 
   /******** Functions in this controller ********/
   $scope.cwInsert= cwInsert;
@@ -13,20 +13,28 @@ angular.module('moonlighterApp.barracks',[])
 
   function cwInsert(){
     var userInput = {
-      'userID':     $cookies.get('user_id'),
-      'cwUsername': $scope.userData.cwUsername,
-      'cwUserAPI':  $scope.userData.cwUserAPI
+      userID:     $cookies.get('user_id'),
+      cwUsername: $scope.userData.cwUsername,
+      cwUserAPI:  $scope.userData.cwUserAPI
     };
-    Barracks.addCwAPI(userInput)
-    .then(function(data){
-      console.log("here's some data:", data);
-    })
-    .catch(function(err){
-      console.error(err);
-    })
-    $scope.userData.cwUsername = null;
-    $scope.userData.cwUserAPI = null;
-    //$scope.$setPristine();
+    if ($scope.userData.cwUsername !== undefined && $scope.userData.cwUserAPI !== undefined) {
+      Barracks.addCwAPI(userInput)
+      .then(function(data){
+        console.log("here's some data:", data);
+      })
+      .then(function(){
+        if ($scope.userData.cwUserAPI !== undefined) {
+          $scope.myValue = false;
+        }
+      })
+      .catch(function(err){
+        console.error(err);
+      })
+    }
+
+    // $scope.userData.cwUsername = null;
+    // $scope.userData.cwUserAPI = null;
+    // //$scope.$setPristine();
   }
 
    function getCodeWar() {
