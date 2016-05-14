@@ -62,11 +62,12 @@ CW.testSolution = function(code) {
         return;
       }
       resolve(body,resp);
+      console.log("this is resp in codewars.js testSolution;", body)
     });
   });
 }
 
-CW.getDeferred = function(dmid) {
+CW.getDeferred = function() {
   let options = {
     'url': 'https://www.codewars.com/api/v1/deferred' + dmid,
     'headers': {'Authorization' : 'wUGraBxyPMPbRJAy82dr'}

@@ -1,8 +1,11 @@
 angular.module('moonlighterApp.barracks',[])
 .controller('BarracksCtrl',['$scope', 'Barracks', '$http', '$cookies', function($scope, Barracks, $http, $cookies){
   $scope.userData = {};
-  
+
   $scope.myValue = true;
+
+  $scope.setup;
+
 
   /******** Functions in this controller ********/
   $scope.cwInsert= cwInsert;
@@ -50,12 +53,12 @@ angular.module('moonlighterApp.barracks',[])
     $scope.userData.cwUsername = null;
     $scope.userData.cwUserAPI = null;
     //$scope.$setPristine();
->>>>>>> code war work
+
   }
   
   function cwSolution(){
     var userCode = {
-      'userCode' : $scope.cwInput,
+      'userCode' : $scope.setup,
     };
     console.log(userCode);
     Barracks.cwTestSolution(userCode)
@@ -95,6 +98,7 @@ angular.module('moonlighterApp.barracks',[])
     .then(function(resp){
       console.log( 'cwChallenge:',resp);
       $scope.codeNext = resp;
+      $scope.setup = resp.data.session.setup;
     })
     .catch(function(err){
       console.error(err);
@@ -126,6 +130,6 @@ angular.module('moonlighterApp.barracks',[])
     // _editor.on("change", function(){});
   };
   $scope.getCodeWar();
-  
+
 }]);
 
