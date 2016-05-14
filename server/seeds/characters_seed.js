@@ -23,7 +23,7 @@ exports.seed = function(knex, Promise){
     knex('characters').insert({
       character: '../art/archer-1.png', 
       level: 4,
-      character_name: 'Dumb Elf'
+      character_name: 'Sprock'
     }), 
 
     knex('characters').insert({
@@ -51,9 +51,9 @@ exports.seed = function(knex, Promise){
     }),
 
     knex('characters').insert({
-      character: '../art/elf-2.png',
+      character: '../art/archer-2.png',
       level: 9,
-      character_name: 'Sweet Elf',
+      character_name: 'Legalos',
     }),
 
     knex('characters').insert({
@@ -65,13 +65,13 @@ exports.seed = function(knex, Promise){
     knex('characters').insert({
       character: '../art/knight-3.png', 
       level: 11,
-      character_name: 'Definitely the Chosen One'
+      character_name: 'Kabob the Chosen One'
     }),
 
     knex('characters').insert({
       character: '../art/dwarf-3.png',
       level: 12,
-      character_name: 'B.A. Dwarf',
+      character_name: 'Short Odin',
     }),
 
     knex('characters').insert({
@@ -81,15 +81,15 @@ exports.seed = function(knex, Promise){
     }), 
 
     knex('characters').insert({
-      character: '../art/elf-3.png', 
+      character: '../art/archer-3.png', 
       level: 14,
-      character_name: 'B.A. Elf'
+      character_name: 'The Rond'
     }),
 
     knex('characters').insert({
       character: '../art/wizard-3.png',
       level: 15,
-      character_name: 'Moonlighter',
+      character_name: 'Gilbert the Moonlighter',
     })
   );
 };
