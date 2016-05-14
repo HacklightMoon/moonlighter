@@ -21,12 +21,12 @@ describe('getLevelFromExp', function(){
   });
   it('returns an object', function(){
     expect(Character.getLevelFromExp(0)).to.be.a('object');
-  })
+  });
   it('returns the proper level based on exp', function(){
     expect(Character.getLevelFromExp(100).level).to.equal(2);
     expect(Character.getLevelFromExp(300).level).to.equal(3);
     expect(Character.getLevelFromExp(600).level).to.equal(4);
-  })
+  });
 });
 
 describe('getAll', function(){
@@ -35,5 +35,5 @@ describe('getAll', function(){
   });
   it('returns a promise which resolves as an array', function(){
     expect(Character.getAll()).to.eventually.be.a('array');
-  })
+  });
 });

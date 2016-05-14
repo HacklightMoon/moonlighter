@@ -2,7 +2,7 @@ angular.module("moonlighterApp.services", [])
 
   .factory('Profile', function ($http) {
 
-    var Profile = []
+    var Profile = [];
     // get user profile
     var getProfile = function (user_id) {
       console.log("Sending user_id - services.js", user_id);
@@ -10,10 +10,6 @@ angular.module("moonlighterApp.services", [])
         method: 'GET',
         url: '/user/info?id=' + user_id,
         data: user_id
-      })
-      .then(function (resp) {
-        console.log("Got Profile: ", resp);
-        return resp;
       })
       .catch(function (err) {
         console.error(err);
@@ -26,25 +22,21 @@ angular.module("moonlighterApp.services", [])
         url: '/user/update',
         data: profile
       })
-      .then(function (resp) {
-        console.log("edited profile: ", resp);
-      })
       .catch(function (err) {
         console.error(err);
-      })
-    }
+      });
+    };
 
     var setUser = function (user_id) {
       Profile.questOwner = user_id;
       return Profile.questOwner;
-    }
+    };
 
     var getUser = function () {
       return Profile.questOwner;
-    }
+    };
  
     var getCharacter = function(){
-      console.log("called in services.js, trying to get character")
       return $http({
         method: 'GET', 
         url: '/character' 
@@ -53,9 +45,9 @@ angular.module("moonlighterApp.services", [])
         return resp;
       })
       .catch(function(err){
-        console.error("ERROR : ", err)
+        console.error("ERROR : ", err);
       })
-    }
+    };
 
     return {
       getProfile: getProfile,
@@ -63,10 +55,8 @@ angular.module("moonlighterApp.services", [])
       getUser: getUser,
       setUser: setUser,
       getCharacter: getCharacter
-    }
-
+    };
   })
-
   .factory('User', function($http) {
     var User = [];
 
@@ -77,11 +67,11 @@ angular.module("moonlighterApp.services", [])
       })
       .then(function(resp) {
         return resp.data;
-      })
+      });
       // .catch(function(err) {
       //   console.error(err);
       // })
-    }
+    };
 
     var updateUserInfo = function(userData) {
       return $http({
@@ -94,8 +84,8 @@ angular.module("moonlighterApp.services", [])
       })
       .catch(function(err){
         console.error(err);
-      })
-    }
+      });
+    };
 
     var getContribs = function() {
       return $http({
@@ -104,8 +94,8 @@ angular.module("moonlighterApp.services", [])
       })
       .then(function(resp) {
         return resp.data;
-      })
-    }
+      });
+    };
 
     var resetContribs = function(userID) {
       return $http({
@@ -128,7 +118,7 @@ angular.module("moonlighterApp.services", [])
       updateUserInfo: updateUserInfo,
       getContribs: getContribs,
       resetContribs: resetContribs
-    }
+    };
   })
 
   .factory('Issues', function($http) {
@@ -144,8 +134,8 @@ angular.module("moonlighterApp.services", [])
       })
       .catch(function(err){
         console.error(err)
-      })
-    }
+      });
+    };
 
     var loadIssues = function () {
       return $http({
@@ -157,8 +147,8 @@ angular.module("moonlighterApp.services", [])
       })
       .catch(function(err){
         console.error(err)
-      })
-    }
+      });
+    };
 
     var getIssue = function() {
       return Issues.currentIssue;
