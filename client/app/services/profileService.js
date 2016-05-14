@@ -45,10 +45,10 @@ angular.module("moonlighterApp.profileService", [])
     };
 
     // Get a user's character based on XP and Level
-    var getCharacter = function(){
+    var getCharacter = function(level){
       return $http({
         method: 'GET', 
-        url: '/character', 
+        url: '/character?level=' + level, 
       })
       .then(function(resp){
         return resp;
