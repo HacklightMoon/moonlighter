@@ -27,7 +27,6 @@ Character.getLevelFromExp = function(exp){
 };
 
 Character.getByLevel = function(level){
-  console.log('getByLevel input:', level, typeof level);
   return db('characters')
   .where({'level': level})
 }
