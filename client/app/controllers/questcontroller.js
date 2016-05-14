@@ -1,6 +1,6 @@
 'use strict';
 angular.module('moonlighterApp.questProfile', [])
-.controller('QuestProfileCtrl',function($location, $state, $scope, $cookies, Profile, User, Issues) {
+.controller('QuestProfileCtrl',function($location, $state, $scope, $cookies, Profile, User, Issues, toastr) {
 
   /******** Functions in this controller ********/
   $scope.setUser = setUser;
@@ -24,6 +24,7 @@ angular.module('moonlighterApp.questProfile', [])
   $location.search("body", $scope.chosenQuest.body);
   $location.search("id", $scope.chosenQuest.id);
   $location.search("created_at", $scope.chosenQuest.created_at);
+  $location.search("status", $scope.chosenQuest.status);
 
   // Get bounty associated with selected quest and set it to questBounty variable
   // Also get all users who have joined an issue
@@ -52,7 +53,11 @@ angular.module('moonlighterApp.questProfile', [])
       Issues.payAndClose(Number($scope.userToPay.user), $scope.questBounty, $scope.chosenQuest.id);
       $state.go('questFeed');
     } else {
-      $scope.errorMessage = "Please select the user who solved your issue"
+      toastr.error("Please select the user who solved your issue", {
+            closeButton: true,
+            timeOut: 5000,
+            extendedTimeOut: 10000
+          });
     }
   }
   
