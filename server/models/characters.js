@@ -18,7 +18,7 @@ Character.getLevelFromExp = function(exp){
   let level = 0;
   let interval = 0;
   while (remainder >= 0){
-    interval += 100;
+    interval += 300;
     level++;
     remainder -= interval;
   }
