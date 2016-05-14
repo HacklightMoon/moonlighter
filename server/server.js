@@ -125,7 +125,6 @@ app.get('/issues/joined', function(req, res){
 //--------------------Character Endpoints----------------
 //NOT FULLY FUNCTIONAL !!!!
 app.get('/character', function(req, res){
-  console.log('server.js, 187 req.user', req.user.user);
   Character.getByLevel(req.user.user.level)
   .then(function(characters){
     res.send(characters[0]);
@@ -189,17 +188,14 @@ app.post('/user/notified', function(req, res){
 });
 
 app.get('/user/newcontribs', function(req, res) {
-  console.log("USERNAME:", req.query.username);
   Users.updateContribs(req.query.username)
   .then(function(resp) {
-    console.log("RESPONSE IN SERVER.JS (newcontribs): ", resp);
     res.send(resp);
   })
 })
 
 //--------------------CodeWars Endpoints--------------------
 app.get('/codewars/user', function(req, res){
-  console.log('server.js:253');
   CW.GetUserStats()
   .then(function(codewar){
     res.send(codewar);
@@ -207,7 +203,6 @@ app.get('/codewars/user', function(req, res){
 });
 
 app.get('/codewars/nextChallenge', function(req, res){
-  console.log('server.js:264');
   CW.GetNextChallenge()
   .then(function(challenge){
     res.send(challenge);
@@ -216,7 +211,6 @@ app.get('/codewars/nextChallenge', function(req, res){
 
 //INSERT DB FUNCTION HERE VVVVV
 app.post('/codewars/api', function(req, res){
-  console.log("req.body", req.body)
   Users.linkCodewars(req.body.userID, req.body.cwUsername, req.body.cwUserAPI)
   .then(function(resp){
     res.send(resp[0]);
@@ -234,7 +228,6 @@ app.get('/codewars', function(req, res){
     .then(function(blob){
       return Users.getByLoggedIn(blob)
       .then(function(users){
-        console.log("/codewars users = ", users);
         let user = users[0];
         return CW.GetUserStats(user.codewars_username)
         .then(function(blob){
@@ -254,10 +247,6 @@ app.use('/', routes);
 
 app.listen(config.port || 3000, function () {
   console.log("process.env.PORT", config.port)
-  console.log('Example app listening on port 3000!');
-  console.log('');
-  console.log('FOR YOU FRONT_END FOLKS');
-  console.log('')
   console.log('-----ENDPOINTS------');
   console.log('GET /sampleUser, /sampleQuestData, /issues, \n /issues/joined, /issues/bounty, /issues/members, \n /issues/myissues, /issues/load, /user/contribs, \n /user/current, /user/info, /character, auth/logout');
   console.log('');
