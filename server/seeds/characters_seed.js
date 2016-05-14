@@ -1,112 +1,95 @@
 exports.seed = function(knex, Promise){
   return Promise.join(
-
     knex('characters').del(),
 
     knex('characters').insert({
-
       character: '../art/knight-1.png', 
       level: 1,
-      character_name: 'Crappy Knight'
+      character_name: 'Not the Chosen One'
     }), 
 
     knex('characters').insert({
-
       character: '../art/dwarf-1.png', 
       level: 2,
-      character_name: 'Crappy Dwarf'
+      character_name: 'Gingerbeard Man'
     }),
 
     knex('characters').insert({
-
       character: '../art/assassin-1.png',
       level: 3,
-      character_name: 'Crappy Assassin',
+      character_name: 'The Little Murdermaid',
     }),
 
     knex('characters').insert({
-
       character: '../art/archer-1.png', 
       level: 4,
-      character_name: 'Crappy Elf'
+      character_name: 'Dumb Elf'
     }), 
 
     knex('characters').insert({
-
       character: '../art/wizard-1.png', 
       level: 5,
-      character_name: 'Crappy Wizard'
+      character_name: 'Major in Owlology'
     }),
 
     knex('characters').insert({
-
       character: '../art/knight-2.png',
       level: 6,
-      character_name: 'Cool Knight',
+      character_name: 'Maybe the Chosen One',
     }),
 
-      knex('characters').insert({
-
+    knex('characters').insert({
       character: '../art/dwarf-2.png', 
       level: 7,
-      character_name: 'Cool Dwarf'
+      character_name: 'Tight Dwarf'
     }), 
 
     knex('characters').insert({
-
       character: '../art/assassin-2.png', 
       level: 8,
-      character_name: 'Cool Assassin'
+      character_name: 'Shiv White and the Seven Gores'
     }),
 
     knex('characters').insert({
-
       character: '../art/elf-2.png',
       level: 9,
-      character_name: 'Cool Elf',
+      character_name: 'Sweet Elf',
     }),
 
     knex('characters').insert({
-
       character: '../art/wizard-2.png', 
       level: 10,
-      character_name: 'Cool Wizard'
+      character_name: 'Guy Holding an Owl'
     }), 
 
     knex('characters').insert({
-
       character: '../art/knight-3.png', 
       level: 11,
-      character_name: 'B.A. Knight'
+      character_name: 'Definitely the Chosen One'
     }),
 
     knex('characters').insert({
-
       character: '../art/dwarf-3.png',
       level: 12,
       character_name: 'B.A. Dwarf',
     }),
 
-      knex('characters').insert({
-
+    knex('characters').insert({
       character: '../art/assassin-3.png', 
       level: 13,
-      character_name: 'B.A. Assassin'
+      character_name: 'Ninjarella'
     }), 
 
     knex('characters').insert({
-
       character: '../art/elf-3.png', 
       level: 14,
       character_name: 'B.A. Elf'
     }),
 
     knex('characters').insert({
-
       character: '../art/wizard-3.png',
       level: 15,
       character_name: 'Moonlighter',
     })
-
-    );
+  );
 };
