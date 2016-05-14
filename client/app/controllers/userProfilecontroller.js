@@ -29,9 +29,10 @@ angular.module('moonlighterApp.userProfile', [])
   function getCharacter(){
     Profile.getCharacter()
     .then(function(data){
-      console.log("this is your character in UserProfileCtrl!!!!!!!!", data);
-      $scope.character = data.data[0].character;
-      $scope.level = data.data[0].level;
+      console.log("this is your character in UserProfileCtrl!!!!!!!!", data)
+      $scope.character = data.data[10].character
+      $scope.level = data.data[0].level
+      $scope.name = data.data[10].character_name
     })
     .catch(function(err){
       console.error(err);

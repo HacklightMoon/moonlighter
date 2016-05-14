@@ -6,6 +6,7 @@ knex.schema.createTableIfNotExists('characters', function(table){
   table.increments('id').primary();
   table.string('character');
   table.integer('level');
+  table.string('character_name');
 })
 .createTableIfNotExists('users', function(table){
   table.increments('id').primary();
