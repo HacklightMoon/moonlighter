@@ -20,13 +20,13 @@
 <!--   <div class='scroll barrack-rules'>
     
 </div>   -->  
-</div>
 <div class="codeForm">
+  <form ng-show="myValue" class="ng-hide">
   <!-- <form> -->
-   <span>Codewars username</span><input type="text" ng-model="userData.cwUsername"></input></br>
-   <span>Codewars API key</span><input type="text" ng-model="userData.cwUserAPI"></input><a ui-sref="about"><em>  Why do we need this?</em></a></br>
-   <input type='button' value='submit' ng-click="cwInsert()"/></br>
- <!-- </form>  --> 
+   Codewars username<input type="text" ng-model="userData.cwUsername" required="required"/></br>
+   Codewars API key<input type="text" ng-model="userData.cwUserAPI" required="required"/><a ui-sref="about"><em>  Why do we need this?</em></a></br>
+   <input type='submit' ng-click="cwInsert()"></br>
+ </form>  
 </div>
 
 <!--NEED FORM VALIDATION -->
