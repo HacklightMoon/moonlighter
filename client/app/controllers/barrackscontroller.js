@@ -17,18 +17,20 @@ angular.module('moonlighterApp.barracks',[])
       cwUsername: $scope.userData.cwUsername,
       cwUserAPI:  $scope.userData.cwUserAPI
     };
-    if ($scope.userData.cwUsername !== undefined && $scope.userData.cwUserAPI !== undefined) 
-    Barracks.addCwAPI(userInput)
-    .then(function(data){
-      console.log("here's some data:", data);
-    })
-    .then(function(){
-      if ($scope.userData.cwUserAPI !== undefined)
-      $scope.myValue = false;
-    })
-    .catch(function(err){
-      console.error(err);
-    })
+    if ($scope.userData.cwUsername !== undefined && $scope.userData.cwUserAPI !== undefined) {
+      Barracks.addCwAPI(userInput)
+      .then(function(data){
+        console.log("here's some data:", data);
+      })
+      .then(function(){
+        if ($scope.userData.cwUserAPI !== undefined) {
+          $scope.myValue = false;
+        }
+      })
+      .catch(function(err){
+        console.error(err);
+      })
+    }
 
     // $scope.userData.cwUsername = null;
     // $scope.userData.cwUserAPI = null;
