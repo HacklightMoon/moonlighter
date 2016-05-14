@@ -1,8 +1,8 @@
 angular.module("moonlighterApp.barracksService", [])
 
   .factory('Barracks', function ($http) {
-      
-
+    
+    var solutionDetail = {};
 
     function addCwAPI(data) {
       return $http({
@@ -43,11 +43,11 @@ angular.module("moonlighterApp.barracksService", [])
         return resp;
       })
       .catch(function(err){
-        console.error(err)
+        console.error(err);
       });
     }
 
-    function cwNextChallenge(){
+    function cwChallenge(){
       return $http({
         method: 'GET',
         url: '/codewars/nextChallenge/'
@@ -58,14 +58,26 @@ angular.module("moonlighterApp.barracksService", [])
       })
       .catch(function(err){
         console.log(err);
-      })
+      });
     }
-      return {
-        getCodeWar: getCodeWar,
-        cwUserStats: cwUserStats,
-        cwNextChallenge:cwNextChallenge,
-        addCwAPI:addCwAPI
-      }
+
+    function cwTestSolution(code){
+      return $http({
+        method: 'POST',
+        url: '/codewars/testSolution?code='+code,
+      })
+      .catch(function(err){
+        console.error(err);
+      });
+    }
+
+    return {
+      getCodeWar: getCodeWar,
+      cwUserStats: cwUserStats,
+      cwChallenge: cwChallenge,
+      addCwAPI: addCwAPI,
+      cwTestSolution: cwTestSolution, 
+    };
 
 
-  })
+});

@@ -45,10 +45,14 @@
 <div class="sandBack">
   <div class="sandbox">
 
-    <!-- <textarea ui-codemirror></textarea> -->
-    <!-- <ui-codemirror ui-codemirror-opts="editorOptions"></ui-codemirror> -->
-    <textarea ui-codemirror ui-codemirror-opts="editorOptions" ></textarea>
-    <!-- <div ui-codemirror></div> -->
-    <!-- ui-codemirror="{ onLoad : codemirrorLoaded }" -->
+
+    <textarea ui-codemirror ui-codemirror-opts="editorOptions" ng-model='setup'></textarea>
+
   </div>
+</div>
+  <div class='cwsubmit'>
+    <ul>
+      <li><input type='button' value='test answer' ng-click='cwSolution()' /></li>
+      <li><input type='button' value='submit final answer' ng-click='' /></li>
+    </ul>
 </div>

@@ -146,7 +146,7 @@ app.post('/user/update', function(req, res){
 app.get('/user/info', function(req, res){
   return Users.getById(req.query.id)
   .then(function(resp){
-    res.send(resp)
+    res.send(resp);
   });
 });
 
@@ -167,9 +167,9 @@ app.post('/user/pay', function(req, res){
     Issues.removeIssue(req.body.issue_id)
     .then(function() {
       res.sendStatus(201);
-    })
-  })
-})
+    });
+  });
+});
 
 app.get('/user/contribs', function(req, res){
   if(req.user){
@@ -203,11 +203,40 @@ app.get('/codewars/user', function(req, res){
 });
 
 app.get('/codewars/nextChallenge', function(req, res){
-  CW.GetNextChallenge()
+  CW.GetChallenge()
   .then(function(challenge){
     res.send(challenge);
   });
 });
+
+app.post('/codewars/testSolution', function(req, res){
+  console.log("/codewars/testSolution", req.query.code);
+  CW.testSolution(req.query.code)
+  .then(function(challenge){
+    res.send(challenge);
+  });
+});
+
+app.post('/codewars/finalSolution', function(req, res){ 
+  CW.finalSolution()
+  .then(function(resp){
+    res.send(resp);
+  });
+});
+
+app.get('/codewars/deferred', function(req, res){
+  CW.getDeferred()
+  .then(function(resp){
+    res.send(resp);
+  });
+});
+// app.get('/codewars/deferred', function(req, res) {
+//   CW.getDeferred()
+//     .then(function(resp){
+//       res.send()
+//     })})
+
+
 
 //INSERT DB FUNCTION HERE VVVVV
 app.post('/codewars/api', function(req, res){
@@ -217,7 +246,7 @@ app.post('/codewars/api', function(req, res){
   })
   .catch(function(err){
     console.log("error:", err);
-  })
+  });
 });
 
 app.get('/codewars', function(req, res){
@@ -236,7 +265,7 @@ app.get('/codewars', function(req, res){
         .catch(function(err){
           console.log('err:', err);
           return;
-        })
+        });
       });
     });
   }
@@ -246,7 +275,7 @@ app.get('/codewars', function(req, res){
 app.use('/', routes);
 
 app.listen(config.port || 3000, function () {
-  console.log("process.env.PORT", config.port)
+  console.log("process.env.PORT", config.port);
   console.log('-----ENDPOINTS------');
   console.log('GET /sampleUser, /sampleQuestData, /issues, \n /issues/joined, /issues/bounty, /issues/members, \n /issues/myissues, /issues/load, /user/contribs, \n /user/current, /user/info, /character, auth/logout');
   console.log('');
