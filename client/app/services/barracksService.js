@@ -47,7 +47,7 @@ angular.module("moonlighterApp.barracksService", [])
       });
     }
 
-    function cwNextChallenge(){
+    function cwChallenge(){
       return $http({
         method: 'GET',
         url: '/codewars/nextChallenge/'
@@ -63,7 +63,7 @@ angular.module("moonlighterApp.barracksService", [])
       return {
         getCodeWar: getCodeWar,
         cwUserStats: cwUserStats,
-        cwNextChallenge:cwNextChallenge,
+        cwChallenge:cwChallenge,
         addCwAPI:addCwAPI
       }
 

@@ -203,7 +203,7 @@ app.get('/codewars/user', function(req, res){
 });
 
 app.get('/codewars/nextChallenge', function(req, res){
-  CW.GetNextChallenge()
+  CW.GetChallenge()
   .then(function(challenge){
     res.send(challenge);
   });

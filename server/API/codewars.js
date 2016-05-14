@@ -21,15 +21,15 @@ CW.GetUserStats = function (cwUsername){
 };
 
 //GetNextChallenge: WHAT IS THE INPUT? => WHAT IS THE OUTPUT?
-CW.GetNextChallenge = function() {
-  let challenge = 'anything-to-integer';
+CW.GetChallenge = function(strategy) {
+  let challenge = strategy
   let options = {
-    'url': 'https://www.codewars.com/api/v1/code-challenges/' + challenge, 
+    'url': 'https://www.codewars.com/api/v1/code-challenges/javascript/train', 
     'headers': {'Authorization' : 'wUGraBxyPMPbRJAy82dr'
     },
   };
   return new Promise(function(resolve, reject){
-    request.get(options, function(err, resp, body){
+    request.post(options, function(err, resp, body){
       if(err){
         reject(err);
         return;
@@ -38,3 +38,4 @@ CW.GetNextChallenge = function() {
     });
   });
 };
+

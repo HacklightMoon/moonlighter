@@ -8,7 +8,7 @@ angular.module('moonlighterApp.barracks',[])
   $scope.cwInsert= cwInsert;
   $scope.getCodeWar = getCodeWar;
   $scope.cwUserStats = cwUserStats;
-  $scope.cwNextChallenge = cwNextChallenge;
+  $scope.cwChallenge = cwChallenge;
   $scope.codemirrorLoaded = codemirrorLoaded;
 
   function cwInsert(){
@@ -60,8 +60,8 @@ angular.module('moonlighterApp.barracks',[])
     })
   }
 
-  function cwNextChallenge() {
-    Barracks.cwNextChallenge()
+  function cwChallenge() {
+    Barracks.cwChallenge()
     .then(function(resp){
       console.log(resp)
       $scope.codeNext = resp;
@@ -72,7 +72,7 @@ angular.module('moonlighterApp.barracks',[])
   }
 
   $scope.cwUserStats();
-  $scope.cwNextChallenge();
+  $scope.cwChallenge();
   
   $scope.editorOptions = {
         lineWrapping : true,
