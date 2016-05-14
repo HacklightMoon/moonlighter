@@ -210,13 +210,26 @@ app.get('/codewars/nextChallenge', function(req, res){
 });
 
 app.post('/codewars/testSolution', function(req, res){
-  console.log("/codewars/testSolution", req.query.code)
+  console.log("/codewars/testSolution", req.query.code);
   CW.testSolution(req.query.code)
   .then(function(challenge){
     res.send(challenge);
   });
 });
 
+app.post('/codewars/finalSolution', function(req, res){ 
+  CW.finalSolution()
+  .then(function(resp){
+    res.send(resp);
+  });
+});
+
+app.get('/codewars/deferred', function(req, res){
+  CW.getDeferred()
+  .then(function(resp){
+    res.send(resp);
+  });
+});
 // app.get('/codewars/deferred', function(req, res) {
 //   CW.getDeferred()
 //     .then(function(resp){

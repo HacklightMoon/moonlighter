@@ -3,6 +3,7 @@ let request = require('request');
 let CW      = module.exports;
 let PID;
 let SID;
+let DMID;
 
 //GetUserStats: user's codewars_username => response object from github API
 CW.GetUserStats = function (cwUsername){
@@ -61,15 +62,15 @@ CW.testSolution = function(code) {
         reject(err);
         return;
       }
+      DMID = JSON.parse(body).dmid;
       resolve(body,resp);
-      console.log("this is resp in codewars.js testSolution;", body)
     });
   });
 }
 
 CW.getDeferred = function() {
   let options = {
-    'url': 'https://www.codewars.com/api/v1/deferred' + dmid,
+    'url': 'https://www.codewars.com/api/v1/deferred/' + dmid,
     'headers': {'Authorization' : 'wUGraBxyPMPbRJAy82dr'}
   }
   return new Promise(function(resolve, reject){
@@ -85,7 +86,7 @@ CW.getDeferred = function() {
 
 CW.finalSolution = function(){
   let options = {
-    'url': 'https://www.codewars.com/api/v1/code-challenges/projects/' + projectID + '/solutions/' + solutionID + '/finalize',
+    'url': 'https://www.codewars.com/api/v1/code-challenges/projects/' + PID + '/solutions/' + SID + '/finalize',
     'headers': {'Authorization' : 'wUGraBxyPMPbRJAy82dr'}
   }
   return new Promise(function(resolve, reject){
