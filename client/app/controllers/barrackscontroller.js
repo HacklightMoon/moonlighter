@@ -58,10 +58,10 @@ angular.module('moonlighterApp.barracks',[])
   
   function cwSolution(){
     var userCode = {
-      'userCode' : $scope.setup,
+      'code': $scope.setup,
     };
     console.log(userCode);
-    Barracks.cwTestSolution(userCode)
+    Barracks.cwTestSolution(userCode.code)
     .then(function(resp){
       console.log(resp);
     })

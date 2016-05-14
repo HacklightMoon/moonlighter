@@ -64,8 +64,7 @@ angular.module("moonlighterApp.barracksService", [])
     function cwTestSolution(code){
       return $http({
         method: 'POST',
-        url: '/codewars/testSolution',
-        data: code
+        url: '/codewars/testSolution?code='+code,
       })
       .catch(function(err){
         console.error(err);

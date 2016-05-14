@@ -51,9 +51,9 @@ CW.GetChallenge = function(strategy) {
 CW.testSolution = function(code) {
   console.log('PID:', PID);
   let options = {
-    'url': 'https://www.codewars.com/api/v1/code-challenges/projects/' + PID + '/solutions/' + SID + '/attempt',
+    'url': 'https://www.codewars.com/api/v1/code-challenges/projects/' + PID + '/solutions/' + SID + '/attempt?code=' + code,
     'headers': {'Authorization' : 'wUGraBxyPMPbRJAy82dr'},
-    'data': {'code' : code}
+    //'data': code
   };
   return new Promise(function(resolve, reject){
     request.post(options, function(err, resp, body){

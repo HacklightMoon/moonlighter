@@ -210,7 +210,8 @@ app.get('/codewars/nextChallenge', function(req, res){
 });
 
 app.post('/codewars/testSolution', function(req, res){
-  CW.testSolution()
+  console.log("/codewars/testSolution", req.query.code)
+  CW.testSolution(req.query.code)
   .then(function(challenge){
     res.send(challenge);
   });
