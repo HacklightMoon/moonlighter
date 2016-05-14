@@ -139,6 +139,9 @@ Users.updateContribs = function(githubUsername){
       'level': newLevel,
       'unseenContribs': newContribs
     });
+  })
+  .catch(function(err){
+    console.log('Error updating contributions:', err);
   });
 };
 //Users.updateExp: user's github username => user's database row with updated experience
