@@ -1,6 +1,8 @@
 'use strict';
 let request = require('request');
 let CW      = module.exports;
+let PID;
+let SID;
 
 //GetUserStats: user's codewars_username => response object from github API
 CW.GetUserStats = function (cwUsername){
@@ -19,14 +21,39 @@ CW.GetUserStats = function (cwUsername){
     });
   });
 };
-
+let strategy = 'kyu_5_workout';
 //GetNextChallenge: WHAT IS THE INPUT? => WHAT IS THE OUTPUT?
+
 CW.GetChallenge = function(strategy) {
-  let challenge = strategy
   let options = {
     'url': 'https://www.codewars.com/api/v1/code-challenges/javascript/train', 
-    'headers': {'Authorization' : 'wUGraBxyPMPbRJAy82dr'
-    },
+    'headers': {'Authorization' : 'wUGraBxyPMPbRJAy82dr'},
+    'data': {'strategy' : 'beta_workout'}
+  };
+  return new Promise(function(resolve, reject){
+    request.post(options, function(err, resp, body){
+      if(err){
+        reject(err);
+        return;
+      }
+      // console.log('CW projectID cw.js:36',JSON.parse(body))
+      // console.log('CW projectID cw.js:36',JSON.parse(body).session.projectId, JSON.parse(body).session.projectId);
+      PID = JSON.parse(body).session.projectId;
+      SID = JSON.parse(body).session.solutionId;
+      resolve(body,resp);
+    });
+  });
+};
+
+// var challengeData = CW.GetChallenge();
+
+
+CW.testSolution = function(code) {
+  console.log('PID:', PID);
+  let options = {
+    'url': 'https://www.codewars.com/api/v1/code-challenges/projects/' + PID + '/solutions/' + SID + '/attempt',
+    'headers': {'Authorization' : 'wUGraBxyPMPbRJAy82dr'},
+    'data': {'code' : code}
   };
   return new Promise(function(resolve, reject){
     request.post(options, function(err, resp, body){
@@ -37,5 +64,39 @@ CW.GetChallenge = function(strategy) {
       resolve(body,resp);
     });
   });
-};
+}
+
+CW.getDeferred = function(dmid) {
+  let options = {
+    'url': 'https://www.codewars.com/api/v1/deferred' + dmid,
+    'headers': {'Authorization' : 'wUGraBxyPMPbRJAy82dr'}
+  }
+  return new Promise(function(resolve, reject){
+    request.get(options, function(err, resp, body){
+      if(err){
+        reject(err);
+        return;
+      }
+      resolve(body,resp);
+    });
+  });
+}
+
+CW.finalSolution = function(){
+  let options = {
+    'url': 'https://www.codewars.com/api/v1/code-challenges/projects/' + projectID + '/solutions/' + solutionID + '/finalize',
+    'headers': {'Authorization' : 'wUGraBxyPMPbRJAy82dr'}
+  }
+  return new Promise(function(resolve, reject){
+    request.post(options, function(err, resp, body){
+      if(err){
+        reject(err);
+        return;
+      }
+      resolve(body,resp);
+    });
+  });
+}
+
+
 

@@ -209,6 +209,21 @@ app.get('/codewars/nextChallenge', function(req, res){
   });
 });
 
+app.post('/codewars/testSolution', function(req, res){
+  CW.testSolution()
+  .then(function(challenge){
+    res.send(challenge);
+  });
+});
+
+// app.get('/codewars/deferred', function(req, res) {
+//   CW.getDeferred()
+//     .then(function(resp){
+//       res.send()
+//     })})
+
+
+
 //INSERT DB FUNCTION HERE VVVVV
 app.post('/codewars/api', function(req, res){
   Users.linkCodewars(req.body.userID, req.body.cwUsername, req.body.cwUserAPI)
@@ -217,7 +232,7 @@ app.post('/codewars/api', function(req, res){
   })
   .catch(function(err){
     console.log("error:", err);
-  })
+  });
 });
 
 app.get('/codewars', function(req, res){
@@ -236,7 +251,7 @@ app.get('/codewars', function(req, res){
         .catch(function(err){
           console.log('err:', err);
           return;
-        })
+        });
       });
     });
   }
@@ -246,7 +261,7 @@ app.get('/codewars', function(req, res){
 app.use('/', routes);
 
 app.listen(config.port || 3000, function () {
-  console.log("process.env.PORT", config.port)
+  console.log("process.env.PORT", config.port);
   console.log('-----ENDPOINTS------');
   console.log('GET /sampleUser, /sampleQuestData, /issues, \n /issues/joined, /issues/bounty, /issues/members, \n /issues/myissues, /issues/load, /user/contribs, \n /user/current, /user/info, /character, auth/logout');
   console.log('');
