@@ -128,7 +128,6 @@ app.get('/character', function(req, res){
   console.log('server.js, 187 req.body', req.body);
   Character.getAll()
   .then(function(resp){
-    // res.set('Content-type', 'image/png')
     res.send(resp);
   })
   .catch(function(err){
@@ -230,7 +229,7 @@ app.post('/codewars/api', function(req, res){
 app.get('/codewars', function(req, res){
   if(req.user){
 
-    
+
     API.getCurrentUser(req.user.Authorization)
     .then(function(blob){
       return Users.getByLoggedIn(blob)
