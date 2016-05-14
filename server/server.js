@@ -146,7 +146,7 @@ app.post('/user/update', function(req, res){
 app.get('/user/info', function(req, res){
   return Users.getById(req.query.id)
   .then(function(resp){
-    res.send(resp)
+    res.send(resp);
   });
 });
 
@@ -167,9 +167,9 @@ app.post('/user/pay', function(req, res){
     Issues.removeIssue(req.body.issue_id)
     .then(function() {
       res.sendStatus(201);
-    })
-  })
-})
+    });
+  });
+});
 
 app.get('/user/contribs', function(req, res){
   if(req.user){
