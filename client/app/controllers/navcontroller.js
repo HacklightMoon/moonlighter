@@ -1,6 +1,6 @@
 'use strict';
 angular.module('moonlighterApp.nav',[])
-.controller('NavCtrl',['$state', '$scope', 'User', 'Profile', '$cookies', 'toastr', function($state, $scope, User, Profile, $cookies, toastr){
+.controller('NavCtrl',['$state', '$scope', 'User', 'Profile', '$cookies', 'toastr', '$window', function($state, $scope, User, Profile, $cookies, toastr, $window){
 
   /******** Functions in this controller ********/
   $scope.logOut = logOut;
@@ -108,7 +108,12 @@ angular.module('moonlighterApp.nav',[])
   // Then redirect to the user profile view
   function setUser() {
     Profile.setUser($scope.user_id)
-    $state.go("userProfile");
+    if ($state.current.name == 'userProfile') {
+      $window.location.href = '/#/userProfile?id='+$scope.user_id;
+      $state.reload()
+    } else {
+      $state.go("userProfile");
+    }
   }
 
   // Remove cookies and notification when logging out
