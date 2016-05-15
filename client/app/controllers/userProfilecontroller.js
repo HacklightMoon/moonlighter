@@ -26,7 +26,7 @@ angular.module('moonlighterApp.userProfile', [])
     $scope.joinedIssues = data;
   });
 
-  // NOT FULLY  FUNCTIONAL !!!!!
+  // Gets user's character
   function getCharacter(level){
     Profile.getCharacter(level)
     .then(function(character){
