@@ -207,7 +207,6 @@ app.get('/codewars/user', function(req, res){
 app.get('/codewars/nextChallenge', function(req, res){
   CW.GetChallenge(req.query.challengeType)
   .then(function(challenge){
-    console.log(challenge);
     res.send(challenge);
   });
 });

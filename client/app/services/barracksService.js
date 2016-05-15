@@ -48,7 +48,6 @@ angular.module("moonlighterApp.barracksService", [])
     }
 
     function cwChallenge(challengeType){
-      console.log(challengeType);
       return $http({
         method: 'GET',
         url: '/codewars/nextChallenge?challengeType='+challengeType

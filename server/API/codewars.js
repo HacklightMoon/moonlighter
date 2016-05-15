@@ -26,11 +26,9 @@ let strategy = 'kyu_5_workout';
 //GetNextChallenge: WHAT IS THE INPUT? => WHAT IS THE OUTPUT?
 
 CW.GetChallenge = function(challengeType) {
-  // let challenge = 'anything-to-integer';
   let options = {
-    'url': 'https://www.codewars.com/api/v1/code-challenges/javascript/train',
+    'url': 'https://www.codewars.com/api/v1/code-challenges/javascript/train?strategy='+challengeType,
     'headers': {'Authorization' : 'wUGraBxyPMPbRJAy82dr'},
-    'data': {'strategy': challengeType}
   };
   return new Promise(function(resolve, reject){
     request.post(options, function(err, resp, body){
