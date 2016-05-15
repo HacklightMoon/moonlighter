@@ -71,7 +71,23 @@ angular.module("moonlighterApp.barracksService", [])
       });
     }
 
+
+    function cwFinalSolution(){
+      return $http({
+        method: 'GET', 
+        url: '/codewars/finalSolution',
+      })
+      .then(function(resp){
+        return resp
+      })
+      .catch(function(err){
+        console.error(err)
+      });
+    }
+
+
     return {
+      cwFinalSolution: cwFinalSolution,
       getCodeWar: getCodeWar,
       cwUserStats: cwUserStats,
       cwChallenge: cwChallenge,

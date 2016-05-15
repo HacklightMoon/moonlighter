@@ -1,5 +1,6 @@
 angular.module('moonlighterApp.barracks',[])
 .controller('BarracksCtrl',['$scope', 'Barracks', '$http', '$cookies', function($scope, Barracks, $http, $cookies){
+  
   $scope.userData = {};
 
   $scope.myValue = true;
@@ -108,19 +109,6 @@ angular.module('moonlighterApp.barracks',[])
       console.error(err);
     });
   }
-
-  // function cwSolution(){
-  //   var userCode = {
-      
-  //   }
-  //   Barracks.sendSolution(userCode)
-  //   .then(function(resp){
-  //     console.log(resp)
-  //   })
-  //   .catch(function(err){
-  //     console.error(err)
-  //   })
-  // }
 
   $scope.cwUserStats();
   $scope.cwChallenge();

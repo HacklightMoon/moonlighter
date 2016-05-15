@@ -215,7 +215,15 @@ app.post('/codewars/testSolution', function(req, res){
   console.log("/codewars/testSolution", req.query.code);
   CW.testSolution(req.query.code)
   .then(function(challenge){
+    console.log("okay so here is la challenge:", challenge)
     res.send(challenge);
+  })
+  .then(function(){
+    CW.getDeferred()
+  .then(function(resp){
+    console.log("I got to the 2nd part of testSolution and heres your response:", resp)
+    res.send(resp);
+    });
   });
 });
 
@@ -226,17 +234,12 @@ app.post('/codewars/finalSolution', function(req, res){
   });
 });
 
-app.get('/codewars/deferred', function(req, res){
-  CW.getDeferred()
-  .then(function(resp){
-    res.send(resp);
-  });
-});
-// app.get('/codewars/deferred', function(req, res) {
+// app.get('/codewars/deferred', function(req, res){
 //   CW.getDeferred()
-//     .then(function(resp){
-//       res.send()
-//     })})
+//   .then(function(resp){
+//     res.send(resp);
+//   });
+// });
 
 
 
@@ -283,6 +286,3 @@ app.listen(config.port || 3000, function () {
   console.log('');
   console.log('POST /quest/newquest, user/notified, /user/pay, \n /user/update, /issues/addmember');
 });
-
-
-
