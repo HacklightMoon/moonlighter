@@ -51,7 +51,7 @@ CW.GetChallenge = function() {
 
 
 CW.testSolution = function(code) {
-  console.log('PID:', PID);
+  console.log('PID: & SID: ', PID, SID);
   let options = {
     'url': 'https://www.codewars.com/api/v1/code-challenges/projects/' + PID + '/solutions/' + SID + '/attempt?code=' + code,
     'headers': {'Authorization' : 'wUGraBxyPMPbRJAy82dr'},
@@ -74,6 +74,7 @@ CW.getDeferred = function() {
     'url': 'https://www.codewars.com/api/v1/deferred/' + DMID,
     'headers': {'Authorization' : 'wUGraBxyPMPbRJAy82dr'}
   }
+  console.log("this is your DMID: ", DMID)
   return new Promise(function(resolve, reject){
     request.get(options, function(err, resp, body){
       if(err){
