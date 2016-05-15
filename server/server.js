@@ -130,7 +130,7 @@ app.get('/character', function(req, res){
     res.send(characters[0]);
   })
   .catch(function(err){
-    console.error(err)
+    console.error(err);
   });
 });
 
@@ -146,8 +146,8 @@ app.post('/user/update', function(req, res){
 app.get('/user/info', function(req, res){
   return Users.getById(req.query.id)
   .then(function(resp){
-    console.log("your resp in server sir", resp)
-    res.send(resp)
+    console.log("your resp in server sir", resp);
+    res.send(resp);
 
   });
 });
@@ -205,8 +205,9 @@ app.get('/codewars/user', function(req, res){
 });
 
 app.get('/codewars/nextChallenge', function(req, res){
-  CW.GetChallenge()
+  CW.GetChallenge(req.query.challengeType)
   .then(function(challenge){
+    console.log(challenge);
     res.send(challenge);
   });
 });

@@ -93,7 +93,7 @@ angular.module('moonlighterApp.barracks',[])
   }
 
   function cwChallenge() {
-    Barracks.cwChallenge()
+    Barracks.cwChallenge($scope.challengeType)
     .then(function(resp){
 
       console.log("hey checkit :114", resp)
@@ -111,7 +111,6 @@ angular.module('moonlighterApp.barracks',[])
   }
 
   $scope.cwUserStats();
-  $scope.cwChallenge();
   // $scope.getCharacter();
   
   $scope.editorOptions = {
