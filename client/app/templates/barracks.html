@@ -27,6 +27,31 @@
     Codewars API key<input type="text" ng-model="userData.cwUserAPI" required="required"/><a ui-sref="about"><em>  Why do we need this?</em></a></br>
     <input type='submit' ng-click="cwInsert()"></br>
   </form>  
+  <div>
+    <form ng-show="myValue" class="ng-hide">
+    <!-- <form> -->
+     Codewars username<input type="text" ng-model="userData.cwUsername" required="required"/></br>
+     Codewars API key<input type="text" ng-model="userData.cwUserAPI" required="required"/><a ui-sref="about"><em>  Why do we need this?</em></a></br>
+     <input type='submit' ng-click="cwInsert()"></br>
+   </form> 
+ </div> 
+<!--  <div class='challengeDrop'>
+   <div ng-controller="DropdownCtrl">
+    <div class="btn-group" dropdown is-open="status.isopen">
+      <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle>
+        Button dropdown <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+      </ul>
+    </div>
+    <hr />
+</div> -->
+ </div>
 </div>
 
 <!--NEED FORM VALIDATION -->
