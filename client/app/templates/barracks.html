@@ -16,17 +16,17 @@
 <div class='tbd'>
   <!-- <audio src="../img/swords.mp3" autoplay></audio> -->
   <h1 class='barracks-title'>The Barracks</h1>
-  <h3>Your challenge awaits</h3>
+<!--   <h3>Your challenge awaits</h3> -->
 <!--   <div class='scroll barrack-rules'>
     
 </div>   -->  
 <div class="codeForm">
   <form ng-show="myValue" class="ng-hide">
-  <!-- <form> -->
-   Codewars username<input type="text" ng-model="userData.cwUsername" required="required"/></br>
-   Codewars API key<input type="text" ng-model="userData.cwUserAPI" required="required"/><a ui-sref="about"><em>  Why do we need this?</em></a></br>
-   <input type='submit' ng-click="cwInsert()"></br>
- </form>  
+    <!-- <form> -->
+    Codewars username<input type="text" ng-model="userData.cwUsername" required="required"/></br>
+    Codewars API key<input type="text" ng-model="userData.cwUserAPI" required="required"/><a ui-sref="about"><em>  Why do we need this?</em></a></br>
+    <input type='submit' ng-click="cwInsert()"></br>
+  </form>  
 </div>
 
 <!--NEED FORM VALIDATION -->
@@ -35,24 +35,45 @@
 <div class="mainBarrack">
 
   <h2>Challenge Description: </h2>
-  <div ng-repeat="next in codeNext">
-    <div>{{next.description}}</div>
-    <br>
-  </div>
+  
+    <div>{{description}}</div>
+    <!--   <br> -->
 
 </div>
-<h4 id="sandWrtie">Write your code below...</h4>
-<h4>{{name}}</h4>
-<div class="sandBack">
-  <div class="sandbox">
+<!-- <h4 id="sandWrtie">Write your code below...</h4>
+-->
+<div class="sandy">
+  <div class="challName">
+    <h4>{{name}}</h4>
+  </div>
+  <div class="sandBack">
 
-    <textarea ui-codemirror ui-codemirror-opts="editorOptions" ng-model="setup"></textarea>
+    <div class="sandbox">
+
+      <textarea ui-codemirror ui-codemirror-opts="editorOptions" ng-model="setup"></textarea>
+
+    </div>
+
+ 
 
   </div>
-</div>
+  <div class="exBack">
+     <div class="example">
+      <textarea ui-codemirror ui-codemirror-opts="editorOptions" style="max-height:15%; min-height:5%;" ng-model="example"></textarea>
+    </div>
+  </div>
+
   <div class='cwsubmit'>
-    <ul>
-      <li><input type='button' value='test answer' ng-click='cwSolution()' /></li>
-      <li><input type='button' value='submit final answer' ng-click='cwFinalSolution()' /></li>
-    </ul>
+      <ul>
+        <li><input type='button' value='test answer' ng-click='cwSolution()' /></li>
+        <li><input type='button' value='submit final answer' ng-click='cwFinalSolution()' /></li>
+      </ul>
+    </div>
 </div>
+<div class="userChar">
+  {{character}}
+</div>
+<!-- <div>
+  <h5 id="inspire">LET'S DO THIS!</h5>
+</div> -->
+

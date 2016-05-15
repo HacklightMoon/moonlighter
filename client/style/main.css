@@ -385,7 +385,7 @@ a {
   height: 600px;
 }
 
-.codeFrom{
+.codeForm{
   background-color: black;
   width: 50%;
   
@@ -435,11 +435,13 @@ padding: 8px;
 }
 
 .mainBarrack{
-  margin: 0 auto;
+  margin: auto 0;
   border: 2px solid black;
+  border-radius: 0.7em;
   width: 50%;
-  background-color: gray;
+  background-color: #494b4b;
   padding: 5px;
+  float: left ;
 }
 
 .barrack{
@@ -451,8 +453,13 @@ padding: 8px;
   font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
 }
 
+.sandy{
+  float: right;
+  margin: 10px;
+  width: 45%;
+}
 .sandbox{
-  margin: 0 auto;
+  margin: 0;
   width:98%;
   min-width: 150px;
   border-radius: 0.7em;
@@ -463,14 +470,38 @@ hsl(0, 0%, 8%) 47%,
   hsl(0, 0%, 0%) 53%, 
   hsl(0, 0%, 95%)100%);
   padding: 6px;
-  width: 35%;
-  margin:0 auto 3%;
+  width: 100%;
+  margin:0;
   border-radius: 0.2em;
+}
+.challName {
+  color: #4aba91;
+  margin: 0;
+  padding: 0;
+  width: 75%;
+  font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
+}
+.exBack{
+  background-image: linear-gradient(180deg, hsl(230, 19%, 63%) 0%, 
+  hsl(0, 0%, 8%) 47%, 
+  hsl(0, 0%, 0%) 53%, 
+  hsl(0, 0%, 95%)100%);
+  padding: 6px;
+  border-radius: 0.2em;
+  margin-top: 10px;
+/*  max-height: 10%;*/
+}
+
+.example{
+
 }
 #sandWrite{
   margin: 0 auto;
 }
-
+/*#inspire{
+  margin: 0;
+  width: 10%;
+}*/
 
 
 

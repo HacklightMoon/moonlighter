@@ -1,5 +1,5 @@
 angular.module('moonlighterApp.barracks',[])
-.controller('BarracksCtrl',['$scope', 'Barracks', '$http', '$cookies', function($scope, Barracks, $http, $cookies){
+.controller('BarracksCtrl',['$scope', 'Barracks', 'Profile',  '$http', '$cookies', function($scope, Barracks, Profile , $http, $cookies){
   
   $scope.userData = {};
 
@@ -14,7 +14,6 @@ angular.module('moonlighterApp.barracks',[])
   $scope.cwChallenge = cwChallenge;
   $scope.codemirrorLoaded = codemirrorLoaded;
   $scope.cwSolution = cwSolution;
-
 
   function cwInsert(){
     var userInput = {
@@ -74,7 +73,7 @@ angular.module('moonlighterApp.barracks',[])
     console.log("HEY I'm being called in BarracksCtrl!")
     Barracks.getCodeWar()
     .then(function(resp){
-      console.log("this is some data in BarracksCtrl: ", resp)
+      console.log("this is some data in BarracksCtrl: 91", resp)
       $scope.codewars = resp;
     })
     .catch(function(err){
@@ -97,11 +96,12 @@ angular.module('moonlighterApp.barracks',[])
     Barracks.cwChallenge()
     .then(function(resp){
 
-      console.log("hey checkit", resp)
-      $scope.codeNext = resp;
+      console.log("hey checkit :114", resp)
+      $scope.description = resp.data.description;
       $scope.setup = resp.data.session.setup;
       $scope.name = resp.data.name;
       $scope.tags = resp.data.tags;
+      $scope.example =resp.data.session.exampleFixture;
 
       console.log("HELLO im in cwNextChallenge: ", resp.data.session.setup)
     })
@@ -112,6 +112,7 @@ angular.module('moonlighterApp.barracks',[])
 
   $scope.cwUserStats();
   $scope.cwChallenge();
+  // $scope.getCharacter();
   
   $scope.editorOptions = {
         lineWrapping : true,
