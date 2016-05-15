@@ -4,6 +4,7 @@ angular.module('moonlighterApp.userProfile', [])
 
   /******** Functions in this controller ********/
   $scope.getCharacter = getCharacter;
+  $scope.selectIssue = selectIssue;
 
   // selectedUser is the user_id of the user whose profile we're viewing.
   $scope.selectedUser = Profile.getUser() || $location.search().id;
@@ -57,5 +58,10 @@ angular.module('moonlighterApp.userProfile', [])
     console.log(err);
   });
 
+  // When selecing an issue, send the selected issue to services
+  // for use in other controllers
+  function selectIssue(issue) {
+    Issues.setIssue(issue);
+  }
 
 });
