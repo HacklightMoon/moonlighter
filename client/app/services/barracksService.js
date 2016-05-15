@@ -47,10 +47,10 @@ angular.module("moonlighterApp.barracksService", [])
       });
     }
 
-    function cwChallenge(){
+    function cwChallenge(challengeType){
       return $http({
         method: 'GET',
-        url: '/codewars/nextChallenge/'
+        url: '/codewars/nextChallenge?challengeType='+challengeType
       })
       .then(function (data){
         console.log('Challenge data Barracks:41',data);

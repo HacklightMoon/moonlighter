@@ -25,12 +25,10 @@ CW.GetUserStats = function (cwUsername){
 let strategy = 'kyu_5_workout';
 //GetNextChallenge: WHAT IS THE INPUT? => WHAT IS THE OUTPUT?
 
-CW.GetChallenge = function() {
-  // let challenge = 'anything-to-integer';
+CW.GetChallenge = function(challengeType) {
   let options = {
-    'url': 'https://www.codewars.com/api/v1/code-challenges/javascript/train',
+    'url': 'https://www.codewars.com/api/v1/code-challenges/javascript/train?strategy='+challengeType,
     'headers': {'Authorization' : 'wUGraBxyPMPbRJAy82dr'},
-    'data': {'strategy': 'random'}
   };
   return new Promise(function(resolve, reject){
     request.post(options, function(err, resp, body){

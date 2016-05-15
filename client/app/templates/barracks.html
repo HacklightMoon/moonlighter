@@ -20,13 +20,33 @@
 <!--   <div class='scroll barrack-rules'>
     
 </div>   -->  
-<div class="codeForm">
-  <form ng-show="myValue" class="ng-hide">
+<div class="codeFormContainer"> 
+  <div>
+    <form ng-show="myValue" class="ng-hide">
     <!-- <form> -->
-    Codewars username<input type="text" ng-model="userData.cwUsername" required="required"/></br>
-    Codewars API key<input type="text" ng-model="userData.cwUserAPI" required="required"/><a ui-sref="about"><em>  Why do we need this?</em></a></br>
-    <input type='submit' ng-click="cwInsert()"></br>
-  </form>  
+     Codewars username<input type="text" ng-model="userData.cwUsername" required="required"/></br>
+     Codewars API key<input type="text" ng-model="userData.cwUserAPI" required="required"/><a ui-sref="about"><em>  Why do we need this?</em></a></br>
+     <input type='submit' ng-click="cwInsert()"></br>
+   </form> 
+ </div> 
+ <div>
+  <select name="nextChallenge" ng-model='challengeType'>
+    <option value="default" select>Just Getting To The Next Level</option> 
+    <option value="random">Random: Feeling Lucky?</option>
+    <option value="kyu_8_workout">1. Do You Even Code, Bro?</option>
+    <option value="kyu_7_workout">2. Not Quite A Challange</option>
+    <option value="kyu_6_workout">3. Now We're Talking</option>
+    <option value="kyu_5_workout">4. Not Impossible, Not A Picnic Either</option>
+    <option value="kyu_4_workout">5. This Is What Programming Feels Like</option>
+    <option value="kyu_3_workout">6. You Think You're Hot Shit?</option>
+    <option value="kyu_2_workout">7. Legendary!!!</option>
+    <option value="kyu_1_workout">8. You're A Wizard!</option>
+  </select>
+  <span>{{challengeType}}</span>
+  <button ng-click=cwChallenge()>Test Your Ability</button>
+ </div>
+</div>
+ </div>
 </div>
 
 <!--NEED FORM VALIDATION -->

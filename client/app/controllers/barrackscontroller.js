@@ -93,17 +93,13 @@ angular.module('moonlighterApp.barracks',[])
   }
 
   function cwChallenge() {
-    Barracks.cwChallenge()
+    Barracks.cwChallenge($scope.challengeType)
     .then(function(resp){
-
-      console.log("hey checkit :114", resp)
       $scope.description = resp.data.description;
       $scope.setup = resp.data.session.setup;
       $scope.name = resp.data.name;
       $scope.tags = resp.data.tags;
       $scope.example =resp.data.session.exampleFixture;
-
-      console.log("HELLO im in cwNextChallenge: ", resp.data.session.setup)
     })
     .catch(function(err){
       console.error(err);
@@ -111,7 +107,6 @@ angular.module('moonlighterApp.barracks',[])
   }
 
   $scope.cwUserStats();
-  $scope.cwChallenge();
   // $scope.getCharacter();
   
   $scope.editorOptions = {

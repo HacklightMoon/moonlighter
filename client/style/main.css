@@ -385,11 +385,13 @@ a {
   height: 600px;
 }
 
-.codeForm{
+
+.codeFormContainer{
   background-color: black;
   width: 50%;
-  
 }
+
+.challengeDrop{}
 
 .charCard{
 border-radius: 4px ;
