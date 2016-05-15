@@ -437,13 +437,18 @@ padding: 8px;
 }
 
 .mainBarrack{
-  margin: auto 0;
-  border: 2px solid black;
-  border-radius: 0.7em;
+  margin-top: 94px;
+  color:black;
+/*  border: 2px solid black;
+  border-radius: 0.2em;*/
   width: 50%;
-  background-color: #494b4b;
+  /*max-height: 50%;*/
+  background-image: url('../img/weatherpap.png');
   padding: 5px;
   float: left ;
+  background-size: cover;
+  /*background-repeat: no-repeat;*/
+  padding-bottom: 15px;
 }
 
 .barrack{
@@ -468,7 +473,7 @@ padding: 8px;
 }
 .sandBack{
   background-image: linear-gradient(180deg, hsl(230, 19%, 63%) 0%, 
-hsl(0, 0%, 8%) 47%, 
+  hsl(0, 0%, 8%) 47%, 
   hsl(0, 0%, 0%) 53%, 
   hsl(0, 0%, 95%)100%);
   padding: 6px;
