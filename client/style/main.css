@@ -310,6 +310,23 @@ nav li {
   margin-left: 30px;
 }
 /********************* QUEST PROFILE ************************/
+
+.quest-profile {
+  width: 55%;
+  margin: 0 auto;
+  border: solid;
+  padding: 1%;
+}
+
+#quest-header {
+}
+
+#quest-title {
+}
+
+#quest-owner {
+}
+
 /*.questProfile {
   position: relative;
   margin-top: 50px; 
@@ -322,8 +339,8 @@ nav li {
 }
 
 .quest-details {
-  margin-top:50px;*/
-}
+  margin-top:50px;
+}*/
 /********************* NEW QUESTS ************************/
 .newQuest-profile {
   position: relative;
