@@ -71,7 +71,7 @@ CW.testSolution = function(code) {
 
 CW.getDeferred = function() {
   let options = {
-    'url': 'https://www.codewars.com/api/v1/deferred/' + dmid,
+    'url': 'https://www.codewars.com/api/v1/deferred/' + DMID,
     'headers': {'Authorization' : 'wUGraBxyPMPbRJAy82dr'}
   }
   return new Promise(function(resolve, reject){

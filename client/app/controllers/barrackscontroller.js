@@ -6,10 +6,6 @@ angular.module('moonlighterApp.barracks',[])
 
   $scope.setup;
 
-<<<<<<< c329608b2d1a480f66e5da63f8a71278b8191d2e
-
-=======
->>>>>>> fix codewar endpoint
   /******** Functions in this controller ********/
   $scope.cwInsert= cwInsert;
   $scope.getCodeWar = getCodeWar;
