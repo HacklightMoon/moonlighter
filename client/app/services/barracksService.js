@@ -80,4 +80,5 @@ angular.module("moonlighterApp.barracksService", [])
     };
 
 
+
 });

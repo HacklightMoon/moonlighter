@@ -123,7 +123,7 @@ app.get('/issues/joined', function(req, res){
   });
 });
 //--------------------Character Endpoints----------------
-//NOT FULLY FUNCTIONAL !!!!
+
 app.get('/character', function(req, res){
   Character.getByLevel(req.query.level)
   .then(function(characters){
@@ -146,7 +146,9 @@ app.post('/user/update', function(req, res){
 app.get('/user/info', function(req, res){
   return Users.getById(req.query.id)
   .then(function(resp){
-    res.send(resp);
+    console.log("your resp in server sir", resp)
+    res.send(resp)
+
   });
 });
 

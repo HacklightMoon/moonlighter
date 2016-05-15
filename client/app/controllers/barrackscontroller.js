@@ -6,7 +6,6 @@ angular.module('moonlighterApp.barracks',[])
 
   $scope.setup;
 
-
   /******** Functions in this controller ********/
   $scope.cwInsert= cwInsert;
   $scope.getCodeWar = getCodeWar;
@@ -85,7 +84,7 @@ angular.module('moonlighterApp.barracks',[])
   function cwUserStats() {
     Barracks.cwUserStats()
     .then(function(resp){
-      console.log("hey userstats: ", resp)
+      console.log("hey userstats: " , resp)
       // $scope.codewar = resp;
     })
     .catch(function(err){
@@ -96,14 +95,32 @@ angular.module('moonlighterApp.barracks',[])
   function cwChallenge() {
     Barracks.cwChallenge()
     .then(function(resp){
-      console.log( 'cwChallenge:',resp);
+
+      console.log("hey checkit", resp)
       $scope.codeNext = resp;
       $scope.setup = resp.data.session.setup;
+      $scope.name = resp.data.name;
+      $scope.tags = resp.data.tags;
+
+      console.log("HELLO im in cwNextChallenge: ", resp.data.session.setup)
     })
     .catch(function(err){
       console.error(err);
     });
   }
+
+  // function cwSolution(){
+  //   var userCode = {
+      
+  //   }
+  //   Barracks.sendSolution(userCode)
+  //   .then(function(resp){
+  //     console.log(resp)
+  //   })
+  //   .catch(function(err){
+  //     console.error(err)
+  //   })
+  // }
 
   $scope.cwUserStats();
   $scope.cwChallenge();

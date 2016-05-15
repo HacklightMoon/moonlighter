@@ -25,11 +25,12 @@ CW.GetUserStats = function (cwUsername){
 let strategy = 'kyu_5_workout';
 //GetNextChallenge: WHAT IS THE INPUT? => WHAT IS THE OUTPUT?
 
-CW.GetChallenge = function(strategy) {
+CW.GetChallenge = function() {
+  // let challenge = 'anything-to-integer';
   let options = {
-    'url': 'https://www.codewars.com/api/v1/code-challenges/javascript/train', 
+    'url': 'https://www.codewars.com/api/v1/code-challenges/javascript/train',
     'headers': {'Authorization' : 'wUGraBxyPMPbRJAy82dr'},
-    'data': {'strategy' : 'beta_workout'}
+    'data': {'strategy': 'random'}
   };
   return new Promise(function(resolve, reject){
     request.post(options, function(err, resp, body){
@@ -70,7 +71,7 @@ CW.testSolution = function(code) {
 
 CW.getDeferred = function() {
   let options = {
-    'url': 'https://www.codewars.com/api/v1/deferred/' + dmid,
+    'url': 'https://www.codewars.com/api/v1/deferred/' + DMID,
     'headers': {'Authorization' : 'wUGraBxyPMPbRJAy82dr'}
   }
   return new Promise(function(resolve, reject){
@@ -99,6 +100,5 @@ CW.finalSolution = function(){
     });
   });
 }
-
 
 

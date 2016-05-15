@@ -12,6 +12,7 @@ angular.module("moonlighterApp.profileService", [])
         data: user_id
       })
       .then(function (resp) {
+        console.log("heres something in profserv:", resp)
         return resp;
       })
       .catch(function (err) {
