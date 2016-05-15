@@ -13,30 +13,27 @@
   </nav>
 </div>  
 
-  <div id="center">
-  <div class="questfeed-button-wrapper">
-    <a class="questfeed-button" ui-sref="questFeed">
-      <span class="questfeed-button-text">
-        Return to the Quest Scrolls
-     </span>
-    </a>
-  </div>
-  </div>
-  <!--  <h2>Issue Name: </h2> -->
-  <!-- <div class="ownerProfileButton">{{chosenQuest.owner.profile}}</div> -->
-  <center>
-  <div class="center" style="background-image: url(../img/parchment.jpg); background-size: cover; color: black; margin-top: 70px; margin-right: 40px;">
-  <center><h1 style="margin-top: 0; text-decoration: underline;">{{chosenQuest.title}}</h1></center>
-  <div>
-    <h2>Description:<br><h3>{{chosenQuest.body}}</h3></h2> 
-    <!-- <h3>{{chosenQuest.body}}</h3> -->
-  </div>
-<div style="display: inline-flex;">  
-    <h3 style="float: left; margin-bottom: 0px; margin-top: 30px;">Creator: {{chosenQuest.user}}</h3>
-    <p style="text-decoration: underline; float: right; padding-left: 80px; margin-bottom: 0px; margin-top: 30px;">Date Created: {{chosenQuest.created_at}}</p>
+<div id="center" class="questfeed-button-wrapper">
+  <a class="questfeed-button" ui-sref="questFeed">
+    <span class="questfeed-button-text">
+      Return to the Quest Scrolls
+   </span>
+  </a>
 </div>
+
+  <div class="quest-header">
+      <h1 id="quest-title">{{chosenQuest.title}}</h1> 
+      <h3 id="quest-owner">by: {{chosenQuest.user}}</h3>
   </div>
-  </center>
+
+  <div class="quest-description">
+    <p>{{chosenQuest.body}}</p>
+  </div>
+
+  <div class="quest-footer">
+    <p>{{questBounty}}</p>
+    <p>{{chosenQuest.created_at}}</p>
+  </div>
   
 <div id="center">  
   <a href="{{chosenQuest.issue_url}}" target="_blank" class="githubLink"><button>Github Issue Link</button></a>
