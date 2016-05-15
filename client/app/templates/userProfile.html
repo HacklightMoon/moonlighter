@@ -49,22 +49,26 @@
   <ul style="height:224px;
   overflow:auto;">
   <li ng-repeat="issue in joinedIssues">
-    <h3 class="issue-title">{{issue.title}}</h3>
-    <p class="issue-body">{{issue.body}}</p>
+    <a ng-click="selectIssue(issue)" ui-sref="questProfile">
+      <h3 class="issue-title">{{issue.title}}</h3>
+      <p class="issue-body">{{issue.body}}</p>
+    </a>
   </li>
 </ul>
 </div> 
 <p> 
   <div style="float:left;
-  height: 250px;
-  width:350px; 
-  padding:3px;">
+              height: 250px;
+              width:350px; 
+              padding:3px;">
   <h1 style="padding-top: 30px;">Quests Created</h1>
   <ul style="height:224px;
-  overflow:auto;">
+            overflow:auto;">
   <li ng-repeat="issue in myIssues">
-    <h3 class="issue-title">{{issue.title}}</h3>
-    <p class="issue-body">{{issue.body}}</p>
+    <a ng-click="selectIssue(issue)" ui-sref="questProfile">
+      <h3 class="issue-title">{{issue.title}}</h3>
+      <p class="issue-body">{{issue.body}}</p>
+    </a>
   </li>
 </ul>
 </div>

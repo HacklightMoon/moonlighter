@@ -409,6 +409,7 @@ padding: 8px;
 
 .sprite{
   height: 300px;
+  width: 300px;
   background-image: url('../img/Moonlighterbackground.jpg');
   /*background-color: #F1E6CD;*/
   background-size: cover;
