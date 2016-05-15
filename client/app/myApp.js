@@ -5,6 +5,7 @@
                               'toastr',
                               'ui.codemirror',
                               'ui.router',
+                              'yaru22.md',
                               // 'ui.bootstrap',
                               // 'ngAnimate',
                               'ngCookies',
@@ -24,11 +25,6 @@
 
   module.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',  function($stateProvider, $urlRouterProvider, $httpProvider) {
 
-
-// possibly unneccesary 
-    // $httpProvider.defaults.useXDomain = true;
-    // $httpProvider.defaults.withCredentials = true;
-    // delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
     $stateProvider
       .state('home',{

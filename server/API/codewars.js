@@ -79,9 +79,16 @@ CW.getDeferred = function() {
         reject(err);
         return;
       }
-      resolve(body,resp);
+      console.log("getDeferred resp.value:", JSON.parse(body).value)
+      if (JSON.parse(body).value === "running" || JSON.parse(body).value === "queued"){
+        setTimeout(function(){return CW.getDeferred()}, 1000);
+      }
+      else {
+        resolve(body,resp);
+      }
     });
-  });
+  })
+
 }
 
 CW.finalSolution = function(){
