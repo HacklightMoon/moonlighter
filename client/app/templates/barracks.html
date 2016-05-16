@@ -22,7 +22,7 @@
     <form ng-show="myValue" class="ng-hide">
     <!-- <form> -->
      Codewars username<input type="text" ng-model="userData.cwUsername" required="required"/></br>
-     Codewars API key<input type="text" ng-model="userData.cwUserAPI" required="required"/><a ui-sref="about"><em>  Why do we need this?</em></a></br>
+     Codewars API key <input id="secInput" type="text" ng-model="userData.cwUserAPI" required="required"/><a ui-sref="about"><em>  Why do we need this?</em></a></br>
      <input type='submit' ng-click="cwInsert()"></br>
    </form> 
  </div> 
