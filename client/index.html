@@ -1,8 +1,9 @@
   <!DOCTYPE html>
-<html ng-app="moonlighterApp">
+<html ng-app="moonlighterApp" ng-controller="MainCtrl">
   <head lang="en">
       <link href='https://fonts.googleapis.com/css?family=Quicksand|Cinzel+Decorative:400,700|Poiret+One|Hammersmith+One' rel='stylesheet' type='text/css'>
       <meta charset="UTF-8">
+      <title>Moonlighter</title>
       <title>Moonlighter</title>
       <link rel="stylesheet" type="lib/bootstrap/dist/css/bootstrap.min.css"/>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
@@ -14,7 +15,7 @@
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
   </head>
 
-  <body class="main-wrapper">
+  <body ng-class="backgroundClass" class="main-wrapper">
  <!--    <div id="foo"></div> -->
      <div ui-view></div>
 
@@ -44,6 +45,7 @@
       <script src="/app/controllers/navcontroller.js"></script>
       <script src="/app/controllers/barrackscontroller.js"></script>
       <script src="/app/controllers/userProfilecontroller.js"></script>
+      <script src="/app/controllers/maincontroller.js"></script>
       <script src="/app/services/barracksService.js"></script>
       <script src="/app/services/issueService.js"></script>
       <script src="/app/services/profileService.js"></script>
