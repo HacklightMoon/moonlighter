@@ -49,11 +49,15 @@
 
   <div class="questsJoined">
     <h1>Quests Joined</h1>
-    <ul>
+    <ol>
       <li ng-repeat="issue in joinedIssues">
         <a ng-click="selectIssue(issue)" ui-sref="questProfile">
-          <h3 class="issue-title">{{issue.title}}</h3>
-          <p class="issue-body">- {{issue.body}}</p>
+          <div class="qJoinTitle">
+            <h3>{{issue.title}}</h3>
+          </div>
+          <div class="qJoinBody">
+            <p>{{issue.body}}</p>
+          </div>
         </a>
       </li>
     </ul>
@@ -61,11 +65,15 @@
 
   <div class="questsCreated">
     <h1>Quests Created</h1>
-    <ul>
+    <ol>
       <li ng-repeat="issue in myIssues">
         <a ng-click="selectIssue(issue)" ui-sref="questProfile">
-          <h3 class="issue-title">{{issue.title}}</h3>
-          <p class="issue-body">- {{issue.body}}</p>
+          <div class="qJoinTitle">
+            <h3 class="qJoinTitle">{{issue.title}}</h3>
+          </div>
+          <div class="qJoinBody">
+            <p>{{issue.body}}</p>
+          </div>
         </a>
       </li>
     </ul>

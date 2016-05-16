@@ -51,6 +51,9 @@
     font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
 }
 
+.yellow-font {
+  color:#d4ce46;
+}
 /********************* Header ************************/
 .logoBlock{
   display: inline;
@@ -447,8 +450,8 @@ margin: 0 auto;
 
 .quest-footer {
   background: #0e5135;
-  width: 92%;
-  margin: 0 0.5% 20px;
+  width: 91%;
+  margin: 2% 1% 1%;
   padding: 2% 3%;
   display: inline-block;
   border: 4px solid #4aba91;
@@ -480,15 +483,21 @@ margin: 0 auto;
 }
 
 #rf-footer-issue{
-  margin-top:3%;
+  margin:0 auto;
   float:right;
-  display: inline-block;
+  display: block;
 }
 
 #rf-footer-user{
-  margin-top:3%;
+  margin:0 auto;
   float:right;
-  display: inline-block;
+  display: block;
+}
+
+#rf-footer-github{
+  margin:0 auto;
+  float:right;
+  display: block;
 }
 
 .close-quest{
@@ -544,6 +553,7 @@ a {
   padding: 2%;
   margin-bottom: 2%;
   font-family: 'Hammersmith One';
+  color:#d4ce46;
 }
 
 .userCard p, h1, h2, h3 {
@@ -565,6 +575,7 @@ a {
 }
 
 .pic {
+  border-radius: 0.7em;
   float: left;
   display: inline-block;
 }
@@ -722,6 +733,18 @@ padding: 8px;
 }*/
 
 /********************* USER PROFILE ***********************/
+
+.qJoinTitle{
+  margin-top: 2%;
+  margin-left: 1%;
+  color:#d4ce46;
+}
+
+.qJoinBody{
+  color:#d4ce46;
+  display:block;
+  margin-left:7%;
+}
 
 .mainBarrack{
   margin-top: 94px;
