@@ -2,15 +2,6 @@
 /** {
   box-sizing: border-box;
 }*/
-.landing-bg {
-  background-image:  url('../img/Moonlighterbackground.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #202835;
-  background-attachment: fixed;
-  background-position: relative;
-  margin: 0 auto;
-}
 
 .home, .about {
   background-image: url('../img/Moonlighterbackground.jpg');
@@ -19,17 +10,7 @@
 
 .questFeed, .questProfile, .userProfile {
   background-image:  url('../img/woodvec.png');
-  background-size: cover;
-  background-repeat: no-repeat;
   background-color: #9f603a;
-  background-attachment: fixed;
-  background-position: relative;
-  margin: 0 auto;
-}
-
-.quest-profile-bg {
-  background-image:  url('../img/woodvec.png');
-  background-color: #202835;
 }
 
 .barracks {
@@ -37,50 +18,9 @@
   background-color: #202835;
 }
 
-.main-wrapper { 
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #9f603a;
-  background-attachment: fixed;
-  background-position: relative;
-  margin: 0 auto;
-}
-
-.barracks-bg {
-  background-image:  url('../img/Moonlighterbackground.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #202835;
-  background-attachment: fixed;
-  background-position: relative;
-  margin: 0 auto;
-}
-
-.about-bg {
-  background-image:  url('../img/Moonlighterbackground.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #202835;
-  background-attachment: fixed;
-  background-position: relative;
-  margin: 0 auto;
-}
-
-.about-bg {
-  background-image:  url('../img/Moonlighterbackground.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #202835;
-  background-attachment: fixed;
-  background-position: relative;
-  margin: 0 auto;
-}
-
 .main-wrapper {
-  background-image:  url('../img/woodvec.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: #9f603a;
   background-attachment: fixed;
   background-position: relative;
   margin: 0 auto;
@@ -229,7 +169,7 @@ nav li {
 }*/
 /********************* QUEST FEED ************************/
 .container-quests {
-margin:0 auto;
+margin: 0 auto;
 }
 
 .quests {
@@ -255,15 +195,49 @@ margin:0 auto;
   position: relative;
   width: 250px;
   height: 349px;
-  margin: 20px;
+  margin: 2%;
   float:left;
 }
 
-.title-on-card {
-  font-size: 1.3rem;
-  font-weight: 900;
-  float: left;
-  margin-left: 30px;
+.quest-title-div {
+  display: block;
+  width: 80%;
+  background: #0e5135;
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
+  margin:8% auto;
+  height: 110px;
+}
+
+#title-on-card {
+  font-weight: 400;
+  font-size:0.7rem;
+  text-align:left;
+  margin: 4% 0 0 4%;
+}
+
+#quest-title {
+  font-size: 1.2rem;
+}
+
+#issue-title-header {
+  margin: 0;
+  margin-left: 12%; 
+  text-align: left;
+}
+
+.quest-bounty-div {
+  display: block;
+  width: 80%;
+  background: #0e5135;
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
+  margin:8% auto;
+  height: 30px;
+}
+
+#issue-bounty{
+  margin:3%;
 }
 .quest-profile {
   width: 79%;
@@ -287,14 +261,30 @@ margin:0 auto;
   font-weight: 200;
 }
 
-.questimage {
+.issue-monster {
   position: relative;
-  width: 100%;
 }
 
-.newquest-button {
-  position: relative;
-} 
+#description-title{
+  float:left;
+}
+
+#quest-card-description{
+  font-weight: 400;
+  font-size:0.7rem;
+  text-align:left;
+  margin: 4% 0 0 4%;
+}
+
+.smallcard-div{
+  display: block;
+  width: 80%;
+  background: #0e5135;
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
+  margin:8% auto;
+  height: 40px;
+}
 
 .face {
   position: absolute;
@@ -308,32 +298,20 @@ margin:0 auto;
   background:#494b4b;
   border: 4px solid #4aba91;
   border-radius: 0.7em;
-  font-size: 2rem;
 }
 
 .face.back {
-  font-size: 1.2rem;
   display: block;
   box-sizing: border-box;
-  padding: 20px;
   background:#494b4b;
   border: 4px solid #4aba91;
   border-radius: 0.7em;
 }
 
-.quest-title-div {
-  display: block;
-  width: 100%;
-  float:left;
-}
-
-.questinfo {
-  margin-left:60px;
-}
-
 .back-info {
   font-family: 'Hammersmith One', 'Quicksand', sans-serif;
   font-weight: 400;
+  margin-bottom: 2%;
 }
 
 /********************* ANIMATION ************************/

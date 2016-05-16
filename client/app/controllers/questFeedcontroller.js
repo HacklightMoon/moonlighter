@@ -26,6 +26,7 @@ angular.module('moonlighterApp.questFeed', [])
     Issues.getAllIssues()
     .then(function(data) {
       $scope.issues = data;
+      console.log(data)
     })
     .catch(function(err){
       console.error(err);
