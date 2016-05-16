@@ -285,9 +285,13 @@ margin: 0 auto;
   border: 4px solid #4aba91;
   border-radius: 0.7em;
   margin:8% auto;
+  margin-top: 12%;
   height: 40px;
 }
 
+.backside-descrip{
+  height:130px;
+}
 .face {
   position: absolute;
   width: 100%;
