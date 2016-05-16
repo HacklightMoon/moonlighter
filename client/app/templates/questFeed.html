@@ -20,18 +20,30 @@
         <a ng-click="selectIssue(quest)" ui-sref="questProfile">  
           <div class="card">
             <div class="face front">
+              <div class="issue-monster"><img src="../../art/skeleton-3-small.png"></div>
               <div class="quest-title-div">
-                <p class="title-on-card">Issue title</p>
-                <h3 class="questinfo"><span>{{quest.title}}</span></h3>
+                <div id="title-on-card">
+                 Issue Title
+                </div>
+                <div id="quest-title">
+                    <h3 id="issue-title-header"><span>{{quest.title}}</span></h3>
+                </div>
               </div>
               <div class="quest-bounty-div">
-                <!-- <p class="title-on-card">URL</p>
-                <h3 class="questinfo"><span>{{quest.issue_url}}</span></h3> -->
+                <div id="issue-bounty">$90{{quest.bounty}}</div>
               </div>
             </div>
               <div class="face back">
-                <span class="back-info"><p> Description: {{quest.body}}</p></span>
-                <span class="back-info"><p> Status: {{quest.status}}</p></span>
+                <div class="smallcard-div">
+                  <div class="back-info"><p> Status: {{quest.status}}</p></div>
+                </div>
+                <div class="smallcard-div">
+                  <div class="back-info"><p> Status: {{quest.user}}</p></div>
+                </div>
+                <div class="quest-title-div">
+                  <div id="description-title">Description:</div> 
+                  <span id="quest-card-description"><p>{{quest.body}}</p></span>
+                </div>
             </div>
           </div>
           </a>

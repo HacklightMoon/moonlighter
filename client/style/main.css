@@ -10,7 +10,7 @@
 
 .questFeed, .questProfile, .userProfile {
   background-image:  url('../img/woodvec.png');
-  background-color: #202835;
+  background-color: #9f603a;
 }
 
 .barracks {
@@ -18,12 +18,11 @@
   background-color: #202835;
 }
 
-.main-wrapper { 
+.main-wrapper {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: fixed;
-  color: #e2dfc8;
+  background-position: relative;
   margin: 0 auto;
   /*overflow: hidden;*/
 }
@@ -170,21 +169,14 @@ nav li {
 }*/
 /********************* QUEST FEED ************************/
 .container-quests {
-  perspective: 800px;
-}
-
-.container{
-  width:400px;
-  height:280px;
-  position: relative;
+margin: 0 auto;
 }
 
 .quests {
-    /*margin-left: 10rem;*/
-    top:50%;
-    right:50%;
-    margin: 0 auto;
-
+  /*margin-left: 10rem;*/
+/*  top:50%;
+  right:50%;*/
+  margin: 0 auto;
 }
 
 .newquest-button {
@@ -201,29 +193,100 @@ nav li {
 .questCard {
   text-align:center;
   position: relative;
-  width: 350px;
-  height: 200px;
-  margin: 15px;
+  width: 250px;
+  height: 349px;
+  margin: 2%;
   float:left;
 }
 
+.quest-title-div {
+  display: block;
+  width: 80%;
+  background: #0e5135;
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
+  margin:8% auto;
+  height: 110px;
+}
+
+#title-on-card {
+  font-weight: 400;
+  font-size:0.7rem;
+  text-align:left;
+  margin: 4% 0 0 4%;
+}
+
+#quest-title {
+  font-size: 1.2rem;
+}
+
+#issue-title-header {
+  margin: 0;
+  margin-left: 12%; 
+  text-align: left;
+}
+
+.quest-bounty-div {
+  display: block;
+  width: 80%;
+  background: #0e5135;
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
+  margin:8% auto;
+  height: 30px;
+}
+
+#issue-bounty{
+  margin:3%;
+}
+.quest-profile {
+  width: 79%;
+  background: #494b4b;
+  margin: 0 auto;
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
+  padding: 2%;
+  margin-bottom: 2%;
+  font-family: 'Hammersmith One';
+  color:  #d4ce46;
+}
 .card{
+  perspective: 800px;
   text-align:center;
   position: absolute;
   width: 100%;
   height: 100%;
-  color: #202835;
-  font-family:200;
+  color: #d4ce46;
+  font-family: 'Hammersmith One';
+  font-weight: 200;
 }
 
-.questimage {
+.issue-monster {
   position: relative;
-  width: 100%;
 }
 
-.newquest-button {
-  position: relative;
-} 
+#description-title{
+  float:left;
+  margin: 4% 0 0 4%;
+}
+
+#quest-card-description{
+  font-weight: 400;
+  font-size:0.7rem;
+  text-align:left;
+  margin: 2% 4%;
+  display: inline-block;
+}
+
+.smallcard-div{
+  display: block;
+  width: 80%;
+  background: #0e5135;
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
+  margin:8% auto;
+  height: 40px;
+}
 
 .face {
   position: absolute;
@@ -232,33 +295,25 @@ nav li {
 }
 
 .face.front {
-  font-family: 'Poiret One', 'Hammersmith One', 'Quicksand', sans-serif;
-  background-image: url("../img/parchment.jpg");
-  font-size: 2rem;
+  font-family: 'Hammersmith One', 'Quicksand', sans-serif;
+  font-weight: 400;
+  background:#494b4b;
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
 }
 
 .face.back {
-  font-size: 1.2rem;
   display: block;
   box-sizing: border-box;
-  padding: 20px;
-  color: #202835;
-  text-align: left;
-  background-image: url("../img/parchment.jpg");
-}
-
-.quest-title-div {
-  display: block;
-  width: 100%;
-}
-
-.questinfo {
-  margin-left:60px;
+  background:#494b4b;
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
 }
 
 .back-info {
-  font-family: 'Poiret One', 'Hammersmith One', 'Quicksand', sans-serif;
-  font-weight: 800;
+  font-family: 'Hammersmith One', 'Quicksand', sans-serif;
+  font-weight: 400;
+  margin-bottom: 2%;
 }
 
 /********************* ANIMATION ************************/
@@ -311,13 +366,6 @@ nav li {
 .face.back {
   transform: rotateY(180deg); 
 }
-
-.title-on-card {
-  font-size: 1.3rem;
-  font-weight: 900;
-  float: left;
-  margin-left: 30px;
-}
 /********************* QUEST PROFILE ************************/
 
 .quest-profile {
@@ -329,6 +377,7 @@ nav li {
   padding: 2%;
   margin-bottom: 2%;
   font-family: 'Hammersmith One';
+  color:  #d4ce46;
 }
 
 .quest-header {
@@ -439,7 +488,7 @@ nav li {
 }
 
 .close-quest{
-  margin: 0 auto;
+  margin: 0 auto 5%;
   padding: 2% 3%;
   border:4px solid  #4aba91;
   border-radius: 0.7em;
@@ -571,6 +620,12 @@ padding: 8px;
   background-size: cover;
   background-repeat: no-repeat;
   padding-bottom: 15px;
+}
+
+.container{
+  width:400px;
+  height:280px;
+  position: relative;
 }
 
 .barracksLoader {
