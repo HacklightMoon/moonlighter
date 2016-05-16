@@ -264,8 +264,12 @@ margin: 0 auto;
   font-weight: 200;
 }
 
-.issue-monster {
+.issue-monster img{
   position: relative;
+  padding-top: 2%;
+  /*margin-top:2%; */
+  height: 140px; 
+  width: 160px;
 }
 
 #description-title{

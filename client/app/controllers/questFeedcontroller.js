@@ -26,7 +26,14 @@ angular.module('moonlighterApp.questFeed', [])
     Issues.getAllIssues()
     .then(function(data) {
       $scope.issues = data;
-      console.log(data)
+      for (var i=0; i<data.length; i++) {
+        Issues.getBounty(data[i].id)
+        .then(function(data) {
+          for (var i=0; i<$scope.issues.length; i++) {
+            $scope.issues[i].bounty = data[0].bounty;
+          }
+        })
+      }
     })
     .catch(function(err){
       console.error(err);
