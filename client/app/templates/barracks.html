@@ -15,65 +15,76 @@
 
 <div class='tbd'>
   <!-- <audio src="../img/swords.mp3" autoplay></audio> -->
-  <h1 class='barracks-title'>The Barracks</h1>
-
-<div class="codeFormContainer"> 
-  <div>
-    <form ng-show="myValue" class="ng-hide">
-    <!-- <form> -->
-     Codewars username<input type="text" ng-model="userData.cwUsername" required="required"/></br>
-     Codewars API key<input type="text" ng-model="userData.cwUserAPI" required="required"/><a ui-sref="about"><em>  Why do we need this?</em></a></br>
-     <input type='submit' ng-click="cwInsert()"></br>
-   </form> 
- </div> 
- <div>
-  <select name="nextChallenge" ng-model='challengeType'>
-    <option value="default" select>Just Getting To The Next Level</option> 
-    <option value="random">Random: Feeling Lucky?</option>
-    <option value="kyu_8_workout">1. Do You Even Code, Bro?</option>
-    <option value="kyu_7_workout">2. Not Quite A Challange</option>
-    <option value="kyu_6_workout">3. Now We're Talking</option>
-    <option value="kyu_5_workout">4. Not Impossible, Not A Picnic Either</option>
-    <option value="kyu_4_workout">5. This Is What Programming Feels Like</option>
-    <option value="kyu_3_workout">6. You Think You're Hot Shit?</option>
-    <option value="kyu_2_workout">7. Legendary!!!</option>
-    <option value="kyu_1_workout">8. You're A Wizard!</option>
-  </select>
-  <span>{{challengeType}}</span>
-  <button ng-click=cwChallenge()>Test Your Ability</button>
- </div>
+    <h1 class='barracks-title'>The Barracks</h1>
+    <div class="codeFormContainer"> 
+      <div>
+        <form ng-show="myValue" class="ng-hide">
+      <!-- <form> -->
+        <div id="cwUserNameInsert" class="inputBox" >
+          Codewars username<input class="inputBox" type="text" ng-model="userData.cwUsername" required="required" placeholder="CodeWars Username goes here!" />
+        </div>
+        <div id="cwAPIinsert" >
+            Codewars API key
+            <div class="inputBox">
+              <input type="text" ng-model="userData.cwUserAPI" required="required" placeholder="CodeWars API Key goes here!"/>
+            </div>
+        </div>
+        <div id="submitChallengeReq">
+          <input type='submit' ng-click="cwInsert()">
+        </div>
+      </form> 
+    </div> 
+  </div>
 </div>
- </div>
+<div class='codeFormContainer'>
+  <div class="nextChallengeSelector">
+    <select name="nextChallenge" ng-model='challengeType'>
+      <option value="default" select>Just Getting To The Next Level</option> 
+      <option value="random">Random: Feeling Lucky?</option>
+      <option value="kyu_8_workout">1. Do You Even Code, Bro?</option>
+      <option value="kyu_7_workout">2. Not Quite A Challange</option>
+      <option value="kyu_6_workout">3. Now We're Talking</option>
+      <option value="kyu_5_workout">4. Not Impossible, Not A Picnic Either</option>
+      <option value="kyu_4_workout">5. This Is What Programming Feels Like</option>
+      <option value="kyu_3_workout">6. You Think You're Hot Shit?</option>
+      <option value="kyu_2_workout">7. Legendary!!!</option>
+      <option value="kyu_1_workout">8. You're A Wizard!</option>
+    </select>
+  </div>
+  <div class="nextChallengeSubmit">
+    <button ng-click=cwChallenge()>Test Your Ability</button>
+  </div>
 </div>
-
+  <div class="codeFormContainer">
+    <div>Challenge Title:</div> 
+    <div id='chalTitle'><h4>{{name}}</h4></div>
+  </div>
 
 <!--NEED FORM VALIDATION -->
 
-<div ng-if="spinner" class="barracksLoader">
-  <img src="../img/gears.gif">
-  <h3>Loading...</h3>
-</div>
-<div ng-if="!spinner && description" class="mainBarrack">
+
+<div class="mainBarrack">
   <div class="challengeDetails">
-  <h2>Challenge Description: </h2>
-   <pre style="white-space:pre-wrap;"><code class="html">{{description}}</code></pre>
+  <div class="challengeName">
+    <h2>Challenge Description: </h2>
   </div>
-    <!--   <br> -->
-</div>
-<div class="sandy">
-  <div class="challName">
-    <h4>{{name}}</h4>
-  </div>
-  <div class="sandBack">
-
-    <div class="sandbox">
-
-      <textarea ui-codemirror ui-codemirror-opts="editorOptions" ng-model="setup"></textarea>
-
+  <div ng-if="spinner" class="barracksLoader">
+    <div id="topSpin">
+      <img src="../img/gears.gif">
     </div>
+    <div id="spinner-load">
+      <h3>Loading...</h3>
+    </div>
+  </div>
+    <pre style="white-space:pre-wrap;"><code class="html">{{description}}</code></pre>
+  </div>
+</div>
 
- 
-
+<div class="sandy">
+  <div class="sandBack">
+    <div class="sandbox">
+      <textarea ui-codemirror ui-codemirror-opts="editorOptions" ng-model="setup"></textarea>
+    </div>
   </div>
   <div class="exBack">
      <div class="example">
@@ -81,12 +92,10 @@
     </div>
   </div>
 
-  <div class='cwsubmit'>
-      
-        <input type='button' value='test answer' ng-click='cwSolution()' />
-        <input type='button' value='submit final answer' ng-click='cwFinalSolution()' />
-      
-    </div>
+  <div class='codeFormContainer pushUp'>
+    <input type='button' value='test answer' ng-click='cwSolution()' />
+    <input type='button' value='submit final answer' ng-click='cwFinalSolution()' />
+  </div>
 </div>
 <div class="userChar">
   {{character}}
