@@ -3,11 +3,24 @@
   box-sizing: border-box;
 }*/
 
-.main-wrapper {
+.home, .about {
+  background-image: url('../img/Moonlighterbackground.jpg');
+  background-color: #202835;
+}
+
+.questFeed, .questProfile, .userProfile {
   background-image:  url('../img/woodvec.png');
+  background-color: #202835;
+}
+
+.barracks {
+  background-image: url('../img/inbarrack.png');
+  background-color: #202835;
+}
+
+.main-wrapper { 
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: #202835;
   background-attachment: fixed;
   background-position: fixed;
   color: #e2dfc8;

@@ -1,7 +1,9 @@
 angular.module('moonlighterApp.main',[])
-.controller('MainCtrl',['$scope', '$state', function($scope, $state){
+.controller('MainCtrl',['$scope', '$rootScope', function($scope, $rootScope){
   
-  // $scope.testVar = $state.current.name
-  console.log($state)
+  $rootScope.$on('$stateChangeStart', 
+  function(event, toState, toParams, fromState, fromParams){ 
+    $scope.backgroundClass = toState.name
+  })
 
 }]);
