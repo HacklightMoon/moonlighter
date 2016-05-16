@@ -13,7 +13,7 @@
   </nav>
 </div>  
 
-<div id="center" class="questfeed-button-wrapper">
+<div  id="center"class="questfeed-button-wrapper">
   <a class="questfeed-button" ui-sref="questFeed">
     <span class="questfeed-button-text">
       Return to the Quest Scrolls
@@ -23,21 +23,22 @@
 
 <div class="quest-profile">
   <div class="quest-header">
-      <h1 id="quest-title">{{chosenQuest.title}}</h1> 
-      <h3 id="quest-owner">by: {{chosenQuest.user}}</h3>
+    <span class="q-title">{{chosenQuest.title}}</span>
+    <span class="quest-owner">by: {{chosenQuest.user}}</span>
   </div>
+  <div class='quest-details'>
+    <div class="quest-description">
+      <p>{{chosenQuest.body}}</p>
+    </div>
 
-  <div class="quest-description">
-    <p>{{chosenQuest.body}}</p>
-  </div>
-
-  <div class="quest-members">
-    <h2>Quest Members</h2>
-    <ul>
-      <li ng-repeat="user in questMembers">
-        <h3>{{user.github_username}}</h3>
-      </li>
-    </ul>
+     <div class="quest-members">
+      <p>Quest Members:</p>
+      <ul>
+        <li ng-repeat="user in questMembers">
+          <h3>{{user.github_username}}</h3>
+        </li>
+      </ul>
+    </div>
   </div>
 
   <div class="quest-footer">

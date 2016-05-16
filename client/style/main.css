@@ -4,7 +4,7 @@
 }*/
 
 .main-wrapper {
-  background-image:  url('../img/inbarrack.png');
+  background-image:  url('../img/woodvec.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #202835;
@@ -38,6 +38,7 @@
     color: #202835;
     font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
 }
+
 /********************* Header ************************/
 .logoBlock{
   display: inline;
@@ -238,11 +239,6 @@ nav li {
   width: 100%;
 }
 
-.quest-title-div {
-  display: block;
-  width: 100%;
-}
-
 .questinfo {
   margin-left:60px;
 }
@@ -312,35 +308,77 @@ nav li {
 /********************* QUEST PROFILE ************************/
 
 .quest-profile {
-  width: 55%;
+  width: 79%;
+  background: #494b4b;
   margin: 0 auto;
-  border: solid;
-  padding: 1%;
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
+  padding: 2%;
+  margin-bottom: 5%;
 }
 
-#quest-header {
-}
-
-#quest-title {
-}
-
-#quest-owner {
-}
-
-/*.questProfile {
-  position: relative;
-  margin-top: 50px; 
+.quest-header {
+  margin: 0 0.5% 20px;
+  padding: 2% 3%;
+  border:4px solid  #4aba91;
+  border-radius: 0.7em;
   display:inline-block;
+  width: 92%;
+  background: #0e5135;
 }
 
-.quest-button-wrapper {
-  position: relative;
-  margin-bottom: 25px;
+.q-title {
+  margin: auto;
+  float: left;
+  font-size: 40px;
+  font-family: 'Hammersmith One';
 }
 
-.quest-details {
-  margin-top:50px;
-}*/
+.quest-owner {
+  margin: auto;
+  float: right;
+  font-size: 25px;
+  margin-top:1.25%;
+  font-family: 'Hammersmith One';
+  font-weight: 400;
+}
+
+.quest-description {
+  width: 40%;
+  background: #494b4b;
+  margin: 1%;
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
+  padding: 2%;
+  display: inline-block;
+  height: 100px;
+  float:left;
+  background: #0e5135;
+  font-family: 'Hammersmith One';
+}
+
+.quest-members{
+  width: 40%;
+  background: #494b4b;
+  margin: 1%;
+  height: 100px;
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
+  padding: 2%;    
+  display: inline-block;
+  float:right;
+  background: #0e5135;
+  font-family: 'Hammersmith One';
+}
+
+.quest-footer {
+  width:92%;
+  margin: 0 0.5% 20px;
+  padding: 2% 3%;
+  background: #494b4b;
+  display: inline-block;
+}
+
 /********************* NEW QUESTS ************************/
 .newQuest-profile {
   position: relative;
@@ -419,7 +457,7 @@ max-height: 550px;
 .charBack{
 background-image: url('../img/parchment.jpg');
 background-size: cover;
-border-radius: 8px;
+border-radius: 4px;
 padding: 8px;
 
 }
@@ -447,9 +485,12 @@ padding: 8px;
   margin-left: 15px;
   margin-top: 30px;
 }
+
 #stats{
   font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand';
 }
+
+/********************* USER PROFILE ***********************/
 
 .mainBarrack{
   margin-top: 94px;
