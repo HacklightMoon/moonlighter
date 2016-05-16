@@ -46,15 +46,19 @@
  </div>
 </div>
 
-<div class="mainBarrack">
+
+<!--NEED FORM VALIDATION -->
+
+<div ng-if="spinner" class="barracksLoader">
+  <img src="../img/gears.gif">
+  <h3>Loading...</h3>
+</div>
+<div ng-if="!spinner && description" class="mainBarrack">
   <div class="challengeDetails">
-
-    <h2>Challenge Description: </h2>
-    
-      <div>{{description}}</div>
-        
-
+  <h2>Challenge Description: </h2>
+    <div>{{description}}</div>
   </div>
+    <!--   <br> -->
 </div>
 <div class="sandy">
   <div class="challName">
