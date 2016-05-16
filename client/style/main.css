@@ -449,6 +449,15 @@ padding: 8px;
   padding-bottom: 15px;
 }
 
+.barracksLoader {
+  margin-top: 94px;
+  margin-left: 10px;
+  width: 50%;
+  min-height: 465px;
+  float: left;
+  padding-bottom: 15px;
+}
+
 .challengeDetails{
   padding: 10%;
   /*overflow-y: scroll; */
