@@ -314,7 +314,8 @@ nav li {
   border: 4px solid #4aba91;
   border-radius: 0.7em;
   padding: 2%;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
+  font-family: 'Hammersmith One';
 }
 
 .quest-header {
@@ -331,7 +332,6 @@ nav li {
   margin: auto;
   float: left;
   font-size: 40px;
-  font-family: 'Hammersmith One';
 }
 
 .quest-owner {
@@ -339,46 +339,100 @@ nav li {
   float: right;
   font-size: 25px;
   margin-top:1.25%;
-  font-family: 'Hammersmith One';
   font-weight: 400;
 }
 
 .quest-description {
-  width: 40%;
+  width: 45%;
   background: #494b4b;
   margin: 1%;
   border: 4px solid #4aba91;
   border-radius: 0.7em;
-  padding: 2%;
+  padding: 1%;
   display: inline-block;
-  height: 100px;
+  height: 200px;
   float:left;
   background: #0e5135;
-  font-family: 'Hammersmith One';
 }
 
 .quest-members{
-  width: 40%;
+  width: 45%;
   background: #494b4b;
   margin: 1%;
-  height: 100px;
+  height: 200px;
   border: 4px solid #4aba91;
   border-radius: 0.7em;
-  padding: 2%;    
+  padding: 1%;    
   display: inline-block;
-  float:right;
+  float:left;
   background: #0e5135;
-  font-family: 'Hammersmith One';
+}
+.quest-members p{
+  font-size: 30px;
+  display: inline-block;
+  float:left;
+  margin-top: -1%;
+}
+.quest-members ul {
+  list-style: inside decimal;
+  display: inline-block;
+  margin-right: 1%;
 }
 
 .quest-footer {
-  width:92%;
+  background: #0e5135;
+  width: 92%;
   margin: 0 0.5% 20px;
   padding: 2% 3%;
-  background: #494b4b;
+  display: inline-block;
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
+}
+
+.left-footer {
+  float:left;
+  width: 45%;
+}
+
+#lf-footer-coin {
+  float:left;
+}
+
+#lf-footer-bounty {
+  float:left;
+  margin-right: 20px; 
+}
+
+#lf-footer-bornOn {
+  float:left;
+  margin: auto;
+}
+
+.right-footer {
+  float:right;
+  width:45%;
+}
+
+#rf-footer-issue{
+  margin-top:3%;
+  float:right;
   display: inline-block;
 }
 
+#rf-footer-user{
+  margin-top:3%;
+  float:right;
+  display: inline-block;
+}
+
+.close-quest{
+  margin: 0 auto;
+  padding: 2% 3%;
+  border:4px solid  #4aba91;
+  border-radius: 0.7em;
+  width: 77%;
+  background: #0e5135;
+}
 /********************* NEW QUESTS ************************/
 .newQuest-profile {
   position: relative;
