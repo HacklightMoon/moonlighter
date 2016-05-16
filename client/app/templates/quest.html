@@ -13,37 +13,57 @@
   </nav>
 </div>  
 
-  <div id="center">
-  <div class="questfeed-button-wrapper">
-    <a class="questfeed-button" ui-sref="questFeed">
-      <span class="questfeed-button-text">
-        Return to the Quest Scrolls
-     </span>
-    </a>
-  </div>
-  </div>
-  <!--  <h2>Issue Name: </h2> -->
-  <!-- <div class="ownerProfileButton">{{chosenQuest.owner.profile}}</div> -->
-  <center>
-  <div class="center" style="background-image: url(../img/parchment.jpg); background-size: cover; color: black; margin-top: 70px; margin-right: 40px;">
-  <center><h1 style="margin-top: 0; text-decoration: underline;">{{chosenQuest.title}}</h1></center>
-  <div>
-    <h2>Description:<br><h3>{{chosenQuest.body}}</h3></h2> 
-    <!-- <h3>{{chosenQuest.body}}</h3> -->
-  </div>
-<div style="display: inline-flex;">  
-    <h3 style="float: left; margin-bottom: 0px; margin-top: 30px;">Creator: {{chosenQuest.user}}</h3>
-    <p style="text-decoration: underline; float: right; padding-left: 80px; margin-bottom: 0px; margin-top: 30px;">Date Created: {{chosenQuest.created_at}}</p>
+<div  id="center"class="questfeed-button-wrapper">
+  <a class="questfeed-button" ui-sref="questFeed">
+    <span class="questfeed-button-text">
+      Return to the Quest Scrolls
+   </span>
+  </a>
 </div>
+
+<div class="quest-profile">
+  <div class="quest-header">
+    <span class="q-title">{{chosenQuest.title}}</span>
+    <span class="quest-owner">by: {{chosenQuest.user}}</span>
   </div>
-  </center>
-  
-<div id="center">  
-  <a href="{{chosenQuest.issue_url}}" target="_blank" class="githubLink"><button>Github Issue Link</button></a>
-  <button ng-if="!questOwner && signedIn && !alreadyMember && chosenQuest.status !== 'closed'" ng-click="joinQuest(currentUser.user_id, chosenQuest.id)" class="joinQuestButton">Join Quest</button>
-  <button ui-sref="userProfile" class="ownerProfileButton">{{chosenQuest.user}}'s Profile</button>
-</div>  
-<footer>   <!-- <p>Bounty: {{chosenQuest.bounty}}</p> -->
+  <div class='quest-details'>
+    <div class="quest-description">
+      <p>{{chosenQuest.body}}</p>
+    </div>
+
+     <div class="quest-members">
+      <p>Quest Members:</p>
+      <ul>
+        <li ng-repeat="user in questMembers">
+          <h3>{{user.github_username}}</h3>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="quest-footer">
+    <div class="left-footer">
+      <div id="lf-footer-coin">
+        <img src="../../img/bling.png" alt="gold coin"></img> 
+      </div>
+      <div id="lf-footer-bounty"><p>${{questBounty}}</p></div>
+      <div id="#lf-footer-bornOn"><p>Created at: {{chosenQuest.created_at}}</p></div>
+    </div>
+    <div class="right-footer">
+      <div id="rf-footer-issue">
+        <a href="{{chosenQuest.issue_url}}" target="_blank" class="githubLink">
+          <button>Github Issue Link</button>
+        </a>
+      </div>
+      <div id="rf-footer-user">
+        <div id="rf-footer-join"><button ng-if="!questOwner && signedIn && !alreadyMember && chosenQuest.status !== 'closed'" ng-click="joinQuest(currentUser.user_id, chosenQuest.id)" class="joinQuestButton">Join Quest</button></div>
+        <button ui-sref="userProfile" class="ownerProfileButton">{{chosenQuest.user}}'s Profile</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
   <div class="close-quest" ng-if="questOwner && closedStatus">
     <button ng-click="closeQuest()" class="closeQuestButton">Close Quest & Pay Out</button>
     <select ng-model="userToPay.user" required="Required">
@@ -51,12 +71,4 @@
       <option ng-repeat="member in questMembers" value="{{member.id}}">{{member.github_username}}</option>
     </select>
   </div>
-  <div class="center">
-    <h2>Quest Members</h2>
-    <ul>
-      <li ng-repeat="user in questMembers">
-        <h3>{{user.github_username}}</h3>
-      </li>
-    </ul>
-  </div>
-</footer>
+
