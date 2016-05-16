@@ -641,10 +641,22 @@ padding: 8px;
 #sandWrite{
   margin: 0 auto;
 }
-/*#inspire{
-  margin: 0;
-  width: 10%;
-}*/
+.faq{
+  background-color: gray;
+  width: 80%;
+  margin: 0 auto;
+  padding: 5px;
+}
+#faqTitle{
+  margin-left: 20px;
+}
+.aboutus {
+  background-color: gray;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10px ;
+  padding: 5px;
+}
 
 
 
