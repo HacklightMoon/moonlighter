@@ -2,6 +2,15 @@
 /** {
   box-sizing: border-box;
 }*/
+.landing-bg {
+  background-image:  url('../img/Moonlighterbackground.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #202835;
+  background-attachment: fixed;
+  background-position: relative;
+  margin: 0 auto;
+}
 
 .home, .about {
   background-image: url('../img/Moonlighterbackground.jpg');
@@ -9,6 +18,16 @@
 }
 
 .questFeed, .questProfile, .userProfile {
+  background-image:  url('../img/woodvec.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #9f603a;
+  background-attachment: fixed;
+  background-position: relative;
+  margin: 0 auto;
+}
+
+.quest-profile-bg {
   background-image:  url('../img/woodvec.png');
   background-color: #202835;
 }
@@ -21,9 +40,49 @@
 .main-wrapper { 
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: #9f603a;
   background-attachment: fixed;
-  background-position: fixed;
-  color: #e2dfc8;
+  background-position: relative;
+  margin: 0 auto;
+}
+
+.barracks-bg {
+  background-image:  url('../img/Moonlighterbackground.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #202835;
+  background-attachment: fixed;
+  background-position: relative;
+  margin: 0 auto;
+}
+
+.about-bg {
+  background-image:  url('../img/Moonlighterbackground.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #202835;
+  background-attachment: fixed;
+  background-position: relative;
+  margin: 0 auto;
+}
+
+.about-bg {
+  background-image:  url('../img/Moonlighterbackground.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #202835;
+  background-attachment: fixed;
+  background-position: relative;
+  margin: 0 auto;
+}
+
+.main-wrapper {
+  background-image:  url('../img/woodvec.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #9f603a;
+  background-attachment: fixed;
+  background-position: relative;
   margin: 0 auto;
   /*overflow: hidden;*/
 }
@@ -170,21 +229,14 @@ nav li {
 }*/
 /********************* QUEST FEED ************************/
 .container-quests {
-  perspective: 800px;
-}
-
-.container{
-  width:400px;
-  height:280px;
-  position: relative;
+margin:0 auto;
 }
 
 .quests {
-    /*margin-left: 10rem;*/
-    top:50%;
-    right:50%;
-    margin: 0 auto;
-
+  /*margin-left: 10rem;*/
+/*  top:50%;
+  right:50%;*/
+  margin: 0 auto;
 }
 
 .newquest-button {
@@ -201,19 +253,38 @@ nav li {
 .questCard {
   text-align:center;
   position: relative;
-  width: 350px;
-  height: 200px;
-  margin: 15px;
+  width: 250px;
+  height: 349px;
+  margin: 20px;
   float:left;
 }
 
+.title-on-card {
+  font-size: 1.3rem;
+  font-weight: 900;
+  float: left;
+  margin-left: 30px;
+}
+.quest-profile {
+  width: 79%;
+  background: #494b4b;
+  margin: 0 auto;
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
+  padding: 2%;
+  margin-bottom: 2%;
+  font-family: 'Hammersmith One';
+  color:  #d4ce46;
+}
 .card{
+  perspective: 800px;
   text-align:center;
   position: absolute;
   width: 100%;
   height: 100%;
-  color: #202835;
-  font-family:200;
+  color: #d4ce46;
+  font-family: 'Hammersmith One';
+  font-weight: 200;
 }
 
 .questimage {
@@ -232,8 +303,11 @@ nav li {
 }
 
 .face.front {
-  font-family: 'Poiret One', 'Hammersmith One', 'Quicksand', sans-serif;
-  background-image: url("../img/parchment.jpg");
+  font-family: 'Hammersmith One', 'Quicksand', sans-serif;
+  font-weight: 400;
+  background:#494b4b;
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
   font-size: 2rem;
 }
 
@@ -242,14 +316,15 @@ nav li {
   display: block;
   box-sizing: border-box;
   padding: 20px;
-  color: #202835;
-  text-align: left;
-  background-image: url("../img/parchment.jpg");
+  background:#494b4b;
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
 }
 
 .quest-title-div {
   display: block;
   width: 100%;
+  float:left;
 }
 
 .questinfo {
@@ -257,8 +332,8 @@ nav li {
 }
 
 .back-info {
-  font-family: 'Poiret One', 'Hammersmith One', 'Quicksand', sans-serif;
-  font-weight: 800;
+  font-family: 'Hammersmith One', 'Quicksand', sans-serif;
+  font-weight: 400;
 }
 
 /********************* ANIMATION ************************/
@@ -311,13 +386,6 @@ nav li {
 .face.back {
   transform: rotateY(180deg); 
 }
-
-.title-on-card {
-  font-size: 1.3rem;
-  font-weight: 900;
-  float: left;
-  margin-left: 30px;
-}
 /********************* QUEST PROFILE ************************/
 
 .quest-profile {
@@ -329,6 +397,7 @@ nav li {
   padding: 2%;
   margin-bottom: 2%;
   font-family: 'Hammersmith One';
+  color:  #d4ce46;
 }
 
 .quest-header {
@@ -439,7 +508,7 @@ nav li {
 }
 
 .close-quest{
-  margin: 0 auto;
+  margin: 0 auto 5%;
   padding: 2% 3%;
   border:4px solid  #4aba91;
   border-radius: 0.7em;
@@ -571,6 +640,12 @@ padding: 8px;
   background-size: cover;
   background-repeat: no-repeat;
   padding-bottom: 15px;
+}
+
+.container{
+  width:400px;
+  height:280px;
+  position: relative;
 }
 
 .barracksLoader {
