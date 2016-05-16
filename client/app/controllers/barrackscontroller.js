@@ -1,5 +1,5 @@
 angular.module('moonlighterApp.barracks',[])
-.controller('BarracksCtrl',['$scope', 'Barracks', 'Profile',  '$http', '$cookies', function($scope, Barracks, Profile , $http, $cookies){
+.controller('BarracksCtrl',['$scope', 'Barracks', 'Profile', 'toastr',  '$http', '$cookies', function($scope, Barracks, Profile , toastr, $http, $cookies){
   
   $scope.userData = {};
 
@@ -72,7 +72,16 @@ angular.module('moonlighterApp.barracks',[])
     console.log(userCode);
     Barracks.cwTestSolution(userCode.code)
     .then(function(resp){
-      console.log(resp);
+      console.log("so guys like here i am: ", resp);
+      setTimeout(function(){return toastr.error("You were vanquished. Your code did not triumph today. Try again, warrior.", {
+            closeButton: true,
+            autoDismiss: false,
+            timeOut: 30000,
+            extendedTimeOut: 20000
+          })
+    }, 3000)
+       
+      return resp;
     })
     .catch(function(err){
       console.error(err);
@@ -119,7 +128,6 @@ angular.module('moonlighterApp.barracks',[])
   }
 
   $scope.cwUserStats();
-  // $scope.getCharacter();
   
   $scope.editorOptions = {
         lineWrapping : true,

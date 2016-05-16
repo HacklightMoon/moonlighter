@@ -66,6 +66,10 @@ angular.module("moonlighterApp.barracksService", [])
         method: 'POST',
         url: '/codewars/testSolution?code='+code,
       })
+      .then(function(resp){
+        console.log("like here is your response in barracksService:", resp);
+        return resp
+      })
       .catch(function(err){
         console.error(err);
       });
