@@ -21,6 +21,7 @@
                               'moonlighterApp.newQuest',
                               'moonlighterApp.nav',
                               'moonlighterApp.userProfile',
+                              'moonlighterApp.main',
                               ]);
 
   module.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',  function($stateProvider, $urlRouterProvider, $httpProvider) {
