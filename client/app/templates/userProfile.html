@@ -26,80 +26,48 @@
   </div>
 </div>  
 
-<h1>{{userData.full_name}}</h1>
-<div style="width: 45%; float:left">
-  <div>
-    <div  style="width: 75%; float:right">
-      <ul>
-        <li>Username:  {{userData.github_username}}</li>
-        <li>Email:  {{userData.email}}</li>
-        <li>Money:  {{userData.money | currency}}</li>
-        <li>Contributions:  {{userData.contributions}}</li>
-      </ul>  
-    </div>
-    <div style="width: 25%; float:left">
-      <center><img height="100" width="100" src='{{userData.profile_picture}}'></center>
+<div class="userCard">
+  <div class="userInfo">
+    <h1>{{userData.github_username}}</h1>
+    <img class="pic" height="100" width="100" src='{{userData.profile_picture}}'>
+    <div class="userData">
+      <p>{{userData.full_name}}</p>
+      <p ng-if="userData.email">Email:  {{userData.email}}</p>
+      <p>Contributions:  {{userData.contributions}}</p> 
+      <p><img class="coin" src="../../img/bling.png" alt="gold coin">  {{userData.money}}</p>
     </div>
   </div>
-  <div style="float:left;
-  height: 250px;
-  width:350px; 
-  padding:3px;">
-  <h1>Quests Joined</h1>
-  <ul style="height:224px;
-  overflow:auto;">
-  <li ng-repeat="issue in joinedIssues">
-    <a ng-click="selectIssue(issue)" ui-sref="questProfile">
-      <h3 class="issue-title">{{issue.title}}</h3>
-      <p class="issue-body">{{issue.body}}</p>
-    </a>
-  </li>
-</ul>
-</div> 
-<p> 
-  <div style="float:left;
-              height: 250px;
-              width:350px; 
-              padding:3px;">
-  <h1 style="padding-top: 30px;">Quests Created</h1>
-  <ul style="height:224px;
-            overflow:auto;">
-  <li ng-repeat="issue in myIssues">
-    <a ng-click="selectIssue(issue)" ui-sref="questProfile">
-      <h3 class="issue-title">{{issue.title}}</h3>
-      <p class="issue-body">{{issue.body}}</p>
-    </a>
-  </li>
-</ul>
-</div>
-</div>
-<div style="width: 55%; float:right">
-  <div>
-    <div class="character">
-      <div class="charBack">
-        <div class="charCard">
-          <p id="level"> Level: {{userData.level}}</p>
-          <img class="sprite" src="{{character}}">
 
-
-          <div class="charInfo">
-            <h2 id="stats">S T A T S</h2>
-            <hr>
-            
-            <p>XP:  {{userData.experience}}</p>
-          </div>
-            <div class="charName">
-          <p>{{name}}</p>
-          </div>
-        </div>
-      </div>
+  <div class="character">
+    <h3 id="characterName">{{name}}</h3>
+    <div id="level">
+      <p> Level: {{userData.level}}</p>
+      <p>XP:  {{userData.experience}}</p>
     </div>
+    <img class="sprite" src="{{character}}">
   </div>
-</div>  
 
+  <div class="questsJoined">
+    <h1>Quests Joined</h1>
+    <ul>
+      <li ng-repeat="issue in joinedIssues">
+        <a ng-click="selectIssue(issue)" ui-sref="questProfile">
+          <h3 class="issue-title">{{issue.title}}</h3>
+          <p class="issue-body">- {{issue.body}}</p>
+        </a>
+      </li>
+    </ul>
+  </div> 
 
-
-
-
-
-
+  <div class="questsCreated">
+    <h1>Quests Created</h1>
+    <ul>
+      <li ng-repeat="issue in myIssues">
+        <a ng-click="selectIssue(issue)" ui-sref="questProfile">
+          <h3 class="issue-title">{{issue.title}}</h3>
+          <p class="issue-body">- {{issue.body}}</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
