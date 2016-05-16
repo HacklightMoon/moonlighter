@@ -54,6 +54,16 @@ angular.module('moonlighterApp.barracks',[])
     //$scope.$setPristine();
 
   }
+
+   function cwFinalSolution(){
+    Barracks.cwFinalSolution()
+    .then(function(resp){
+      console.log(resp)
+    })
+    .catch(function(err){
+      console.error(err)
+    });
+   }
   
   function cwSolution(){
     var userCode = {

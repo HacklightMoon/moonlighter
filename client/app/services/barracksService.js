@@ -78,6 +78,7 @@ angular.module("moonlighterApp.barracksService", [])
         url: '/codewars/finalSolution',
       })
       .then(function(resp){
+        console.log("cwFinalSolution is a go in barracksService")
         return resp
       })
       .catch(function(err){
