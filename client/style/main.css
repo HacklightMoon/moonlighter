@@ -15,7 +15,7 @@
 
 .barracks {
   background-image: url('../img/inbarrack.png');
-  background-color: #202835;
+  background-color: #2a1b10;
 }
 
 .main-wrapper {
@@ -76,7 +76,7 @@
   display: inline;
   margin: 40px 0 0 20px;
   padding: 3px; 
-  position: relative; 
+  position: abosolute; 
   width: 100%;
   color:#e2dfc8;
   text-shadow: -1px 0 10px #f6f1ee;
@@ -104,6 +104,9 @@ nav li {
   font-size: 1.2em;
 }
 
+input {
+  margin:5px;
+}
 .unseen {
   display: none;
 }
@@ -560,8 +563,11 @@ a {
   color:#d4ce46;
 }
 
+
+
 .userCard p, h1, h2, h3 {
   margin: 0;
+  color: white;
 }
 
 .userInfo {
@@ -675,73 +681,44 @@ a {
     padding: 10px;
 }
 
-/*.card {
-  width: 55%;
-  float: right;
-}*/
-/*.character{
-  width: 740px;
-  height: 600px;
-}*/
+
+#secInput{
+  margin-left: 9px;
+}
+
+
+/********************* BARRACKS ***********************/
+
 
 
 .codeFormContainer{
-  background-color: black;
-  width: 50%;
-}
-
-.challengeDrop{}
-
-/*.charCard{
-border-radius: 4px ;
-border: 2px solid black;
-background-color: #8A825B;
-max-height: 550px;
-}
-
-
-.charBack{
-background-image: url('../img/parchment.jpg');
-background-size: cover;
-border-radius: 4px;
-padding: 8px;
-
-}
-
-.sprite{
-  height: 300px;
-  width: 300px;
-  background-image: url('../img/Moonlighterbackground.jpg');
-  background-color: #F1E6CD;
+  background-color: #494b4b;
   background-size: cover;
-  border-radius: 4px;
-  margin-left: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: 4px solid black;
+  background-repeat: no-repeat;
+  border: 4px solid   #4aba91;
+  border-radius: 0.7em;
+  color:    #e2dfc8;
+  width: 28.5%;
+  min-width: 299px;
+  height:68px;
+  float:left;
+  margin:0 0 1% 3%;
+  font-family: "Quicksand";
 }
-
-.charInfo{
-  float: right;
-  margin-right: 18px;
-  width: 300px;
+.pushUp{
+  margin-top: 3%;
+  margin-left: 28%
 }
-
-#level{
-  margin-left: 15px;
-  margin-top: 30px;
-}
-
-#stats{
-  font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand';
-}*/
-
-/********************* USER PROFILE ***********************/
 
 .qJoinTitle{
   margin-top: 2%;
   margin-left: 1%;
   color:#d4ce46;
+}
+
+.inputBox{
+  display:block;
+  margin:0 auto;
 }
 
 .qJoinBody{
@@ -751,19 +728,33 @@ padding: 8px;
 }
 
 .mainBarrack{
-  margin-top: 94px;
-  color: black;
-  margin-left: 10px;
+  margin-top: 1%;
+  color:    #e2dfc8;
+  margin-left: 2%;
   width: 50%;
   min-height: 465px;
-  background-image: url('../img/weatherpap.png');
   float: left;
-  /*background-color: #494b4b;*/
+  background-color: #494b4b;
   background-size: cover;
   background-repeat: no-repeat;
+  border: 4px solid  #4aba91;
+  border-radius: 0.7em;
   padding-bottom: 15px;
 }
 
+#cwUserNameInsert{
+  float:left;
+  margin:5px 2% 5px 2%;
+}
+
+#cwAPIinsert{
+  float:left;
+  margin:5px 2% 5px 2%;
+}
+
+#submitChallengeReq{  
+  margin-left: 147px
+}
 .container{
   width:400px;
   height:280px;
@@ -771,19 +762,24 @@ padding: 8px;
 }
 
 .barracksLoader {
-  margin-top: 94px;
+  z-index: 1000;
   margin-left: 10px;
   width: 50%;
   min-height: 465px;
-  float: left;
-  padding-bottom: 15px;
 }
 
 .challengeDetails{
-  padding: 10%;
-  /*overflow-y: scroll; */
+  overflow-y: scroll; 
 }
 
+#chalTitle{
+  margin:0 0 2% 3%;  
+  font-family: "Quicksand";
+}
+
+#topSpin{
+  margin:20%;
+}
 .barrack{
   margin: 0 auto;
 }
@@ -791,6 +787,19 @@ padding: 8px;
 .barracks-title{
   text-align: center;
   font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
+}
+
+.nextChallengeSelector{
+  display: inline-block;
+  margin-left: 15%;
+  margin-top: 3%;
+}
+
+
+.nextChallengeSubmit{
+  display: inline-block;
+  margin-left: 33%;
+  margin-top: 3%;
 }
 
 .sandy{
@@ -803,17 +812,14 @@ padding: 8px;
   width:98%;
   min-width: 150px;
   border-radius: 0.7em;
+  border: 4px solid   #4aba91;
 }
-.sandBack{
-  background-image: linear-gradient(180deg, hsl(230, 19%, 63%) 0%, 
-  hsl(0, 0%, 8%) 47%, 
-  hsl(0, 0%, 0%) 53%, 
-  hsl(0, 0%, 95%)100%);
+/*.sandBack{
+  border: 4px solid   #4aba91;
   padding: 6px;
-  width: 100%;
-  margin-right: 5px;
-  border-radius: 0.2em;
-}
+  width: 100%;  
+  border-radius: 0.7em;
+}*/
 .challName {
   color: #4aba91;
   margin: 0;
@@ -822,22 +828,24 @@ padding: 8px;
   font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
 }
 .exBack{
-  background-image: linear-gradient(180deg, hsl(230, 19%, 63%) 0%, 
-  hsl(0, 0%, 8%) 47%, 
-  hsl(0, 0%, 0%) 53%, 
-  hsl(0, 0%, 95%)100%);
-  padding: 6px;
+  border: 4px solid   #4aba91;
   border-radius: 0.2em;
   margin-top: 10px;
 /*  max-height: 10%;*/
 }
 
-.example{
-
+#spinner-Load{
+  width:100%;
+  margin-left:40%;
 }
+
 #sandWrite{
   margin: 0 auto;
 }
+
+/********************* ABOUT ***********************/
+
+
 .faq{
   background-color: gray;
   width: 80%;

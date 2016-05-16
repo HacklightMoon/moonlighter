@@ -18,10 +18,10 @@ let assetFolder    = Path.resolve(__dirname, '../client/');
 let routes         = require('./routes/server.js');
 
 
-//rootPath for path to app directory -Boothe 
+//rootPath for path to app directory 
 let rootPath = Path.normalize(__dirname + '../client');
 
-//serve files in app directory, without processing them -Boothe
+//serve files in app directory, without processing them
 app.use("/app", express.static(rootPath + '/app'));
 app.use("/lib", express.static(rootPath + '/lib'));
 app.use("/style", express.static(rootPath + '/style'));
