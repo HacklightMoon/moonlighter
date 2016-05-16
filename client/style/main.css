@@ -51,6 +51,9 @@
     font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand', sans-serif;
 }
 
+.yellow-font {
+  color:#d4ce46;
+}
 /********************* Header ************************/
 .logoBlock{
   display: inline;
@@ -285,9 +288,13 @@ margin: 0 auto;
   border: 4px solid #4aba91;
   border-radius: 0.7em;
   margin:8% auto;
+  margin-top: 12%;
   height: 40px;
 }
 
+.backside-descrip{
+  height:130px;
+}
 .face {
   position: absolute;
   width: 100%;
@@ -443,8 +450,8 @@ margin: 0 auto;
 
 .quest-footer {
   background: #0e5135;
-  width: 92%;
-  margin: 0 0.5% 20px;
+  width: 91%;
+  margin: 2% 1% 1%;
   padding: 2% 3%;
   display: inline-block;
   border: 4px solid #4aba91;
@@ -476,15 +483,21 @@ margin: 0 auto;
 }
 
 #rf-footer-issue{
-  margin-top:3%;
+  margin:0 auto;
   float:right;
-  display: inline-block;
+  display: block;
 }
 
 #rf-footer-user{
-  margin-top:3%;
+  margin:0 auto;
   float:right;
-  display: inline-block;
+  display: block;
+}
+
+#rf-footer-github{
+  margin:0 auto;
+  float:right;
+  display: block;
 }
 
 .close-quest{
@@ -531,8 +544,121 @@ a {
 
 /********************* USER PROFILE ***********************/
 
-.scroll { height: 100%; padding: 0; margin: 0; }
+.userCard {
+  width: 79%;
+  background: #494b4b;
+  margin: 0 auto;
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
+  padding: 2%;
+  margin-bottom: 2%;
+  font-family: 'Hammersmith One';
+  color:#d4ce46;
+}
 
+.userCard p, h1, h2, h3 {
+  margin: 0;
+}
+
+.userInfo {
+  width: 45%;
+  background: #494b4b;
+  margin: 1%;
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
+  padding: 1%;
+  display: inline-block;
+  /*height: 200px;*/
+  float:left;
+  background: #0e5135;
+  height: 300px;
+}
+
+.pic {
+  border-radius: 0.7em;
+  float: left;
+  display: inline-block;
+}
+
+.coin {
+  height: 13px;
+  width: 13px;
+}
+
+.userData {
+  padding: 2%;
+  float: left;
+  display: inline-block;
+}
+
+.character {
+  width: 45%;
+  background: #494b4b;
+  margin: 1%;
+  /*height: 200px;*/
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
+  padding: 1%;    
+  display: inline-block;
+  float:left;
+  background: #0e5135;
+  height: 300px;
+}
+
+#characterName {
+  float: left;
+}
+
+#level {
+  float: right;
+}
+
+.sprite {
+  height: 250px;
+  width: 250px;
+  /*margin: 0 auto;*/
+}
+
+.questsJoined {
+  width: 45%;
+  background: #494b4b;
+  margin: 1%;
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
+  padding: 1%;
+  display: inline-block;
+  float:left;
+  background: #0e5135;
+  height: 300px;
+}
+
+.questsJoined ul {
+  height:80%;
+  overflow:auto;
+  margin: 0;
+  padding: 0;
+}
+
+.questsCreated {
+  width: 45%;
+  background: #494b4b;
+  margin: 1%;
+  border: 4px solid #4aba91;
+  border-radius: 0.7em;
+  padding: 1%;    
+  display: inline-block;
+  background: #0e5135;
+  height: 300px;
+}
+
+.questsCreated ul {
+  height:80%;
+  overflow:auto;
+  margin: 0;
+  padding: 0;
+}
+
+.scroll { height: 100%; padding: 0; margin: 0; }
 
 .center {
     margin: 0;
@@ -549,10 +675,10 @@ a {
   width: 55%;
   float: right;
 }*/
-.character{
+/*.character{
   width: 740px;
   height: 600px;
-}
+}*/
 
 
 .codeFormContainer{
@@ -562,7 +688,7 @@ a {
 
 .challengeDrop{}
 
-.charCard{
+/*.charCard{
 border-radius: 4px ;
 border: 2px solid black;
 background-color: #8A825B;
@@ -582,7 +708,7 @@ padding: 8px;
   height: 300px;
   width: 300px;
   background-image: url('../img/Moonlighterbackground.jpg');
-  /*background-color: #F1E6CD;*/
+  background-color: #F1E6CD;
   background-size: cover;
   border-radius: 4px;
   margin-left: 20px;
@@ -604,9 +730,21 @@ padding: 8px;
 
 #stats{
   font-family: 'Cinzel Decorative', 'Hammersmith One', 'Quicksand';
-}
+}*/
 
 /********************* USER PROFILE ***********************/
+
+.qJoinTitle{
+  margin-top: 2%;
+  margin-left: 1%;
+  color:#d4ce46;
+}
+
+.qJoinBody{
+  color:#d4ce46;
+  display:block;
+  margin-left:7%;
+}
 
 .mainBarrack{
   margin-top: 94px;
