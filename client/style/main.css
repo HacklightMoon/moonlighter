@@ -554,6 +554,7 @@ padding: 8px;
   min-height: 465px;
   background-image: url('../img/weatherpap.png');
   float: left;
+  /*background-color: #494b4b;*/
   background-size: cover;
   background-repeat: no-repeat;
   padding-bottom: 15px;
