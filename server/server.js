@@ -219,7 +219,7 @@ app.post('/codewars/testSolution', function(req, res){
     res.send(challenge);
   })
   .then(function(){
-    CW.getDeferred()
+    return CW.getDeferred()
   .then(function(resp){
     console.log("I got to the 2nd part of testSolution and heres your response:", resp)
     res.send(resp);

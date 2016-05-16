@@ -79,9 +79,17 @@ CW.getDeferred = function() {
         reject(err);
         return;
       }
-      resolve(body,resp);
+      console.log("getDeferred resp.value:", JSON.parse(body).value)
+      if (JSON.parse(body).value === "running" || JSON.parse(body).value === "queued"){
+        setTimeout(function(){return CW.getDeferred()}, 1000);
+      }
+      else {
+        console.log("here's your summary, baybee", JSON.parse(body).summary);
+        resolve(body,resp);
+      }
     });
-  });
+  })
+
 }
 
 CW.finalSolution = function(){
@@ -95,6 +103,7 @@ CW.finalSolution = function(){
         reject(err);
         return;
       }
+      console.log("response from finalSolution: ", body)
       resolve(body,resp);
     });
   });
