@@ -42,15 +42,15 @@ angular.module('moonlighterApp.barracks',[])
     // //$scope.$setPristine();
 
 
-    Barracks.addCwAPI(userInput)
-    .then(function(data){
-      console.log("here's some data:", data);
-    })
-    .catch(function(err){
-      console.error(err);
-    })
-    $scope.userData.cwUsername = null;
-    $scope.userData.cwUserAPI = null;
+    // Barracks.addCwAPI(userInput)
+    // .then(function(data){
+    //   console.log("here's some data:", data);
+    // })
+    // .catch(function(err){
+    //   console.error(err);
+    // })
+    // $scope.userData.cwUsername = null;
+    // $scope.userData.cwUserAPI = null;
     //$scope.$setPristine();
 
   }
