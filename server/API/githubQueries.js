@@ -46,7 +46,8 @@ API.userContribsTotal = function(username){
     })
   })
   .then(function(html){
-    let yearlyContribs = Number(html.split('class="contrib-number">')[1].split(' total')[0]);
+    let contRegex = /([0-9]+) contributions in the last year/
+    let yearlyContribs = html.match(contRegex)[1];
     return yearlyContribs;
   })
   .catch(function(error){
