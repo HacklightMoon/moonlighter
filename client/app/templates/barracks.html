@@ -62,13 +62,7 @@
 
 <!--NEED FORM VALIDATION -->
 
-
-<div class="mainBarrack">
-  <div class="challengeDetails">
-  <div class="challengeName">
-    <h2>Challenge Description: </h2>
-  </div>
-  <div ng-if="spinner" class="barracksLoader">
+ <div ng-if="spinner" class="barracksLoader">
     <div id="topSpin">
       <img src="../img/gears.gif">
     </div>
@@ -76,7 +70,13 @@
       <h3>Loading...</h3>
     </div>
   </div>
-    <pre style="white-space:pre-wrap;"><code class="html">{{description}}</code></pre>
+<div ng-if="!spinner && description" class="mainBarrack">
+  <div class="challengeDetails">
+  <div class="challengeName">
+    <h2 style="padding:10px;">Challenge Description: </h2>
+  </div>
+ 
+    <pre style="white-space:pre-wrap;padding:10px;"><code class="html">{{description}}</code></pre>
   </div>
 </div>
 
@@ -92,10 +92,10 @@
     </div>
   </div>
 
-  <div class='codeFormContainer pushUp'>
+  
     <input type='button' value='test answer' ng-click='cwSolution()' />
     <input type='button' value='submit final answer' ng-click='cwFinalSolution()' />
-  </div>
+  
 </div>
 <div class="userChar">
   {{character}}

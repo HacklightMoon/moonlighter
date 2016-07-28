@@ -8,7 +8,7 @@ let DMID;
 //GetUserStats: user's codewars_username => response object from github API
 CW.GetUserStats = function (cwUsername){
   let options = {
-    'url': 'https://www.codewars.com/api/v1/users/' + cwUsername, 
+    'url': 'https://www.codewars.com/api/v1/users/' + cwUsername,
     'headers': {'Authorization' : 'wUGraBxyPMPbRJAy82dr'
     },
   }
@@ -23,8 +23,8 @@ CW.GetUserStats = function (cwUsername){
   });
 };
 let strategy = 'kyu_5_workout';
-//GetNextChallenge: WHAT IS THE INPUT? => WHAT IS THE OUTPUT?
 
+// get a codewars challenge from passed in challengeType
 CW.GetChallenge = function(challengeType) {
   let options = {
     'url': 'https://www.codewars.com/api/v1/code-challenges/javascript/train?strategy='+challengeType,
@@ -45,8 +45,7 @@ CW.GetChallenge = function(challengeType) {
   });
 };
 
-// var challengeData = CW.GetChallenge();
-
+// posts code to codewars server to test
 
 CW.testSolution = function(code) {
   console.log('PID: & SID: ', PID, SID);
@@ -66,6 +65,7 @@ CW.testSolution = function(code) {
     });
   });
 }
+
 
 CW.getDeferred = function() {
   let options = {
@@ -108,5 +108,3 @@ CW.finalSolution = function(){
     });
   });
 }
-
-
