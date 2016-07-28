@@ -10,11 +10,10 @@
       <li><a ng-if='isLogin' ui-sref="barracks" class="nav-button">Barracks</a></li>
       <li class="clickable"><img ng-if="username" src="{{photo}}" ng-click="setUser()" style="border-radius: 50%;" height="55" width="55"></li>
       <li class="clickable"><h3 ng-click="setUser()">{{username}}</h3></li>
-     <!--  <li><img height="55" width="55" src='../img/moneybag2.png'></li>
-     <li style="float: right;">{{userData.money | currency}}</li> -->
+
    </ul>
  </nav>
-</div> 
+</div>
 
 <div ng-if="!profileOwner" id="center">
   <div class="questfeed-button-wrapper">
@@ -24,7 +23,7 @@
       </span>
     </a>
   </div>
-</div>  
+</div>
 
 <div class="userCard">
   <div class="userInfo">
@@ -33,7 +32,7 @@
     <div class="userData">
       <p>{{userData.full_name}}</p>
       <p ng-if="userData.email">Email:  {{userData.email}}</p>
-      <p>Contributions:  {{userData.contributions}}</p> 
+      <p>Contributions:  {{userData.contributions}}</p>
       <p><img class="coin" src="../../img/bling.png" alt="gold coin">  {{userData.money}}</p>
     </div>
   </div>
@@ -61,7 +60,7 @@
         </a>
       </li>
     </ul>
-  </div> 
+  </div>
 
   <div class="questsCreated">
     <h1>Quests Created</h1>
