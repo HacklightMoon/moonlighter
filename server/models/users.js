@@ -42,7 +42,7 @@ Users.verifyInsert = function(blob){
 
 };
 
-//Users.verifyId: user's github id => user's database row 
+//Users.verifyId: user's github id => user's database row
 Users.verifyId = function(id){
   return db('users')
   .where({
@@ -51,7 +51,9 @@ Users.verifyId = function(id){
   .limit(1);
 };
 
-//Users.getByGithubUsername: user's github username => user's database row 
+
+//Users.getByGithubUsername: user's github username => user's database row #UNUSED#
+
 Users.getByGithubUsername = function(githubUsername){
   return db('users')
   .where({
@@ -86,7 +88,7 @@ Users.update = function(obj){
   return db('users').where({
     passid: obj.id
   }).limit(1)
-  .update(obj.form)  
+  .update(obj.form)
   .then(function(data){
     return data;
   });
@@ -134,7 +136,7 @@ Users.updateContribs = function(githubUsername){
     .where({'github_username': githubUsername})
     .returning('*')
     .update({
-      'contributions': contribs, 
+      'contributions': contribs,
       'experience': newExp,
       'level': newLevel,
       'unseenContribs': newContribs
