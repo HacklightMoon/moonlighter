@@ -6,8 +6,6 @@
                               'ui.codemirror',
                               'ui.router',
                               'yaru22.md',
-                              // 'ui.bootstrap',
-                              // 'ngAnimate',
                               'ngCookies',
                               'moonlighterApp.barracksService',
                               'moonlighterApp.issueService',
@@ -80,20 +78,6 @@
 
       $urlRouterProvider.otherwise('/');
 
-      
+
   }]);
-
-  // module.value('ui.config',
-  // {
-  //   codemirror:
-  //   {
-  //     mode: 'javascript',
-  //     theme: 'dracula', 
-  //     lineNumbers: true,
-  //     lineWrapping: true
-  //   }
-
-  // })
-
 }());
-

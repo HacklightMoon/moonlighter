@@ -5,7 +5,7 @@ let PID;
 let SID;
 let DMID;
 
-//GetUserStats: user's codewars_username => response object from github API
+// GetUserStats: user's codewars_username => response object from github API
 CW.GetUserStats = function (cwUsername){
   let options = {
     'url': 'https://www.codewars.com/api/v1/users/' + cwUsername,

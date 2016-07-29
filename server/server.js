@@ -44,7 +44,6 @@ app.get('/auth/github/callback', passportGithub.authenticate('github', {
 }));
 
 // Logout route
-// TODO fix logout route
 app.get('/auth/logout', function(req,res){
   req.session.destroy(function(){
     res.clearCookie('connect.sid');
@@ -52,7 +51,6 @@ app.get('/auth/logout', function(req,res){
     req.logout();
     res.redirect('/');
   });
-  // res.clearCookie('profileName');
 })
 
 //Authentication Route
