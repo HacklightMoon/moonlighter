@@ -11,12 +11,12 @@
       <li class="clickable"><h3 ng-click="setUser()">{{username}}</h3></li>
     </ul>
   </nav>
-</div>  
+</div>
 
 <div class='tbd'>
-  <!-- <audio src="../img/swords.mp3" autoplay></audio> -->
+
     <h1 class='barracks-title'>The Barracks</h1>
-    <div class="codeFormContainer"> 
+    <div class="codeFormContainer">
       <div>
         <form ng-show="myValue" class="ng-hide">
       <!-- <form> -->
@@ -32,14 +32,14 @@
         <div id="submitChallengeReq">
           <input type='submit' ng-click="cwInsert()">
         </div>
-      </form> 
-    </div> 
+      </form>
+    </div>
   </div>
 </div>
 <div class='codeFormContainer'>
   <div class="nextChallengeSelector">
     <select name="nextChallenge" ng-model='challengeType'>
-      <option value="default" select>Just Getting To The Next Level</option> 
+      <option value="default" select>Just Getting To The Next Level</option>
       <option value="random">Random: Feeling Lucky?</option>
       <option value="kyu_8_workout">1. Do You Even Code, Bro?</option>
       <option value="kyu_7_workout">2. Not Quite A Challange</option>
@@ -56,19 +56,13 @@
   </div>
 </div>
   <div class="codeFormContainer">
-    <div>Challenge Title:</div> 
+    <div>Challenge Title:</div>
     <div id='chalTitle'><h4>{{name}}</h4></div>
   </div>
 
 <!--NEED FORM VALIDATION -->
 
-
-<div class="mainBarrack">
-  <div class="challengeDetails">
-  <div class="challengeName">
-    <h2>Challenge Description: </h2>
-  </div>
-  <div ng-if="spinner" class="barracksLoader">
+ <div ng-if="spinner" class="barracksLoader">
     <div id="topSpin">
       <img src="../img/gears.gif">
     </div>
@@ -76,7 +70,13 @@
       <h3>Loading...</h3>
     </div>
   </div>
-    <pre style="white-space:pre-wrap;"><code class="html">{{description}}</code></pre>
+<div ng-if="!spinner && description" class="mainBarrack">
+  <div class="challengeDetails">
+  <div class="challengeName">
+    <h2 style="padding:10px;">Challenge Description: </h2>
+  </div>
+
+    <pre style="white-space:pre-wrap;padding:10px;"><code class="html">{{description}}</code></pre>
   </div>
 </div>
 
@@ -92,13 +92,11 @@
     </div>
   </div>
 
-  <div class='codeFormContainer pushUp'>
+
     <input type='button' value='test answer' ng-click='cwSolution()' />
     <input type='button' value='submit final answer' ng-click='cwFinalSolution()' />
-  </div>
+
 </div>
 <div class="userChar">
   {{character}}
 </div>
-
-

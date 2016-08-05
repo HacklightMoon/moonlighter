@@ -8,7 +8,7 @@ let cookieParser   = require('cookie-parser');
 let API            = require('./API/githubQueries');
 let CW             = require('./API/codewars');
 let Users          = require('./models/users');
-let Issues         = require('./models/issues'); 
+let Issues         = require('./models/issues');
 let Character      = require('./models/characters');
 let passportGithub = require('./auth/github');
 let Path           = require('path');
@@ -18,7 +18,7 @@ let assetFolder    = Path.resolve(__dirname, '../client/');
 let routes         = require('./routes/server.js');
 
 
-//rootPath for path to app directory 
+//rootPath for path to app directory
 let rootPath = Path.normalize(__dirname + '../client');
 
 //serve files in app directory, without processing them
@@ -27,7 +27,7 @@ app.use("/lib", express.static(rootPath + '/lib'));
 app.use("/style", express.static(rootPath + '/style'));
 
 
-// middleware 
+// middleware
 app.use(session({ secret: 'hacklightmoonshine', cookie: { maxAge: 6000000 }}))
 app.use(cookieParser());
 app.use(passport.initialize());
@@ -39,12 +39,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 
 app.get('/auth/github/callback', passportGithub.authenticate('github', {
-  failureRedirect: '/auth/github', 
-  successRedirect: '/' 
+  failureRedirect: '/auth/github',
+  successRedirect: '/'
 }));
 
-// Logout route 
-// TODO fix logout route
+// Logout route
 app.get('/auth/logout', function(req,res){
   req.session.destroy(function(){
     res.clearCookie('connect.sid');
@@ -52,12 +51,11 @@ app.get('/auth/logout', function(req,res){
     req.logout();
     res.redirect('/');
   });
-  // res.clearCookie('profileName');
 })
 
 //Authentication Route
 app.get('/auth/github', passportGithub.authenticate('github', {
-  scope: ['user', 'public_repo', 'notifications'] 
+  scope: ['user', 'public_repo', 'notifications']
 }));
 
 app.get('/trycall', function(req, res){
@@ -227,23 +225,15 @@ app.post('/codewars/testSolution', function(req, res){
   });
 });
 
-app.post('/codewars/finalSolution', function(req, res){ 
+app.post('/codewars/finalSolution', function(req, res){
   CW.finalSolution()
   .then(function(resp){
     res.send(resp);
   });
 });
 
-// app.get('/codewars/deferred', function(req, res){
-//   CW.getDeferred()
-//   .then(function(resp){
-//     res.send(resp);
-//   });
-// });
 
-
-
-//INSERT DB FUNCTION HERE VVVVV
+// links a codewars' users api key
 app.post('/codewars/api', function(req, res){
   Users.linkCodewars(req.body.userID, req.body.cwUsername, req.body.cwUserAPI)
   .then(function(resp){

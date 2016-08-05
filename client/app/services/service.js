@@ -35,11 +35,11 @@ angular.module("moonlighterApp.services", [])
     var getUser = function () {
       return Profile.questOwner;
     };
- 
+
     var getCharacter = function(){
       return $http({
-        method: 'GET', 
-        url: '/character' 
+        method: 'GET',
+        url: '/character'
       })
       .then(function(resp){
         return resp;
@@ -67,10 +67,10 @@ angular.module("moonlighterApp.services", [])
       })
       .then(function(resp) {
         return resp.data;
+      })
+      .catch(function(err){
+        console.error(err)
       });
-      // .catch(function(err) {
-      //   console.error(err);
-      // })
     };
 
     var updateUserInfo = function(userData) {
@@ -260,7 +260,6 @@ angular.module("moonlighterApp.services", [])
       getBounty: getBounty,
       getMembers: getMembers,
       payAndClose: payAndClose,
-      getJoinedIssues: getJoinedIssues 
+      getJoinedIssues: getJoinedIssues
     }
   })
-  
