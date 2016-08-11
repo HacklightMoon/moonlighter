@@ -3,16 +3,16 @@
 let db = require('../db');
 let Character = module.exports;
 let Promise = require('bluebird');
-
+// generate experience points from GH contributions
 Character.getExpFromContribs = function(contribs){
   return contribs * 17;
 };
-
+// generate experience points from CW kata
 Character.getExpFromHonor = function(honor){
   return honor * 23;
 };
 
-
+// generate character's level
 Character.getLevelFromExp = function(exp){
   let remainder = exp;
   let level = 0;
