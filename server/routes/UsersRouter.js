@@ -7,21 +7,21 @@ let Issues       = require('./../models/issues');
 
 //--------------------User Endpoints--------------------
 
-IssuesRouter.post('/update', function(req, res){
+UsersRouter.post('/update', function(req, res){
   Users.update(req.body)
   .then(function(resp){
     res.send(resp);
   });
 });
 
-IssuesRouter.get('/info', function(req, res){
+UsersRouter.get('/info', function(req, res){
   return Users.getById(req.query.id)
   .then(function(resp){
     res.send(resp);
   });
 });
 
-IssuesRouter.get('/current', function(req, res){
+UsersRouter.get('/current', function(req, res){
   if(req.user) {
     API.getCurrentUser(req.user.Authorization)
     .then(function(blob){
@@ -32,7 +32,7 @@ IssuesRouter.get('/current', function(req, res){
   }
 });
 
-IssuesRouter.post('/pay', function(req, res){
+UsersRouter.post('/pay', function(req, res){
   Users.pay(req.body.user_id, req.body.amount)
   .then(function(){
     Issues.removeIssue(req.body.issue_id)
@@ -42,7 +42,7 @@ IssuesRouter.post('/pay', function(req, res){
   });
 });
 
-IssuesRouter.get('/contribs', function(req, res){
+UsersRouter.get('/contribs', function(req, res){
   if(req.user){
     Users.updateContribs(req.user.user.github_username)
     .then(function(resp){
@@ -51,19 +51,19 @@ IssuesRouter.get('/contribs', function(req, res){
   }
 });
 
-IssuesRouter.post('/notified', function(req, res){
+UsersRouter.post('/notified', function(req, res){
   Users.contribsSeen(req.body.user_id)
   .then(function(user){
     res.send(user);
   });
 });
 
-IssuesRouter.get('/newcontribs', function(req, res) {
+UsersRouter.get('/newcontribs', function(req, res) {
   Users.updateContribs(req.query.username)
   .then(function(resp) {
     res.send(resp);
   });
 });
 
-module.exports = IssuesRouter;
+module.exports = UsersRouter;
 

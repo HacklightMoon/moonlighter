@@ -1,6 +1,7 @@
-var express     = require('express');
-var Path        = require('path');
-var AuthRouter  = express.Router();
+let express        = require('express');
+let Path           = require('path');
+let AuthRouter     = express.Router();
+let passportGithub = require('./../auth/github');
 
 
 AuthRouter.get('/github/callback', passportGithub.authenticate('github', {
