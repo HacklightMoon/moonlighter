@@ -1,18 +1,17 @@
 module.exports = {
+  
   development: {
     client: 'pg',
     connection: {
       host: 'localhost',
       port: 5432,
       database: 'moonlight'
-
     },
     seeds: {
       directory: './seeds'
-
     }
-
   },
+
   production: {
     client: 'pg',
     connection: {
@@ -21,9 +20,6 @@ module.exports = {
       password: process.env.PG_PASSWORD,
       port: 5432,
       database: 'dcloeb9qk3ch8h'
-
     }
-
   }
-
-}
+};

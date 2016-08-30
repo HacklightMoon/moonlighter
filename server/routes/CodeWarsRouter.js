@@ -4,7 +4,7 @@ var CodeWarsRouter  = express.Router();
 var API             = require('./../API/githubQueries');
 var CW              = require('./../API/codewars');
 
-//--------------------CodeWars Endpoints--------------------
+/*-------------------- CodeWars Endpoints ----------------*/
 
 CodeWarsRouter.get('/', function(req, res){
   if(req.user){

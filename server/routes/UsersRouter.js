@@ -5,7 +5,7 @@ let Users        = require('./../models/users');
 let API          = require('./../API/githubQueries');
 let Issues       = require('./../models/issues');
 
-//--------------------User Endpoints--------------------
+/*-------------------- User Endpoints --------------------*/
 
 UsersRouter.post('/update', function(req, res){
   Users.update(req.body)

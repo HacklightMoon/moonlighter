@@ -4,7 +4,7 @@ let Path             = require('path');
 let passportGithub   = require('./../auth/github');
 let Character        = require('./../models/characters');
 
-//--------------------Character Endpoints----------------
+/*-------------------- Character Endpoints ----------------*/
 
 CharacterRouter.get('/', function(req, res){
   Character.getByLevel(req.query.level)

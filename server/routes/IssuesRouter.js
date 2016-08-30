@@ -5,7 +5,7 @@ let API          = require('./../API/githubQueries');
 let Issues       = require('./../models/issues');
 
 
-//--------------------Issues Endpoints--------------------
+/*-------------------- CodeWars Endpoints --------------------*/
 
 // Route for obtaining newly 'tagged' issues
 IssuesRouter.get('/', function(req, res) {
