@@ -3,7 +3,6 @@ let Path           = require('path');
 let AuthRouter     = express.Router();
 let passportGithub = require('./../auth/github');
 
-
 AuthRouter.get('/github/callback', passportGithub.authenticate('github', {
   failureRedirect: '/auth/github',
   successRedirect: '/'

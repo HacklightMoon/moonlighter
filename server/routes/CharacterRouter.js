@@ -1,7 +1,5 @@
 let express          = require('express');
 let CharacterRouter  = express.Router();
-let Path             = require('path');
-let passportGithub   = require('./../auth/github');
 let Character        = require('./../models/characters');
 
 //--------------------Character Endpoints----------------

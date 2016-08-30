@@ -1,5 +1,4 @@
 let express      = require('express');
-let Path         = require('path');
 let UsersRouter  = express.Router();
 let Users        = require('./../models/users');
 let API          = require('./../API/githubQueries');
