@@ -1,6 +1,9 @@
+'use strict';
 let express          = require('express');
 let CharacterRouter  = express.Router();
 let Character        = require('./../models/characters');
+let passportGithub   = require('./../auth/github');
+let Path             = require('path');
 
 //--------------------Character Endpoints----------------
 

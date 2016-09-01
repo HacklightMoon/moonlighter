@@ -1,3 +1,4 @@
+'use strict';
 var express         = require('express');
 var Path            = require('path');
 var CodeWarsRouter  = express.Router();
