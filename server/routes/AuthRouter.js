@@ -1,3 +1,4 @@
+'use strict';
 let express        = require('express');
 let Path           = require('path');
 let AuthRouter     = express.Router();

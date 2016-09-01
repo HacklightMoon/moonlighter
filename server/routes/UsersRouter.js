@@ -1,3 +1,4 @@
+'use strict';
 let express      = require('express');
 let UsersRouter  = express.Router();
 let Users        = require('./../models/users');
