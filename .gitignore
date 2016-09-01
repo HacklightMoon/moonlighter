@@ -14,6 +14,6 @@ dist/
 server/auth/config.js
 env_export.rc
 *.rc
-
+*.txt
 *tests
 client/jasmine
