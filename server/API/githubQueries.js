@@ -1,57 +1,45 @@
 'use strict';
-let request = require('request');
-let API = module.exports;
+const R = require('ramda');
+const request = require('request');
+const API = module.exports;
 
-let getReqFunc = function(url){
-  return function(token){
-    let options = {
-      'url': 'https://api.github.com' + url,
-      'headers':{'User-Agent': 'Moonlight',
-        'Authorization': token
-      },
-    };
-    return new Promise(function(resolve, reject){
-      request.get(options, function(err, resp, body){
-        if (err){
-          reject(err);
-          return;
-        }
-        resolve(body, resp);
-      });
-    });
-  };
-};
-
-API.getCurrentUser = getReqFunc('/user');
-
-// This is a search query for only open issues:
-// API.notifications = getReqFunc('/search/issues?q=is%3Aopen+is%3Aissue+mentions%3Amoonlighter-bot');
-
-// This is a search query for ALL issues:
-API.notifications = getReqFunc('/search/issues?q=is%3Aissue+mentions%3Amoonlighter-bot');
-
-API.userContribsTotal = function(username){
-  console.log("userContribsTotal begun with username:", username);
-  let options = {
-    'url': 'https://github.com/' + username
-  }
+const pAjax = function(options){
   return new Promise(function(resolve, reject){
     request.get(options, function(err, resp, body){
       if (err){
-        console.log("Error:", err);
         reject(err);
         return;
       }
-        resolve(body);
-    })
+      resolve(body, resp);
+    });
+  });
+}
+
+const githubRequest = R.curry(function(url, token){
+  return pAjax({
+    'url': 'https://api.github.com' + url,
+    'headers':{
+      'User-Agent': 'Moonlight',
+      'Authorization': token
+    }
   })
+});
+
+API.getCurrentUser = githubRequest('/user');
+API.notifications = githubRequest('/search/issues?q=is%3Aissue+mentions%3Amoonlighter-bot');
+
+API.userContribsTotal = function(username){
+  console.log("userContribsTotal begun with username:", username);
+  const options = {
+    'url': 'https://github.com/' + username
+  }
+  return pAjax(options)
   .then(function(html){
-    let contRegex = /([0-9]+) contributions in the last year/
-    let yearlyContribs = html.match(contRegex)[1];
+    const contRegex = /([0-9]+) contributions in the last year/
+    const yearlyContribs = html.match(contRegex)[1];
     return yearlyContribs;
   })
   .catch(function(error){
     console.log("Error:", error);
-
   })
 };
