@@ -10,15 +10,17 @@ let Issues       = require('./../models/issues');
 
 // Route for obtaining newly 'tagged' issues
 IssuesRouter.get('/', function(req, res) {
-  API.notifications()
-  .then(function(resp){
-    let parsed = JSON.parse(resp);
-    let issues = parsed.items;
-    return Issues.addIssues(issues);
-  })
-  .then(function(issues){
-    res.send(issues);
-  });
+  if (req.user){
+    API.notifications(req.user.Authorization)
+    .then(function(resp){
+      let parsed = JSON.parse(resp);
+      let issues = parsed.items;
+      return Issues.addIssues(issues);
+    })
+    .then(function(issues){
+      res.send(issues);
+    });
+  }
 });
 
 IssuesRouter.get('/load', function(req, res){
@@ -64,4 +66,3 @@ IssuesRouter.get('/joined', function(req, res){
 });
 
 module.exports = IssuesRouter;
-
