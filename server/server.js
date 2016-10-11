@@ -7,11 +7,11 @@ let bodyParser     = require('body-parser');
 let cookieParser   = require('cookie-parser');
 let API             = require('./API/githubQueries');
 let session         = require('express-session');
-let AuthRouter      = require('./routes/AuthRouter.js');
-let IssuesRouter    = require('./routes/IssuesRouter.js');
-let UsersRouter     = require('./routes/UsersRouter.js');
-let CodeWarsRouter  = require('./routes/CodeWarsRouter.js');
-let CharacterRouter = require('./routes/CharacterRouter.js');
+let AuthRouter      = require('./routes/AuthRouter');
+let IssuesRouter    = require('./routes/IssuesRouter');
+let UsersRouter     = require('./routes/UsersRouter');
+let CodeWarsRouter  = require('./routes/CodeWarsRouter');
+let CharacterRouter = require('./routes/CharacterRouter');
 
 //serve files in app directory, without processing them
 app.use( express.static(__dirname + '/../client') );
