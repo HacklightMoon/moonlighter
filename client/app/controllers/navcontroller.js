@@ -1,3 +1,4 @@
+
 'use strict';
 angular.module('moonlighterApp.nav',[])
 .controller('NavCtrl',['$state', '$scope', 'User', 'Profile', '$cookies', 'toastr', '$window', function($state, $scope, User, Profile, $cookies, toastr, $window){
@@ -6,7 +7,7 @@ angular.module('moonlighterApp.nav',[])
   $scope.logOut = logOut;
   $scope.setUser = setUser;
   $scope.removeNotification = removeNotification;
-  
+
   // If a user is already authenticated, then get their info from cookies
   if ($cookies.getAll().user_id && !$scope.isLogin) {
     $scope.isLogin = true;
@@ -34,14 +35,14 @@ angular.module('moonlighterApp.nav',[])
             extendedTimeOut: 20000
           });
         }
-      } 
+      }
     })
-  } 
+  }
 
   // If a user just authenticated and was redirected from github, get their data
   if (!$scope.isLogin && !$cookies.getAll().user_id) {
     User.getCurrentUser()
-    .then(function(data) {
+    .then((data) => {
       if (data) {
         $scope.isLogin = true;
 
@@ -55,13 +56,13 @@ angular.module('moonlighterApp.nav',[])
 
         $scope.contributions = data.contributions;
         $scope.unseenContribs = data.unseenContribs;
-        
+
         // Get unseen contributions to show a notification
         User.newContribs($scope.username)
-        .then(function(data) {
+        .then((data) => {
           console.log("USER OBJECT FROM CONTRIBS: ", data);
           $scope.unseenContribs = data[0].unseenContribs;
-          
+
           if ($scope.unseenContribs > 0) {
             if ($scope.unseenContribs !== 1){
               toastr.success('You have ' + $scope.unseenContribs + ' new contributions!', {
@@ -78,11 +79,11 @@ angular.module('moonlighterApp.nav',[])
                 extendedTimeOut: 2000
               });
             }
-          } 
+          }
         })
       }
     })
-    .catch(function(err) {
+    .catch((err) => {
       console.error(err);
     })
   }
@@ -96,7 +97,7 @@ angular.module('moonlighterApp.nav',[])
   if($state.current.name==="home" || $state.current.name==="questFeed"){
     $scope.seeAbout = true;
   }
-  
+
   // Remove notification when navigating away from the landing page
   function removeNotification() {
     User.resetContribs($scope.user_id);
@@ -124,5 +125,4 @@ angular.module('moonlighterApp.nav',[])
     $cookies.remove('user_id');
     $cookies.remove('picture');
   }
-
 }]);

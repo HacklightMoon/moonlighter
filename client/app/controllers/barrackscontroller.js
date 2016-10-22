@@ -1,14 +1,14 @@
+
+'use strict';
 angular.module('moonlighterApp.barracks',[])
 .controller('BarracksCtrl',['$scope', 'Barracks', 'Profile', 'toastr',  '$http', '$cookies', function($scope, Barracks, Profile , toastr, $http, $cookies){
-  
+
   $scope.userData = {};
-
   $scope.myValue = true;
-
   $scope.setup;
 
   /******** Functions in this controller ********/
-  $scope.cwInsert= cwInsert;
+  $scope.cwInsert = cwInsert;
   $scope.getCodeWar = getCodeWar;
   $scope.cwUserStats = cwUserStats;
   $scope.cwChallenge = cwChallenge;
@@ -24,15 +24,15 @@ angular.module('moonlighterApp.barracks',[])
 
     if ($scope.userData.cwUsername !== undefined && $scope.userData.cwUserAPI !== undefined) {
       Barracks.addCwAPI(userInput)
-      .then(function(data){
+      .then((data) => {
         console.log("here's some data:", data);
       })
-      .then(function(){
+      .then(() => {
         if ($scope.userData.cwUserAPI !== undefined) {
           $scope.myValue = false;
         }
       })
-      .catch(function(err){
+      .catch((err) => {
         console.error(err);
       })
     }
@@ -57,33 +57,32 @@ angular.module('moonlighterApp.barracks',[])
 
    function cwFinalSolution(){
     Barracks.cwFinalSolution()
-    .then(function(resp){
+    .then((resp) => {
       console.log(resp)
     })
-    .catch(function(err){
+    .catch((err) => {
       console.error(err)
     });
    }
-  
+
   function cwSolution(){
     var userCode = {
       'code': $scope.setup,
     };
     console.log(userCode);
     Barracks.cwTestSolution(userCode.code)
-    .then(function(resp){
+    .then((resp) => {
       console.log("so guys like here i am: ", resp);
-      setTimeout(function(){return toastr.error("You were vanquished. Your code did not triumph today. Try again, warrior.", {
+      setTimeout(() => { return toastr.error("You were vanquished. Your code did not triumph today. Try again, warrior.", {
             closeButton: true,
             autoDismiss: false,
             timeOut: 30000,
             extendedTimeOut: 20000
           })
     }, 3000)
-       
       return resp;
     })
-    .catch(function(err){
+    .catch((err) => {
       console.error(err);
     });
   }
@@ -91,22 +90,22 @@ angular.module('moonlighterApp.barracks',[])
    function getCodeWar() {
     console.log("HEY I'm being called in BarracksCtrl!")
     Barracks.getCodeWar()
-    .then(function(resp){
+    .then((resp) => {
       console.log("this is some data in BarracksCtrl: 91", resp)
       $scope.codewars = resp;
     })
-    .catch(function(err){
+    .catch((err) => {
       console.error(err);
     });
   }
 
   function cwUserStats() {
     Barracks.cwUserStats()
-    .then(function(resp){
+    .then((resp) => {
       console.log("hey userstats: " , resp)
       // $scope.codewar = resp;
     })
-    .catch(function(err){
+    .catch((err) => {
       console.error(err);
     });
   }
@@ -114,7 +113,7 @@ angular.module('moonlighterApp.barracks',[])
   function cwChallenge() {
     $scope.spinner = true;
     Barracks.cwChallenge($scope.challengeType)
-    .then(function(resp){
+    .then((resp) => {
         $scope.spinner = false;
         $scope.description = resp.data.description;
         $scope.setup = resp.data.session.setup;
@@ -122,13 +121,13 @@ angular.module('moonlighterApp.barracks',[])
         $scope.tags = resp.data.tags;
         $scope.example =resp.data.session.exampleFixture;
     })
-    .catch(function(err){
+    .catch((err) => {
       console.error(err);
     });
   }
 
   $scope.cwUserStats();
-  
+
   $scope.editorOptions = {
         lineWrapping : true,
         lineNumbers: true,
@@ -151,6 +150,4 @@ angular.module('moonlighterApp.barracks',[])
     // _editor.on("change", function(){});
   };
   $scope.getCodeWar();
-
 }]);
-

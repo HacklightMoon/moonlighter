@@ -1,7 +1,8 @@
+'use strict';
 angular.module("moonlighterApp.barracksService", [])
 
   .factory('Barracks', function ($http) {
-    
+
     var solutionDetail = {};
 
     function addCwAPI(data) {
@@ -10,24 +11,24 @@ angular.module("moonlighterApp.barracksService", [])
         url: '/codewars/api',
         data: data
       })
-      .then(function (resp) {
+      .then((resp) => {
         console.log("response from cw API: ", resp);
       })
-      .catch(function (err) {
+      .catch((err) => {
         console.error(err);
       })
     }
 
     function getCodeWar(){
       return $http({
-        method: 'GET', 
+        method: 'GET',
         url: '/codewars'
       })
-      .then(function (resp){
+      .then((resp) => {
         console.log("heres your resp in barracksService", resp)
         return resp
       })
-      .catch(function(err){
+      .catch((err) => {
         console.error(err)
       })
     }
@@ -35,14 +36,14 @@ angular.module("moonlighterApp.barracksService", [])
 
     function cwUserStats(){
       return $http({
-        method: 'GET', 
+        method: 'GET',
         url: '/codewars/user'
       })
-      .then(function (resp){
+      .then((resp) => {
         console.log("heres your resp in barracksService", resp)
         return resp;
       })
-      .catch(function(err){
+      .catch((err) => {
         console.error(err);
       });
     }
@@ -52,11 +53,11 @@ angular.module("moonlighterApp.barracksService", [])
         method: 'GET',
         url: '/codewars/nextChallenge?challengeType='+challengeType
       })
-      .then(function (data){
+      .then((data) => {
         console.log('Challenge data Barracks:41',data);
         return data;
       })
-      .catch(function(err){
+      .catch((err) => {
         console.log(err);
       });
     }
@@ -66,30 +67,28 @@ angular.module("moonlighterApp.barracksService", [])
         method: 'POST',
         url: '/codewars/testSolution?code='+code,
       })
-      .then(function(resp){
+      .then((resp) => {
         console.log("like here is your response in barracksService:", resp);
         return resp
       })
-      .catch(function(err){
+      .catch((err) => {
         console.error(err);
       });
     }
 
-
     function cwFinalSolution(){
       return $http({
-        method: 'GET', 
+        method: 'GET',
         url: '/codewars/finalSolution',
       })
-      .then(function(resp){
+      .then((resp) => {
         console.log("cwFinalSolution is a go in barracksService")
         return resp
       })
-      .catch(function(err){
+      .catch((err) => {
         console.error(err)
       });
     }
-
 
     return {
       cwFinalSolution: cwFinalSolution,
@@ -97,9 +96,6 @@ angular.module("moonlighterApp.barracksService", [])
       cwUserStats: cwUserStats,
       cwChallenge: cwChallenge,
       addCwAPI: addCwAPI,
-      cwTestSolution: cwTestSolution, 
+      cwTestSolution: cwTestSolution,
     };
-
-
-
 });

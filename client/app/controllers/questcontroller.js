@@ -1,3 +1,4 @@
+
 'use strict';
 angular.module('moonlighterApp.questProfile', [])
 .controller('QuestProfileCtrl',function($location, $state, $scope, $cookies, Profile, User, Issues, toastr) {
@@ -29,7 +30,7 @@ angular.module('moonlighterApp.questProfile', [])
   // Get bounty associated with selected quest and set it to questBounty variable
   // Also get all users who have joined an issue
   Issues.getBounty($scope.chosenQuest.id)
-  .then(function(data){
+  .then((data) => {
     $scope.questBounty = data[0].bounty; // => integer
     $scope.questMembers = data[1] // => array of objects (id, github_username)
   })
@@ -46,7 +47,7 @@ angular.module('moonlighterApp.questProfile', [])
     Issues.addMember(quest_id, user_id);
     $state.go('questFeed');
   }
-  
+
   // Allow quest owners/admins to close a quest and issue bounty
   function closeQuest() {
     if ($scope.userToPay.user) {
@@ -60,10 +61,10 @@ angular.module('moonlighterApp.questProfile', [])
           });
     }
   }
-  
+
   // Get all users who have joined the selected quest
   Issues.getMembers($scope.chosenQuest.id)
-  .then(function(data) {
+  .then((data) => {
     $scope.questMembers = data;
     $scope.alreadyMember = false;
     for (var i=0; i<data.length; i++) {
@@ -72,10 +73,10 @@ angular.module('moonlighterApp.questProfile', [])
       }
     }
   })
-  .catch(function(err) {
+  .catch((err) => {
     console.error(err);
   })
-  
+
   // If the current user owns the selected quest, show certain buttons
   // If the quest is closed & curent user is the quest owner, show Close Quest button
   // If the user is signed in, and is not the quest owner, show Join Quest button
