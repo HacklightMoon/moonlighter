@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var module = angular.module('moonlighterApp', [
+angular.module('moonlighterApp', [
                               'toastr',
                               'ui.codemirror',
                               'ui.router',
@@ -20,11 +20,8 @@
                               'moonlighterApp.nav',
                               'moonlighterApp.userProfile',
                               'moonlighterApp.main',
-                              ]);
-
-  module.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',  function($stateProvider, $urlRouterProvider, $httpProvider) {
-
-
+                              ])
+.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',  function($stateProvider, $urlRouterProvider, $httpProvider) {
     $stateProvider
       .state('home',{
         url: '/',
@@ -68,16 +65,12 @@
         controller: 'BarracksCtrl',
         controllerAs: 'about'
       })
-
       .state('about', {
         url: '/about',
         templateUrl: 'app/templates/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
       });
-
       $urlRouterProvider.otherwise('/');
-
-
   }]);
 }());

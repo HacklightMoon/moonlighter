@@ -1,6 +1,7 @@
+'use strict';
 angular.module('moonlighterApp.barracks',[])
 .controller('BarracksCtrl',['$scope', 'Barracks', 'Profile', 'toastr',  '$http', '$cookies', function($scope, Barracks, Profile , toastr, $http, $cookies){
-  
+
   $scope.userData = {};
 
   $scope.myValue = true;
@@ -64,7 +65,7 @@ angular.module('moonlighterApp.barracks',[])
       console.error(err)
     });
    }
-  
+
   function cwSolution(){
     var userCode = {
       'code': $scope.setup,
@@ -80,10 +81,10 @@ angular.module('moonlighterApp.barracks',[])
             extendedTimeOut: 20000
           })
     }, 3000)
-       
+
       return resp;
     })
-    .catch(function(err){
+    .catch((err) => {
       console.error(err);
     });
   }
@@ -95,14 +96,14 @@ angular.module('moonlighterApp.barracks',[])
       console.log("this is some data in BarracksCtrl: 91", resp)
       $scope.codewars = resp;
     })
-    .catch(function(err){
+    .catch((err) => {
       console.error(err);
     });
   }
 
   function cwUserStats() {
     Barracks.cwUserStats()
-    .then(function(resp){
+    .then((resp) => {
       console.log("hey userstats: " , resp)
       // $scope.codewar = resp;
     })
@@ -128,7 +129,7 @@ angular.module('moonlighterApp.barracks',[])
   }
 
   $scope.cwUserStats();
-  
+
   $scope.editorOptions = {
         lineWrapping : true,
         lineNumbers: true,
@@ -153,4 +154,3 @@ angular.module('moonlighterApp.barracks',[])
   $scope.getCodeWar();
 
 }]);
-
