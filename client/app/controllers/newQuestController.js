@@ -1,3 +1,4 @@
+
 'use strict';
 angular.module('moonlighterApp.newQuest', [])
 .controller('NewQuestCtrl', function($scope, $cookies, User, $state) { //Quest
@@ -5,9 +6,7 @@ angular.module('moonlighterApp.newQuest', [])
 
   /******** Functions in this controller ********/
   $scope.addQuest = addQuest;
-  
 
-  
   if ($cookies.getAll().user_id){
     $scope.currentUser = $cookies.getAll();
   }
@@ -59,7 +58,7 @@ angular.module('moonlighterApp.newQuest', [])
       $scope.newQuest.url = '';
       $scope.newQuest.bounty = '';
 
-      
+
       $scope.questCreated = 'Quest Conjured!';
       $scope.questFailed = '';
 

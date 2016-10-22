@@ -1,3 +1,4 @@
+
 'use strict';
 angular.module('moonlighterApp.questFeed', [])
 .controller('QuestsFeedCtrl',function($scope, User, Issues, $cookies) {
@@ -5,16 +6,16 @@ angular.module('moonlighterApp.questFeed', [])
   /******** Functions in this controller ********/
   $scope.selectIssue = selectIssue;
   $scope.getAllIssues = getAllIssues;
-  
+
   // Show or hide the 'Add Quest' button based on sign-in
   $scope.seeAddQuest = false;
   if($cookies.getAll().user_id){
     $scope.seeAddQuest = true;
   }
-  
+
   // Load all issues from github, and insert them into the database
   Issues.loadIssues()
-  .then(function(data) {
+  .then((data) => {
     $scope.getAllIssues();
   })
   .catch(function(err){
@@ -24,19 +25,20 @@ angular.module('moonlighterApp.questFeed', [])
   // Load all quests from the database
   function getAllIssues() {
     Issues.getAllIssues()
-    .then(function(data) {
+    .then((data) => {
       $scope.issues = data;
       for (var i=0; i<data.length; i++) {
         Issues.getBounty(data[i].id)
-        .then(function(data) {
+        .then((data) => {
           for (var i=0; i<$scope.issues.length; i++) {
             $scope.issues[i].bounty = data[0].bounty;
           }
         })
       }
     })
-    .catch(function(err){
+    .catch((err) => {
       console.error(err);
+    }
     });
   }
 
@@ -45,6 +47,4 @@ angular.module('moonlighterApp.questFeed', [])
   function selectIssue(issue) {
     Issues.setIssue(issue);
   }
-
-
 });

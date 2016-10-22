@@ -1,50 +1,51 @@
-angular.module("moonlighterApp.services", [])
 
-  .factory('Profile', function ($http) {
+'use strict';
+angular.module("moonlighterApp.services", [])
+  .factory('Profile', function($http) => {
 
     var Profile = [];
     // get user profile
-    var getProfile = function (user_id) {
+    const getProfile = (user_id) => {
       console.log("Sending user_id - services.js", user_id);
       return $http({
         method: 'GET',
         url: '/user/info?id=' + user_id,
         data: user_id
       })
-      .catch(function (err) {
+      .catch((err) => {
         console.error(err);
       });
     };
 
-    var editProfile = function (profile) {
+    const editProfile = (profile) => {
       return $http({
         method: 'POST',
         url: '/user/update',
         data: profile
       })
-      .catch(function (err) {
+      .catch((err) => {
         console.error(err);
       });
     };
 
-    var setUser = function (user_id) {
+    const setUser = (user_id) => {
       Profile.questOwner = user_id;
       return Profile.questOwner;
     };
 
-    var getUser = function () {
+    const getUser = () => {
       return Profile.questOwner;
     };
 
-    var getCharacter = function(){
+    const getCharacter = () => {
       return $http({
         method: 'GET',
         url: '/character'
       })
-      .then(function(resp){
+      .then((resp) => {
         return resp;
       })
-      .catch(function(err){
+      .catch((err) => {
         console.error("ERROR : ", err);
       })
     };
@@ -57,47 +58,47 @@ angular.module("moonlighterApp.services", [])
       getCharacter: getCharacter
     };
   })
-  .factory('User', function($http) {
+  .factory('User', ($http) => {
     var User = [];
 
-    var getCurrentUser = function() {
+    const getCurrentUser = () => {
       return $http({
         method: 'GET',
         url: '/user/current'
       })
-      .then(function(resp) {
+      .then((resp) => {
         return resp.data;
       })
-      .catch(function(err){
+      .catch((err) => {
         console.error(err)
       });
     };
 
-    var updateUserInfo = function(userData) {
+    const updateUserInfo = (userData) => {
       return $http({
         method: 'POST',
         url: '/user/update',
         data: userData
       })
-      .then(function(resp) {
+      .then((resp) => {
         console.log("Response from update user", resp);
       })
-      .catch(function(err){
+      .catch((err) => {
         console.error(err);
       });
     };
 
-    var getContribs = function() {
+    const getContribs = () => {
       return $http({
         method: 'GET',
         url: '/user/contribs'
       })
-      .then(function(resp) {
+      .then((resp) => {
         return resp.data;
       });
     };
 
-    var resetContribs = function(userID) {
+    const resetContribs = (userID) => {
       return $http({
         method: 'POST',
         url: '/user/notified',
@@ -105,10 +106,10 @@ angular.module("moonlighterApp.services", [])
           user_id: userID
         }
       })
-      .then(function(resp) {
+      .then((resp) => {
         console.log("Response from reset contribs", resp);
       })
-      .catch(function(err){
+      .catch((err) => {
         console.error(err);
       })
     }
@@ -121,45 +122,45 @@ angular.module("moonlighterApp.services", [])
     };
   })
 
-  .factory('Issues', function($http) {
+  .factory('Issues', ($http) => {
     var Issues = [];
 
-    var getAllIssues = function () {
+    const getAllIssues = () => {
       return $http({
         method: 'GET',
         url: '/issues/load',
       })
-      .then(function(resp){
+      .then((resp) => {
         return resp.data;
       })
-      .catch(function(err){
+      .catch((err) => {
         console.error(err)
       });
     };
 
-    var loadIssues = function () {
+    const loadIssues = () => {
       return $http({
         method: 'GET',
         url: '/issues',
       })
-      .then(function(resp){
+      .then((resp) => {
         return resp.data;
       })
-      .catch(function(err){
+      .catch((err) => {
         console.error(err)
       });
     };
 
-    var getIssue = function() {
+    const getIssue = () => {
       return Issues.currentIssue;
     }
 
-    var setIssue = function(issue){
+    const setIssue = (issue) => {
       Issues.currentIssue = issue;
       return Issues.currentIssue;
     }
 
-    var addMember = function(issueID, userID) {
+    const addMember = (issueID, userID) => {
       return $http({
         method: 'POST',
         url: '/issues/addmember',
@@ -168,56 +169,56 @@ angular.module("moonlighterApp.services", [])
           user_id: userID
         }
       })
-      .then(function(data) {
+      .then((data) => {
         console.log("data in addMember service.js: ", data);
       })
-      .catch(function(err){
+      .catch((err) => {
         console.error(err);
       })
     }
 
-    var getMyIssues = function(userID) {
+    const getMyIssues = (userID) => {
       return $http({
         method: 'GET',
         url: '/issues/myissues?id=' + userID
       })
-      .then(function(resp){
+      .then((resp) => {
         return resp.data;
       })
-      .catch(function(err){
+      .catch((err) => {
         console.error(err)
       })
     }
 
-    var getBounty = function(issueID) {
+    const getBounty = (issueID) => {
       return $http({
         method: 'GET',
         url: '/issues/bounty?id=' + issueID
       })
-      .then(function(resp){
+      .then((resp) => {
         console.log('Response in service.js: ', resp);
         return resp.data;
       })
-      .catch(function(err){
+      .catch((err) => {
         console.error(err)
       })
     }
 
-    var getMembers = function(issueID) {
+    const getMembers = (issueID) => {
       return $http({
         method: 'GET',
         url: '/issues/members?id=' + issueID
       })
-      .then(function(resp){
+      .then((resp) => {
         console.log('Response in service.js: ', resp);
         return resp.data;
       })
-      .catch(function(err){
+      .catch((err) => {
         console.error(err)
       })
     }
 
-    var payAndClose = function(userID, amount, issueID) {
+    const payAndClose = (userID, amount, issueID) => {
       return $http({
         method: 'POST',
         url: '/user/pay',
@@ -227,25 +228,25 @@ angular.module("moonlighterApp.services", [])
           issue_id: issueID
         }
       })
-      .then(function(resp){
+      .then((resp) => {
         console.log('Response in service.js: ', resp);
         return resp.data;
       })
-      .catch(function(err){
+      .catch((err) => {
         console.error(err)
       })
     }
 
-    var getJoinedIssues = function(userID) {
+    const getJoinedIssues = (userID) => {
       return $http({
         method: 'GET',
         url: '/issues/joined?id=' + userID
       })
-      .then(function(resp){
+      .then((resp) => {
         console.log('Response in service.js: ', resp);
         return resp.data;
       })
-      .catch(function(err){
+      .catch((err) => {
         console.error(err)
       })
     }

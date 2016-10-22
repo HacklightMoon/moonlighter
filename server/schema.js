@@ -1,3 +1,4 @@
+
 'use strict';
 //If a table or column needs to be added, you may put it in schema_todo.txt
 let knex = require('./db');

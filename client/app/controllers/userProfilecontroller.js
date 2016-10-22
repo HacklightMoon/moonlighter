@@ -1,3 +1,4 @@
+
 'use strict';
 angular.module('moonlighterApp.userProfile', [])
 .controller('UserProfileCtrl', function ($location, $scope, Profile, User, $state, $cookies, Issues) {
@@ -15,13 +16,13 @@ angular.module('moonlighterApp.userProfile', [])
 
   // We use the above variable to retrieve issues posted by this user.
   Issues.getMyIssues($scope.selectedUser)
-  .then(function(data) {
+  .then((data) => {
     // This myIssues variable is equal to an array of issue-objects.
     $scope.myIssues = data;
   });
 
   Issues.getJoinedIssues($scope.selectedUser)
-  .then(function(data) {
+  .then((data) => {
     // This joinedIssues variable is equal to an array of issue-objects.
     $scope.joinedIssues = data;
   });
@@ -29,13 +30,13 @@ angular.module('moonlighterApp.userProfile', [])
   // Gets user's character
   function getCharacter(level){
     Profile.getCharacter(level)
-    .then(function(character){
+    .then((character) => {
       console.log("this is your character in UserProfileCtrl!!!!!!!!", character)
       $scope.character = character.data.character
       $scope.level = character.data.level
       $scope.name = character.data.character_name
     })
-    .catch(function(err){
+    .catch((err) => {
       console.error(err);
     });
   };
@@ -43,7 +44,7 @@ angular.module('moonlighterApp.userProfile', [])
   // Get selected profile from quest controller => services
   // Also, allow profile owner to view certain buttons/divs
   Profile.getProfile($scope.selectedUser)
-  .then(function(data){
+  .then((data) => {
     $scope.userData = data.data[0];
     $scope.currentUser = $cookies.getAll();
     $scope.profileOwner = false;
@@ -54,7 +55,7 @@ angular.module('moonlighterApp.userProfile', [])
   .then(function(){
     $scope.getCharacter($scope.userData.level);
   })
-  .catch(function(err){
+  .catch((err) => {
     console.log(err);
   });
 
@@ -63,5 +64,4 @@ angular.module('moonlighterApp.userProfile', [])
   function selectIssue(issue) {
     Issues.setIssue(issue);
   }
-
 });
