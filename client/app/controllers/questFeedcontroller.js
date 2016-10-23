@@ -38,7 +38,6 @@ angular.module('moonlighterApp.questFeed', [])
     })
     .catch((err) => {
       console.error(err);
-    }
     });
   }
 
