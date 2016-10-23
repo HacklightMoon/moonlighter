@@ -53,8 +53,6 @@ angular.module("moonlighterApp.issueService", [])
           user_id: userID
         }
       })
-      .then((data) {
-      })
       .catch((err) => {
         console.error(err);
       })

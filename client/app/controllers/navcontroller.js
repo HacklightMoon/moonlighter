@@ -18,6 +18,7 @@ angular.module('moonlighterApp.nav',[])
     // Get unseen contributions to show a notification
     User.newContribs($scope.username)
     .then(function(data) {
+      console.log(data)
       $scope.unseenContribs = data[0].unseenContribs;
       if ($scope.unseenContribs > 0) {
         if ($scope.unseenContribs !== 1){
@@ -36,7 +37,7 @@ angular.module('moonlighterApp.nav',[])
           });
         }
       }
-    })
+    });
   }
 
   // If a user just authenticated and was redirected from github, get their data
