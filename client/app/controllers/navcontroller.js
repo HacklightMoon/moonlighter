@@ -1,7 +1,7 @@
 
 'use strict';
 angular.module('moonlighterApp.nav',[])
-.controller('NavCtrl',['$state', '$scope', 'User', 'Profile', '$cookies', 'toastr', '$window', function($state, $scope, User, Profile, $cookies, toastr, $window){
+.controller('NavCtrl',['$state', '$scope', 'User', 'Profile', '$cookies', 'toastr', '$window', function($state, $scope, User, Profile, $cookies, toastr, $window) {
 
   /******** Functions in this controller ********/
   $scope.logOut = logOut;

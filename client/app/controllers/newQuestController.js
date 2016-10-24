@@ -50,7 +50,7 @@ angular.module('moonlighterApp.newQuest', [])
     }
 
     Quest.addQuest(quest)
-    .then(function(data) {
+    .then((data) => {
       console.log('newQuestcontroller.js - Quest created?: ', data);
       $scope.newQuest.description = '';
       $scope.newQuest.title = '';
@@ -64,11 +64,9 @@ angular.module('moonlighterApp.newQuest', [])
 
       $state.go('questFeed');
     })
-    .catch(function(err) {
+    .catch((err) => {
       console.error(err);
       // $scope.questFailed = 'Failure...';
     })
-
-
   }
 });

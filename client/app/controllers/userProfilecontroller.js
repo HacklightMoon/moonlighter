@@ -1,7 +1,7 @@
 
 'use strict';
 angular.module('moonlighterApp.userProfile', [])
-.controller('UserProfileCtrl', function ($location, $scope, Profile, User, $state, $cookies, Issues) {
+.controller('UserProfileCtrl', function($location, $scope, Profile, User, $state, $cookies, Issues) {
 
   /******** Functions in this controller ********/
   $scope.getCharacter = getCharacter;
@@ -28,7 +28,7 @@ angular.module('moonlighterApp.userProfile', [])
   });
 
   // Gets user's character
-  function getCharacter(level){
+  function getCharacter(level) {
     Profile.getCharacter(level)
     .then((character) => {
       console.log("this is your character in UserProfileCtrl!!!!!!!!", character)
@@ -52,7 +52,7 @@ angular.module('moonlighterApp.userProfile', [])
       $scope.profileOwner = true;
     }
   })
-  .then(function(){
+  .then(function() {
     $scope.getCharacter($scope.userData.level);
   })
   .catch((err) => {

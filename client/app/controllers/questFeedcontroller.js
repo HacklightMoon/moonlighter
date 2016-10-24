@@ -1,7 +1,7 @@
 
 'use strict';
 angular.module('moonlighterApp.questFeed', [])
-.controller('QuestsFeedCtrl',function($scope, User, Issues, $cookies) {
+.controller('QuestsFeedCtrl', function($scope, User, Issues, $cookies) {
 
   /******** Functions in this controller ********/
   $scope.selectIssue = selectIssue;
