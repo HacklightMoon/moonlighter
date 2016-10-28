@@ -1,7 +1,7 @@
 
 'use strict';
 angular.module("moonlighterApp.services", [])
-  .factory('Profile', function($http) => {
+  .factory('Profile', function($http) {
 
     var Profile = [];
     // get user profile

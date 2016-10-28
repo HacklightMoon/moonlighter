@@ -2,7 +2,7 @@
 'use strict'
 angular.module("moonlighterApp.profileService", [])
 
-  .factory('Profile', ($http) => {
+  .factory('Profile', function($http) {
     var Profile = [];
 
     // Get selected user's profile data from db

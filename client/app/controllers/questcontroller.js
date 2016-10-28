@@ -1,7 +1,7 @@
 
 'use strict';
 angular.module('moonlighterApp.questProfile', [])
-.controller('QuestProfileCtrl',function($location, $state, $scope, $cookies, Profile, User, Issues, toastr) {
+.controller('QuestProfileCtrl', function($location, $state, $scope, $cookies, Profile, User, Issues, toastr) {
 
   /******** Functions in this controller ********/
   $scope.setUser = setUser;

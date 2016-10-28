@@ -1,7 +1,7 @@
 'use strict';
 angular.module("moonlighterApp.barracksService", [])
 
-  .factory('Barracks', function ($http) {
+  .factory('Barracks', function($http) {
 
     var solutionDetail = {};
 
